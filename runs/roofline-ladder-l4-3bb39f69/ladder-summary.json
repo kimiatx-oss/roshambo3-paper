@@ -1,0 +1,3210 @@
+{
+ "schema": "t300.roofline-ladder.v1",
+ "device": "NVIDIA L4 (AD104, sm_89)",
+ "warning": "Profiler counters and times are attribution data under Nsight clock control; never combine them with benchmark wall times.",
+ "d5_weights": {
+  "corpus": "$EXTERNAL_DATA",
+  "n_conf": 512413481,
+  "mean_n_real": 24.850486187735566,
+  "derivation": "w = class conformers / all conformers (pair evaluations are conformers x queries); class = (bucket, L, L_field_width) from corpus.json; per-class real-atom histogram by walking build.json statistics.hac_hist through each bucket's groups in order (format 3 sorts a bucket by real-atom count)",
+  "group_width_check": "262/262 groups have L == pad8(max assigned n_real)",
+  "classes": [
+   {
+    "bucket": 0,
+    "L": 16,
+    "L_field_width": 16,
+    "n_groups": 4,
+    "n_conf": 7361252,
+    "pair_eval_weight": 0.014365843743287464,
+    "mean_n_real": 9.897845094828977,
+    "n_real_range": [
+     1,
+     11
+    ]
+   },
+   {
+    "bucket": 1,
+    "L": 16,
+    "L_field_width": 16,
+    "n_groups": 17,
+    "n_conf": 32860725,
+    "pair_eval_weight": 0.06412931395924769,
+    "mean_n_real": 13.91535618888506,
+    "n_real_range": [
+     12,
+     15
+    ]
+   },
+   {
+    "bucket": 2,
+    "L": 16,
+    "L_field_width": 24,
+    "n_groups": 8,
+    "n_conf": 15999949,
+    "pair_eval_weight": 0.031224683957914837,
+    "mean_n_real": 16.0,
+    "n_real_range": [
+     16,
+     16
+    ]
+   },
+   {
+    "bucket": 2,
+    "L": 24,
+    "L_field_width": 24,
+    "n_groups": 40,
+    "n_conf": 78108153,
+    "pair_eval_weight": 0.15243188537422575,
+    "mean_n_real": 18.098304424123306,
+    "n_real_range": [
+     16,
+     19
+    ]
+   },
+   {
+    "bucket": 3,
+    "L": 24,
+    "L_field_width": 24,
+    "n_groups": 53,
+    "n_conf": 105020214,
+    "pair_eval_weight": 0.20495209024369912,
+    "mean_n_real": 21.23904293320141,
+    "n_real_range": [
+     20,
+     23
+    ]
+   },
+   {
+    "bucket": 4,
+    "L": 24,
+    "L_field_width": 32,
+    "n_groups": 11,
+    "n_conf": 21999939,
+    "pair_eval_weight": 0.04293395825001724,
+    "mean_n_real": 24.0,
+    "n_real_range": [
+     24,
+     24
+    ]
+   },
+   {
+    "bucket": 4,
+    "L": 32,
+    "L_field_width": 32,
+    "n_groups": 36,
+    "n_conf": 71655726,
+    "pair_eval_weight": 0.13983965812171908,
+    "mean_n_real": 26.000877208333637,
+    "n_real_range": [
+     24,
+     27
+    ]
+   },
+   {
+    "bucket": 5,
+    "L": 32,
+    "L_field_width": 32,
+    "n_groups": 43,
+    "n_conf": 85008454,
+    "pair_eval_weight": 0.16589816066919597,
+    "mean_n_real": 29.400280576800043,
+    "n_real_range": [
+     28,
+     31
+    ]
+   },
+   {
+    "bucket": 6,
+    "L": 32,
+    "L_field_width": 40,
+    "n_groups": 8,
+    "n_conf": 15999974,
+    "pair_eval_weight": 0.031224732746639037,
+    "mean_n_real": 32.0,
+    "n_real_range": [
+     32,
+     32
+    ]
+   },
+   {
+    "bucket": 6,
+    "L": 40,
+    "L_field_width": 40,
+    "n_groups": 26,
+    "n_conf": 51071227,
+    "pair_eval_weight": 0.09966800034287154,
+    "mean_n_real": 34.58671866254554,
+    "n_real_range": [
+     32,
+     37
+    ]
+   },
+   {
+    "bucket": 7,
+    "L": 40,
+    "L_field_width": 48,
+    "n_groups": 6,
+    "n_conf": 11999976,
+    "pair_eval_weight": 0.023418540778008923,
+    "mean_n_real": 38.76069952139904,
+    "n_real_range": [
+     38,
+     40
+    ]
+   },
+   {
+    "bucket": 7,
+    "L": 48,
+    "L_field_width": 48,
+    "n_groups": 5,
+    "n_conf": 8483763,
+    "pair_eval_weight": 0.016556478926829796,
+    "mean_n_real": 41.60527068000367,
+    "n_real_range": [
+     40,
+     43
+    ]
+   },
+   {
+    "bucket": 8,
+    "L": 48,
+    "L_field_width": 56,
+    "n_groups": 2,
+    "n_conf": 3999991,
+    "pair_eval_weight": 0.0078061783077873394,
+    "mean_n_real": 44.84674540517716,
+    "n_real_range": [
+     44,
+     46
+    ]
+   },
+   {
+    "bucket": 8,
+    "L": 56,
+    "L_field_width": 56,
+    "n_groups": 2,
+    "n_conf": 2298845,
+    "pair_eval_weight": 0.004486308587185668,
+    "mean_n_real": 47.81784504827424,
+    "n_real_range": [
+     46,
+     49
+    ]
+   },
+   {
+    "bucket": 9,
+    "L": 56,
+    "L_field_width": 56,
+    "n_groups": 1,
+    "n_conf": 545293,
+    "pair_eval_weight": 0.001064165991370551,
+    "mean_n_real": 50.0,
+    "n_real_range": [
+     50,
+     50
+    ]
+   }
+  ]
+ },
+ "class_assignment": [
+  {
+   "class": {
+    "bucket": 0,
+    "L": 16,
+    "L_field_width": 16
+   },
+   "pair_eval_weight": 0.014365843743287464,
+   "class_mean_n_real": 9.897845094828977,
+   "points": [
+    {
+     "point": "p00-b0-L16-n10",
+     "coefficient": 1.0
+    }
+   ],
+   "how": "single point"
+  },
+  {
+   "class": {
+    "bucket": 1,
+    "L": 16,
+    "L_field_width": 16
+   },
+   "pair_eval_weight": 0.06412931395924769,
+   "class_mean_n_real": 13.91535618888506,
+   "points": [
+    {
+     "point": "p01-b1-L16-n12",
+     "coefficient": 0.042321905557470174
+    },
+    {
+     "point": "p02-b1-L16-n14",
+     "coefficient": 0.9576780944425298
+    }
+   ],
+   "how": "linear in real atoms to the class mean"
+  },
+  {
+   "class": {
+    "bucket": 2,
+    "L": 16,
+    "L_field_width": 24
+   },
+   "pair_eval_weight": 0.031224683957914837,
+   "class_mean_n_real": 16.0,
+   "points": [
+    {
+     "point": "p03-b2-L16w24-n16",
+     "coefficient": 1.0
+    }
+   ],
+   "how": "single point"
+  },
+  {
+   "class": {
+    "bucket": 2,
+    "L": 24,
+    "L_field_width": 24
+   },
+   "pair_eval_weight": 0.15243188537422575,
+   "class_mean_n_real": 18.098304424123306,
+   "points": [
+    {
+     "point": "p04-b2-L24-n18",
+     "coefficient": 1.0
+    }
+   ],
+   "how": "single point"
+  },
+  {
+   "class": {
+    "bucket": 3,
+    "L": 24,
+    "L_field_width": 24
+   },
+   "pair_eval_weight": 0.20495209024369912,
+   "class_mean_n_real": 21.23904293320141,
+   "points": [
+    {
+     "point": "p05-b3-L24-n21",
+     "coefficient": 1.0
+    }
+   ],
+   "how": "single point"
+  },
+  {
+   "class": {
+    "bucket": 4,
+    "L": 24,
+    "L_field_width": 32
+   },
+   "pair_eval_weight": 0.04293395825001724,
+   "class_mean_n_real": 24.0,
+   "points": [
+    {
+     "point": "p06-b4-L24w32-n24",
+     "coefficient": 1.0
+    }
+   ],
+   "how": "single point"
+  },
+  {
+   "class": {
+    "bucket": 4,
+    "L": 32,
+    "L_field_width": 32
+   },
+   "pair_eval_weight": 0.13983965812171908,
+   "class_mean_n_real": 26.000877208333637,
+   "points": [
+    {
+     "point": "p07-b4-L32-n26",
+     "coefficient": 1.0
+    }
+   ],
+   "how": "single point"
+  },
+  {
+   "class": {
+    "bucket": 5,
+    "L": 32,
+    "L_field_width": 32
+   },
+   "pair_eval_weight": 0.16589816066919597,
+   "class_mean_n_real": 29.400280576800043,
+   "points": [
+    {
+     "point": "p08-b5-L32-n29",
+     "coefficient": 1.0
+    }
+   ],
+   "how": "single point"
+  },
+  {
+   "class": {
+    "bucket": 6,
+    "L": 32,
+    "L_field_width": 40
+   },
+   "pair_eval_weight": 0.031224732746639037,
+   "class_mean_n_real": 32.0,
+   "points": [
+    {
+     "point": "p09-b6-L32w40-n32",
+     "coefficient": 1.0
+    }
+   ],
+   "how": "single point"
+  },
+  {
+   "class": {
+    "bucket": 6,
+    "L": 40,
+    "L_field_width": 40
+   },
+   "pair_eval_weight": 0.09966800034287154,
+   "class_mean_n_real": 34.58671866254554,
+   "points": [
+    {
+     "point": "p10-b6-L40-n35",
+     "coefficient": 1.0
+    }
+   ],
+   "how": "single point"
+  },
+  {
+   "class": {
+    "bucket": 7,
+    "L": 40,
+    "L_field_width": 48
+   },
+   "pair_eval_weight": 0.023418540778008923,
+   "class_mean_n_real": 38.76069952139904,
+   "points": [
+    {
+     "point": "p11-b7-L40w48-n39",
+     "coefficient": 1.0
+    }
+   ],
+   "how": "single point"
+  },
+  {
+   "class": {
+    "bucket": 7,
+    "L": 48,
+    "L_field_width": 48
+   },
+   "pair_eval_weight": 0.016556478926829796,
+   "class_mean_n_real": 41.60527068000367,
+   "points": [
+    {
+     "point": "p12-b7-L48-n42",
+     "coefficient": 1.0
+    }
+   ],
+   "how": "single point"
+  },
+  {
+   "class": {
+    "bucket": 8,
+    "L": 48,
+    "L_field_width": 56
+   },
+   "pair_eval_weight": 0.0078061783077873394,
+   "class_mean_n_real": 44.84674540517716,
+   "points": [
+    {
+     "point": "p13-b8-L48w56-n45",
+     "coefficient": 1.0
+    }
+   ],
+   "how": "single point"
+  },
+  {
+   "class": {
+    "bucket": 8,
+    "L": 56,
+    "L_field_width": 56
+   },
+   "pair_eval_weight": 0.004486308587185668,
+   "class_mean_n_real": 47.81784504827424,
+   "points": [
+    {
+     "point": "p14-b8-L56-n48",
+     "coefficient": 1.0
+    }
+   ],
+   "how": "single point"
+  },
+  {
+   "class": {
+    "bucket": 9,
+    "L": 56,
+    "L_field_width": 56
+   },
+   "pair_eval_weight": 0.001064165991370551,
+   "class_mean_n_real": 50.0,
+   "points": [
+    {
+     "point": "p15-b9-L56-n50",
+     "coefficient": 1.0
+    }
+   ],
+   "how": "single point"
+  }
+ ],
+ "points": [
+  {
+   "point": "p00-b0-L16-n10",
+   "class": {
+    "bucket": 0,
+    "L": 16,
+    "L_field_width": 16
+   },
+   "source": {
+    "corpus": "internal scale corpus",
+    "group_index": 0,
+    "launch_index": 7,
+    "corpus_json_sha256": "[withheld]"
+   },
+   "launch_conformers": 65471,
+   "mean_library_real_atoms": 10.0,
+   "n_real_hist": {
+    "10": 65471
+   },
+   "queries": 4,
+   "query_set": "first four PANEL-8 queries (PubChem3D), PANEL-8.sdf sha256 b27df200f284769fa0c5229bb2c33ecb2c5e037da028bad57dd3e7c13c2515ea; same at every point",
+   "pair_rows": 261884,
+   "arms": {
+    "field": {
+     "raw": {
+      "sm__inst_executed.sum": 1648195890.0,
+      "smsp__inst_executed_pipe_xu.sum": 70046856.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 6751369566.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 7171063218.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 10767171916.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 81707808.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 1218348987.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 8951168.0,
+      "dram__bytes.sum": 11790208.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 82.02,
+      "sm__inst_issued.avg.per_cycle_active": 3.28,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 47.36,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 25.99,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 27.88,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 63.49,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 10.68,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.36,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 65.0,
+      "launch__registers_per_thread": 64.0,
+      "launch__occupancy_limit_registers": 4.0
+     },
+     "elapsed_s": 0.010961504,
+     "sm_clock_hz": 796121116.0,
+     "sm_count": 58,
+     "grid_size": 4092,
+     "block_size": 256,
+     "fp32_flops": 35456776616.0,
+     "issue_peak_fraction_from_counts": 0.8140883730933578,
+     "fp32_peak_fraction": 0.27364152531095354,
+     "all_metrics": {
+      "dram__bytes.sum": 11790208.0,
+      "dram__bytes_read.sum": 8951168.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.36,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 1047552.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 81707808.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 4754904.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 1218348987.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 63.49,
+      "launch__occupancy_limit_registers": 4.0,
+      "launch__registers_per_thread": 64.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 10.68,
+      "sm__inst_executed.sum": 1648195890.0,
+      "sm__inst_executed_pipe_alu.sum": 261247948.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 4.07,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 27.88,
+      "sm__inst_issued.avg.per_cycle_active": 3.28,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 25.99,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 47.36,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 1147575688.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 6751369566.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 10767171916.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 7171063218.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 6194645596.0,
+      "smsp__inst_executed_pipe_xu.sum": 70046856.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 82.02,
+      "smsp__thread_inst_executed.sum": 47829658816.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 65.0
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    },
+    "analytic": {
+     "raw": {
+      "sm__inst_executed.sum": 7399521692.0,
+      "smsp__inst_executed_pipe_xu.sum": 1039888096.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 34572895943.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 50242945815.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 68479906205.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 10108032.0,
+      "dram__bytes.sum": 10445952.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 69.97,
+      "sm__inst_issued.avg.per_cycle_active": 2.8,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 48.53,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 15.76,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 78.66,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 17.22,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 21.27,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.06,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.41,
+      "launch__registers_per_thread": 118.0,
+      "launch__occupancy_limit_registers": 2.0
+     },
+     "elapsed_s": 0.058813056,
+     "sm_clock_hz": 798923790.0,
+     "sm_count": 58,
+     "grid_size": 1024,
+     "block_size": 256,
+     "fp32_flops": 221775654168.0,
+     "issue_peak_fraction_from_counts": 0.6787917616318617,
+     "fp32_peak_fraction": 0.31788263917135845,
+     "all_metrics": {
+      "dram__bytes.sum": 10445952.0,
+      "dram__bytes_read.sum": 10108032.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.06,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 994800.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 3509082.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 17.22,
+      "launch__occupancy_limit_registers": 2.0,
+      "launch__registers_per_thread": 118.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 21.27,
+      "sm__inst_executed.sum": 7399521692.0,
+      "sm__inst_executed_pipe_alu.sum": 833499396.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 0.0,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 78.66,
+      "sm__inst_issued.avg.per_cycle_active": 2.8,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 15.76,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 48.53,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 24769357882.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 34572895943.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 68479906205.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 50242945815.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 11798439123.0,
+      "smsp__inst_executed_pipe_xu.sum": 1039888096.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 69.97,
+      "smsp__thread_inst_executed.sum": 236606837827.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.41
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    }
+   }
+  },
+  {
+   "point": "p01-b1-L16-n12",
+   "class": {
+    "bucket": 1,
+    "L": 16,
+    "L_field_width": 16
+   },
+   "source": {
+    "corpus": "internal tuning corpus",
+    "group_index": 1,
+    "launch_index": 0,
+    "corpus_json_sha256": "[withheld]"
+   },
+   "launch_conformers": 65536,
+   "mean_library_real_atoms": 12.0,
+   "n_real_hist": {
+    "12": 65536
+   },
+   "queries": 4,
+   "query_set": "first four PANEL-8 queries (PubChem3D), PANEL-8.sdf sha256 b27df200f284769fa0c5229bb2c33ecb2c5e037da028bad57dd3e7c13c2515ea; same at every point",
+   "pair_rows": 262144,
+   "arms": {
+    "field": {
+     "raw": {
+      "sm__inst_executed.sum": 1646239450.0,
+      "smsp__inst_executed_pipe_xu.sum": 70115328.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 7693926436.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 7866311154.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 11465986448.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 81788928.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 1463678979.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 10339456.0,
+      "dram__bytes.sum": 13323648.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 80.44,
+      "sm__inst_issued.avg.per_cycle_active": 3.22,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 46.54,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 25.54,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 27.4,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 74.77,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 9.52,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.4,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 64.87,
+      "launch__registers_per_thread": 64.0,
+      "launch__occupancy_limit_registers": 4.0
+     },
+     "elapsed_s": 0.011135232,
+     "sm_clock_hz": 797685688.0,
+     "sm_count": 58,
+     "grid_size": 4096,
+     "block_size": 256,
+     "fp32_flops": 38492210486.0,
+     "issue_peak_fraction_from_counts": 0.7988660222849061,
+     "fp32_peak_fraction": 0.29185949262940014,
+     "all_metrics": {
+      "dram__bytes.sum": 13323648.0,
+      "dram__bytes_read.sum": 10339456.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.4,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 1048576.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 81788928.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 5521408.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 1463678979.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 74.77,
+      "launch__occupancy_limit_registers": 4.0,
+      "launch__registers_per_thread": 64.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 9.52,
+      "sm__inst_executed.sum": 1646239450.0,
+      "sm__inst_executed_pipe_alu.sum": 261442388.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 4.0,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 27.4,
+      "sm__inst_issued.avg.per_cycle_active": 3.22,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 25.54,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 46.54,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 1313865728.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 7693926436.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 11465986448.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 7866311154.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 6550190410.0,
+      "smsp__inst_executed_pipe_xu.sum": 70115328.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 80.44,
+      "smsp__thread_inst_executed.sum": 51123835995.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 64.87
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    },
+    "analytic": {
+     "raw": {
+      "sm__inst_executed.sum": 8835361485.0,
+      "smsp__inst_executed_pipe_xu.sum": 1245376512.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 41458615503.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 60121740848.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 81770920620.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 9950720.0,
+      "dram__bytes.sum": 10300672.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 70.05,
+      "sm__inst_issued.avg.per_cycle_active": 2.8,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 48.66,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 15.71,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 78.99,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 17.32,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 20.19,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.05,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.41,
+      "launch__registers_per_thread": 118.0,
+      "launch__occupancy_limit_registers": 2.0
+     },
+     "elapsed_s": 0.070006944,
+     "sm_clock_hz": 800305033.0,
+     "sm_count": 58,
+     "grid_size": 1024,
+     "block_size": 256,
+     "fp32_flops": 265122197591.0,
+     "issue_peak_fraction_from_counts": 0.6797350581976447,
+     "fp32_peak_fraction": 0.31869956013358475,
+     "all_metrics": {
+      "dram__bytes.sum": 10300672.0,
+      "dram__bytes_read.sum": 9950720.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.05,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 995328.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 3505920.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 17.32,
+      "launch__occupancy_limit_registers": 2.0,
+      "launch__registers_per_thread": 118.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 20.19,
+      "sm__inst_executed.sum": 8835361485.0,
+      "sm__inst_executed_pipe_alu.sum": 990775180.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 0.0,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 78.99,
+      "sm__inst_issued.avg.per_cycle_active": 2.8,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 15.71,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 48.66,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 29742174168.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 41458615503.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 81770920620.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 60121740848.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 13983805644.0,
+      "smsp__inst_executed_pipe_xu.sum": 1245376512.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 70.05,
+      "smsp__thread_inst_executed.sum": 282557288810.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.41
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    }
+   }
+  },
+  {
+   "point": "p02-b1-L16-n14",
+   "class": {
+    "bucket": 1,
+    "L": 16,
+    "L_field_width": 16
+   },
+   "source": {
+    "corpus": "internal tuning corpus",
+    "group_index": 1,
+    "launch_index": 4,
+    "corpus_json_sha256": "[withheld]"
+   },
+   "launch_conformers": 65536,
+   "mean_library_real_atoms": 14.0,
+   "n_real_hist": {
+    "14": 65536
+   },
+   "queries": 4,
+   "query_set": "first four PANEL-8 queries (PubChem3D), PANEL-8.sdf sha256 b27df200f284769fa0c5229bb2c33ecb2c5e037da028bad57dd3e7c13c2515ea; same at every point",
+   "pair_rows": 262144,
+   "arms": {
+    "field": {
+     "raw": {
+      "sm__inst_executed.sum": 2030981069.0,
+      "smsp__inst_executed_pipe_xu.sum": 91619328.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 8629780538.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 8554441703.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 12154122150.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 136314880.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 1707028553.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 12345088.0,
+      "dram__bytes.sum": 15405312.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 81.23,
+      "sm__inst_issued.avg.per_cycle_active": 3.25,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 49.94,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 23.08,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 29.31,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 71.96,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 10.13,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.38,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 64.9,
+      "launch__registers_per_thread": 64.0,
+      "launch__occupancy_limit_registers": 4.0
+     },
+     "elapsed_s": 0.013583264,
+     "sm_clock_hz": 799144138.0,
+     "sm_count": 58,
+     "grid_size": 4096,
+     "block_size": 256,
+     "fp32_flops": 41492466541.0,
+     "issue_peak_fraction_from_counts": 0.8064707689697054,
+     "fp32_peak_fraction": 0.257437633132442,
+     "all_metrics": {
+      "dram__bytes.sum": 15405312.0,
+      "dram__bytes_read.sum": 12345088.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.38,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 1540096.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 136314880.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 6307840.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 1707028553.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 71.96,
+      "launch__occupancy_limit_registers": 4.0,
+      "launch__registers_per_thread": 64.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 10.13,
+      "sm__inst_executed.sum": 2030981069.0,
+      "sm__inst_executed_pipe_alu.sum": 288659966.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 5.45,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 29.31,
+      "sm__inst_issued.avg.per_cycle_active": 3.25,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 23.08,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 49.94,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 1479016448.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 8629780538.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 12154122150.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 8554441703.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 6614422857.0,
+      "smsp__inst_executed_pipe_xu.sum": 91619328.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 81.23,
+      "smsp__thread_inst_executed.sum": 54135695654.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 64.9
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    },
+    "analytic": {
+     "raw": {
+      "sm__inst_executed.sum": 10263978211.0,
+      "smsp__inst_executed_pipe_xu.sum": 1449848832.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 48310010983.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 69950950806.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 94993952141.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 9991808.0,
+      "dram__bytes.sum": 10294400.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 70.07,
+      "sm__inst_issued.avg.per_cycle_active": 2.8,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 48.73,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 15.66,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 79.17,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 17.37,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 19.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.04,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.41,
+      "launch__registers_per_thread": 118.0,
+      "launch__occupancy_limit_registers": 2.0
+     },
+     "elapsed_s": 0.08105260800000001,
+     "sm_clock_hz": 802653568.0,
+     "sm_count": 58,
+     "grid_size": 1024,
+     "block_size": 256,
+     "fp32_flops": 308248866071.0,
+     "issue_peak_fraction_from_counts": 0.6800370933400722,
+     "fp32_peak_fraction": 0.31910851627022474,
+     "all_metrics": {
+      "dram__bytes.sum": 10294400.0,
+      "dram__bytes_read.sum": 9991808.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.04,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 995328.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 3505920.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 17.37,
+      "launch__occupancy_limit_registers": 2.0,
+      "launch__registers_per_thread": 118.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 19.0,
+      "sm__inst_executed.sum": 10263978211.0,
+      "sm__inst_executed_pipe_alu.sum": 1147240012.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 0.0,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 79.17,
+      "sm__inst_issued.avg.per_cycle_active": 2.8,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 15.66,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 48.73,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 34690400062.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 48310010983.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 94993952141.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 69950950806.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 16157489401.0,
+      "smsp__inst_executed_pipe_xu.sum": 1449848832.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 70.07,
+      "smsp__thread_inst_executed.sum": 328272992808.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.41
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    }
+   }
+  },
+  {
+   "point": "p03-b2-L16w24-n16",
+   "class": {
+    "bucket": 2,
+    "L": 16,
+    "L_field_width": 24
+   },
+   "source": {
+    "corpus": "internal scale corpus",
+    "group_index": 5,
+    "launch_index": 0,
+    "corpus_json_sha256": "[withheld]"
+   },
+   "launch_conformers": 65485,
+   "mean_library_real_atoms": 16.0,
+   "n_real_hist": {
+    "16": 65485
+   },
+   "queries": 4,
+   "query_set": "first four PANEL-8 queries (PubChem3D), PANEL-8.sdf sha256 b27df200f284769fa0c5229bb2c33ecb2c5e037da028bad57dd3e7c13c2515ea; same at every point",
+   "pair_rows": 261940,
+   "arms": {
+    "field": {
+     "raw": {
+      "sm__inst_executed.sum": 1833066637.0,
+      "smsp__inst_executed_pipe_xu.sum": 81336096.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 9558190647.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 9235379078.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 12832246524.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 108967040.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 1950306573.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 13322880.0,
+      "dram__bytes.sum": 16422528.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 77.7,
+      "sm__inst_issued.avg.per_cycle_active": 3.11,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 46.64,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 22.93,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 27.57,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 86.29,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 13.38,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.43,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 64.48,
+      "launch__registers_per_thread": 64.0,
+      "launch__occupancy_limit_registers": 4.0
+     },
+     "elapsed_s": 0.012798656,
+     "sm_clock_hz": 800331675.0,
+     "sm_count": 58,
+     "grid_size": 4096,
+     "block_size": 256,
+     "fp32_flops": 44458062773.0,
+     "issue_peak_fraction_from_counts": 0.7713578370892039,
+     "fp32_peak_fraction": 0.29231304976828204,
+     "all_metrics": {
+      "dram__bytes.sum": 16422528.0,
+      "dram__bytes_read.sum": 13322880.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.43,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 1244392.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 108967040.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 7113933.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 1950306573.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 86.29,
+      "launch__occupancy_limit_registers": 4.0,
+      "launch__registers_per_thread": 64.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 13.38,
+      "sm__inst_executed.sum": 1833066637.0,
+      "sm__inst_executed_pipe_alu.sum": 270551534.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 4.62,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 27.57,
+      "sm__inst_issued.avg.per_cycle_active": 3.11,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 22.93,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 46.64,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 1642887680.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 9558190647.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 12832246524.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 9235379078.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 6673418792.0,
+      "smsp__inst_executed_pipe_xu.sum": 81336096.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 77.7,
+      "smsp__thread_inst_executed.sum": 57103132294.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 64.48
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    },
+    "analytic": {
+     "raw": {
+      "sm__inst_executed.sum": 11686889872.0,
+      "smsp__inst_executed_pipe_xu.sum": 1653513584.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 55118480064.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 79717900220.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 108132850717.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 10191616.0,
+      "dram__bytes.sum": 10630784.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 70.03,
+      "sm__inst_issued.avg.per_cycle_active": 2.8,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 48.74,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 15.61,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 79.26,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 17.41,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 18.78,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.04,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.41,
+      "launch__registers_per_thread": 118.0,
+      "launch__occupancy_limit_registers": 2.0
+     },
+     "elapsed_s": 0.089287456,
+     "sm_clock_hz": 830708291.0,
+     "sm_count": 58,
+     "grid_size": 1024,
+     "block_size": 256,
+     "fp32_flops": 351102081718.0,
+     "issue_peak_fraction_from_counts": 0.6791598012737566,
+     "fp32_peak_fraction": 0.3188059743894356,
+     "all_metrics": {
+      "dram__bytes.sum": 10630784.0,
+      "dram__bytes_read.sum": 10191616.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.04,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 995064.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 3509844.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 17.41,
+      "launch__occupancy_limit_registers": 2.0,
+      "launch__registers_per_thread": 118.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 18.78,
+      "sm__inst_executed.sum": 11686889872.0,
+      "sm__inst_executed_pipe_alu.sum": 1303071450.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 0.0,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 79.26,
+      "sm__inst_issued.avg.per_cycle_active": 2.8,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 15.61,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 48.74,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 39607789018.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 55118480064.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 108132850717.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 79717900220.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 18316955607.0,
+      "smsp__inst_executed_pipe_xu.sum": 1653513584.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 70.03,
+      "smsp__thread_inst_executed.sum": 373697976436.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.41
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    }
+   }
+  },
+  {
+   "point": "p04-b2-L24-n18",
+   "class": {
+    "bucket": 2,
+    "L": 24,
+    "L_field_width": 24
+   },
+   "source": {
+    "corpus": "internal tuning corpus",
+    "group_index": 2,
+    "launch_index": 12,
+    "corpus_json_sha256": "[withheld]"
+   },
+   "launch_conformers": 65536,
+   "mean_library_real_atoms": 18.0,
+   "n_real_hist": {
+    "18": 65536
+   },
+   "queries": 4,
+   "query_set": "first four PANEL-8 queries (PubChem3D), PANEL-8.sdf sha256 b27df200f284769fa0c5229bb2c33ecb2c5e037da028bad57dd3e7c13c2515ea; same at every point",
+   "pair_rows": 262144,
+   "arms": {
+    "field": {
+     "raw": {
+      "sm__inst_executed.sum": 2041380145.0,
+      "smsp__inst_executed_pipe_xu.sum": 92676096.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 10501488688.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 9930722738.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 13530376602.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 136314880.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 2195975153.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 15187712.0,
+      "dram__bytes.sum": 17464960.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 66.44,
+      "sm__inst_issued.avg.per_cycle_active": 2.66,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 40.94,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 18.95,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 24.12,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 74.71,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 13.82,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.35,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 48.67,
+      "launch__registers_per_thread": 64.0,
+      "launch__occupancy_limit_registers": 4.0
+     },
+     "elapsed_s": 0.01624336,
+     "sm_clock_hz": 822655128.0,
+     "sm_count": 58,
+     "grid_size": 4096,
+     "block_size": 256,
+     "fp32_flops": 47492964630.0,
+     "issue_peak_fraction_from_counts": 0.6584794450170692,
+     "fp32_peak_fraction": 0.23936885503338065,
+     "all_metrics": {
+      "dram__bytes.sum": 17464960.0,
+      "dram__bytes_read.sum": 15187712.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.35,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 1441792.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 136314880.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 7880704.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 2195975153.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 74.71,
+      "launch__occupancy_limit_registers": 4.0,
+      "launch__registers_per_thread": 64.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 13.82,
+      "sm__inst_executed.sum": 2041380145.0,
+      "sm__inst_executed_pipe_alu.sum": 291181484.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 4.44,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 24.12,
+      "sm__inst_issued.avg.per_cycle_active": 2.66,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 18.95,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 40.94,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 1809317888.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 10501488688.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 13530376602.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 9930722738.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 7038015125.0,
+      "smsp__inst_executed_pipe_xu.sum": 92676096.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 66.44,
+      "smsp__thread_inst_executed.sum": 60404268763.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 48.67
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    },
+    "analytic": {
+     "raw": {
+      "sm__inst_executed.sum": 13121912800.0,
+      "smsp__inst_executed_pipe_xu.sum": 1858793472.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 62012801660.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 89611479758.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 121440301843.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 13691648.0,
+      "dram__bytes.sum": 14150528.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 70.07,
+      "sm__inst_issued.avg.per_cycle_active": 2.8,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 48.8,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 15.6,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 79.4,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 17.46,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 17.84,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.05,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.41,
+      "launch__registers_per_thread": 118.0,
+      "launch__occupancy_limit_registers": 2.0
+     },
+     "elapsed_s": 0.103139392,
+     "sm_clock_hz": 806796210.0,
+     "sm_count": 58,
+     "grid_size": 1024,
+     "block_size": 256,
+     "fp32_flops": 394504885104.0,
+     "issue_peak_fraction_from_counts": 0.6797054405417531,
+     "fp32_peak_fraction": 0.31929786172910324,
+     "all_metrics": {
+      "dram__bytes.sum": 14150528.0,
+      "dram__bytes_read.sum": 13691648.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.05,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 1191936.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 4685568.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 17.46,
+      "launch__occupancy_limit_registers": 2.0,
+      "launch__registers_per_thread": 118.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 17.84,
+      "sm__inst_executed.sum": 13121912800.0,
+      "sm__inst_executed_pipe_alu.sum": 1460441755.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 0.0,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 79.4,
+      "sm__inst_issued.avg.per_cycle_active": 2.8,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 15.6,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 48.8,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 44586885574.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 62012801660.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 121440301843.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 89611479758.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 20508125377.0,
+      "smsp__inst_executed_pipe_xu.sum": 1858793472.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 70.07,
+      "smsp__thread_inst_executed.sum": 419728513307.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.41
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    }
+   }
+  },
+  {
+   "point": "p05-b3-L24-n21",
+   "class": {
+    "bucket": 3,
+    "L": 24,
+    "L_field_width": 24
+   },
+   "source": {
+    "corpus": "internal tuning corpus",
+    "group_index": 3,
+    "launch_index": 10,
+    "corpus_json_sha256": "[withheld]"
+   },
+   "launch_conformers": 65536,
+   "mean_library_real_atoms": 21.0,
+   "n_real_hist": {
+    "21": 65536
+   },
+   "queries": 4,
+   "query_set": "first four PANEL-8 queries (PubChem3D), PANEL-8.sdf sha256 b27df200f284769fa0c5229bb2c33ecb2c5e037da028bad57dd3e7c13c2515ea; same at every point",
+   "pair_rows": 262144,
+   "arms": {
+    "field": {
+     "raw": {
+      "sm__inst_executed.sum": 2421465588.0,
+      "smsp__inst_executed_pipe_xu.sum": 114180096.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 11905269803.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 10962953388.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 14562560282.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 190840832.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 2563629756.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 17854208.0,
+      "dram__bytes.sum": 20179840.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 63.33,
+      "sm__inst_issued.avg.per_cycle_active": 2.53,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 40.63,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 16.64,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 23.88,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 68.39,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 30.18,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.33,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 48.73,
+      "launch__registers_per_thread": 64.0,
+      "launch__occupancy_limit_registers": 4.0
+     },
+     "elapsed_s": 0.020647136,
+     "sm_clock_hz": 803902420.0,
+     "sm_count": 58,
+     "grid_size": 4096,
+     "block_size": 256,
+     "fp32_flops": 51993343755.0,
+     "issue_peak_fraction_from_counts": 0.6288211814536816,
+     "fp32_peak_fraction": 0.21096802393255362,
+     "all_metrics": {
+      "dram__bytes.sum": 20179840.0,
+      "dram__bytes_read.sum": 17854208.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.33,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 1638400.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 190840832.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 9060352.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 2563629756.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 68.39,
+      "launch__occupancy_limit_registers": 4.0,
+      "launch__registers_per_thread": 64.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 30.18,
+      "sm__inst_executed.sum": 2421465588.0,
+      "sm__inst_executed_pipe_alu.sum": 318167694.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 4.99,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 23.88,
+      "sm__inst_issued.avg.per_cycle_active": 2.53,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 16.64,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 40.63,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 2057043968.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 11905269803.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 14562560282.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 10962953388.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 7435776699.0,
+      "smsp__inst_executed_pipe_xu.sum": 114180096.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 63.33,
+      "smsp__thread_inst_executed.sum": 65175308420.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 48.73
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    },
+    "analytic": {
+     "raw": {
+      "sm__inst_executed.sum": 15264828265.0,
+      "smsp__inst_executed_pipe_xu.sum": 2165501952.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 72289894814.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 104359326508.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 141275028316.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 13793792.0,
+      "dram__bytes.sum": 14279552.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 70.06,
+      "sm__inst_issued.avg.per_cycle_active": 2.8,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 48.83,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 15.56,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 79.51,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 17.5,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 18.05,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.04,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.41,
+      "launch__registers_per_thread": 118.0,
+      "launch__occupancy_limit_registers": 2.0
+     },
+     "elapsed_s": 0.119582816,
+     "sm_clock_hz": 808739042.0,
+     "sm_count": 58,
+     "grid_size": 1024,
+     "block_size": 256,
+     "fp32_flops": 459199277954.0,
+     "issue_peak_fraction_from_counts": 0.6803411696846668,
+     "fp32_peak_fraction": 0.31978350048602194,
+     "all_metrics": {
+      "dram__bytes.sum": 14279552.0,
+      "dram__bytes_read.sum": 13793792.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.04,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 1191936.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 4685568.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 17.5,
+      "launch__occupancy_limit_registers": 2.0,
+      "launch__registers_per_thread": 118.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 18.05,
+      "sm__inst_executed.sum": 15264828265.0,
+      "sm__inst_executed_pipe_alu.sum": 1695137515.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 0.0,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 79.51,
+      "sm__inst_issued.avg.per_cycle_active": 2.8,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 15.56,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 48.83,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 52009245496.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 72289894814.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 141275028316.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 104359326508.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 23768724290.0,
+      "smsp__inst_executed_pipe_xu.sum": 2165501952.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 70.06,
+      "smsp__thread_inst_executed.sum": 488302685565.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.41
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    }
+   }
+  },
+  {
+   "point": "p06-b4-L24w32-n24",
+   "class": {
+    "bucket": 4,
+    "L": 24,
+    "L_field_width": 32
+   },
+   "source": {
+    "corpus": "internal scale corpus",
+    "group_index": 26,
+    "launch_index": 0,
+    "corpus_json_sha256": "[withheld]"
+   },
+   "launch_conformers": 65464,
+   "mean_library_real_atoms": 24.0,
+   "n_real_hist": {
+    "24": 65464
+   },
+   "queries": 4,
+   "query_set": "first four PANEL-8 queries (PubChem3D), PANEL-8.sdf sha256 b27df200f284769fa0c5229bb2c33ecb2c5e037da028bad57dd3e7c13c2515ea; same at every point",
+   "pair_rows": 261856,
+   "arms": {
+    "field": {
+     "raw": {
+      "sm__inst_executed.sum": 2224676073.0,
+      "smsp__inst_executed_pipe_xu.sum": 103842270.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 13294429154.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 11982044706.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 15577617634.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 163398144.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 2886695194.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 18209280.0,
+      "dram__bytes.sum": 20613120.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 51.29,
+      "sm__inst_issued.avg.per_cycle_active": 2.05,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 32.4,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 13.86,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 19.15,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 69.99,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 8.15,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.29,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.49,
+      "launch__registers_per_thread": 64.0,
+      "launch__occupancy_limit_registers": 4.0
+     },
+     "elapsed_s": 0.023337664,
+     "sm_clock_hz": 807442476.0,
+     "sm_count": 58,
+     "grid_size": 4092,
+     "block_size": 256,
+     "fp32_flops": 56431709128.0,
+     "issue_peak_fraction_from_counts": 0.5088734869849488,
+     "fp32_peak_fraction": 0.20169088427220636,
+     "all_metrics": {
+      "dram__bytes.sum": 20613120.0,
+      "dram__bytes_read.sum": 18209280.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.29,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 1636620.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 163398144.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 10228800.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 2886695194.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 69.99,
+      "launch__occupancy_limit_registers": 4.0,
+      "launch__registers_per_thread": 64.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 8.15,
+      "sm__inst_executed.sum": 2224676073.0,
+      "sm__inst_executed_pipe_alu.sum": 300779014.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 3.77,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 19.15,
+      "sm__inst_issued.avg.per_cycle_active": 2.05,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 13.86,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 32.4,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 2302237952.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 13294429154.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 15577617634.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 11982044706.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 7542679079.0,
+      "smsp__inst_executed_pipe_xu.sum": 103842270.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 51.29,
+      "smsp__thread_inst_executed.sum": 69641711969.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.49
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    },
+    "analytic": {
+     "raw": {
+      "sm__inst_executed.sum": 17390758068.0,
+      "smsp__inst_executed_pipe_xu.sum": 2469796576.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 82476277268.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 118980283380.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 160932686321.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 14026368.0,
+      "dram__bytes.sum": 14340864.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 69.99,
+      "sm__inst_issued.avg.per_cycle_active": 2.8,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 48.81,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 15.52,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 79.51,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 17.51,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 17.69,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.03,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.41,
+      "launch__registers_per_thread": 118.0,
+      "launch__occupancy_limit_registers": 2.0
+     },
+     "elapsed_s": 0.136520064,
+     "sm_clock_hz": 808180628.0,
+     "sm_count": 58,
+     "grid_size": 1024,
+     "block_size": 256,
+     "fp32_flops": 523321933290.0,
+     "issue_peak_fraction_from_counts": 0.6794001041332464,
+     "fp32_peak_fraction": 0.31944497346504863,
+     "all_metrics": {
+      "dram__bytes.sum": 14340864.0,
+      "dram__bytes_read.sum": 14026368.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.03,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 1191216.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 4681076.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 17.51,
+      "launch__occupancy_limit_registers": 2.0,
+      "launch__registers_per_thread": 118.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 17.69,
+      "sm__inst_executed.sum": 17390758068.0,
+      "sm__inst_executed_pipe_alu.sum": 1927952902.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 0.0,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 79.51,
+      "sm__inst_issued.avg.per_cycle_active": 2.8,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 15.52,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 48.81,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 59366304194.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 82476277268.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 160932686321.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 118980283380.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 26999627619.0,
+      "smsp__inst_executed_pipe_xu.sum": 2469796576.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 69.99,
+      "smsp__thread_inst_executed.sum": 556264937408.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.41
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    }
+   }
+  },
+  {
+   "point": "p07-b4-L32-n26",
+   "class": {
+    "bucket": 4,
+    "L": 32,
+    "L_field_width": 32
+   },
+   "source": {
+    "corpus": "internal tuning corpus",
+    "group_index": 5,
+    "launch_index": 14,
+    "corpus_json_sha256": "[withheld]"
+   },
+   "launch_conformers": 65536,
+   "mean_library_real_atoms": 26.0,
+   "n_real_hist": {
+    "26": 65536
+   },
+   "queries": 4,
+   "query_set": "first four PANEL-8 queries (PubChem3D), PANEL-8.sdf sha256 b27df200f284769fa0c5229bb2c33ecb2c5e037da028bad57dd3e7c13c2515ea; same at every point",
+   "pair_rows": 262144,
+   "arms": {
+    "field": {
+     "raw": {
+      "sm__inst_executed.sum": 2433498268.0,
+      "smsp__inst_executed_pipe_xu.sum": 115236864.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 14244904998.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 12683640574.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 16282881816.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 190840832.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 3130192307.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 19933312.0,
+      "dram__bytes.sum": 22281728.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 48.65,
+      "sm__inst_issued.avg.per_cycle_active": 1.95,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 31.24,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 12.84,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 18.42,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 65.85,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 12.29,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.28,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.63,
+      "launch__registers_per_thread": 64.0,
+      "launch__occupancy_limit_registers": 4.0
+     },
+     "elapsed_s": 0.026851744,
+     "sm_clock_hz": 809343065.0,
+     "sm_count": 58,
+     "grid_size": 4096,
+     "block_size": 256,
+     "fp32_flops": 59494309204.0,
+     "issue_peak_fraction_from_counts": 0.4826562216472344,
+     "fp32_peak_fraction": 0.18437512152974364,
+     "all_metrics": {
+      "dram__bytes.sum": 22281728.0,
+      "dram__bytes_read.sum": 19933312.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.28,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 1835008.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 190840832.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 11026432.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 3130192307.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 65.85,
+      "launch__occupancy_limit_registers": 4.0,
+      "launch__registers_per_thread": 64.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 12.29,
+      "sm__inst_executed.sum": 2433498268.0,
+      "sm__inst_executed_pipe_alu.sum": 321297098.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 3.81,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 18.42,
+      "sm__inst_issued.avg.per_cycle_active": 1.95,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 12.84,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 31.24,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 2469920768.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 14244904998.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 16282881816.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 12683640574.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 7900413700.0,
+      "smsp__inst_executed_pipe_xu.sum": 115236864.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 48.65,
+      "smsp__thread_inst_executed.sum": 72965064789.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.63
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    },
+    "analytic": {
+     "raw": {
+      "sm__inst_executed.sum": 18837086457.0,
+      "smsp__inst_executed_pipe_xu.sum": 2676682752.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 89418383592.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 128967665295.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 174332788014.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 17554944.0,
+      "dram__bytes.sum": 18012800.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 70.02,
+      "sm__inst_issued.avg.per_cycle_active": 2.8,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 48.84,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 15.51,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 79.59,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 17.54,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 17.57,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.04,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.41,
+      "launch__registers_per_thread": 118.0,
+      "launch__occupancy_limit_registers": 2.0
+     },
+     "elapsed_s": 0.147123136,
+     "sm_clock_hz": 811151176.0,
+     "sm_count": 58,
+     "grid_size": 1024,
+     "block_size": 256,
+     "fp32_flops": 567051624915.0,
+     "issue_peak_fraction_from_counts": 0.6803665766072422,
+     "fp32_peak_fraction": 0.32001612689985,
+     "all_metrics": {
+      "dram__bytes.sum": 18012800.0,
+      "dram__bytes_read.sum": 17554944.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.04,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 1388544.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 5865216.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 17.54,
+      "launch__occupancy_limit_registers": 2.0,
+      "launch__registers_per_thread": 118.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 17.57,
+      "sm__inst_executed.sum": 18837086457.0,
+      "sm__inst_executed_pipe_alu.sum": 2086579945.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 0.0,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 79.59,
+      "sm__inst_issued.avg.per_cycle_active": 2.8,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 15.51,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 48.84,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 64379831516.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 89418383592.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 174332788014.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 128967665295.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 29206156723.0,
+      "smsp__inst_executed_pipe_xu.sum": 2676682752.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 70.02,
+      "smsp__thread_inst_executed.sum": 602615655096.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.41
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    }
+   }
+  },
+  {
+   "point": "p08-b5-L32-n29",
+   "class": {
+    "bucket": 5,
+    "L": 32,
+    "L_field_width": 32
+   },
+   "source": {
+    "corpus": "internal tuning corpus",
+    "group_index": 6,
+    "launch_index": 7,
+    "corpus_json_sha256": "[withheld]"
+   },
+   "launch_conformers": 65536,
+   "mean_library_real_atoms": 29.0,
+   "n_real_hist": {
+    "29": 65536
+   },
+   "queries": 4,
+   "query_set": "first four PANEL-8 queries (PubChem3D), PANEL-8.sdf sha256 b27df200f284769fa0c5229bb2c33ecb2c5e037da028bad57dd3e7c13c2515ea; same at every point",
+   "pair_rows": 262144,
+   "arms": {
+    "field": {
+     "raw": {
+      "sm__inst_executed.sum": 2814174154.0,
+      "smsp__inst_executed_pipe_xu.sum": 136740864.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 15648686110.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 13716347408.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 17315071752.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 245366784.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 3518742659.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 22879616.0,
+      "dram__bytes.sum": 25292672.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 46.75,
+      "sm__inst_issued.avg.per_cycle_active": 1.87,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 30.88,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 11.57,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 18.17,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 59.94,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 26.17,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.26,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.8,
+      "launch__registers_per_thread": 64.0,
+      "launch__occupancy_limit_registers": 4.0
+     },
+     "elapsed_s": 0.032316672,
+     "sm_clock_hz": 809500663.0,
+     "sm_count": 58,
+     "grid_size": 4096,
+     "block_size": 256,
+     "fp32_flops": 63995177022.0,
+     "issue_peak_fraction_from_counts": 0.46368083515545067,
+     "fp32_peak_fraction": 0.16475380244605295,
+     "all_metrics": {
+      "dram__bytes.sum": 25292672.0,
+      "dram__bytes_read.sum": 22879616.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.26,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 2326528.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 245366784.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 12206080.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 3518742659.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 59.94,
+      "launch__occupancy_limit_registers": 4.0,
+      "launch__registers_per_thread": 64.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 26.17,
+      "sm__inst_executed.sum": 2814174154.0,
+      "sm__inst_executed_pipe_alu.sum": 348272164.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 4.08,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 18.17,
+      "sm__inst_issued.avg.per_cycle_active": 1.87,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 11.57,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 30.88,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 2717646848.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 15648686110.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 17315071752.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 13716347408.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 8277234336.0,
+      "smsp__inst_executed_pipe_xu.sum": 136740864.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 46.75,
+      "smsp__thread_inst_executed.sum": 77712806228.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.8
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    },
+    "analytic": {
+     "raw": {
+      "sm__inst_executed.sum": 20980010158.0,
+      "smsp__inst_executed_pipe_xu.sum": 2983391232.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 99695476861.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 143757629179.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 194167411380.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 17607936.0,
+      "dram__bytes.sum": 18159232.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 69.99,
+      "sm__inst_issued.avg.per_cycle_active": 2.8,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 48.84,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 15.49,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 79.62,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 17.55,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 17.56,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.04,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.41,
+      "launch__registers_per_thread": 118.0,
+      "launch__occupancy_limit_registers": 2.0
+     },
+     "elapsed_s": 0.16389648,
+     "sm_clock_hz": 812108449.0,
+     "sm_count": 58,
+     "grid_size": 1024,
+     "block_size": 256,
+     "fp32_flops": 631787928800.0,
+     "issue_peak_fraction_from_counts": 0.6794133153938922,
+     "fp32_peak_fraction": 0.31968312343751004,
+     "all_metrics": {
+      "dram__bytes.sum": 18159232.0,
+      "dram__bytes_read.sum": 17607936.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.04,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 1388544.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 5865216.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 17.55,
+      "launch__occupancy_limit_registers": 2.0,
+      "launch__registers_per_thread": 118.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 17.56,
+      "sm__inst_executed.sum": 20980010158.0,
+      "sm__inst_executed_pipe_alu.sum": 2321278239.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 0.0,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 79.62,
+      "sm__inst_issued.avg.per_cycle_active": 2.8,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 15.49,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 48.84,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 71802179304.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 99695476861.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 194167411380.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 143757629179.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 32466712206.0,
+      "smsp__inst_executed_pipe_xu.sum": 2983391232.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 69.99,
+      "smsp__thread_inst_executed.sum": 671189456891.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.41
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    }
+   }
+  },
+  {
+   "point": "p09-b6-L32w40-n32",
+   "class": {
+    "bucket": 6,
+    "L": 32,
+    "L_field_width": 40
+   },
+   "source": {
+    "corpus": "internal scale corpus",
+    "group_index": 45,
+    "launch_index": 0,
+    "corpus_json_sha256": "[withheld]"
+   },
+   "launch_conformers": 65468,
+   "mean_library_real_atoms": 32.0,
+   "n_real_hist": {
+    "32": 65468
+   },
+   "queries": 4,
+   "query_set": "first four PANEL-8 queries (PubChem3D), PANEL-8.sdf sha256 b27df200f284769fa0c5229bb2c33ecb2c5e037da028bad57dd3e7c13c2515ea; same at every point",
+   "pair_rows": 261872,
+   "arms": {
+    "field": {
+     "raw": {
+      "sm__inst_executed.sum": 2615065642.0,
+      "smsp__inst_executed_pipe_xu.sum": 126393696.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 17034773623.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 14733879940.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 18328228326.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 217877504.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 3765765491.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 22482048.0,
+      "dram__bytes.sum": 24955264.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 48.34,
+      "sm__inst_issued.avg.per_cycle_active": 1.93,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 31.6,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 12.2,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 18.69,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 74.03,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 11.87,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.29,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.45,
+      "launch__registers_per_thread": 64.0,
+      "launch__occupancy_limit_registers": 4.0
+     },
+     "elapsed_s": 0.028443359999999997,
+     "sm_clock_hz": 827721929.0,
+     "sm_count": 58,
+     "grid_size": 4092,
+     "block_size": 256,
+     "fp32_flops": 68425110215.0,
+     "issue_peak_fraction_from_counts": 0.47877255886504566,
+     "fp32_peak_fraction": 0.19574117341278438,
+     "all_metrics": {
+      "dram__bytes.sum": 24955264.0,
+      "dram__bytes_read.sum": 22482048.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.29,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 2029632.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 217877504.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 13389010.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 3765765491.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 74.03,
+      "launch__occupancy_limit_registers": 4.0,
+      "launch__registers_per_thread": 64.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 11.87,
+      "sm__inst_executed.sum": 2615065642.0,
+      "sm__inst_executed_pipe_alu.sum": 330051880.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 4.03,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 18.69,
+      "sm__inst_issued.avg.per_cycle_active": 1.93,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 12.2,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 31.6,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 2962296064.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 17034773623.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 18328228326.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 14733879940.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 8350744891.0,
+      "smsp__inst_executed_pipe_xu.sum": 126393696.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 48.34,
+      "smsp__thread_inst_executed.sum": 82130405571.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.45
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    },
+    "analytic": {
+     "raw": {
+      "sm__inst_executed.sum": 23100365629.0,
+      "smsp__inst_executed_pipe_xu.sum": 3286887136.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 109858462967.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 158394387571.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 213779987412.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 17833088.0,
+      "dram__bytes.sum": 18240256.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 69.93,
+      "sm__inst_issued.avg.per_cycle_active": 2.8,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 48.82,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 15.46,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 79.6,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 17.55,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 16.97,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.03,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.41,
+      "launch__registers_per_thread": 118.0,
+      "launch__occupancy_limit_registers": 2.0
+     },
+     "elapsed_s": 0.180550272,
+     "sm_clock_hz": 812231314.0,
+     "sm_count": 58,
+     "grid_size": 1024,
+     "block_size": 256,
+     "fp32_flops": 695812825362.0,
+     "issue_peak_fraction_from_counts": 0.678973763903903,
+     "fp32_peak_fraction": 0.31955571923904885,
+     "all_metrics": {
+      "dram__bytes.sum": 18240256.0,
+      "dram__bytes_read.sum": 17833088.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.03,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 1387632.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 5863990.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 17.55,
+      "launch__occupancy_limit_registers": 2.0,
+      "launch__registers_per_thread": 118.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 16.97,
+      "sm__inst_executed.sum": 23100365629.0,
+      "sm__inst_executed_pipe_alu.sum": 2553485405.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 0.0,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 79.6,
+      "sm__inst_issued.avg.per_cycle_active": 2.8,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 15.46,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 48.82,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 79142324264.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 109858462967.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 213779987412.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 158394387571.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 35690228451.0,
+      "smsp__inst_executed_pipe_xu.sum": 3286887136.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 69.93,
+      "smsp__thread_inst_executed.sum": 738995830382.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.41
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    }
+   }
+  },
+  {
+   "point": "p10-b6-L40-n35",
+   "class": {
+    "bucket": 6,
+    "L": 40,
+    "L_field_width": 40
+   },
+   "source": {
+    "corpus": "internal tuning corpus",
+    "group_index": 7,
+    "launch_index": 13,
+    "corpus_json_sha256": "[withheld]"
+   },
+   "launch_conformers": 65536,
+   "mean_library_real_atoms": 35.0,
+   "n_real_hist": {
+    "35": 65536
+   },
+   "queries": 4,
+   "query_set": "first four PANEL-8 queries (PubChem3D), PANEL-8.sdf sha256 b27df200f284769fa0c5229bb2c33ecb2c5e037da028bad57dd3e7c13c2515ea; same at every point",
+   "pair_rows": 262144,
+   "arms": {
+    "field": {
+     "raw": {
+      "sm__inst_executed.sum": 2824637282.0,
+      "smsp__inst_executed_pipe_xu.sum": 137797632.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 18456248338.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 15782199907.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 19379456396.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 245366784.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 4191015283.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 24760960.0,
+      "dram__bytes.sum": 27181312.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 46.17,
+      "sm__inst_issued.avg.per_cycle_active": 1.85,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 30.53,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 11.47,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 18.02,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 71.5,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 21.35,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.28,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.8,
+      "launch__registers_per_thread": 64.0,
+      "launch__occupancy_limit_registers": 4.0
+     },
+     "elapsed_s": 0.032816384,
+     "sm_clock_hz": 811093891.0,
+     "sm_count": 58,
+     "grid_size": 4096,
+     "block_size": 256,
+     "fp32_flops": 72997361037.0,
+     "issue_peak_fraction_from_counts": 0.45741757461655447,
+     "fp32_peak_fraction": 0.18470444446383563,
+     "all_metrics": {
+      "dram__bytes.sum": 27181312.0,
+      "dram__bytes_read.sum": 24760960.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.28,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 2228224.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 245366784.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 14565376.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 4191015283.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 71.5,
+      "launch__occupancy_limit_registers": 4.0,
+      "launch__registers_per_thread": 64.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 21.35,
+      "sm__inst_executed.sum": 2824637282.0,
+      "sm__inst_executed_pipe_alu.sum": 350835110.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 4.01,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 18.02,
+      "sm__inst_issued.avg.per_cycle_active": 1.85,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 11.47,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 30.53,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 3213099008.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 18456248338.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 19379456396.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 15782199907.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 8898512466.0,
+      "smsp__inst_executed_pipe_xu.sum": 137797632.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 46.17,
+      "smsp__thread_inst_executed.sum": 87100824203.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 32.8
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    },
+    "analytic": {
+     "raw": {
+      "sm__inst_executed.sum": 25266586435.0,
+      "smsp__inst_executed_pipe_xu.sum": 3596808192.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 120249663582.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 173379720113.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 233836637529.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 20932352.0,
+      "dram__bytes.sum": 21512576.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 60.82,
+      "sm__inst_issued.avg.per_cycle_active": 2.43,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 42.47,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 13.44,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 69.26,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 15.28,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 17.61,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.03,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 16.66,
+      "launch__registers_per_thread": 118.0,
+      "launch__occupancy_limit_registers": 2.0
+     },
+     "elapsed_s": 0.22611568,
+     "sm_clock_hz": 814241813.0,
+     "sm_count": 58,
+     "grid_size": 1024,
+     "block_size": 256,
+     "fp32_flops": 761302658753.0,
+     "issue_peak_fraction_from_counts": 0.5915269104682493,
+     "fp32_peak_fraction": 0.2784872441749384,
+     "all_metrics": {
+      "dram__bytes.sum": 21512576.0,
+      "dram__bytes_read.sum": 20932352.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.03,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 1585152.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 7044864.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 15.28,
+      "launch__occupancy_limit_registers": 2.0,
+      "launch__registers_per_thread": 118.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 17.61,
+      "sm__inst_executed.sum": 25266586435.0,
+      "sm__inst_executed_pipe_alu.sum": 2790957667.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 0.0,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 69.26,
+      "sm__inst_issued.avg.per_cycle_active": 2.43,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 13.44,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 42.47,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 86646872466.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 120249663582.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 233836637529.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 173379720113.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 38990962172.0,
+      "smsp__inst_executed_pipe_xu.sum": 3596808192.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 60.82,
+      "smsp__thread_inst_executed.sum": 808360061340.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 16.66
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    }
+   }
+  },
+  {
+   "point": "p11-b7-L40w48-n39",
+   "class": {
+    "bucket": 7,
+    "L": 40,
+    "L_field_width": 48
+   },
+   "source": {
+    "corpus": "internal scale corpus",
+    "group_index": 52,
+    "launch_index": 16,
+    "corpus_json_sha256": "[withheld]"
+   },
+   "launch_conformers": 65450,
+   "mean_library_real_atoms": 39.0,
+   "n_real_hist": {
+    "39": 65450
+   },
+   "queries": 4,
+   "query_set": "first four PANEL-8 queries (PubChem3D), PANEL-8.sdf sha256 b27df200f284769fa0c5229bb2c33ecb2c5e037da028bad57dd3e7c13c2515ea; same at every point",
+   "pair_rows": 261800,
+   "arms": {
+    "field": {
+     "raw": {
+      "sm__inst_executed.sum": 3200855462.0,
+      "smsp__inst_executed_pipe_xu.sum": 159107172.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 20301281016.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 17137285012.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 20728478912.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 299499200.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 4667367337.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 26159104.0,
+      "dram__bytes.sum": 28251392.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 25.76,
+      "sm__inst_issued.avg.per_cycle_active": 1.02,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 17.23,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 6.02,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 10.14,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 38.58,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 14.26,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.14,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 16.52,
+      "launch__registers_per_thread": 64.0,
+      "launch__occupancy_limit_registers": 4.0
+     },
+     "elapsed_s": 0.066953568,
+     "sm_clock_hz": 814094780.0,
+     "sm_count": 58,
+     "grid_size": 4092,
+     "block_size": 256,
+     "fp32_flops": 78895523852.0,
+     "issue_peak_fraction_from_counts": 0.2531217024564896,
+     "fp32_peak_fraction": 0.09748453162901098,
+     "all_metrics": {
+      "dram__bytes.sum": 28251392.0,
+      "dram__bytes_read.sum": 26159104.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.14,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 2421912.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 299499200.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 16142235.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 4667367337.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 38.58,
+      "launch__occupancy_limit_registers": 4.0,
+      "launch__registers_per_thread": 64.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 14.26,
+      "sm__inst_executed.sum": 3200855462.0,
+      "sm__inst_executed_pipe_alu.sum": 377388922.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 2.39,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 10.14,
+      "sm__inst_issued.avg.per_cycle_active": 1.02,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 6.02,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 17.23,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 3538750600.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 20301281016.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 20728478912.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 17137285012.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 9181372396.0,
+      "smsp__inst_executed_pipe_xu.sum": 159107172.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 25.76,
+      "smsp__thread_inst_executed.sum": 93149832385.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 16.52
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    },
+    "analytic": {
+     "raw": {
+      "sm__inst_executed.sum": 28096368383.0,
+      "smsp__inst_executed_pipe_xu.sum": 4001841376.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 133776674858.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 192909334150.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 259941233367.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 21074048.0,
+      "dram__bytes.sum": 21594368.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 60.95,
+      "sm__inst_issued.avg.per_cycle_active": 2.44,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 42.57,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 13.45,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 69.45,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 15.32,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 17.41,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.03,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 16.66,
+      "launch__registers_per_thread": 118.0,
+      "launch__occupancy_limit_registers": 2.0
+     },
+     "elapsed_s": 0.25091411199999997,
+     "sm_clock_hz": 814419523.0,
+     "sm_count": 58,
+     "grid_size": 1024,
+     "block_size": 256,
+     "fp32_flops": 846568475742.0,
+     "issue_peak_fraction_from_counts": 0.5926372425387688,
+     "fp32_peak_fraction": 0.2790107071428664,
+     "all_metrics": {
+      "dram__bytes.sum": 21594368.0,
+      "dram__bytes_read.sum": 21074048.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.03,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 1584048.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 7042459.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 15.32,
+      "launch__occupancy_limit_registers": 2.0,
+      "launch__registers_per_thread": 118.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 17.41,
+      "sm__inst_executed.sum": 28096368383.0,
+      "sm__inst_executed_pipe_alu.sum": 3100863337.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 0.0,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 69.45,
+      "sm__inst_issued.avg.per_cycle_active": 2.44,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 13.45,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 42.57,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 96416645678.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 133776674858.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 259941233367.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 192909334150.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 43281538905.0,
+      "smsp__inst_executed_pipe_xu.sum": 4001841376.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 60.95,
+      "smsp__thread_inst_executed.sum": 898611231441.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 16.66
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    }
+   }
+  },
+  {
+   "point": "p12-b7-L48-n42",
+   "class": {
+    "bucket": 7,
+    "L": 48,
+    "L_field_width": 48
+   },
+   "source": {
+    "corpus": "internal scale corpus",
+    "group_index": 53,
+    "launch_index": 18,
+    "corpus_json_sha256": "[withheld]"
+   },
+   "launch_conformers": 65453,
+   "mean_library_real_atoms": 42.0,
+   "n_real_hist": {
+    "42": 65453
+   },
+   "queries": 4,
+   "query_set": "first four PANEL-8 queries (PubChem3D), PANEL-8.sdf sha256 b27df200f284769fa0c5229bb2c33ecb2c5e037da028bad57dd3e7c13c2515ea; same at every point",
+   "pair_rows": 261812,
+   "arms": {
+    "field": {
+     "raw": {
+      "sm__inst_executed.sum": 3212922963.0,
+      "smsp__inst_executed_pipe_xu.sum": 160162650.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 21704214819.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 18170598464.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 21760318224.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 299512928.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 4952282402.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 27903104.0,
+      "dram__bytes.sum": 29520128.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 24.97,
+      "sm__inst_issued.avg.per_cycle_active": 0.99,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 16.76,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 5.88,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 9.89,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 40.78,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 22.65,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.14,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 16.56,
+      "launch__registers_per_thread": 64.0,
+      "launch__occupancy_limit_registers": 4.0
+     },
+     "elapsed_s": 0.069041152,
+     "sm_clock_hz": 814561197.0,
+     "sm_count": 58,
+     "grid_size": 4092,
+     "block_size": 256,
+     "fp32_flops": 83395449731.0,
+     "issue_peak_fraction_from_counts": 0.24625246156271122,
+     "fp32_peak_fraction": 0.09987174750941545,
+     "all_metrics": {
+      "dram__bytes.sum": 29520128.0,
+      "dram__bytes_read.sum": 27903104.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.14,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 2618280.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 299512928.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 17321393.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 4952282402.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 40.78,
+      "launch__occupancy_limit_registers": 4.0,
+      "launch__registers_per_thread": 64.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 22.65,
+      "sm__inst_executed.sum": 3212922963.0,
+      "sm__inst_executed_pipe_alu.sum": 380546558.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 2.31,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 9.89,
+      "sm__inst_issued.avg.per_cycle_active": 0.99,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 5.88,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 16.76,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 3786325144.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 21704214819.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 21760318224.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 18170598464.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 9569156624.0,
+      "smsp__inst_executed_pipe_xu.sum": 160162650.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 24.97,
+      "smsp__thread_inst_executed.sum": 97909194144.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 16.56
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    },
+    "analytic": {
+     "raw": {
+      "sm__inst_executed.sum": 30237924868.0,
+      "smsp__inst_executed_pipe_xu.sum": 4308250336.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 144046884359.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 207795707035.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 279762636450.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 24684800.0,
+      "dram__bytes.sum": 25909760.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 61.01,
+      "sm__inst_issued.avg.per_cycle_active": 2.44,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 42.62,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 13.46,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 69.54,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 15.35,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 17.12,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.03,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 16.67,
+      "launch__registers_per_thread": 118.0,
+      "launch__occupancy_limit_registers": 2.0
+     },
+     "elapsed_s": 0.269323424,
+     "sm_clock_hz": 815704809.0,
+     "sm_count": 58,
+     "grid_size": 1024,
+     "block_size": 256,
+     "fp32_flops": 911367864294.0,
+     "issue_peak_fraction_from_counts": 0.5932760940196145,
+     "fp32_peak_fraction": 0.2793949822034701,
+     "all_metrics": {
+      "dram__bytes.sum": 25909760.0,
+      "dram__bytes_read.sum": 24684800.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.03,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 1780464.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 8221185.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 15.35,
+      "launch__occupancy_limit_registers": 2.0,
+      "launch__registers_per_thread": 118.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 17.12,
+      "sm__inst_executed.sum": 30237924868.0,
+      "sm__inst_executed_pipe_alu.sum": 3335613371.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 0.0,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 69.54,
+      "sm__inst_issued.avg.per_cycle_active": 2.44,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 13.46,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 42.62,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 103834010852.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 144046884359.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 279762636450.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 207795707035.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 46543090203.0,
+      "smsp__inst_executed_pipe_xu.sum": 4308250336.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 61.01,
+      "smsp__thread_inst_executed.sum": 967162405961.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 16.67
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    }
+   }
+  },
+  {
+   "point": "p13-b8-L48w56-n45",
+   "class": {
+    "bucket": 8,
+    "L": 48,
+    "L_field_width": 56
+   },
+   "source": {
+    "corpus": "[private corpus]",
+    "group_index": null,
+    "launch_index": null,
+    "corpus_json_sha256": "[withheld]"
+   },
+   "launch_conformers": 65119,
+   "mean_library_real_atoms": 45.0,
+   "n_real_hist": null,
+   "queries": 4,
+   "query_set": "first four PANEL-8 queries (PubChem3D), PANEL-8.sdf sha256 b27df200f284769fa0c5229bb2c33ecb2c5e037da028bad57dd3e7c13c2515ea; same at every point",
+   "pair_rows": 260476,
+   "arms": {
+    "field": {
+     "raw": {
+      "sm__inst_executed.sum": 3574703004.0,
+      "smsp__inst_executed_pipe_xu.sum": 180708000.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 22988309394.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 19109750131.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 22674818682.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 352163552.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 5361810150.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 30967552.0,
+      "dram__bytes.sum": 32448000.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 24.59,
+      "sm__inst_issued.avg.per_cycle_active": 0.98,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 16.79,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 5.55,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 9.89,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 38.18,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 29.01,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.14,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 16.58,
+      "launch__registers_per_thread": 64.0,
+      "launch__occupancy_limit_registers": 4.0
+     },
+     "elapsed_s": 0.07799088000000001,
+     "sm_clock_hz": 813866873.0,
+     "sm_count": 58,
+     "grid_size": 4072,
+     "block_size": 256,
+     "fp32_flops": 87447696889.0,
+     "issue_peak_fraction_from_counts": 0.2427475123783635,
+     "fp32_peak_fraction": 0.09278616494183507,
+     "all_metrics": {
+      "dram__bytes.sum": 32448000.0,
+      "dram__bytes_read.sum": 30967552.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.14,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 3093280.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 352163552.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 18404740.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 5361810150.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 38.18,
+      "launch__occupancy_limit_registers": 4.0,
+      "launch__registers_per_thread": 64.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 29.01,
+      "sm__inst_executed.sum": 3574703004.0,
+      "sm__inst_executed_pipe_alu.sum": 405405330.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 2.41,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 9.89,
+      "sm__inst_issued.avg.per_cycle_active": 0.98,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 5.55,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 16.79,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 4013153732.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 22988309394.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 22674818682.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 19109750131.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 9894512698.0,
+      "smsp__inst_executed_pipe_xu.sum": 180708000.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 24.59,
+      "smsp__thread_inst_executed.sum": 102127127170.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 16.58
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    },
+    "analytic": {
+     "raw": {
+      "sm__inst_executed.sum": 32204691893.0,
+      "smsp__inst_executed_pipe_xu.sum": 4589849920.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 153523528832.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 221985937045.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 298043478597.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 24588032.0,
+      "dram__bytes.sum": 25549440.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 61.07,
+      "sm__inst_issued.avg.per_cycle_active": 2.44,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 42.67,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 13.47,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 69.62,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 15.37,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 16.46,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.03,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 16.67,
+      "launch__registers_per_thread": 118.0,
+      "launch__occupancy_limit_registers": 2.0
+     },
+     "elapsed_s": 0.286867584,
+     "sm_clock_hz": 815426385.0,
+     "sm_count": 58,
+     "grid_size": 1020,
+     "block_size": 256,
+     "fp32_flops": 971596423071.0,
+     "issue_peak_fraction_from_counts": 0.5934237558251038,
+     "fp32_peak_fraction": 0.27973815917523964,
+     "all_metrics": {
+      "dram__bytes.sum": 25549440.0,
+      "dram__bytes_read.sum": 24588032.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.03,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 1771560.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 8179530.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 15.37,
+      "launch__occupancy_limit_registers": 2.0,
+      "launch__registers_per_thread": 118.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 16.46,
+      "sm__inst_executed.sum": 32204691893.0,
+      "sm__inst_executed_pipe_alu.sum": 3550894171.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 0.0,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 69.62,
+      "sm__inst_issued.avg.per_cycle_active": 2.44,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 13.47,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 42.67,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 110679279746.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 153523528832.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 298043478597.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 221985937045.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 49545406665.0,
+      "smsp__inst_executed_pipe_xu.sum": 4589849920.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 61.07,
+      "smsp__thread_inst_executed.sum": 1030364509514.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 16.67
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    }
+   }
+  },
+  {
+   "point": "p14-b8-L56-n48",
+   "class": {
+    "bucket": 8,
+    "L": 56,
+    "L_field_width": 56
+   },
+   "source": {
+    "corpus": "internal scale corpus",
+    "group_index": 54,
+    "launch_index": 15,
+    "corpus_json_sha256": "[withheld]"
+   },
+   "launch_conformers": 65473,
+   "mean_library_real_atoms": 48.0,
+   "n_real_hist": {
+    "48": 65473
+   },
+   "queries": 4,
+   "query_set": "first four PANEL-8 queries (PubChem3D), PANEL-8.sdf sha256 b27df200f284769fa0c5229bb2c33ecb2c5e037da028bad57dd3e7c13c2515ea; same at every point",
+   "pair_rows": 261892,
+   "arms": {
+    "field": {
+     "raw": {
+      "sm__inst_executed.sum": 3398091126.0,
+      "smsp__inst_executed_pipe_xu.sum": 171492120.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 24515710134.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 20242004769.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 23829362548.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 326841216.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 5656771170.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 31629568.0,
+      "dram__bytes.sum": 33757184.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 24.06,
+      "sm__inst_issued.avg.per_cycle_active": 0.96,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 16.35,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 5.49,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 9.67,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 42.42,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 37.08,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.15,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 16.59,
+      "launch__registers_per_thread": 64.0,
+      "launch__occupancy_limit_registers": 4.0
+     },
+     "elapsed_s": 0.075751392,
+     "sm_clock_hz": 813232969.0,
+     "sm_count": 58,
+     "grid_size": 4096,
+     "block_size": 256,
+     "fp32_flops": 92416439999.0,
+     "issue_peak_fraction_from_counts": 0.23776145045643685,
+     "fp32_peak_fraction": 0.101035892309779,
+     "all_metrics": {
+      "dram__bytes.sum": 33757184.0,
+      "dram__bytes_read.sum": 31629568.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.15,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 2815780.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 326841216.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 19684108.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 5656771170.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 42.42,
+      "launch__occupancy_limit_registers": 4.0,
+      "launch__registers_per_thread": 64.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 37.08,
+      "sm__inst_executed.sum": 3398091126.0,
+      "sm__inst_executed_pipe_alu.sum": 389770756.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 2.3,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 9.67,
+      "sm__inst_issued.avg.per_cycle_active": 0.96,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 5.49,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 16.35,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 4282457984.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 24515710134.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 23829362548.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 20242004769.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 10030646704.0,
+      "smsp__inst_executed_pipe_xu.sum": 171492120.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 24.06,
+      "smsp__thread_inst_executed.sum": 107180915068.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 16.59
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    },
+    "analytic": {
+     "raw": {
+      "sm__inst_executed.sum": 34537182396.0,
+      "smsp__inst_executed_pipe_xu.sum": 4923473264.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 164625327615.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 237639267658.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 319479202139.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 28453376.0,
+      "dram__bytes.sum": 30536320.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 61.15,
+      "sm__inst_issued.avg.per_cycle_active": 2.45,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 42.73,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 13.48,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 69.73,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 15.4,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 15.93,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.03,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 16.67,
+      "launch__registers_per_thread": 118.0,
+      "launch__occupancy_limit_registers": 2.0
+     },
+     "elapsed_s": 0.30746,
+     "sm_clock_hz": 814505988.0,
+     "sm_count": 58,
+     "grid_size": 1024,
+     "block_size": 256,
+     "fp32_flops": 1041222999551.0,
+     "issue_peak_fraction_from_counts": 0.5944509356746961,
+     "fp32_peak_fraction": 0.28002247477814995,
+     "all_metrics": {
+      "dram__bytes.sum": 30536320.0,
+      "dram__bytes_read.sum": 28453376.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.03,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 1977624.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 9402306.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 15.4,
+      "launch__occupancy_limit_registers": 2.0,
+      "launch__registers_per_thread": 118.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 15.93,
+      "sm__inst_executed.sum": 34537182396.0,
+      "sm__inst_executed_pipe_alu.sum": 3806692105.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 0.0,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 69.73,
+      "sm__inst_issued.avg.per_cycle_active": 2.45,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 13.48,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 42.73,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 118696160150.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 164625327615.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 319479202139.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 237639267658.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 53075275075.0,
+      "smsp__inst_executed_pipe_xu.sum": 4923473264.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 61.15,
+      "smsp__thread_inst_executed.sum": 1104496580419.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 16.67
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    }
+   }
+  },
+  {
+   "point": "p15-b9-L56-n50",
+   "class": {
+    "bucket": 9,
+    "L": 56,
+    "L_field_width": 56
+   },
+   "source": {
+    "corpus": "internal scale corpus",
+    "group_index": 55,
+    "launch_index": 0,
+    "corpus_json_sha256": "[withheld]"
+   },
+   "launch_conformers": 65463,
+   "mean_library_real_atoms": 50.0,
+   "n_real_hist": {
+    "50": 65463
+   },
+   "queries": 4,
+   "query_set": "first four PANEL-8 queries (PubChem3D), PANEL-8.sdf sha256 b27df200f284769fa0c5229bb2c33ecb2c5e037da028bad57dd3e7c13c2515ea; same at every point",
+   "pair_rows": 261852,
+   "arms": {
+    "field": {
+     "raw": {
+      "sm__inst_executed.sum": 3604052590.0,
+      "smsp__inst_executed_pipe_xu.sum": 182718207.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 25446777377.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 20927861242.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 24513089776.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 354023904.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 5895133119.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 32825472.0,
+      "dram__bytes.sum": 35650688.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 23.87,
+      "sm__inst_issued.avg.per_cycle_active": 0.95,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 16.33,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 5.41,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 9.64,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 41.46,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 39.49,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.15,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 16.6,
+      "launch__registers_per_thread": 64.0,
+      "launch__occupancy_limit_registers": 4.0
+     },
+     "elapsed_s": 0.08091648000000001,
+     "sm_clock_hz": 813413352.0,
+     "sm_count": 58,
+     "grid_size": 4092,
+     "block_size": 256,
+     "fp32_flops": 95400818171.0,
+     "issue_peak_fraction_from_counts": 0.23602328774729636,
+     "fp32_peak_fraction": 0.0976193387348948,
+     "all_metrics": {
+      "dram__bytes.sum": 35650688.0,
+      "dram__bytes_read.sum": 32825472.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.15,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 3011364.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 354023904.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 20465733.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 5895133119.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 41.46,
+      "launch__occupancy_limit_registers": 4.0,
+      "launch__registers_per_thread": 64.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 39.49,
+      "sm__inst_executed.sum": 3604052590.0,
+      "sm__inst_executed_pipe_alu.sum": 410116562.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 2.34,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 9.64,
+      "sm__inst_issued.avg.per_cycle_active": 0.95,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 5.41,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 16.33,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 4446770664.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 25446777377.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 24513089776.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 20927861242.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 10388121588.0,
+      "smsp__inst_executed_pipe_xu.sum": 182718207.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 23.87,
+      "smsp__thread_inst_executed.sum": 110417627777.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 16.6
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    },
+    "analytic": {
+     "raw": {
+      "sm__inst_executed.sum": 35947539995.0,
+      "smsp__inst_executed_pipe_xu.sum": 5125340896.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 171443947491.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 247571082514.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 332638751160.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "dram__bytes_op_read.sum": null
+     },
+     "chip_dram_counters": {
+      "dram__bytes_read.sum": 28405504.0,
+      "dram__bytes.sum": 30924672.0
+     },
+     "utilization": {
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 61.16,
+      "sm__inst_issued.avg.per_cycle_active": 2.45,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 42.74,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 13.48,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 69.76,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 15.4,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 15.75,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.03,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 16.67,
+      "launch__registers_per_thread": 118.0,
+      "launch__occupancy_limit_registers": 2.0
+     },
+     "elapsed_s": 0.320129824,
+     "sm_clock_hz": 813871789.0,
+     "sm_count": 58,
+     "grid_size": 1024,
+     "block_size": 256,
+     "fp32_flops": 1084292532325.0,
+     "issue_peak_fraction_from_counts": 0.594701535598099,
+     "fp32_peak_fraction": 0.2802827546148322,
+     "all_metrics": {
+      "dram__bytes.sum": 30924672.0,
+      "dram__bytes_read.sum": 28405504.0,
+      "gpu__dram_throughput.avg.pct_of_peak_sustained_elapsed": 0.03,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 1976880.0,
+      "l1tex__t_requests_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 9400814.0,
+      "l1tex__t_sectors_pipe_tex_mem_texture_op_tex.sum": 0.0,
+      "l1tex__throughput.avg.pct_of_peak_sustained_active": 15.4,
+      "launch__occupancy_limit_registers": 2.0,
+      "launch__registers_per_thread": 118.0,
+      "lts__throughput.avg.pct_of_peak_sustained_active": 15.75,
+      "sm__inst_executed.sum": 35947539995.0,
+      "sm__inst_executed_pipe_alu.sum": 3961148691.0,
+      "sm__inst_executed_pipe_fma_type_fp16.sum": 0.0,
+      "sm__inst_executed_pipe_tex.avg.pct_of_peak_sustained_active": 0.0,
+      "sm__inst_executed_pipe_xu.avg.pct_of_peak_sustained_active": 69.76,
+      "sm__inst_issued.avg.per_cycle_active": 2.45,
+      "sm__pipe_alu_cycles_active.avg.pct_of_peak_sustained_active": 13.48,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_active": 42.74,
+      "sm__sass_thread_inst_executed_op_conversion_pred_on.sum": 123620750224.0,
+      "sm__sass_thread_inst_executed_op_fadd_pred_on.sum": 171443947491.0,
+      "sm__sass_thread_inst_executed_op_ffma_pred_on.sum": 332638751160.0,
+      "sm__sass_thread_inst_executed_op_fmul_pred_on.sum": 247571082514.0,
+      "sm__sass_thread_inst_executed_op_hadd_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hfma_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_hmul_pred_on.sum": 0.0,
+      "sm__sass_thread_inst_executed_op_integer_pred_on.sum": 55238456742.0,
+      "smsp__inst_executed_pipe_xu.sum": 5125340896.0,
+      "smsp__issue_active.avg.pct_of_peak_sustained_active": 61.16,
+      "smsp__thread_inst_executed.sum": 1149992857002.0,
+      "smsp__warps_active.avg.pct_of_peak_sustained_active": 16.67
+     },
+     "unavailable": [
+      "dram__bytes_op_read.sum"
+     ]
+    }
+   }
+  }
+ ],
+ "work_weighted": {
+  "field": {
+   "per_pair_eval": {
+    "warp_instructions": 9381.076725407165,
+    "fp32_flops": 219954.57174234145,
+    "xu_warp_instructions": 444.8414901288187,
+    "texture_requests": 745.1900361380227,
+    "elapsed_s_at_profiled_clock": 9.980170992191496e-08
+   },
+   "issue_active_pct": 50.44566812019796,
+   "issue_pct_from_counts": 50.013615597859975,
+   "fp32_pct_of_peak": 18.316767157887277,
+   "fma_pipe_pct": 32.462121192044194,
+   "xu_pipe_pct": 19.120478617884192,
+   "l1tex_pct": 63.768433310723736,
+   "warps_active_pct": 36.2378330297982
+  },
+  "analytic": {
+   "per_pair_eval": {
+    "warp_instructions": 68526.18915272251,
+    "fp32_flops": 2062654.1564240668,
+    "xu_warp_instructions": 9734.059237881222,
+    "texture_requests": 0.0,
+    "elapsed_s_at_profiled_clock": 5.537783406130002e-07
+   },
+   "issue_active_pct": 67.7064290518212,
+   "issue_pct_from_counts": 65.75804576589576,
+   "fp32_pct_of_peak": 30.92698503480405,
+   "fma_pipe_pct": 47.221710379988636,
+   "xu_pipe_pct": 76.93637379548488,
+   "l1tex_pct": 16.94790440631172,
+   "warps_active_pct": 28.411460848753176
+  }
+ },
+ "problems": []
+}

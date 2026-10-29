@@ -1,0 +1,604 @@
+{
+  "record": "topk_agreement",
+  "ticket": "T68",
+  "corpus": "$EXTERNAL_DATA/datasets/litpcba/color_rsb3_perm/library",
+  "r3": "$EXTERNAL_DATA/scratch/T114/combination/topk_r3.npz",
+  "r2": "$EXTERNAL_DATA/scratch/T114/combination/topk_uc.npz",
+  "n_queries_compared": 8,
+  "n_molecules_without_ext_id": 0,
+  "name_base": "ext_id where present, else mol_id -- which is what each corpus's h5 carries (PubChem-sourced corpora have a null ext_id and their h5 is named by mol_id)",
+  "per_query": [
+    {
+      "query": "ADRB2_3p0g_query",
+      "n_hits_roshambo3": 100000,
+      "n_hits_roshambo2": 100000,
+      "top1_score_roshambo3": 0.620457112789154,
+      "top1_score_roshambo2": 0.6203206777572632,
+      "at_k": {
+        "10": {
+          "overlap": 9,
+          "overlap_fraction": 0.9,
+          "median_abs_rank_displacement_of_shared": 0.0
+        },
+        "100": {
+          "overlap": 99,
+          "overlap_fraction": 0.99,
+          "median_abs_rank_displacement_of_shared": 1.0
+        },
+        "1000": {
+          "overlap": 981,
+          "overlap_fraction": 0.981,
+          "median_abs_rank_displacement_of_shared": 13.0
+        },
+        "10000": {
+          "overlap": 9771,
+          "overlap_fraction": 0.9771,
+          "median_abs_rank_displacement_of_shared": 119.0
+        }
+      },
+      "score_band_roshambo3": {
+        "10": {
+          "score_at_rank_k": 0.5951613187789917,
+          "band_top1_minus_rank_k": 0.025295794010162354,
+          "mean_score_gap_per_rank": 0.0028106437789069284
+        },
+        "100": {
+          "score_at_rank_k": 0.5711444616317749,
+          "band_top1_minus_rank_k": 0.04931265115737915,
+          "mean_score_gap_per_rank": 0.0004981075874482743
+        },
+        "1000": {
+          "score_at_rank_k": 0.5472984910011292,
+          "band_top1_minus_rank_k": 0.0731586217880249,
+          "mean_score_gap_per_rank": 7.323185364166657e-05
+        },
+        "10000": {
+          "score_at_rank_k": 0.5168458223342896,
+          "band_top1_minus_rank_k": 0.1036112904548645,
+          "mean_score_gap_per_rank": 1.0362165262012652e-05
+        }
+      },
+      "score_band_roshambo2": {
+        "10": {
+          "score_at_rank_k": 0.5948574542999268,
+          "band_top1_minus_rank_k": 0.025463223457336426,
+          "mean_score_gap_per_rank": 0.0028292470508151585
+        },
+        "100": {
+          "score_at_rank_k": 0.5699335932731628,
+          "band_top1_minus_rank_k": 0.05038708448410034,
+          "mean_score_gap_per_rank": 0.0005089604493343469
+        },
+        "1000": {
+          "score_at_rank_k": 0.5463607311248779,
+          "band_top1_minus_rank_k": 0.07395994663238525,
+          "mean_score_gap_per_rank": 7.403398061299825e-05
+        },
+        "10000": {
+          "score_at_rank_k": 0.5158541202545166,
+          "band_top1_minus_rank_k": 0.10446655750274658,
+          "mean_score_gap_per_rank": 1.0447700520326691e-05
+        }
+      }
+    },
+    {
+      "query": "ALDH1_4wp7_query",
+      "n_hits_roshambo3": 100000,
+      "n_hits_roshambo2": 100000,
+      "top1_score_roshambo3": 0.6022806167602539,
+      "top1_score_roshambo2": 0.6019570827484131,
+      "at_k": {
+        "10": {
+          "overlap": 10,
+          "overlap_fraction": 1.0,
+          "median_abs_rank_displacement_of_shared": 0.0
+        },
+        "100": {
+          "overlap": 97,
+          "overlap_fraction": 0.97,
+          "median_abs_rank_displacement_of_shared": 1.0
+        },
+        "1000": {
+          "overlap": 947,
+          "overlap_fraction": 0.947,
+          "median_abs_rank_displacement_of_shared": 30.0
+        },
+        "10000": {
+          "overlap": 9552,
+          "overlap_fraction": 0.9552,
+          "median_abs_rank_displacement_of_shared": 241.0
+        }
+      },
+      "score_band_roshambo3": {
+        "10": {
+          "score_at_rank_k": 0.5596893429756165,
+          "band_top1_minus_rank_k": 0.04259127378463745,
+          "mean_score_gap_per_rank": 0.004732363753848606
+        },
+        "100": {
+          "score_at_rank_k": 0.5217874050140381,
+          "band_top1_minus_rank_k": 0.08049321174621582,
+          "mean_score_gap_per_rank": 0.0008130627449112709
+        },
+        "1000": {
+          "score_at_rank_k": 0.47816145420074463,
+          "band_top1_minus_rank_k": 0.12411916255950928,
+          "mean_score_gap_per_rank": 0.00012424340596547476
+        },
+        "10000": {
+          "score_at_rank_k": 0.43124324083328247,
+          "band_top1_minus_rank_k": 0.17103737592697144,
+          "mean_score_gap_per_rank": 1.7105448137510895e-05
+        }
+      },
+      "score_band_roshambo2": {
+        "10": {
+          "score_at_rank_k": 0.559209942817688,
+          "band_top1_minus_rank_k": 0.0427471399307251,
+          "mean_score_gap_per_rank": 0.0047496822145250105
+        },
+        "100": {
+          "score_at_rank_k": 0.520378828048706,
+          "band_top1_minus_rank_k": 0.08157825469970703,
+          "mean_score_gap_per_rank": 0.0008240227747445155
+        },
+        "1000": {
+          "score_at_rank_k": 0.47598040103912354,
+          "band_top1_minus_rank_k": 0.12597668170928955,
+          "mean_score_gap_per_rank": 0.00012610278449378334
+        },
+        "10000": {
+          "score_at_rank_k": 0.4292718172073364,
+          "band_top1_minus_rank_k": 0.17268526554107666,
+          "mean_score_gap_per_rank": 1.727025357946561e-05
+        }
+      }
+    },
+    {
+      "query": "ESR1_ago_1l2i_query",
+      "n_hits_roshambo3": 100000,
+      "n_hits_roshambo2": 100000,
+      "top1_score_roshambo3": 0.727797269821167,
+      "top1_score_roshambo2": 0.7277281284332275,
+      "at_k": {
+        "10": {
+          "overlap": 10,
+          "overlap_fraction": 1.0,
+          "median_abs_rank_displacement_of_shared": 0.0
+        },
+        "100": {
+          "overlap": 97,
+          "overlap_fraction": 0.97,
+          "median_abs_rank_displacement_of_shared": 2.0
+        },
+        "1000": {
+          "overlap": 1000,
+          "overlap_fraction": 1.0,
+          "median_abs_rank_displacement_of_shared": 8.0
+        },
+        "10000": {
+          "overlap": 9906,
+          "overlap_fraction": 0.9906,
+          "median_abs_rank_displacement_of_shared": 17.0
+        }
+      },
+      "score_band_roshambo3": {
+        "10": {
+          "score_at_rank_k": 0.7171272039413452,
+          "band_top1_minus_rank_k": 0.010670065879821777,
+          "mean_score_gap_per_rank": 0.001185562875535753
+        },
+        "100": {
+          "score_at_rank_k": 0.7127344608306885,
+          "band_top1_minus_rank_k": 0.015062808990478516,
+          "mean_score_gap_per_rank": 0.00015214958576240925
+        },
+        "1000": {
+          "score_at_rank_k": 0.7026670575141907,
+          "band_top1_minus_rank_k": 0.02513021230697632,
+          "mean_score_gap_per_rank": 2.5155367674650968e-05
+        },
+        "10000": {
+          "score_at_rank_k": 0.6391234397888184,
+          "band_top1_minus_rank_k": 0.08867383003234863,
+          "mean_score_gap_per_rank": 8.868269830217884e-06
+        }
+      },
+      "score_band_roshambo2": {
+        "10": {
+          "score_at_rank_k": 0.7171168923377991,
+          "band_top1_minus_rank_k": 0.010611236095428467,
+          "mean_score_gap_per_rank": 0.0011790262328253852
+        },
+        "100": {
+          "score_at_rank_k": 0.7125768661499023,
+          "band_top1_minus_rank_k": 0.015151262283325195,
+          "mean_score_gap_per_rank": 0.00015304305336692116
+        },
+        "1000": {
+          "score_at_rank_k": 0.7026937007904053,
+          "band_top1_minus_rank_k": 0.025034427642822266,
+          "mean_score_gap_per_rank": 2.505948712995222e-05
+        },
+        "10000": {
+          "score_at_rank_k": 0.6389908790588379,
+          "band_top1_minus_rank_k": 0.08873724937438965,
+          "mean_score_gap_per_rank": 8.874612398678833e-06
+        }
+      }
+    },
+    {
+      "query": "ESR1_ant_1xp1_query",
+      "n_hits_roshambo3": 100000,
+      "n_hits_roshambo2": 100000,
+      "top1_score_roshambo3": 0.5600650906562805,
+      "top1_score_roshambo2": 0.5592011213302612,
+      "at_k": {
+        "10": {
+          "overlap": 10,
+          "overlap_fraction": 1.0,
+          "median_abs_rank_displacement_of_shared": 0.0
+        },
+        "100": {
+          "overlap": 98,
+          "overlap_fraction": 0.98,
+          "median_abs_rank_displacement_of_shared": 2.0
+        },
+        "1000": {
+          "overlap": 954,
+          "overlap_fraction": 0.954,
+          "median_abs_rank_displacement_of_shared": 19.0
+        },
+        "10000": {
+          "overlap": 9547,
+          "overlap_fraction": 0.9547,
+          "median_abs_rank_displacement_of_shared": 229.0
+        }
+      },
+      "score_band_roshambo3": {
+        "10": {
+          "score_at_rank_k": 0.53440260887146,
+          "band_top1_minus_rank_k": 0.025662481784820557,
+          "mean_score_gap_per_rank": 0.002851386864980062
+        },
+        "100": {
+          "score_at_rank_k": 0.48367172479629517,
+          "band_top1_minus_rank_k": 0.07639336585998535,
+          "mean_score_gap_per_rank": 0.0007716501602018722
+        },
+        "1000": {
+          "score_at_rank_k": 0.46152424812316895,
+          "band_top1_minus_rank_k": 0.09854084253311157,
+          "mean_score_gap_per_rank": 9.86394820151267e-05
+        },
+        "10000": {
+          "score_at_rank_k": 0.4383888840675354,
+          "band_top1_minus_rank_k": 0.12167620658874512,
+          "mean_score_gap_per_rank": 1.2168837542628775e-05
+        }
+      },
+      "score_band_roshambo2": {
+        "10": {
+          "score_at_rank_k": 0.5336171388626099,
+          "band_top1_minus_rank_k": 0.025583982467651367,
+          "mean_score_gap_per_rank": 0.0028426647186279297
+        },
+        "100": {
+          "score_at_rank_k": 0.4826403260231018,
+          "band_top1_minus_rank_k": 0.07656079530715942,
+          "mean_score_gap_per_rank": 0.0007733413667389841
+        },
+        "1000": {
+          "score_at_rank_k": 0.4604026973247528,
+          "band_top1_minus_rank_k": 0.09879842400550842,
+          "mean_score_gap_per_rank": 9.889732132683526e-05
+        },
+        "10000": {
+          "score_at_rank_k": 0.43687641620635986,
+          "band_top1_minus_rank_k": 0.12232470512390137,
+          "mean_score_gap_per_rank": 1.2233693881778315e-05
+        }
+      }
+    },
+    {
+      "query": "FEN1_5fv7_query",
+      "n_hits_roshambo3": 100000,
+      "n_hits_roshambo2": 100000,
+      "top1_score_roshambo3": 0.6168373227119446,
+      "top1_score_roshambo2": 0.6161739230155945,
+      "at_k": {
+        "10": {
+          "overlap": 10,
+          "overlap_fraction": 1.0,
+          "median_abs_rank_displacement_of_shared": 1.0
+        },
+        "100": {
+          "overlap": 96,
+          "overlap_fraction": 0.96,
+          "median_abs_rank_displacement_of_shared": 2.0
+        },
+        "1000": {
+          "overlap": 979,
+          "overlap_fraction": 0.979,
+          "median_abs_rank_displacement_of_shared": 16.0
+        },
+        "10000": {
+          "overlap": 9779,
+          "overlap_fraction": 0.9779,
+          "median_abs_rank_displacement_of_shared": 123.0
+        }
+      },
+      "score_band_roshambo3": {
+        "10": {
+          "score_at_rank_k": 0.6045433282852173,
+          "band_top1_minus_rank_k": 0.012293994426727295,
+          "mean_score_gap_per_rank": 0.0013659993807474773
+        },
+        "100": {
+          "score_at_rank_k": 0.5796520113945007,
+          "band_top1_minus_rank_k": 0.03718531131744385,
+          "mean_score_gap_per_rank": 0.00037560920522670553
+        },
+        "1000": {
+          "score_at_rank_k": 0.5545496344566345,
+          "band_top1_minus_rank_k": 0.06228768825531006,
+          "mean_score_gap_per_rank": 6.235003829360366e-05
+        },
+        "10000": {
+          "score_at_rank_k": 0.5214382410049438,
+          "band_top1_minus_rank_k": 0.09539908170700073,
+          "mean_score_gap_per_rank": 9.540862256925765e-06
+        }
+      },
+      "score_band_roshambo2": {
+        "10": {
+          "score_at_rank_k": 0.6042023301124573,
+          "band_top1_minus_rank_k": 0.011971592903137207,
+          "mean_score_gap_per_rank": 0.0013301769892374675
+        },
+        "100": {
+          "score_at_rank_k": 0.5781192779541016,
+          "band_top1_minus_rank_k": 0.03805464506149292,
+          "mean_score_gap_per_rank": 0.00038439035415649414
+        },
+        "1000": {
+          "score_at_rank_k": 0.5537505745887756,
+          "band_top1_minus_rank_k": 0.06242334842681885,
+          "mean_score_gap_per_rank": 6.248583426107993e-05
+        },
+        "10000": {
+          "score_at_rank_k": 0.5202582478523254,
+          "band_top1_minus_rank_k": 0.09591567516326904,
+          "mean_score_gap_per_rank": 9.592526769003804e-06
+        }
+      }
+    },
+    {
+      "query": "GBA_2v3d_query",
+      "n_hits_roshambo3": 100000,
+      "n_hits_roshambo2": 100000,
+      "top1_score_roshambo3": 0.8184978365898132,
+      "top1_score_roshambo2": 0.8183292746543884,
+      "at_k": {
+        "10": {
+          "overlap": 10,
+          "overlap_fraction": 1.0,
+          "median_abs_rank_displacement_of_shared": 0.0
+        },
+        "100": {
+          "overlap": 95,
+          "overlap_fraction": 0.95,
+          "median_abs_rank_displacement_of_shared": 2.0
+        },
+        "1000": {
+          "overlap": 958,
+          "overlap_fraction": 0.958,
+          "median_abs_rank_displacement_of_shared": 16.0
+        },
+        "10000": {
+          "overlap": 9765,
+          "overlap_fraction": 0.9765,
+          "median_abs_rank_displacement_of_shared": 113.0
+        }
+      },
+      "score_band_roshambo3": {
+        "10": {
+          "score_at_rank_k": 0.7747929096221924,
+          "band_top1_minus_rank_k": 0.04370492696762085,
+          "mean_score_gap_per_rank": 0.004856102996402317
+        },
+        "100": {
+          "score_at_rank_k": 0.6718980073928833,
+          "band_top1_minus_rank_k": 0.14659982919692993,
+          "mean_score_gap_per_rank": 0.0014808063555245448
+        },
+        "1000": {
+          "score_at_rank_k": 0.5990393161773682,
+          "band_top1_minus_rank_k": 0.21945852041244507,
+          "mean_score_gap_per_rank": 0.00021967819861105613
+        },
+        "10000": {
+          "score_at_rank_k": 0.5541719794273376,
+          "band_top1_minus_rank_k": 0.2643258571624756,
+          "mean_score_gap_per_rank": 2.6435229239171476e-05
+        }
+      },
+      "score_band_roshambo2": {
+        "10": {
+          "score_at_rank_k": 0.77476966381073,
+          "band_top1_minus_rank_k": 0.04355961084365845,
+          "mean_score_gap_per_rank": 0.004839956760406494
+        },
+        "100": {
+          "score_at_rank_k": 0.6688663959503174,
+          "band_top1_minus_rank_k": 0.14946287870407104,
+          "mean_score_gap_per_rank": 0.0015097260475158691
+        },
+        "1000": {
+          "score_at_rank_k": 0.5976724624633789,
+          "band_top1_minus_rank_k": 0.22065681219100952,
+          "mean_score_gap_per_rank": 0.00022087768988089042
+        },
+        "10000": {
+          "score_at_rank_k": 0.5529216527938843,
+          "band_top1_minus_rank_k": 0.26540762186050415,
+          "mean_score_gap_per_rank": 2.6543416527703184e-05
+        }
+      }
+    },
+    {
+      "query": "IDH1_4i3k_query",
+      "n_hits_roshambo3": 100000,
+      "n_hits_roshambo2": 100000,
+      "top1_score_roshambo3": 0.6644914150238037,
+      "top1_score_roshambo2": 0.6652078628540039,
+      "at_k": {
+        "10": {
+          "overlap": 10,
+          "overlap_fraction": 1.0,
+          "median_abs_rank_displacement_of_shared": 0.0
+        },
+        "100": {
+          "overlap": 99,
+          "overlap_fraction": 0.99,
+          "median_abs_rank_displacement_of_shared": 1.0
+        },
+        "1000": {
+          "overlap": 989,
+          "overlap_fraction": 0.989,
+          "median_abs_rank_displacement_of_shared": 10.0
+        },
+        "10000": {
+          "overlap": 9842,
+          "overlap_fraction": 0.9842,
+          "median_abs_rank_displacement_of_shared": 104.0
+        }
+      },
+      "score_band_roshambo3": {
+        "10": {
+          "score_at_rank_k": 0.6534730195999146,
+          "band_top1_minus_rank_k": 0.01101839542388916,
+          "mean_score_gap_per_rank": 0.0012242661582099067
+        },
+        "100": {
+          "score_at_rank_k": 0.637730598449707,
+          "band_top1_minus_rank_k": 0.02676081657409668,
+          "mean_score_gap_per_rank": 0.00027031127852622907
+        },
+        "1000": {
+          "score_at_rank_k": 0.6143274903297424,
+          "band_top1_minus_rank_k": 0.05016392469406128,
+          "mean_score_gap_per_rank": 5.021413883289417e-05
+        },
+        "10000": {
+          "score_at_rank_k": 0.579105794429779,
+          "band_top1_minus_rank_k": 0.08538562059402466,
+          "mean_score_gap_per_rank": 8.539416001002566e-06
+        }
+      },
+      "score_band_roshambo2": {
+        "10": {
+          "score_at_rank_k": 0.6532571315765381,
+          "band_top1_minus_rank_k": 0.01195073127746582,
+          "mean_score_gap_per_rank": 0.0013278590308295356
+        },
+        "100": {
+          "score_at_rank_k": 0.6374106407165527,
+          "band_top1_minus_rank_k": 0.027797222137451172,
+          "mean_score_gap_per_rank": 0.0002807800215904159
+        },
+        "1000": {
+          "score_at_rank_k": 0.6136915683746338,
+          "band_top1_minus_rank_k": 0.05151629447937012,
+          "mean_score_gap_per_rank": 5.156786234171183e-05
+        },
+        "10000": {
+          "score_at_rank_k": 0.5782217383384705,
+          "band_top1_minus_rank_k": 0.08698612451553345,
+          "mean_score_gap_per_rank": 8.699482399793325e-06
+        }
+      }
+    },
+    {
+      "query": "KAT2A_5h86_query",
+      "n_hits_roshambo3": 100000,
+      "n_hits_roshambo2": 100000,
+      "top1_score_roshambo3": 0.40880221128463745,
+      "top1_score_roshambo2": 0.4017850458621979,
+      "at_k": {
+        "10": {
+          "overlap": 8,
+          "overlap_fraction": 0.8,
+          "median_abs_rank_displacement_of_shared": 2.0
+        },
+        "100": {
+          "overlap": 78,
+          "overlap_fraction": 0.78,
+          "median_abs_rank_displacement_of_shared": 11.0
+        },
+        "1000": {
+          "overlap": 731,
+          "overlap_fraction": 0.731,
+          "median_abs_rank_displacement_of_shared": 114.0
+        },
+        "10000": {
+          "overlap": 7549,
+          "overlap_fraction": 0.7549,
+          "median_abs_rank_displacement_of_shared": 1174.0
+        }
+      },
+      "score_band_roshambo3": {
+        "10": {
+          "score_at_rank_k": 0.39573490619659424,
+          "band_top1_minus_rank_k": 0.013067305088043213,
+          "mean_score_gap_per_rank": 0.001451922787560357
+        },
+        "100": {
+          "score_at_rank_k": 0.35366716980934143,
+          "band_top1_minus_rank_k": 0.05513504147529602,
+          "mean_score_gap_per_rank": 0.000556919610861576
+        },
+        "1000": {
+          "score_at_rank_k": 0.3236694931983948,
+          "band_top1_minus_rank_k": 0.08513271808624268,
+          "mean_score_gap_per_rank": 8.521793602226494e-05
+        },
+        "10000": {
+          "score_at_rank_k": 0.30411773920059204,
+          "band_top1_minus_rank_k": 0.10468447208404541,
+          "mean_score_gap_per_rank": 1.0469494157820323e-05
+        }
+      },
+      "score_band_roshambo2": {
+        "10": {
+          "score_at_rank_k": 0.38287466764450073,
+          "band_top1_minus_rank_k": 0.018910378217697144,
+          "mean_score_gap_per_rank": 0.0021011531352996826
+        },
+        "100": {
+          "score_at_rank_k": 0.344422847032547,
+          "band_top1_minus_rank_k": 0.05736219882965088,
+          "mean_score_gap_per_rank": 0.0005794161497944533
+        },
+        "1000": {
+          "score_at_rank_k": 0.3188636898994446,
+          "band_top1_minus_rank_k": 0.0829213559627533,
+          "mean_score_gap_per_rank": 8.300436032307637e-05
+        },
+        "10000": {
+          "score_at_rank_k": 0.29951316118240356,
+          "band_top1_minus_rank_k": 0.10227188467979431,
+          "mean_score_gap_per_rank": 1.0228211289108342e-05
+        }
+      }
+    }
+  ],
+  "mean_overlap_fraction": {
+    "10": 0.9624999999999999,
+    "100": 0.94875,
+    "1000": 0.942375,
+    "10000": 0.9463875
+  },
+  "what_this_is": "set agreement between two candidates, neither of which is a gold standard -- NOT R(N, k), and not comparable digit for digit with any recall in doc/METRICS.md 1",
+  "why_not_bit_identity": "the two sides read different bytes by design (METHOD.md 4.1) and do not compute the same thing (METHOD.md 10): 25 optimizer steps at lr_t 0.4 against 100 at 0.1, grid field against analytic."
+}

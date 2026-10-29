@@ -1,0 +1,153 @@
+{
+  "corpora": {
+    "litpcba": {
+      "disk_gb": 2.7,
+      "query_heavy_atoms_min": 15,
+      "query_heavy_atoms_max": 53,
+      "conformers_requested": 50,
+      "conformer_seed": 65017,
+      "nvmolkit_version": "0.6.0",
+      "rdkit_version": "2026.03.5",
+      "_protocol_source": "results/T65/README.md (protocol: ETKDGv3 + MMFF94s, 50 confs/compound, seed 65017, RDKit 2026.03.5, nvMolKit 0.6.0)"
+    },
+    "d5": {
+      "disk_gb": 63.3,
+      "mean_conformers_per_molecule": 9.48
+    },
+    "3cr": {
+      "disk_gb": 75.2,
+      "query_heavy_atoms": 34,
+      "mean_conformers_per_molecule": 4.98
+    },
+    "_format3_source": "disk_gb is build.json statistics.bytes.total of each format-3 corpus (LIT-PCBA, D5-EXTREME-540M, 3CR) at the T300 benchmark; conformers per molecule is corpus.json n_conf / n_mol"
+  },
+  "systems": {
+    "blackwell": {
+      "cpu": "AMD Ryzen Threadripper PRO 5965WX",
+      "cpu_cores": 24,
+      "ram_gib": 128,
+      "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+      "gpu_memory_gib": 96,
+      "gpu_power_w": 300,
+      "storage": "two 4-TB Crucial T710 NVMe SSDs in RAID0",
+      "label": "RTX PRO 6000 workstation",
+      "cpu_label": "AMD Threadripper PRO 5965WX",
+      "threads": 48,
+      "gpu_label": "RTX PRO 6000 Blackwell Max-Q",
+      "record": "rtx-pro-6000",
+      "storage_label": "2 Crucial T710 NVMe, RAID0",
+      "ram_note": "8 x 16 GiB DIMMs; /proc/meminfo MemTotal reads 125.6 GiB after firmware and kernel reservations"
+    },
+    "volta": {
+      "cpu": "Intel Xeon Platinum 8276",
+      "cpu_cores": 28,
+      "ram_gib": 128,
+      "gpu": "NVIDIA TITAN V",
+      "gpu_memory_gib": 12,
+      "gpu_power_w": 250,
+      "storage": "single local non-RAID NVMe volume",
+      "label": "TITAN V workstation",
+      "cpu_label": "Intel Xeon Platinum 8276 (Cascade Lake)",
+      "threads": 56,
+      "gpu_label": "TITAN V",
+      "record": "titan-v",
+      "storage_label": "1 local NVMe"
+    },
+    "l4": {
+      "label": "L4 cloud VM",
+      "cloud_shape": "GCP g2-standard-16",
+      "cpu": "Intel Xeon @ 2.20GHz",
+      "cpu_label": "Intel Xeon (Cascade Lake)",
+      "cpu_cores": 8,
+      "threads": 16,
+      "ram_gib": 64,
+      "gpu": "NVIDIA L4",
+      "gpu_label": "L4",
+      "gpu_memory_gib": 22.5,
+      "gpu_power_w": 72,
+      "storage": null,
+      "record": "l4"
+    },
+    "c4": {
+      "label": "C4 cloud VM",
+      "cloud_shape": "GCP c4-highcpu-16",
+      "cpu": "Intel Xeon Platinum 8581C",
+      "cpu_label": "Intel Xeon Platinum 8581C (Emerald Rapids)",
+      "cpu_cores": 8,
+      "threads": 16,
+      "ram_gib": 32,
+      "storage": null,
+      "record": "xeon-8581c"
+    },
+    "c4d": {
+      "label": "C4D cloud VM",
+      "cloud_shape": "GCP c4d-highcpu-16",
+      "cpu": "AMD EPYC 9B45",
+      "cpu_label": "AMD EPYC 9B45 (Turin)",
+      "cpu_cores": 8,
+      "threads": 16,
+      "ram_gib": 30,
+      "storage": null,
+      "record": "epyc-turin"
+    },
+    "c4a": {
+      "label": "C4A cloud VM",
+      "cloud_shape": "GCP c4a-highcpu-16",
+      "cpu": "Neoverse-V2",
+      "cpu_label": "Google Axion (Neoverse V2)",
+      "cpu_cores": 16,
+      "threads": 16,
+      "ram_gib": 32,
+      "storage": null,
+      "record": "neoverse-v2"
+    },
+    "m4pro": {
+      "label": "MacBook Pro 14-inch (2024)",
+      "cpu": "Apple M4 Pro",
+      "cpu_label": "Apple M4 Pro (10P + 4E)",
+      "cpu_cores": 14,
+      "threads": 14,
+      "ram_gib": 24,
+      "gpu": "Apple M4 Pro",
+      "gpu_label": "M4 Pro (20-core)",
+      "storage": "internal SSD",
+      "record": "m4-pro-cpu",
+      "storage_label": "internal SSD"
+    }
+  },
+  "profiling": {
+    "analytic_shape": {
+      "registers_per_thread": 96,
+      "active_warps_percent": 16.67,
+      "issue_active_percent": 59.49,
+      "l1tex_throughput_percent": 21.47,
+      "l2_throughput_percent": 12.1
+    },
+    "field_shape": {
+      "registers_per_thread": 64,
+      "active_warps_percent": 46.7,
+      "issue_active_percent": 16.55,
+      "fma_percent": 11.04,
+      "l1tex_throughput_percent": 37.01,
+      "l2_throughput_percent": 70.22
+    },
+    "source": "runs/archive/shape-rescore-combo-cost-t75/results/tables.md"
+  },
+  "_systems_source": "CPU model and thread count, GPU name, memory and power limit are checked against each record's env.json (lscpu, nvidia-smi, system_profiler). RAM is installed (or, for cloud VMs, the GCP machine type's) memory, not the kernel's MemTotal; workstation RAM and storage are as configured.",
+  "systems_order": [
+    "blackwell",
+    "volta",
+    "l4",
+    "c4",
+    "c4d",
+    "c4a",
+    "m4pro"
+  ],
+  "ai_resources": {
+    "claude_plan": "Claude Team Premium",
+    "claude_plan_usd_per_month": 100,
+    "chatgpt_plan": "ChatGPT Business Premium",
+    "chatgpt_plan_usd_per_month": 100,
+    "additional_credit_usd_below": 100
+  }
+}

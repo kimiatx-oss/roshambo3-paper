@@ -1,0 +1,18 @@
+{
+  "started_utc": "2026-10-22T21:42:04Z",
+  "finished_utc": "2026-10-22T21:44:46Z",
+  "taskset_cpus": "0,1,2,3,4,5,6,7",
+  "affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "workers_requested": 8,
+  "flags": "--skip-existing --query-limit 1 --mode rescore --warmups 1 --repeats 3",
+  "driver_sha256": "b579971f1deb50b3a260892a9235ab5d9731cd357c6281bd17cb140c6356b742"
+}

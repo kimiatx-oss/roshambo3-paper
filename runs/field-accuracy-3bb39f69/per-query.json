@@ -1,0 +1,1122 @@
+[
+ {
+  "query_index": 0,
+  "panel_record_index": null,
+  "name": "query-00",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.991,
+   "top100_set": 0.98
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.994,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.996,
+   "top100_set": 0.98
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.996,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.995,
+   "top100_set": 0.98
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.997,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  }
+ },
+ {
+  "query_index": 1,
+  "panel_record_index": null,
+  "name": "query-01",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.997,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.997,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.999,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.998,
+   "top100_set": 0.99
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.998,
+   "top100_set": 0.99
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.998,
+   "top100_set": 0.99
+  }
+ },
+ {
+  "query_index": 2,
+  "panel_record_index": null,
+  "name": "query-02",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.991,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.99,
+   "top100_set": 0.98
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.989,
+   "top100_set": 0.98
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.989,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.988,
+   "top100_set": 0.99
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.997,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  }
+ },
+ {
+  "query_index": 3,
+  "panel_record_index": null,
+  "name": "query-03",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.998,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.995,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.995,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.995,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.994,
+   "top100_set": 0.99
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.996,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.996,
+   "top100_set": 1.0
+  }
+ },
+ {
+  "query_index": 4,
+  "panel_record_index": null,
+  "name": "query-04",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.999,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.999,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.999,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.999,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 1.0,
+   "top100_set": 1.0
+  }
+ },
+ {
+  "query_index": 5,
+  "panel_record_index": null,
+  "name": "query-05",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.995,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.997,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.997,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.998,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.995,
+   "top100_set": 0.99
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.998,
+   "top100_set": 0.99
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.997,
+   "top100_set": 0.99
+  }
+ },
+ {
+  "query_index": 6,
+  "panel_record_index": null,
+  "name": "query-06",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.999,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.997,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.997,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.998,
+   "top100_set": 0.99
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.996,
+   "top100_set": 1.0
+  }
+ },
+ {
+  "query_index": 7,
+  "panel_record_index": null,
+  "name": "query-07",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.997,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.999,
+   "top100_set": 0.98
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.996,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  }
+ },
+ {
+  "query_index": 8,
+  "panel_record_index": null,
+  "name": "query-08",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.999,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.999,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.999,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.999,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.999,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.999,
+   "top100_set": 1.0
+  }
+ },
+ {
+  "query_index": 9,
+  "panel_record_index": null,
+  "name": "query-09",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.997,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.999,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.999,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.995,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.995,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.996,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.996,
+   "top100_set": 1.0
+  }
+ },
+ {
+  "query_index": 10,
+  "panel_record_index": null,
+  "name": "query-10",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.998,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.996,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.996,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.998,
+   "top100_set": 0.99
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.995,
+   "top100_set": 0.99
+  }
+ },
+ {
+  "query_index": 11,
+  "panel_record_index": null,
+  "name": "query-11",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.994,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.995,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.998,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.997,
+   "top100_set": 0.99
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.996,
+   "top100_set": 0.99
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  }
+ },
+ {
+  "query_index": 12,
+  "panel_record_index": null,
+  "name": "query-12",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.999,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.998,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.997,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.996,
+   "top100_set": 0.98
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.999,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.997,
+   "top100_set": 0.99
+  }
+ },
+ {
+  "query_index": 13,
+  "panel_record_index": null,
+  "name": "query-13",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.996,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.997,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.997,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.996,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.996,
+   "top100_set": 0.99
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.997,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.996,
+   "top100_set": 1.0
+  }
+ },
+ {
+  "query_index": 14,
+  "panel_record_index": null,
+  "name": "query-14",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.999,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 1.0,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 1.0,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.995,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.999,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.999,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.998,
+   "top100_set": 0.99
+  }
+ },
+ {
+  "query_index": 15,
+  "panel_record_index": null,
+  "name": "query-15",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.997,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  }
+ },
+ {
+  "query_index": 16,
+  "panel_record_index": null,
+  "name": "query-16",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.999,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.999,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 1.0,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.999,
+   "top100_set": 1.0
+  }
+ },
+ {
+  "query_index": 17,
+  "panel_record_index": null,
+  "name": "query-17",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.993,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.997,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.996,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.998,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.995,
+   "top100_set": 0.99
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.995,
+   "top100_set": 0.99
+  }
+ },
+ {
+  "query_index": 18,
+  "panel_record_index": null,
+  "name": "query-18",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.987,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.986,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.987,
+   "top100_set": 0.98
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.992,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.989,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.993,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.994,
+   "top100_set": 0.99
+  }
+ },
+ {
+  "query_index": 19,
+  "panel_record_index": null,
+  "name": "query-19",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.996,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.997,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.999,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.996,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.997,
+   "top100_set": 0.99
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.999,
+   "top100_set": 1.0
+  }
+ },
+ {
+  "query_index": 20,
+  "panel_record_index": null,
+  "name": "query-20",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.996,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.997,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.996,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.996,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.998,
+   "top100_set": 0.99
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.999,
+   "top100_set": 1.0
+  }
+ },
+ {
+  "query_index": 21,
+  "panel_record_index": null,
+  "name": "query-21",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.991,
+   "top100_set": 0.96
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.991,
+   "top100_set": 0.97
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.993,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.996,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.999,
+   "top100_set": 1.0
+  }
+ },
+ {
+  "query_index": 22,
+  "panel_record_index": null,
+  "name": "query-22",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.994,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.993,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.996,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.999,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.997,
+   "top100_set": 0.99
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.996,
+   "top100_set": 1.0
+  }
+ },
+ {
+  "query_index": 23,
+  "panel_record_index": null,
+  "name": "query-23",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.994,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.989,
+   "top100_set": 0.98
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.994,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.998,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.996,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.998,
+   "top100_set": 0.99
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.998,
+   "top100_set": 0.99
+  }
+ },
+ {
+  "query_index": 24,
+  "panel_record_index": null,
+  "name": "query-24",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.984,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.988,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.988,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.983,
+   "top100_set": 0.97
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.985,
+   "top100_set": 0.99
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.99,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.991,
+   "top100_set": 0.99
+  }
+ },
+ {
+  "query_index": 25,
+  "panel_record_index": null,
+  "name": "query-25",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.992,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.99,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.988,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.986,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.986,
+   "top100_set": 0.99
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.993,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.99,
+   "top100_set": 0.99
+  }
+ },
+ {
+  "query_index": 26,
+  "panel_record_index": null,
+  "name": "query-26",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.995,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.999,
+   "top100_set": 1.0
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.998,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.997,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 1.0,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.997,
+   "top100_set": 0.99
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.994,
+   "top100_set": 1.0
+  }
+ },
+ {
+  "query_index": 27,
+  "panel_record_index": null,
+  "name": "query-27",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.989,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.992,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.993,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.982,
+   "top100_set": 0.96
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.988,
+   "top100_set": 0.97
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.993,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.992,
+   "top100_set": 0.99
+  }
+ },
+ {
+  "query_index": 28,
+  "panel_record_index": null,
+  "name": "query-28",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.991,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.993,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.991,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.994,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.992,
+   "top100_set": 0.99
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.997,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.995,
+   "top100_set": 1.0
+  }
+ },
+ {
+  "query_index": 29,
+  "panel_record_index": null,
+  "name": "query-29",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.99,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.992,
+   "top100_set": 0.97
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.988,
+   "top100_set": 0.97
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.992,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.989,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.998,
+   "top100_set": 0.99
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.995,
+   "top100_set": 1.0
+  }
+ },
+ {
+  "query_index": 30,
+  "panel_record_index": null,
+  "name": "query-30",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.993,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.993,
+   "top100_set": 0.98
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.994,
+   "top100_set": 0.99
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.996,
+   "top100_set": 1.0
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.991,
+   "top100_set": 0.98
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.995,
+   "top100_set": 1.0
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.995,
+   "top100_set": 1.0
+  }
+ },
+ {
+  "query_index": 31,
+  "panel_record_index": null,
+  "name": "query-31",
+  "heavy_atoms": null,
+  "n_real_prepared": null,
+  "t36_format2": {
+   "recall_at_1000": 0.992,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_QADD": {
+   "recall_at_1000": 0.988,
+   "top100_set": 0.99
+  },
+  "first300k/ADAGRAD_EXP": {
+   "recall_at_1000": 0.99,
+   "top100_set": 0.98
+  },
+  "whole_group/ADAGRAD_QADD": {
+   "recall_at_1000": 0.991,
+   "top100_set": 0.98
+  },
+  "whole_group/ADAGRAD_EXP": {
+   "recall_at_1000": 0.995,
+   "top100_set": 0.97
+  },
+  "whole_corpus_top10000/ADAGRAD_EXP": {
+   "recall_at_1000": 0.997,
+   "top100_set": 0.99
+  },
+  "whole_corpus_top10000/ADAGRAD_QADD": {
+   "recall_at_1000": 0.994,
+   "top100_set": 0.98
+  }
+ }
+]

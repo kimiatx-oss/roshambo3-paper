@@ -1,0 +1,27 @@
+{
+  "description": "Values quoted in the agent-development appendix, each transcribed from the cited file of the development repository and emitted as a LaTeX command by scripts/generate_paper_assets.py. Re-verify against the source when the development record is re-exported.",
+  "incidents": [
+    {"command": "StatusDriftCount", "value": "4", "source": "tickets/README.md: ROSHAMBO2 directory and frontmatter status disagreed four times"},
+    {"command": "OneSidedBlocksEdges", "value": "7", "source": "tickets/README.md: blocks edges with no reciprocal depends_on"},
+    {"command": "OneSidedDependsEdges", "value": "41", "source": "tickets/README.md: depends_on edges with no reciprocal blocks"},
+    {"command": "StopRulePlannedOverrunFactor", "value": "129", "source": "results/T145/FINDINGS.md:296: stage C specified ~400 passes, 51,600 planned (129x)"},
+    {"command": "StopRuleExecutedOverrunFactor", "value": "64", "source": "results/T145/FINDINGS.md:296: 25,650 of the 51,600 executed before the stop (64x the ~400 specified)"},
+    {"command": "StopRuleOverrunHours", "value": "82", "source": "tickets/CONVENTIONS.md pitfall 32: for 82 hours of two-GPU time"},
+    {"command": "ReviewToleranceLooseLow", "value": "242", "source": "results/T129/README.md: 242x-12,361x looser per stratum"},
+    {"command": "ReviewToleranceLooseHigh", "value": "12{,}361", "source": "results/T129/README.md: 242x-12,361x looser per stratum"},
+    {"command": "ReviewTorqueScale", "value": "0.625", "source": "tickets/T133-the-optimizer-step-is-a-fifth-of-the-field-kernel.md: torque left at 1/(2h), 0.625x at the shipped spacing"},
+    {"command": "ExpMapRecallGain", "value": "+0.0148", "source": "decisions/D022-ruled-out-with-reasons.md: start_mode 0, 100 steps, exp map minus additive"},
+    {"command": "RegisterShapeSpeedup", "value": "1.318", "source": "results/T77/residency_tiers_analysis.md: REGISTER at cv 0, best MINB, 1.3183x"},
+    {"command": "RegisterColorLow", "value": "0.67", "source": "results/T109/README.md: register_staged at MINB 4, 0.671x"},
+    {"command": "RegisterColorHigh", "value": "0.74", "source": "results/T109/README.md: register at MINB 2, 0.737x"},
+    {"command": "BrokenControlSpeedup", "value": "1.305", "source": "decisions/D020-coalescing-is-banked-once.md: xh tiled, broken control"},
+    {"command": "CorrectedControlSpeedup", "value": "1.001", "source": "decisions/D020-coalescing-is-banked-once.md: xh tiled, corrected"},
+    {"command": "QueryShareOfTexRequestsPercent", "value": "94", "source": "decisions/D009-bottleneck-attribution-method.md: 94% of L1TEX load requests were the query"},
+    {"command": "ImplausibleWorkingSetKB", "value": "400", "source": "results/T122/REVIEW.md: working set ~400 KB"},
+    {"command": "ImplausibleCacheMB", "value": "32", "source": "results/T122/REVIEW.md: against a 32 MB L3"},
+    {"command": "WaiterShellCount", "value": "15", "source": "decisions/D011-long-running-job-protocol.md: T13 accumulated 15 concurrent waiter shells"},
+    {"command": "BlindSleepMaxSeconds", "value": "3{,}000", "source": "decisions/D011-long-running-job-protocol.md: blind sleep up to 3000 s"},
+    {"command": "StaleHeadlineSpeedup", "value": "57.0", "source": "tickets/T114: the published head-to-head 57.0x was stale"},
+    {"command": "StaleHeadlineLandedTickets", "value": "11", "source": "tickets/T114: T85, T86, T87, T92, T93, T97, T105, T106, T107, T109, T111 landed since"}
+  ]
+}

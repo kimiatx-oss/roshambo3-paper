@@ -1,0 +1,318 @@
+id,number,epoch,lane,status,model,model_tier,reviewer,reviewer_tier,created,closed,depends_on,retroactive,reopened
+T01,1,plan,infra,closed,haiku,haiku,,,2026-08-15T21:50:01+00:00,2026-08-15T22:21:05+00:00,,false,false
+T02,2,plan,infra,closed,opus,opus,,,2026-08-15T21:50:01+00:00,2026-08-15T23:35:17+00:00,T01,false,false
+T03,3,plan,infra,closed,opus,opus,,,2026-08-15T21:50:01+00:00,2026-08-16T02:40:35+00:00,T01 T24 T23,false,false
+T04,4,plan,infra,closed,sonnet,sonnet,,,2026-08-15T21:50:01+00:00,2026-08-15T23:23:07+00:00,T01,false,false
+T05,5,plan,data,closed,sonnet,sonnet,,,2026-08-15T21:50:01+00:00,2026-08-15T23:47:47+00:00,T01,false,false
+T06,6,plan,data,closed,sonnet,sonnet,,,2026-08-15T21:50:01+00:00,2026-08-16T00:44:53+00:00,T05,false,false
+T07,7,plan,research,closed,opus,opus,,,2026-08-15T21:50:01+00:00,2026-08-16T05:49:20+00:00,T02 T03 T05 T06 T24,false,false
+T08,8,plan,infra,closed,opus,opus,,,2026-08-15T21:50:01+00:00,2026-08-16T17:57:42+00:00,T04 T07 T24,false,false
+T09,9,plan,data,closed,sonnet,sonnet,,,2026-08-15T21:50:01+00:00,2026-08-16T02:39:24+00:00,T05 T04 T23,false,false
+T10,10,plan,kernel,closed,opus,opus,,,2026-08-15T21:50:01+00:00,2026-08-16T07:45:09+00:00,T04 T09 T23,false,false
+T11,11,plan,host-io,closed,sonnet,sonnet,,,2026-08-15T21:50:01+00:00,2026-08-16T09:18:00+00:00,T04 T03,false,false
+T12,12,plan,data,closed,haiku,haiku,,,2026-08-15T21:50:01+00:00,2026-08-16T03:55:57+00:00,T09 T03 T23,false,false
+T13,13,plan,kernel,closed,opus,opus,,,2026-08-15T21:50:01+00:00,2026-08-16T21:29:39+00:00,T10 T03 T23,false,false
+T14,14,plan,kernel,closed,opus,opus,,,2026-08-15T21:50:01+00:00,2026-08-16T17:34:41+00:00,T10 T09 T23,false,false
+T15,15,plan,kernel,closed,opus,opus,,,2026-08-15T21:50:01+00:00,2026-08-16T22:30:08+00:00,T10 T12 T08,false,false
+T16,16,plan,kernel,closed,sonnet,sonnet,,,2026-08-15T21:50:01+00:00,2026-08-17T15:17:54+00:00,T13 T15 T28 T29 T30,false,false
+T17,17,plan,kernel,closed,opus,opus,,,2026-08-15T21:50:01+00:00,2026-08-17T19:41:06+00:00,T15 T16 T08 T24,false,false
+T18,18,plan,kernel,closed,opus,opus,,,2026-08-15T21:50:01+00:00,2026-08-17T18:57:54+00:00,T17 T08,false,false
+T19,19,plan,data,closed,opus,opus,,,2026-08-15T21:50:01+00:00,2026-08-16T21:08:08+00:00,T12 T08,false,false
+T20,20,plan,host-io,closed,sonnet,sonnet,,,2026-08-15T21:50:01+00:00,2026-08-19T00:35:10+00:00,T09 T11 T19 T32,false,false
+T21,21,plan,research,closed,sonnet,sonnet,,,2026-08-15T21:50:01+00:00,2026-09-09T23:26:24+00:00,T18 T20 T32,false,false
+T22,22,plan,research,open,opus,opus,,,2026-08-15T21:50:01+00:00,,T05 T08,false,false
+T23,23,plan,kernel,closed,opus,opus,,,2026-08-15T23:12:55+00:00,2026-08-16T00:06:53+00:00,T01 T02,false,false
+T24,24,plan,kernel,closed,opus,opus,,,2026-08-15T23:48:58+00:00,2026-08-16T01:02:39+00:00,,false,false
+T25,25,plan,kernel,closed,opus,opus,,,2026-08-16T05:37:32+00:00,2026-08-16T06:53:16+00:00,T03 T24,false,false
+T26,26,plan,infra,closed,sonnet,sonnet,,,2026-08-16T06:36:17+00:00,2026-08-16T14:51:52+00:00,T04,false,false
+T27,27,plan,kernel,closed,opus,opus,,,2026-08-16T21:34:47+00:00,2026-08-17T01:39:08+00:00,T13 T14,false,false
+T28,28,plan,kernel,closed,opus,opus,,,2026-08-17T01:49:12+00:00,2026-08-17T03:12:19+00:00,T15 T27,false,false
+T29,29,plan,kernel,closed,opus,opus,,,2026-08-17T03:31:03+00:00,2026-08-17T06:20:08+00:00,T28,false,false
+T30,30,plan,kernel,closed,opus,opus,,,2026-08-17T15:01:35+00:00,2026-08-17T15:54:54+00:00,T29,false,false
+T31,31,plan,data,closed,opus,opus,,,2026-08-17T15:52:27+00:00,2026-08-17T17:26:45+00:00,T16,false,false
+T32,32,plan,kernel,closed,opus,opus,,,2026-08-17T20:40:36+00:00,2026-08-17T22:24:17+00:00,T17 T18,false,false
+T33,33,plan,kernel,closed,opus,opus,,,2026-08-17T21:22:18+00:00,2026-08-18T22:23:59+00:00,T32,false,false
+T34,34,plan,kernel,closed,opus,opus,,,2026-08-18T22:43:56+00:00,2026-08-18T23:44:45+00:00,T33,false,false
+T35,35,plan,kernel,closed,opus,opus,,,2026-08-19T01:03:04+00:00,2026-08-19T02:35:16+00:00,T34,false,false
+T36,36,plan,kernel,closed,opus,opus,,,2026-08-19T02:42:28+00:00,2026-08-19T05:46:04+00:00,T34 T35 T20,false,false
+T37,37,plan,kernel,closed,opus,opus,,,2026-08-19T03:05:08+00:00,2026-08-19T06:09:48+00:00,T35,false,false
+T38,38,plan,kernel,closed,opus,opus,,,2026-08-19T05:53:21+00:00,2026-08-19T07:39:39+00:00,T35 T37,false,false
+T39,39,plan,kernel,closed,sonnet,sonnet,,,2026-08-19T05:53:21+00:00,2026-09-09T23:26:24+00:00,,false,false
+T40,40,plan,kernel,closed,opus,opus,,,2026-08-19T05:53:48+00:00,2026-09-09T23:26:24+00:00,T34 T35 T45,false,false
+T41,41,plan,kernel,closed,sonnet,sonnet,,,2026-08-19T05:53:48+00:00,2026-09-09T23:26:24+00:00,T35 T36,false,false
+T42,42,plan,accuracy,open,opus,opus,,,2026-08-19T05:54:19+00:00,,T36,false,false
+T43,43,plan,host-io,closed,sonnet,sonnet,,,2026-08-19T05:54:19+00:00,2026-09-09T23:26:24+00:00,T20 T36,false,false
+T44,44,plan,host-io,closed,opus,opus,,,2026-08-19T05:55:14+00:00,2026-08-19T22:17:52+00:00,T36,false,false
+T45,45,plan,kernel,closed,opus,opus,,,2026-08-19T06:11:22+00:00,2026-08-28T00:18:32+00:00,T36,false,false
+T46,46,plan,infra,closed,opus,opus,,,2026-08-19T14:47:54+00:00,2026-08-19T18:19:52+00:00,T02 T07 T08 T20 T36 T38 T44,false,false
+T47,47,plan,host-io,closed,opus,opus,,,2026-08-19T22:53:41+00:00,2026-09-07T15:12:24+00:00,T44 T46,false,false
+T48,48,plan,kernel,open,opus,opus,,,2026-08-19T22:54:17+00:00,,T19 T47 T51,false,false
+T49,49,gpu,data,closed,sonnet,sonnet,,,2026-08-20T14:20:53+00:00,2026-08-21T05:53:59+00:00,,false,false
+T50,50,gpu,data,closed,haiku,haiku,,,2026-08-20T14:20:53+00:00,2026-08-21T05:25:02+00:00,,false,false
+T51,51,gpu,data,closed,sonnet,sonnet,,,2026-08-20T14:20:53+00:00,2026-09-02T08:17:23+00:00,,false,false
+T52,52,gpu,infra,closed,haiku,haiku,,,2026-08-20T14:20:53+00:00,2026-09-02T07:47:21+00:00,,false,false
+T53,53,gpu,host-io,closed,sonnet,sonnet,,,2026-08-20T15:06:15+00:00,2026-08-28T05:17:30+00:00,,false,false
+T54,54,gpu,data,closed,sonnet,sonnet,,,2026-08-20T15:06:15+00:00,2026-08-28T00:18:32+00:00,T58 T72,false,false
+T55,55,gpu,kernel,open,opus,opus,,,2026-08-20T15:16:29+00:00,,T54,false,false
+T56,56,gpu,research,open,opus,opus,,,2026-08-20T16:18:42+00:00,,,false,false
+T57,57,gpu,kernel,closed,opus,opus,,,2026-08-20T23:01:10+00:00,2026-08-28T00:18:32+00:00,,false,false
+T58,58,gpu,kernel,closed,opus,opus,,,2026-08-20T23:01:10+00:00,2026-08-28T00:18:32+00:00,,false,false
+T59,59,gpu,research,open,opus,opus,,,2026-08-20T23:01:10+00:00,,T54 T58,false,false
+T60,60,gpu,infra,closed,opus,opus,,,2026-08-20T23:01:10+00:00,2026-08-20T23:01:10+00:00,,false,false
+T61,61,gpu,host-io,open,sonnet,sonnet,,,2026-08-20T23:01:10+00:00,,,false,false
+T62,62,gpu,infra,closed,sonnet,sonnet,,,2026-08-21T00:15:34+00:00,2026-09-02T08:00:07+00:00,,false,false
+T63,63,gpu,kernel,closed,opus,opus,,,2026-08-21T00:18:04+00:00,2026-08-28T00:18:32+00:00,T54 T72,false,false
+T64,64,gpu,infra,closed,opus,opus,,,2026-08-21T02:02:47+00:00,2026-08-28T00:18:32+00:00,,false,false
+T65,65,gpu,data,closed,sonnet,sonnet,,,2026-08-21T02:02:47+00:00,2026-08-21T14:45:04+00:00,,false,false
+T66,66,gpu,accuracy,closed,opus,opus,,,2026-08-21T02:02:47+00:00,2026-08-27T01:07:39+00:00,T57 T64 T65,false,false
+T67,67,gpu,accuracy,closed,opus,opus,,,2026-08-21T02:02:47+00:00,2026-08-28T00:18:32+00:00,T57 T64 T65,false,false
+T68,68,gpu,accuracy,closed,opus,opus,,,2026-08-21T02:02:47+00:00,2026-08-28T00:18:32+00:00,T65,false,false
+T69,69,gpu,infra,closed,sonnet,sonnet,,,2026-08-21T02:02:47+00:00,2026-09-09T05:36:31+00:00,,false,false
+T70,70,gpu,research,open,opus,opus,,,2026-08-21T02:02:47+00:00,,,false,false
+T71,71,gpu,accuracy,closed,opus,opus,,,2026-08-21T02:02:47+00:00,2026-08-27T01:07:39+00:00,T63 T67,false,false
+T72,72,gpu,kernel,closed,opus,opus,,,2026-08-21T04:37:27+00:00,2026-08-26T18:30:49+00:00,,false,false
+T73,73,gpu,infra,closed,sonnet,sonnet,,,2026-08-21T04:37:27+00:00,2026-08-21T05:22:57+00:00,,false,false
+T74,74,gpu,kernel,closed,opus,opus,,,2026-08-21T07:39:36+00:00,2026-09-09T23:26:24+00:00,T45,false,false
+T75,75,gpu,kernel,closed,opus,opus,,,2026-08-21T19:32:47+00:00,2026-08-26T18:30:49+00:00,T63 T67,false,false
+T76,76,gpu,kernel,closed,sonnet,sonnet,,,2026-08-21T23:15:40+00:00,2026-08-28T05:17:30+00:00,T54 T75,false,false
+T77,77,gpu,kernel,closed,opus,opus,,,2026-08-21T23:15:40+00:00,2026-08-26T18:30:49+00:00,T38,false,false
+T78,78,gpu,kernel,closed,opus,opus,,,2026-08-21T23:15:40+00:00,2026-08-28T00:18:32+00:00,T77 T81,false,false
+T79,79,gpu,kernel,closed,opus,opus,,,2026-08-21T23:15:40+00:00,2026-08-28T05:17:30+00:00,T78,false,false
+T80,80,gpu,kernel,closed,opus,opus,,,2026-08-21T23:15:40+00:00,2026-08-22T04:13:56+00:00,T78 T79,false,false
+T81,81,gpu,kernel,closed,opus,opus,,,2026-08-22T01:57:00+00:00,2026-08-28T00:18:32+00:00,T45 T77,false,false
+T82,82,gpu,data,closed,codex,sonnet,,,2026-08-24T21:10:01+00:00,2026-08-26T22:24:28+00:00,T54 T65,false,false
+T83,83,gpu,host-io,closed,opus,opus,,,2026-08-26T17:23:07+00:00,2026-08-26T22:24:28+00:00,T47 T68 T78,false,false
+T84,84,gpu,data,closed,opus,opus,,,2026-08-26T17:23:07+00:00,2026-08-26T22:24:28+00:00,T65 T82,false,false
+T85,85,gpu,host-io,closed,opus,opus,,,2026-08-26T18:29:19+00:00,2026-08-26T22:24:28+00:00,T20 T47 T83,false,false
+T86,86,gpu,kernel,closed,opus,opus,,,2026-08-26T20:37:56+00:00,2026-08-26T22:22:23+00:00,T63 T72 T83 T85,false,false
+T87,87,gpu,kernel,closed,opus,opus,,,2026-08-26T22:35:57+00:00,2026-08-28T00:18:32+00:00,T27 T63 T86,false,false
+T88,88,gpu,data,closed,opus,opus,,,2026-08-27T02:48:54+00:00,2026-08-27T15:02:53+00:00,T86 T87,false,false
+T89,89,gpu,kernel,closed,opus,opus,,,2026-08-27T02:48:54+00:00,2026-08-27T07:33:12+00:00,T87,false,false
+T90,90,gpu,accuracy,closed,opus,opus,,,2026-08-26T18:27:48+00:00,2026-08-27T00:17:30+00:00,T19 T63 T75 T78,false,false
+T91,91,gpu,accuracy,closed,opus,opus,,,2026-08-27T13:47:23+00:00,2026-08-27T15:06:11+00:00,T66 T71 T82 T84 T93,false,false
+T92,92,gpu,kernel,closed,sonnet,sonnet,,,2026-08-26T23:03:35+00:00,2026-08-27T03:55:33+00:00,,false,false
+T93,93,gpu,kernel,closed,sonnet,sonnet,,,2026-08-27T00:36:05+00:00,2026-08-27T05:53:35+00:00,,false,false
+T95,95,gpu,kernel,closed,opus,opus,,,2026-08-27T01:40:22+00:00,2026-08-27T03:34:59+00:00,T85 T86 T87 T90,false,false
+T96,96,gpu,kernel,closed,opus,opus,,,2026-08-27T02:25:27+00:00,2026-08-27T03:55:33+00:00,T78 T87,false,false
+T97,97,gpu,kernel,closed,opus,opus,,,2026-08-27T02:48:54+00:00,2026-08-27T05:28:43+00:00,T86 T92,false,true
+T98,98,gpu,kernel,open,opus,opus,,,2026-08-27T03:16:13+00:00,,T92,false,false
+T99,99,gpu,infra,closed,sonnet,sonnet,,,2026-08-27T04:47:49+00:00,2026-08-28T01:01:38+00:00,T96 T97,false,false
+T100,100,gpu,kernel,closed,opus,opus,,,2026-08-27T04:51:17+00:00,2026-08-27T23:58:32+00:00,T96,false,false
+T101,101,gpu,kernel,closed,opus,opus,,,2026-08-27T06:15:07+00:00,2026-08-27T13:29:54+00:00,T87 T93,false,false
+T102,102,gpu,harness,closed,sonnet,sonnet,,,2026-08-27T15:02:53+00:00,2026-08-28T01:01:38+00:00,T85 T88,false,false
+T103,103,gpu,accuracy,closed,opus,opus,,,2026-08-27T15:06:49+00:00,2026-08-27T15:49:24+00:00,T66 T71 T82 T84 T91,false,false
+T104,104,gpu,accuracy,closed,opus,opus,,,2026-08-27T15:59:48+00:00,2026-08-27T17:09:30+00:00,T67 T71 T90 T103,false,false
+T105,105,gpu,kernel,closed,opus,opus,,,2026-08-27T21:39:47+00:00,2026-08-28T04:47:05+00:00,T88 T97 T100,false,false
+T106,106,gpu,kernel,closed,opus,opus,,,2026-08-28T01:36:45+00:00,2026-08-28T04:47:05+00:00,T97 T100 T105,false,false
+T107,107,gpu,kernel,closed,opus,opus,,,2026-08-28T05:13:27+00:00,2026-08-28T06:28:04+00:00,T97 T106,false,false
+T108,108,gpu,kernel,open,opus,opus,,,2026-08-28T05:17:30+00:00,,T76 T79 T106,false,false
+T109,109,gpu,kernel,closed,opus,opus,,,2026-08-28T05:26:22+00:00,2026-08-28T08:20:34+00:00,T77 T78 T106 T107,false,false
+T110,110,gpu,kernel,closed,opus,opus,,,2026-08-28T07:04:14+00:00,2026-09-09T23:26:24+00:00,T77 T78 T97 T105 T106 T107 T109,false,false
+T111,111,gpu,kernel,closed,opus,opus,,,2026-08-28T07:05:00+00:00,2026-08-28T09:36:42+00:00,T96 T100 T107,false,false
+T112,112,gpu,infra,closed,sonnet,sonnet,,,2026-08-28T07:10:17+00:00,2026-09-02T08:10:40+00:00,T100 T111,false,false
+T113,113,gpu,data,closed,sonnet,sonnet,,,2026-08-28T07:31:30+00:00,2026-08-28T21:13:17+00:00,,false,false
+T114,114,gpu,host-io,closed,opus,opus,,,2026-08-28T10:03:35+00:00,2026-08-28T17:29:32+00:00,T101 T104 T107 T109 T111,false,false
+T115,115,gpu,data,closed,opus,opus,,,2026-08-28T17:32:05+00:00,2026-10-17T22:01:27+00:00,T106 T114,false,false
+T116,116,gpu,kernel,closed,opus,opus,,,2026-08-29T06:57:32+00:00,2026-08-29T08:47:24+00:00,T36 T66 T78 T104 T114,false,false
+T117,117,cpu-port,infra,closed,sonnet,sonnet,opus,opus,2026-09-02T07:35:59+00:00,2026-09-02T08:33:24+00:00,,false,false
+T118,118,cpu-port,infra,closed,opus,opus,fable,fable,2026-09-02T07:35:59+00:00,2026-09-02T08:45:58+00:00,T52,false,false
+T119,119,cpu-port,kernel,closed,opus,opus,fable,fable,2026-09-02T07:35:59+00:00,2026-09-02T14:21:20+00:00,T117 T118,false,false
+T120,120,cpu-port,research,closed,fable,fable,opus,opus,2026-09-02T07:35:59+00:00,2026-09-02T21:21:09+00:00,T119,false,false
+T121,121,cpu-port,kernel,closed,opus,opus,fable,fable,2026-09-02T07:35:59+00:00,2026-09-02T22:41:14+00:00,T119,false,false
+T122,122,cpu-port,kernel,closed,opus,opus,fable,fable,2026-09-02T07:35:59+00:00,2026-09-03T06:25:33+00:00,T119 T121,false,false
+T123,123,cpu-port,kernel,closed,opus,opus,fable,fable,2026-09-02T07:35:59+00:00,2026-09-03T18:16:11+00:00,T122,false,false
+T124,124,cpu-port,kernel,closed,opus,opus,fable,fable,2026-09-02T07:35:59+00:00,2026-09-04T20:57:42+00:00,T120 T121 T122,false,false
+T125,125,cpu-port,host-io,closed,sonnet,sonnet,opus,opus,2026-09-02T07:35:59+00:00,2026-09-05T21:08:15+00:00,T122,false,false
+T126,126,cpu-port,research,open,opus,opus,fable,fable,2026-09-02T07:35:59+00:00,,T123 T124 T125,false,false
+T127,127,cpu-port,data,closed,opus,opus,fable,fable,2026-09-02T08:17:23+00:00,2026-09-07T19:35:21+00:00,T51,false,false
+T128,128,cpu-port,infra,closed,opus,opus,fable,fable,2026-09-02T14:33:10+00:00,2026-10-16T02:21:03+00:00,,false,false
+T129,129,cpu-port,infra,closed,opus,opus,fable,fable,2026-09-02T15:53:04+00:00,2026-09-03T01:30:12+00:00,,false,false
+T130,130,cpu-port,kernel,open,opus,opus,fable,fable,2026-09-03T16:35:10+00:00,,T123,false,false
+T131,131,cpu-port,infra,closed,opus,opus,fable,fable,2026-09-03T18:38:11+00:00,2026-09-03T20:36:51+00:00,T118 T119 T129,false,false
+T132,132,cpu-port,kernel,open,opus,opus,fable,fable,2026-09-03T21:01:59+00:00,,T124,false,false
+T133,133,cpu-port,kernel,closed,opus,opus,fable,fable,2026-09-04T14:19:46+00:00,2026-09-07T06:31:26+00:00,T124,false,false
+T134,134,cpu-port,kernel,open,opus,opus,fable,fable,2026-09-04T14:19:46+00:00,,T124,false,false
+T135,135,cpu-port,infra,closed,opus,opus,fable,fable,2026-09-04T14:26:03+00:00,2026-09-05T23:21:15+00:00,T118 T131,false,true
+T136,136,cpu-port,kernel,closed,opus,opus,fable,fable,2026-09-04T14:26:03+00:00,2026-09-07T14:48:34+00:00,T124,false,false
+T137,137,cpu-port,kernel,open,opus,opus,fable,fable,2026-09-04T14:26:03+00:00,,T124 T138,false,false
+T138,138,cpu-port,kernel,closed,opus,opus,fable,fable,2026-09-04T18:17:26+00:00,2026-09-05T06:04:25+00:00,T124,false,false
+T139,139,cpu-port,infra,closed,opus,opus,fable,fable,2026-09-04T21:25:48+00:00,2026-09-06T14:12:32+00:00,T138,false,false
+T140,140,cpu-port,kernel,open,opus,opus,fable,fable,2026-09-04T22:23:42+00:00,,T138,false,false
+T141,141,cpu-port,infra,closed,opus,opus,fable,fable,2026-09-06T00:59:03+00:00,2026-09-27T07:45:58+00:00,T135,false,false
+T142,142,cpu-port,host-io,open,opus,opus,fable,fable,2026-09-06T03:26:20+00:00,,T123 T125,false,false
+T143,143,cpu-port,infra,closed,opus,opus,fable,fable,2026-09-06T14:12:32+00:00,2026-10-17T22:01:27+00:00,T139,false,false
+T144,144,cpu-port,kernel,open,opus,opus,fable,fable,2026-09-06T23:48:56+00:00,,T142,false,false
+T145,145,cpu-port,research,closed,sonnet,sonnet,opus,opus,2026-09-06T23:48:15+00:00,2026-09-12T03:23:12+00:00,T144,false,false
+T146,146,cpu-port,infra,closed,sonnet,sonnet,opus,opus,2026-09-07T03:07:39+00:00,2026-09-09T22:53:40+00:00,T122,false,false
+T147,147,cpu-port,kernel,closed,opus,opus,fable,fable,2026-09-07T06:22:09+00:00,2026-09-27T06:00:50+00:00,T133 T136,false,false
+T148,148,cpu-port,kernel,open,opus,opus,fable,fable,2026-09-07T06:55:15+00:00,,T133,false,false
+T149,149,cpu-port,infra,open,sonnet,sonnet,opus,opus,2026-09-07T14:32:53+00:00,,T136,false,false
+T150,150,cpu-port,host-io,closed,opus,opus,fable,fable,2026-09-07T15:12:24+00:00,2026-10-17T22:01:27+00:00,T47 T85 T58 T63,false,false
+T151,151,cpu-port,infra,closed,sonnet,sonnet,opus,opus,2026-09-07T16:06:42+00:00,2026-09-26T14:10:51+00:00,T69,false,false
+T152,152,cpu-port,kernel,closed,sonnet,sonnet,opus,opus,2026-09-07T19:04:23+00:00,2026-09-27T07:47:52+00:00,T127,false,false
+T153,153,cpu-color,infra,closed,astra,fable,sol,opus,2026-09-09T05:37:17+00:00,2026-09-12T05:51:16+00:00,T129,false,false
+T154,154,cpu-color,infra,closed,terra,sonnet,astra,fable,2026-09-09T05:37:17+00:00,2026-09-12T15:34:11+00:00,T146 T153,false,false
+T155,155,cpu-color,kernel,closed,sol,opus,astra,fable,2026-09-09T05:37:17+00:00,2026-09-27T09:12:11+00:00,T154,false,false
+T156,156,cpu-color,kernel,closed,astra,fable,sol,opus,2026-09-09T05:37:17+00:00,2026-09-27T06:18:29+00:00,T155,false,false
+T157,157,cpu-color,research,open,astra,fable,sol,opus,2026-09-09T05:37:17+00:00,,T145 T153,false,false
+T158,158,cpu-color,kernel,closed,luna,haiku,sol,opus,2026-09-09T05:37:17+00:00,2026-10-10T05:24:16+00:00,T146 T156,false,false
+T159,159,cpu-color,kernel,closed,luna,haiku,sol,opus,2026-09-09T05:37:17+00:00,2026-10-10T05:24:16+00:00,T124 T156,false,false
+T160,160,cpu-color,kernel,open,sol,opus,astra,fable,2026-09-09T05:37:17+00:00,,T158 T159,false,false
+T161,161,cpu-color,host-io,open,sol,opus,astra,fable,2026-09-09T05:37:17+00:00,,T125 T158 T159,false,false
+T162,162,cpu-color,research,open,luna,haiku,sol,opus,2026-09-09T05:37:17+00:00,,T158 T159 T179,false,false
+T163,163,cpu-color,research,open,astra,fable,sol,opus,2026-09-09T05:37:17+00:00,,T155,false,false
+T164,164,cpu-color,host-io,open,terra,sonnet,astra,fable,2026-09-09T05:37:17+00:00,,T140 T162 T163,false,false
+T165,165,cpu-color,research,open,astra,fable,sol,opus,2026-09-09T05:37:17+00:00,,T130 T142 T156 T157,false,false
+T166,166,cpu-color,kernel,open,sol,opus,astra,fable,2026-09-09T05:37:17+00:00,,T162 T165,false,false
+T167,167,cpu-color,infra,closed,sol,opus,astra,fable,2026-09-09T05:37:17+00:00,2026-10-10T05:24:16+00:00,T115 T147 T149 T162 T164,false,false
+T168,168,cpu-color,research,open,astra,fable,sol,opus,2026-09-09T05:37:17+00:00,,T126 T157 T166 T167,false,false
+T169,169,divergence,kernel,closed,opus,opus,opus,opus,2026-09-09T04:21:24+00:00,2026-09-09T22:00:56+00:00,T02,false,false
+T170,170,divergence,kernel,open,opus,opus,fable,fable,2026-09-09T23:26:24+00:00,,,false,false
+T171,171,divergence,research,claimed,sonnet,sonnet,opus,opus,2026-09-12T00:15:06+00:00,,T145,false,false
+T172,172,divergence,research,open,opus,opus,fable,fable,2026-09-12T00:15:06+00:00,,T145,false,false
+T173,173,divergence,infra,open,opus,opus,fable,fable,2026-09-12T00:15:06+00:00,,T171,false,false
+T174,174,divergence,kernel,open,opus,opus,fable,fable,2026-09-12T00:15:06+00:00,,T171 T173,false,false
+T175,175,divergence,infra,closed,opus,opus,,,2026-10-04T06:13:34+00:00,2026-10-04T16:19:28+00:00,,false,false
+T176,176,divergence,data,closed,opus,opus,,,2026-10-04T06:13:34+00:00,2026-10-04T16:19:28+00:00,,false,false
+T177,177,divergence,data,closed,opus,opus,,,2026-10-04T06:27:29+00:00,2026-10-04T16:22:28+00:00,,false,false
+T178,178,cpu-combo,research,open,sol,opus,astra,fable,2026-10-05T03:22:00+00:00,,T28 T124 T153 T155 T156,false,false
+T179,179,cpu-combo,research,closed,luna,haiku,sol,opus,2026-10-05T21:57:10+00:00,2026-10-06T14:53:06+00:00,T153 T154 T156,false,false
+T180,180,cpu-combo,kernel,closed,luna,haiku,sol,opus,2026-10-06T03:23:41+00:00,2026-10-10T05:24:16+00:00,T146 T153 T154 T156,false,false
+T181,181,cpu-combo,kernel,closed,luna,haiku,sol,opus,2026-10-06T13:50:23+00:00,2026-10-06T15:48:37+00:00,T146 T153 T154 T156,false,false
+T182,182,cpu-combo,kernel,closed,luna,haiku,sol,opus,2026-10-06T17:53:28+00:00,2026-10-10T05:24:16+00:00,T146 T153 T154 T156 T181,false,false
+T183,183,cpu-combo,research,closed,luna,haiku,sol,opus,2026-10-06T17:53:28+00:00,2026-10-10T05:24:16+00:00,T146 T153 T154 T156 T181,false,false
+T184,184,cpu-combo,kernel,closed,luna,haiku,sol,opus,2026-10-06T21:25:27+00:00,2026-10-10T05:24:16+00:00,T122 T124 T146 T153 T156 T181,false,false
+T185,185,cpu-combo,kernel,closed,luna,haiku,sol,opus,2026-10-06T21:25:27+00:00,2026-10-10T05:24:16+00:00,T122 T124 T146 T153 T156 T181,false,false
+T186,186,cpu-combo,host-io,closed,luna,haiku,sol,opus,2026-10-07T01:11:06+00:00,2026-10-09T14:50:45+00:00,T125 T146 T153,false,false
+T187,187,cpu-combo,research,closed,luna,haiku,sol,opus,2026-10-07T01:11:06+00:00,2026-10-10T05:24:16+00:00,T118 T153,false,false
+T188,188,cpu-combo,kernel,closed,luna,haiku,sol,opus,2026-10-07T01:11:06+00:00,2026-10-07T18:50:12+00:00,T146 T153,false,false
+T189,189,cpu-combo,kernel,closed,luna,haiku,sol,opus,2026-10-07T01:11:06+00:00,2026-10-08T04:59:59+00:00,T193 T194,false,false
+T190,190,cpu-combo,host-io,closed,luna,haiku,sol,opus,2026-10-07T04:44:01+00:00,2026-10-10T05:24:16+00:00,T125 T146 T153,false,false
+T191,191,cpu-combo,kernel,closed,luna,haiku,sol,opus,2026-10-07T15:31:38+00:00,2026-10-07T18:50:12+00:00,T146 T153,false,false
+T192,192,cpu-combo,kernel,closed,luna,haiku,sol,opus,2026-10-07T15:34:03+00:00,2026-10-07T18:50:12+00:00,T146 T153,false,false
+T193,193,cpu-combo,kernel,closed,luna,haiku,sol,opus,2026-10-07T19:47:59+00:00,2026-10-07T21:08:28+00:00,T191 T153,false,false
+T194,194,cpu-combo,kernel,closed,luna,haiku,sol,opus,2026-10-07T21:31:35+00:00,2026-10-07T23:21:04+00:00,T193 T181,false,false
+T195,195,cpu-combo,research,closed,luna,haiku,sol,opus,2026-10-07T21:31:35+00:00,2026-10-10T05:24:16+00:00,T193 T194,false,false
+T196,196,cpu-combo,kernel,closed,luna,haiku,sol,opus,2026-10-08T00:45:45+00:00,2026-10-08T04:53:10+00:00,T193 T194,false,false
+T197,197,cpu-combo,host-io,closed,luna,haiku,sol,opus,2026-10-08T00:45:45+00:00,2026-10-08T05:20:02+00:00,T193 T194,false,false
+T198,198,cpu-combo,research,closed,luna,haiku,sol,opus,2026-10-08T00:45:45+00:00,2026-10-08T05:21:44+00:00,T193 T194,false,false
+T199,199,cpu-combo,kernel,closed,luna,haiku,sol,opus,2026-10-08T14:14:43+00:00,2026-10-08T15:24:36+00:00,T196,false,false
+T200,200,cpu-combo,research,closed,luna,haiku,sol,opus,2026-10-08T18:16:50+00:00,2026-10-08T19:00:42+00:00,T199,false,false
+T201,201,cpu-combo,host-io,closed,luna,haiku,sol,opus,2026-10-08T18:16:50+00:00,2026-10-08T18:45:29+00:00,T199,false,false
+T202,202,cpu-combo,host-io,closed,luna,haiku,sol,opus,2026-10-08T18:16:50+00:00,2026-10-08T18:55:28+00:00,T199,false,false
+T203,203,cpu-combo,research,closed,sol,opus,sol,opus,2026-10-08T19:23:08+00:00,2026-10-08T21:43:25+00:00,T200,false,false
+T204,204,cpu-combo,kernel,closed,luna,haiku,sol,opus,2026-10-08T19:50:35+00:00,2026-10-10T05:24:16+00:00,T200 T203,false,false
+T205,205,cpu-combo,host-io,closed,luna,haiku,sol,opus,2026-10-08T21:34:32+00:00,2026-10-10T05:24:16+00:00,T204,false,false
+T206,206,cpu-combo,host-io,closed,luna,haiku,sol,opus,2026-10-08T21:34:32+00:00,2026-10-10T05:24:16+00:00,T205,false,false
+T207,207,cpu-combo,host-io,closed,luna,haiku,sol,opus,2026-10-08T21:34:32+00:00,2026-10-10T05:24:16+00:00,T204 T205 T206,false,false
+T208,208,cpu-combo,data,open,sol,opus,astra,fable,2026-10-09T03:58:18+00:00,,,false,false
+T209,209,cpu-combo,infra,closed,sol,opus,sol,opus,2026-10-09T16:05:29+00:00,2026-10-09T16:31:06+00:00,T207,false,false
+T210,210,cpu-combo,research,closed,luna,haiku,sol,opus,2026-10-09T17:33:25+00:00,2026-10-10T05:24:16+00:00,T209,false,false
+T211,211,cpu-combo,research,closed,sol,opus,sol,opus,2026-10-09T21:55:09+00:00,2026-10-09T22:52:02+00:00,T210,false,false
+T212,212,cpu-combo,implementation,closed,sol,opus,sol,opus,2026-10-09T22:44:58+00:00,2026-10-09T22:57:17+00:00,T167 T211,false,false
+T213,213,cpu-combo,research,open,luna,haiku,sol,opus,2026-10-09T23:19:45+00:00,,T211 T212,false,false
+T214,214,cpu-combo,kernel,closed,luna,haiku,sol,opus,2026-10-09T23:19:45+00:00,2026-10-10T05:24:16+00:00,T212,false,false
+T215,215,cpu-combo,kernel,closed,sol,opus,sol,opus,2026-10-09T23:19:45+00:00,2026-10-10T05:24:16+00:00,T212,false,false
+T216,216,cpu-combo,kernel,closed,sol,opus,sol,opus,2026-10-09T23:19:45+00:00,2026-10-10T05:24:16+00:00,T212,false,false
+T217,217,cpu-combo,kernel,open,luna,haiku,sol,opus,2026-10-09T23:19:45+00:00,,T212,false,false
+T218,218,cpu-combo,kernel,closed,sol,opus,sol,opus,2026-10-09T23:19:45+00:00,2026-10-10T04:15:50+00:00,T213 T214 T215 T216 T217 T219,false,false
+T219,219,cpu-combo,implementation,closed,sol,opus,sol,opus,2026-10-10T02:16:55+00:00,2026-10-10T02:34:41+00:00,T211 T212,false,false
+T220,220,cpu-combo,integration,closed,sol,opus,sol,opus,2026-10-10T05:01:00+00:00,2026-10-10T05:09:44+00:00,T219 T216,false,false
+T221,221,cpu-combo,research,open,sol,opus,sol,opus,2026-10-10T05:24:16+00:00,,T205 T206 T207 T210 T214 T215 T220,false,false
+T222,222,cpu-combo,research,claimed,luna,haiku,sol,opus,2026-10-10T14:47:37+00:00,,T220,false,false
+T223,223,cpu-combo,kernel,claimed,luna,haiku,sol,opus,2026-10-10T14:47:37+00:00,,T218 T220,false,false
+T224,224,cpu-combo,kernel,closed,luna,haiku,sol,opus,2026-10-10T14:47:37+00:00,2026-10-10T22:10:31+00:00,T222 T220,false,false
+T225,225,native,kernel,closed,sol,opus,sol,opus,2026-10-10T14:47:37+00:00,2026-10-10T20:01:17+00:00,T220,false,false
+T226,226,native,kernel,closed,sol,opus,sol,opus,2026-10-10T19:27:22+00:00,2026-10-10T20:01:17+00:00,T225 T220,false,false
+T227,227,native,research,closed,luna,haiku,sol,opus,2026-10-10T20:48:34+00:00,2026-10-10T22:10:31+00:00,T225 T226,false,false
+T228,228,native,research,closed,luna,haiku,sol,opus,2026-10-10T21:56:24+00:00,2026-10-11T00:07:59+00:00,T224 T226 T227,false,false
+T229,229,native,kernel,closed,luna,haiku,sol,opus,2026-10-11T00:07:59+00:00,2026-10-11T03:52:58+00:00,T228,false,false
+T230,230,native,kernel,closed,luna,haiku,sol,opus,2026-10-11T00:07:59+00:00,2026-10-11T06:34:34+00:00,T229,false,false
+T231,231,native,kernel,closed,sol,opus,astra,fable,2026-10-11T00:07:59+00:00,2026-10-12T06:33:36+00:00,T230,false,false
+T232,232,native,kernel,closed,luna,haiku,sol,opus,2026-10-11T00:07:59+00:00,2026-10-11T02:57:52+00:00,T228,false,false
+T233,233,native,kernel,closed,luna,haiku,sol,opus,2026-10-11T00:07:59+00:00,2026-10-11T01:25:43+00:00,T228,false,false
+T234,234,native,kernel,open,luna,haiku,sol,opus,2026-10-11T03:57:36+00:00,,T230,false,false
+T235,235,native,kernel,open,luna,haiku,sol,opus,2026-10-11T06:34:34+00:00,,T230,false,false
+T236,236,native,kernel,closed,luna,haiku,sol,opus,2026-10-11T06:42:10+00:00,2026-10-11T23:40:56+00:00,T230,false,false
+T237,237,native,kernel,closed,sol,opus,astra,fable,2026-10-11T14:50:30+00:00,2026-10-11T23:40:56+00:00,T230,false,false
+T238,238,native,kernel,closed,sol,opus,astra,fable,2026-10-11T22:00:12+00:00,2026-10-11T23:40:56+00:00,T230,false,false
+T239,239,native,kernel,closed,sol,opus,astra,fable,2026-10-11T21:15:08+00:00,2026-10-11T23:40:56+00:00,T230,false,false
+T240,240,native,kernel,closed,sol,opus,astra,fable,2026-10-11T23:39:05+00:00,2026-10-12T00:03:46+00:00,T238 T239,false,false
+T241,241,native,kernel,closed,sol,opus,astra,fable,2026-10-12T00:45:43+00:00,2026-10-12T03:48:35+00:00,T240,false,false
+T242,242,native,kernel,closed,sol,opus,astra,fable,2026-10-12T00:45:43+00:00,2026-10-12T03:48:35+00:00,T240,false,false
+T243,243,native,kernel,closed,sol,opus,astra,fable,2026-10-12T04:58:40+00:00,2026-10-12T06:33:36+00:00,T238 T240 T241,false,false
+T244,244,native,kernel,closed,sol,opus,astra,fable,2026-10-12T06:50:06+00:00,2026-10-12T16:59:37+00:00,T231 T243,false,true
+T245,245,native,kernel,open,sol,opus,astra,fable,2026-10-12T15:33:14+00:00,,T231 T243,false,false
+T246,246,native,research,open,astra,fable,sol,opus,2026-10-12T16:52:16+00:00,,T231 T243,false,false
+T247,247,native,kernel,closed,sol,opus,astra,fable,2026-10-12T19:19:56+00:00,2026-10-12T21:36:17+00:00,T244,false,false
+T248,248,native,kernel,closed,sol,opus,astra,fable,2026-10-12T19:19:56+00:00,2026-10-12T21:36:17+00:00,T244,false,false
+T249,249,native,kernel,closed,sol,opus,astra,fable,2026-10-12T20:39:22+00:00,2026-10-12T22:37:07+00:00,T231 T244,false,false
+T250,250,native,kernel,closed,astra,fable,sol,opus,2026-10-13T01:20:25+00:00,2026-10-13T03:40:52+00:00,T249 T247 T248,false,false
+T251,251,native,kernel,closed,sol,opus,astra,fable,2026-10-13T04:58:05+00:00,2026-10-13T20:36:50+00:00,T250,false,false
+T252,252,native,kernel,closed,sol,opus,astra,fable,2026-10-13T04:58:05+00:00,2026-10-13T20:36:50+00:00,T250,false,false
+T253,253,native,research,closed,sol,opus,astra,fable,2026-10-13T04:58:05+00:00,2026-10-13T19:55:33+00:00,T250,false,false
+T254,254,native,kernel,closed,sol,opus,astra,fable,2026-10-13T19:46:49+00:00,2026-10-13T23:08:07+00:00,,false,false
+T255,255,metal,infra,closed,sol,opus,,,2026-10-15T04:36:00+00:00,2026-10-15T04:36:00+00:00,,true,false
+T256,256,metal,host-io,closed,sol,opus,,,2026-10-15T04:36:00+00:00,2026-10-15T04:36:00+00:00,T255,true,false
+T257,257,metal,kernel,closed,sol,opus,,,2026-10-15T04:36:00+00:00,2026-10-15T04:36:00+00:00,T255 T256,true,false
+T258,258,metal,research,closed,sol,opus,,,2026-10-15T04:36:00+00:00,2026-10-15T04:36:00+00:00,T257,true,false
+T259,259,metal,kernel,closed,sol,opus,,,2026-10-15T04:36:00+00:00,2026-10-15T04:36:00+00:00,T257,true,false
+T260,260,metal,kernel,closed,sol,opus,,,2026-10-15T04:36:00+00:00,2026-10-15T04:36:00+00:00,T257,true,false
+T261,261,metal,kernel,closed,sol,opus,,,2026-10-15T04:36:00+00:00,2026-10-15T04:36:00+00:00,T260,true,false
+T262,262,metal,research,closed,sol,opus,,,2026-10-15T04:36:00+00:00,2026-10-15T04:36:00+00:00,T259 T261,true,false
+T263,263,metal,research,closed,sol,opus,,,2026-10-15T04:36:00+00:00,2026-10-15T04:36:00+00:00,T255 T257,true,false
+T264,264,metal,research,closed,sol,opus,,,2026-10-15T04:36:00+00:00,2026-10-15T04:36:00+00:00,T260,true,false
+T265,265,metal,research,closed,sol,opus,,,2026-10-15T04:36:00+00:00,2026-10-15T04:36:00+00:00,T262,true,false
+T266,266,metal,kernel,closed,sol,opus,,,2026-10-15T04:36:00+00:00,2026-10-15T04:36:00+00:00,T258 T260 T261 T262 T263 T264 T265,true,false
+T267,267,hardening,kernel,closed,opus,opus,,,2026-10-15T20:00:57+00:00,2026-10-15T20:00:57+00:00,T124,false,false
+T268,268,hardening,kernel,closed,opus,opus,,,2026-10-15T20:25:27+00:00,2026-10-15T20:25:27+00:00,T139 T152 T208 T267,false,false
+T269,269,hardening,infra,closed,opus,opus,,,2026-10-15T21:55:45+00:00,2026-10-15T21:55:45+00:00,,false,false
+T270,270,hardening,infra,closed,opus,opus,,,2026-10-16T02:21:03+00:00,2026-10-18T03:26:53+00:00,,false,false
+T271,271,hardening,infra,closed,sonnet,sonnet,,,2026-10-16T04:21:30+00:00,2026-10-16T19:42:10+00:00,,false,false
+T272,272,hardening,infra,closed,sonnet,sonnet,,,2026-10-16T04:21:30+00:00,2026-10-16T19:42:10+00:00,,false,false
+T273,273,hardening,data,closed,sonnet,sonnet,,,2026-10-16T04:21:30+00:00,2026-10-17T22:01:27+00:00,,false,false
+T274,274,hardening,data,closed,sonnet,sonnet,,,2026-10-16T04:21:30+00:00,2026-10-17T22:01:27+00:00,,false,false
+T275,275,hardening,data,closed,sonnet,sonnet,,,2026-10-16T04:21:30+00:00,2026-10-17T22:01:27+00:00,,false,false
+T276,276,hardening,research,open,opus,opus,,,2026-10-16T04:21:30+00:00,,,false,false
+T277,277,hardening,research,open,sonnet,sonnet,,,2026-10-16T04:21:30+00:00,,,false,false
+T278,278,hardening,data,open,opus,opus,,,2026-10-16T04:21:30+00:00,,,false,false
+T279,279,hardening,engine,open,opus,opus,,,2026-10-16T19:13:58+00:00,,T208 T276,false,false
+T280,280,hardening,kernel,closed,opus,opus,,,2026-10-17T01:02:26+00:00,2026-10-17T01:02:26+00:00,T225 T267,false,false
+T281,281,format3,data,open,opus,opus,,,2026-10-17T15:31:36+00:00,,,false,false
+T282,282,format3,infra,closed,sonnet,sonnet,,,2026-10-17T21:37:34+00:00,2026-10-17T22:07:57+00:00,T281,false,false
+T283,283,format3,research,closed,opus,opus,,,2026-10-17T21:37:34+00:00,2026-10-17T22:57:33+00:00,T281,false,false
+T284,284,format3,data,closed,fable,fable,,,2026-10-17T21:37:34+00:00,2026-10-18T00:26:03+00:00,T281 T283,false,false
+T285,285,format3,kernel,closed,opus,opus,,,2026-10-17T21:37:34+00:00,2026-10-18T02:24:10+00:00,T284,false,false
+T286,286,format3,data,closed,opus,opus,,,2026-10-17T21:37:34+00:00,2026-10-18T02:24:10+00:00,T284 T285,false,false
+T287,287,format3,data,closed,luna,haiku,sol,opus,2026-10-17T21:37:34+00:00,2026-10-18T18:21:33+00:00,T284 T286,false,false
+T288,288,format3,infra,closed,sonnet,sonnet,,,2026-10-17T21:37:34+00:00,2026-10-20T23:56:32+00:00,T287,false,false
+T289,289,format3,infra,closed,luna,haiku,sol,opus,2026-10-17T21:37:34+00:00,2026-10-18T19:13:32+00:00,T284 T285 T286,false,false
+T290,290,format3,host-io,closed,gpt-6.1-sol-high,opus,,,2026-10-17T21:37:34+00:00,2026-10-20T21:58:45+00:00,T284 T285,false,false
+T291,291,format3,data,closed,opus,opus,,,2026-10-17T21:37:34+00:00,2026-10-21T01:10:32+00:00,T270 T283 T284 T296,false,false
+T292,292,format3,data,closed,opus,opus,,,2026-10-17T21:37:34+00:00,2026-10-21T05:23:26+00:00,T270 T284 T287 T290 T291,false,false
+T293,293,format3,data,closed,opus,opus,,,2026-10-17T21:37:34+00:00,2026-10-21T07:16:39+00:00,T270 T284 T285 T286 T292,false,false
+T294,294,format3,host-io,closed,opus,opus,,,2026-10-17T21:37:34+00:00,2026-10-21T16:48:40+00:00,T270 T293 T296,false,false
+T295,295,format3,host-io,closed,opus,opus,,,2026-10-17T21:37:34+00:00,2026-10-21T17:37:50+00:00,T270 T285 T293 T296,false,false
+T296,296,format3,kernel,closed,gpt-6.1-sol-high,opus,,,2026-10-17T21:37:34+00:00,2026-10-20T21:58:45+00:00,T270 T283 T284,false,false
+T297,297,format3,host-io,closed,sonnet,sonnet,,,2026-10-17T21:37:34+00:00,2026-10-21T17:00:06+00:00,T270 T286 T287 T288 T293,false,false
+T298,298,format3,infra,closed,sonnet,sonnet,,,2026-10-17T21:37:34+00:00,2026-10-21T23:59:19+00:00,T270 T282 T289 T294 T295 T296 T297 T299,false,false
+T299,299,format3,data,closed,sonnet,sonnet,,,2026-10-17T21:37:34+00:00,2026-10-21T18:36:04+00:00,T270 T291 T293,false,false
+T300,300,format3,research,open,opus,opus,,,2026-10-17T21:37:34+00:00,,T270 T298 T299 T302 T309 T301,false,false
+T301,301,format3,infra,open,sonnet,sonnet,,,2026-10-17T21:37:34+00:00,,T270 T298 T309 T310 T311,false,false
+T302,302,format3,data,open,sonnet,sonnet,,,2026-10-17T21:40:25+00:00,,T270 T293 T299,false,false
+T303,303,format3,data,closed,opus,opus,,,2026-10-18T01:41:14+00:00,2026-10-18T04:48:52+00:00,T284,false,false
+T304,304,release,kernel,closed,gpt-6.1-sol-medium,opus,,,2026-10-20T19:02:16+00:00,2026-10-20T21:58:45+00:00,T270,false,false
+T305,305,release,research,closed,gpt-6.1-sol-high,opus,,,2026-10-20T19:02:16+00:00,2026-10-21T00:53:36+00:00,T270,false,false
+T306,306,release,infra,closed,gpt-6.1-sol-high,opus,,,2026-10-20T21:58:45+00:00,2026-10-21T00:53:36+00:00,T270,false,false
+T307,307,release,host-io,closed,opus,opus,,,2026-10-21T01:03:49+00:00,2026-10-21T01:10:04+00:00,T290 T304,false,false
+T308,308,release,numerics,open,opus,opus,,,2026-10-21T16:11:41+00:00,,T301,false,false
+T309,309,release,gpu,closed,opus,opus,,,2026-10-21T19:35:05+00:00,2026-10-22T01:47:47+00:00,T298,false,false
+T310,310,release,data,closed,opus,opus,,,2026-10-22T00:02:08+00:00,2026-10-22T00:57:52+00:00,T298,false,false
+T311,311,release,infra,closed,opus,opus,,,2026-10-22T00:02:08+00:00,2026-10-22T00:52:38+00:00,T298,false,false
+T312,312,release,infra,open,sonnet,sonnet,,,2026-10-22T01:37:46+00:00,,T300 T301 T302,false,false
+T313,313,release,gpu,open,opus,opus,,,2026-10-22T17:47:41+00:00,,T298,false,false
+T314,314,release,data,closed,opus,opus,,,2026-10-22T21:03:04+00:00,2026-10-23T11:35:21+00:00,T298 T302,false,false
+T315,315,release,data,open,sonnet,sonnet,,,2026-10-23T11:36:18+00:00,,T314,false,false
+T316,316,release,gpu,open,opus,opus,,,2026-10-23T16:39:49+00:00,,,false,false
+T317,317,release,data,open,sonnet,sonnet,,,2026-10-23T18:03:41+00:00,,T315,false,false
+T318,318,release,release,open,opus,opus,,,2026-10-24T15:14:57+00:00,,T301,false,false

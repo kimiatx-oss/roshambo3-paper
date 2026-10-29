@@ -1,0 +1,346 @@
+\pdfminorversion=7
+\documentclass{article}
+\usepackage[dblblindworkshop,final]{neurips_2026}
+\workshoptitle{ML4Molecules: Agentic Systems for Molecular Sciences}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% Latin Modern typewriter: the same design as the default EC typewriter face,
+% but as Type 1 fonts rather than bitmaps (cm-super is not part of a base TeX Live).
+\renewcommand{\ttdefault}{lmtt}
+\usepackage{amsmath,amssymb,bm}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+\usepackage{xcolor}
+\usepackage{multirow}
+\newcommand{\vect}[1]{\bm{#1}}
+\newcommand{\method}{ROSHAMBO3}
+\input{generated/constants.tex}
+\input{generated/development-constants.tex}
+\input{generated/roofline-constants.tex}
+\input{generated/constants-optimizer-sensitivity.tex}
+\input{generated/portability-constants.tex}
+\input{generated/cpu-scaling-constants.tex}
+\graphicspath{{generated/figures/}}
+
+\title{Linear-time Shape Alignment with ROSHAMBO3}
+
+\author{Imran S. Haque\\
+Kimia Therapeutics, Berkeley, CA 94710\\
+\texttt{ihaque@kimiatx.com}}
+
+\begin{document}
+\maketitle
+\vspace{-18pt}
+\begin{abstract}
+\vspace{-2pt}
+    Three-dimensional (shape) similarity is a useful primitive for virtual screening
+    and molecular machine learning, but current open implementations are limited in performance
+    by a quadratic inner loop across pairs of query- and database-molecule atoms.
+    \method{} achieves a \VoltaShapeCorrectedSpeedupWhole--\VoltaComboStockSpeedupWhole$\times$ speedup
+    over the previous open SOTA ROSHAMBO2 by using query-amortized Gaussian fields that make the
+    inner loop linear combined with system-scale optimization
+    at the algorithmic, GPU, and host layers, screening up to \DfiveMillionEvaluationsPerSecondWhole{}M query--conformer
+    pairs/s on NVIDIA GPUs, with secondary CPU (x86, ARM) and Apple Metal backends.
+    We further describe the human expert--AI interaction loop that guided the exploration and
+    implementation of \method{} and discuss implications for the scientific software commons.
+\end{abstract}
+
+\section{Introduction}
+
+Ligand-based virtual screening searches a library for compounds similar to a
+known query. Methods broadly divide into ``two-dimensional'' comparisons of
+molecular graphs and ``three-dimensional'' comparisons of conformations.
+Although 2D fingerprints are
+inexpensive and effective, they intrinsically bias chemical search towards
+regions of \emph{chemical} similarity, rather than \emph{property} similarity.
+Molecular properties like biological interactions are often rooted in
+steric and electrostatic complementarity; consequently 3D similarity
+enables ``scaffold hopping'': the retrieval of topologically-distinct molecules
+bearing compatible volume and interaction patterns~\citep{rush2005scaffold}.
+
+Three-dimensional search follows two main approaches. Embedding methods compare
+molecules in an abstract vector space
+\citep{haque2010scissors,schreyer2012usrcat,atsango2022molclass,winter2026sand};
+direct-overlap methods instead optimize a volumetric kernel over rigid-body
+transformations in $SE(3)$. Embeddings can be very fast but are less interpretable, as they do not compute visualizable poses.
+Search over an enumerated database can also discretize an abstract desired 3D
+shape into a physical compound, making fast direct search useful both in drug
+discovery and as an action or reward function for chemical-design agents.
+
+Gaussian-overlap methods represent atoms as smooth volumes~\citep{grant1995gaussian,grant1996fast}; their proprietary implementation in the OpenEye ROCS package is widespread.
+PAPER~\citep{haque2010paper} first mapped this calculation to GPUs, followed by OpenEye's FastROCS package. Subsequently ROSHAMBO and ROSHAMBO2
+provided open implementations modernizing and extending shape similarity to pharmacophore-based ``color'' similarity~\citep{atwi2024roshambo,atwi2025roshambo2}.
+
+We present ROSHAMBO3, which accelerates ROSHAMBO2 by \VoltaShapeCorrectedSpeedupWhole--\VoltaComboStockSpeedupWhole$\times$,
+enabling one query to search \ThreeCrMillionConformersWhole{} million conformers in \ThreeCrQOneWallSecondsWhole~s on one GPU.
+The numeral is not just a version, but also denotes ``THREE'' (\emph{Tokens Help Researchers Expedite
+Engineering}): a human expert built an operating environment for
+Anthropic's Claude Code and OpenAI's Codex agents to explore the design landscape with periodic feedback, illustrating potential gains in the
+scientific software commons through modest investments in expert-AI collaboration.
+ROSHAMBO3 is open source at \url{https://github.com/kimiatx-oss/roshambo3}; the
+analyses, run records, and an export of the development record behind this paper are at
+\url{https://github.com/kimiatx-oss/roshambo3-paper}.
+
+
+
+
+\section{Methods}
+\label{sec:method}
+\paragraph{Shape and color objectives.}
+For query atoms $i\in A$ and candidate atoms $j\in B$ transformed through rotation $R$ and translation $t$, the
+``analytic'' first-order Gaussian cross-overlap has the form of a quadratic-complexity summation over
+atom pairs, with the commonly used Tanimoto coefficient $T$ defined as a simple function of 
+overlap and molecule self-volumes:
+\begin{equation}
+ V_{AB}(R,\vect t)=\sum_{ij} C_{ij}
+ \exp[-\beta_{ij}\|\vect a_i-(R\vect b_j+\vect t)\|^2],
+ \quad T=\frac{V_{AB}}{V_{AA}+V_{BB}-V_{AB}} .
+ \label{eq:overlap}
+\end{equation}
+
+This function extends to multiple atom \emph{planes} with defined inter-plane
+weights. ``Color'' adds virtual atoms at pharmacophore centroids, such as hydrophobes,
+H-bond donors or acceptors, aromatic rings, and ionizable groups. In practice,
+the plane interaction matrix is diagonal: shape and each color type interact only
+with themselves, with one additional parameter weighting shape against summed color. Adding
+color also admits distinct objectives: shape-only, ``combo'' (shape and color
+optimized at each step), and ``rescore'' (pose optimized by shape then rescored with shape and color
+at the final pose).
+
+
+
+\begin{figure}[t]
+ \centering
+ \includegraphics[width=\textwidth]{field-schematic.pdf}
+ \caption{\textbf{A:} Analytic overlap evaluates all query--library atom pairs
+ per step. \textbf{B:} \method{} rasterizes the query once; each transformed
+ library atom samples the field value and gradient.}
+ \label{fig:field}
+\end{figure}
+
+\paragraph{Linear time overlap with query fields.}
+Search is asymmetric: one query is reused for many candidates. Since Gaussian overlap
+is linearly additive, it is possible to precompute a discretized \emph{field}-based
+representation of the query $A$, making the overlap computation a single linear-time
+loop over library molecule atoms (Figure~\ref{fig:field}):
+\begin{equation}
+ \Phi_A(\vect x)=\sum_i C_i e^{-\beta_i\|\vect x-\vect a_i\|^2},
+ \qquad V_{AB}(R,\vect t)=\sum_j w_j\Phi_A(R\vect b_j+\vect t).
+ \label{eq:field}
+\end{equation}
+
+The $x/y/z$ gradient fields of the query can be similarly discretized to avoid
+first-difference gradient discontinuities that can trap optimizers. This representation
+is a natural fit for GPUs, where texture units perform hardware acceleration of spatially-local
+interpolated lookups, enabling fast trilinearly-interpolated lookup of
+both value and gradients simultaneously.
+
+Similar transformations with grid alignment and fast Gaussian sums
+have substantial prior art \citep{ronkko2006brutus,tsin2004correlation,gao2019filterreg,greengard1991fast},
+and OpenEye documentation exposes, but does not elaborate on, a ``Grid'' method \citep{openeyeShapeTheory}.
+Surprisingly, we have found no prior openly documented implementation
+exploiting this transformation and interpolating both value and gradient for molecular shape.
+
+\paragraph{Decoupled rigid-body Adagrad.}
+Prior implementations of Gaussian shape optimization represented the $SE(3)$ rigid
+body transformation as a unit quaternion rotation with a translation and optimized this 7-vector using BFGS or Adagrad \citep{duchi2011adaptive}.
+Both optimizers face two representational liabilities. 
+Unit quaternions representing
+rotations form a 3-dimensional manifold \(S^3\) embedded in \(\mathbb{R}^4\), but the optimizers
+do not know about this structure. Their Euclidean steps, which both require renormalization and have non-constant angular velocity depending on starting point, make rotational reach depend on
+the current quaternion and create poorly conditioned regions. Secondly, the rotational and
+translational components of the rigid-body transformation share neither units nor scale and so may not benefit from sharing an optimizer velocity.
+
+
+
+ROSHAMBO3's optimizer solves both issues. For the first,
+we rotate by tangent-space multiplication:
+\begin{equation}
+ q_{k+1}=\exp(\tfrac12\delta\vect\theta_k)\otimes q_k,
+ \quad \delta\vect\theta_k=\eta_q\vect g_{q,k}/
+ \sqrt{\vect G_{q,k}+\epsilon},
+ \label{eq:expmap}
+\end{equation}
+For the second, we apply Adagrad separately
+for rotations and for translations with separate accumulators and learning rates.
+A particular benefit is that a larger translation learning rate
+enabled larger reach in optimization (the translation travel budget scales as $\eta_t\sum_k k^{-1/2}$),
+enabling ROSHAMBO3 to reduce optimizer steps to 25 from ROSHAMBO2's 100 without shrinking the search basin.
+Because the search itself changed, rankings do not transfer exactly between engines: over \OptSensQueries{} PubChem queries, molecule-level top-\OptSensTopK{} lists from ROSHAMBO3 and correctness-fixed ROSHAMBO2 overlap by \OptSensComboTopKOverlapPct\% (combo) and \OptSensShapeTopKOverlapPct\% (shape).
+Rescoring each engine's final poses with an independent float64 reference reproduces its own scores, so the difference lies in which optima are found rather than in scoring; on combo, \OptSensComboDisplacedPct\% of molecules leaving ROSHAMBO2's top-\OptSensTopK{} were displaced by molecules ROSHAMBO3 optimized to higher scores, not scored lower themselves.
+
+
+\paragraph{GPU execution and resource balance.}
+For a primer on GPU architecture, see Appendix Section~\ref{sec:gpumodel}.
+Shape similarity without early stopping has a deterministic operation count for any given count of query and database atoms, and the operation mix differs for analytic and field kernels. We used this fact to compute roofline estimates for each kernel, modeling the maximum possible achievable throughput for a kernel assuming it were limited by a single resource, based on hardware specifications,
+corpus statistics, profiled instruction mixes, and observed power-limited clocks
+(Appendix~\ref{app:roofline}, Table~\ref{tab:roofline-device-caps}). Fields move the bottleneck away from special function (exponential) evaluation, which caps the analytic kernel, and substantially raise the ceiling, now set by different functional units on different GPUs.
+GB202 rises from \RooflineBlackwellAnalyticStructuralMillionPairsPerSecond{}M to \RooflineBlackwellFieldIssueMillionPairsPerSecond{}M pairs/s, limited by instruction issue.
+AD104 (L4) and GV100 rise from \RooflineLFourAnalyticStructuralMillionPairsPerSecond{}M and \RooflineTitanAnalyticStructuralMillionPairsPerSecond{}M to \RooflineLFourFieldLoneTexMillionPairsPerSecond{}M and \RooflineTitanFieldLoneTexMillionPairsPerSecond{}M pairs/s respectively, both limited by L1TEX (texture interpolation) rate; the GV100 limit is projected from an assumed \RooflineTitanLoneTexSectorsPerSmCycle{} sectors/SM/cycle, close to the \RooflineLFourLoneTexSectorsPerSmCycle{} measured on AD104.
+
+Simply increasing the roofline does not guarantee improved performance; to maximize the efficiency of ROSHAMBO3 kernels we performed extensive testing of configurations including atom and starting-pose parallelism, coordinate placement (registers, shared memory, or cached global memory), L1/shared-memory carveout, cache hints, and whether color planes used field or analytic evaluation. No single configuration dominated in every scenario, especially between shape and combo optimization. The shipped configurations of ROSHAMBO3 are documented in Appendix~\ref{app:kernel-config}.
+
+
+\paragraph{Precision, storage, and the streaming pipeline.}
+Maximizing GPU throughput also requires optimization of the producer (upload of data to the GPU) and consumer (reduction and result readback) pipelines. ROSHAMBO3 introduces a new on-disk format optimized for throughput: coordinates are quantized to a $2^{\CoordinateStepLogTwo}$~\AA{} int16 grid and bit-packed per block at the narrowest width each axis needs, bucketed by atom count to minimize warp padding waste, with color planes ordered by measured pair work to maximize bounded cache effectiveness.
+A pool of CPU producer threads decodes independent blocks natively into the kernel layout and fills pinned-memory buffers. Field textures
+ are stored in fp16 format as a \texttt{half4} texture hardware-expanded to fp32 for computation.
+Finally, a single GPU-facing
+consumer preserves corpus order while overlapping copies with earlier kernels,
+caching query fields, and coalescing small chunks into larger launches. This
+pipeline became necessary because acceleration of field evaluation exposed
+host reduction, rather than the kernel, as the end-to-end bottleneck. The
+current consumer performs a deterministic molecule-level top-$k$ selection on
+the device and returns only the bounded hit list. An earlier design returned
+every conformer score over PCIe; eliminating this device-to-host stream was
+as important to system performance as accelerating the scoring
+kernel.
+
+\paragraph{Interfaces and backends.} One engine is exposed through a Python API,
+a command-line tool (\texttt{roshambo3 prepare} builds a corpus,
+\texttt{roshambo3 screen} searches it), and a lab web application with SMILES
+or file queries, 3D pose overlays, and CSV/SDF export. Each runs on the CUDA
+backend, a native x86/ARM CPU backend, or an experimental Metal backend.
+
+\clearpage
+\paragraph{Agentic exploration.} ROSHAMBO3 started as chat conversations
+between the author and Google's Gemini 3.0 Pro Preview about how to
+accelerate shape similarity with precomputed fields or new hardware units on modern GPUs. Implementation
+and further exploration were almost entirely carried out by AI agents in two agent systems sharing one repository --- Anthropic's Claude Code (Claude Sonnet and Opus 4.8 through 5.5, and Fable 5) and OpenAI's Codex (GPT~5.6-Terra/Sol, then Sol, Astra, and Luna 6 and Sol and Luna 6.1) --- with higher-level feedback from the author; Gemini 3.1 Pro Preview also reviewed early work. To manage parallel agent swarms, a discipline was maintained with well-documented tickets and plans checked into a defined location in the repository, and agent protocols around ticket checkout and evaluation criteria. Specifically, each run was required to record source, build, GPU, clock and power telemetry, cache state, and repeat phase, with exclusive locks over GPUs to prevent
+parallel agents from interfering with each others' runs. Bitwise identity
+tests were required to pass for changes that should not change arithmetic
+(eg, memory staging), with a retrieval gate (top-K identity) used for changes inducing subtle (FP associativity) or more drastic (field vs analytic, fp16/32 quantization, optimizer) numeric changes.
+
+\section{Evaluation}
+\label{sec:evaluation}
+
+\paragraph{Datasets.} 
+To assess correctness of ROSHAMBO3, we used the LIT-PCBA and DUDE-Z datasets
+on which ROSHAMBO2 was evaluated~\citep{trannguyen2020litpcba,mysinger2012dude}.
+We requested 50 conformers per molecule using ETKDGv3~\citep{riniker2015etkdg}
+followed by MMFF94s minimization, producing
+\LitpcbaCorpusConformers{} conformers for LIT-PCBA (\LitpcbaDiskGigabytes~GB).
+PANEL-8 is a deterministic set of one deposited ligand from each of eight target/assay
+groups; its exact PDB coordinates are retained and span
+\LitpcbaQueryHeavyAtomRange{} heavy atoms. Thus, the public timing arm contains
+realistic shape and color records; enrichment results are included to
+establish parity rather than to demonstrate the utility of shape screening
+itself.
+
+To assess ultrascale performance, we benchmarked on two large datasets. ``PubChem3D''
+is a shape-only build of PubChem3D~\citep{bolton2011pubchem3d} containing \DfiveMolecules{} molecules and
+\DfiveConformers{} conformers (mean \DfiveMeanConformersPerMolecule{} conformers/molecule, \DfiveDiskGigabytes~GB on disk). As a real-world test case we also benchmark
+search inside a Kimia-proprietary virtual hit-finding library containing 75.2M molecules (mean \ThreeCrMeanConformersPerMolecule{} conformers/molecule; \ThreeCrDiskGigabytes~GB) with color. PubChem3D
+was queried with the first four PANEL-8 structures; the proprietary library was
+queried with four conformers of a single \ThreeCrQueryHeavyAtoms-heavy-atom private molecule
+relevant to an internal discovery program.
+
+\paragraph{Hardware.} We benchmark on seven machines (Appendix Table~\ref{tab:systems}): workstations
+with an NVIDIA RTX PRO 6000 Blackwell Max-Q (``GB202'') and a TITAN V (``GV100''), an M4 Pro MacBook Pro (14-inch, Nov 2024),
+and four VMs on Google Cloud: one GPU host with an NVIDIA L4 (g2-standard-16), and three
+CPU-only VMs (c4/c4d/c4a-highcpu-16: Intel Xeon 8581C ``Emerald Rapids'', AMD EPYC 9B45 ``Turin'', and ARM Neoverse V2 ``Google Axion'', respectively).
+
+\paragraph{Accuracy and performance relative to ROSHAMBO2.} Gaussian shape
+overlay is intrinsically approximate: infinite-extent atoms are unphysical, and
+first-order overlap overcounts volume. Rather than anchoring on exact computation of an approximate value, we instead measure \emph{top-K recall}---the
+fraction of a reference method's top-$K$ molecules retrieved by the faster
+method---and EF1\%, the hit enrichment in the top 1\% used by ROSHAMBO2. We compare against a patched version of ROSHAMBO2 fixing correctness bugs we identified (see Appendix~\ref{app:roshambo2fixes}).
+
+Table~\ref{tab:main-results} reports the accuracy and wall-clock performance of ROSHAMBO3 as compared to ROSHAMBO2 on the same query sets. The field kernel retains ranking parity with ROSHAMBO3's exact analytic scoring (\FieldPanelRecallAtThousandPercent\% mean recall @ 1000, \FieldWorstRecallAtThousandPercent\% worst, with median pose displacement of
+\FieldMedianPoseRmsdAngstrom~\AA). Notably, combo optimization often changed the winner and improved its objective, but not early
+enrichment over rescore; meanwhile, combo took twice as long as shape-only screening whereas rescore paid only a 10\% penalty (Appendix Table~\ref{tab:public-performance}). ROSHAMBO3 therefore exposes all three modes.
+
+ROSHAMBO3 was \VoltaShapeCorrectedSpeedup$\times$ faster than ROSHAMBO2 on shape-only search and \VoltaComboStockSpeedup$\times$ faster on combo search. For each mode we quote the harder of two baselines: ROSHAMBO2 as released, and ROSHAMBO2 with our color-skip performance fix (Appendix~\ref{app:roshambo2fixes}). Against the released version, the shape advantage rises to \VoltaShapeStockSpeedup$\times$.
+
+\input{generated/tables/main-results.tex}
+
+\paragraph{Large-scale search.} ROSHAMBO3 makes search over databases
+of 10s-100s of millions of compounds feasible at near-interactive speeds.
+On the RTX PRO 6000 Blackwell Max-Q, a PubChem3D screen aligns \DfiveConformers{}
+conformers against \DfiveQueries{} queries in \DfiveWallSeconds~s end-to-end
+(\DfiveKernelSeconds~s kernel), or \DfiveMillionEvaluationsPerSecond{} million
+pair evaluations/s (Appendix Table~\ref{tab:scale-roofline}). For color combo on the internal library, increasing concurrent queries from 1 to 16 raises
+throughput from \ComboQOneMillionEvaluationsPerSecond{} to
+\ComboQSixteenMillionEvaluationsPerSecond{} million evaluations/s (Appendix Figure~\ref{fig:saturation}), and wall-clock time per query falls from
+\ThreeCrQOneWallSecondsWhole~s to \ComboQSixteenWallSecondsPerQueryWhole~s. Concurrent queries therefore amortize the low-$q$ host limit until the device becomes limiting.
+
+The field kernel reaches \RooflineBlackwellKernelToStructuralPercent\% of the  GB202 instruction issue bound and
+\RooflineTitanKernelToStructuralPercent\% of the projected GV100 issue bound. The RTX PRO 6000 Blackwell consumes stored corpus bytes at
+\PubchemStoredGigabytesPerSecond~GB/s when screening, demonstrating the importance of systems-level consideration of storage hierarchy. 
+
+
+\paragraph{Portability.} The CPU and Metal backends share the CUDA backend's
+corpus format, search, and ranking (Table~\ref{tab:portability},
+Appendix~\ref{app:backends}). Every device's top-1,000 agrees with the CUDA
+reference to at least \PortabilityLowestMeanRecallPercent\%
+(\PortabilityWorstRecallPercent\% for the worst query); the reference GPU is
+\PortabilityReferenceOverFastestCpuLow--\PortabilityReferenceOverFastestCpuHigh$\times$
+faster than the fastest CPU, so CPUs extend ROSHAMBO3 to machines without NVIDIA
+GPUs rather than replacing them.
+
+\input{generated/tables/portability.tex}
+
+\section{Conclusions}
+
+\paragraph{Open-source shape similarity.} ROSHAMBO3 accelerates shape similarity by nearly two orders of magnitude at iso-accuracy and represents a new high-water mark for performance in open-source shape tooling. We anticipate that interactive-level performance on large databases will be useful for both human-driven and agentic chemical exploration. Nevertheless, opportunities remain, for example, identifying ways to use tensor units to add further speedup, and building a converged reference for the color objectives: our accuracy comparisons grade ROSHAMBO3 against another optimizer, and a far more exhaustive search for the color-rescore and combined shape--color optima would let any optimizer be graded against the best attainable score instead.
+
+\clearpage
+\paragraph{Agentic design of scientific software.} This work began with an expert question: how should a ``field'' shape method be
+formulated for a modern GPU? Agents inspected unfamiliar code, implemented
+isolated variants, constructed invariants, and interpreted profiles; they found
+quaternion, optimizer, and color-skip defects in ROSHAMBO2, proposed the exponential map and Adagrad retuning, and iterated over hundreds of kernel parameterizations to explore design space.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{ticket-strip.pdf}
+  \caption{The development record in brief (Appendix Figure~\ref{fig:ticket-timeline} draws it in full).
+  One dot per ticket at its creation, colored by the tier of the implementing model, with a faint line to its closure;
+  circles mark each epoch's main wave of ticket starts. Top: commits per day. Dashed lines mark the workshop's
+  submission deadline, author notification, and camera-ready deadline.}
+  \label{fig:ticket-strip}
+\end{figure}
+
+The collaboration changed as the project grew (Figure~\ref{fig:ticket-strip}; Appendix~\ref{app:agents}).
+Parallel agents in separate worktrees built the GPU engine in
+\AugustActiveDays{} active days. Once results began to reframe later questions,
+the author dispatched one ticket at a time, each reviewed by a different model
+tier; OpenAI Codex then joined the same repository and carried most of the CPU,
+ARM, and Metal ports. Across \TicketCount{} tickets (\ClosedTicketCount{}
+closed), \DecisionCount{} reopenable decisions, and \PitfallCount{} documented
+failure modes, context lived in the repository, not in any session: each ticket
+states its context, deciding measurement, and acceptance threshold up front,
+closes only when that measurement is committed, and can be picked up by any
+model or vendor's agent with no conversation. We think this is the most
+reusable part of the workflow.
+
+However, this work was not fully autonomous and expert direction remained essential: models proposed plausible but incorrect
+bottlenecks and opposed experiments that later improved performance. As an example, the author rejected placing shape atoms in registers, even though it markedly improved the performance of shape optimization, intuiting that this would  become catastrophic for performance with color; later experiments confirmed this constraint. While the ticket-based mode of operation enabled effective local search by agents, long-horizon and long-context exploration still remained challenging, and regular feedback and context management were critical.
+
+The relative ease with which intricate optimizations were performed by AI agents to unlock a 100$\times$
+performance increase in a long-studied scientific kernel raises the question:
+how many more such 10--100$\times$ improvements might be latent even in methods that have been worked on
+for decades? No exceptional AI resources were needed to build ROSHAMBO3 --- one \ClaudePlan{} seat
+(US\$\ClaudePlanUsdPerMonth/month) and one \ChatgptPlan{} seat (US\$\ChatgptPlanUsdPerMonth/month),
+with modest additional credit usage ($<$US\$\AdditionalCreditUsdBelow). A token investment in tokens
+by skilled tool developers may stand to produce a large compounding return for 
+the broader scientific community.
+
+\begin{ack}
+Thanks to the authors of ROSHAMBO and ROSHAMBO2 --- Rasha Atwi, Ye Wang, Simone Sciabola, Adam Antoszewski, and Stephen Farr --- for resurrecting and improving
+open-source GPU-accelerated shape-similarity software, and for graciously allowing me to put a new version number
+on their lineage of tools.
+\end{ack}
+
+% References and appendices are outside the six-page camera-ready content limit.
+\clearpage
+\bibliographystyle{plainnat}
+\bibliography{references}
+\appendix
+\newpage
+\input{supplement.tex}
+\end{document}

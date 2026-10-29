@@ -1,0 +1,90 @@
+{
+  "record": "clock_check",
+  "ticket": "T68",
+  "busy_threshold_utilization_pct": 50.0,
+  "cells": [
+    {
+      "cell": "clocks_combination_u2_inmem.csv",
+      "n_samples": 2864,
+      "n_busy_samples": 2426,
+      "busy_fraction": 0.8470670391061452,
+      "clock_all_mhz": {
+        "min": 135.0,
+        "median": 1335.0,
+        "max": 1335.0
+      },
+      "clock_busy_mhz": {
+        "min": 1320.0,
+        "median": 1335.0,
+        "max": 1335.0,
+        "mean": 1334.9814509480627
+      },
+      "throttle_reasons_all_samples": {
+        "GpuIdle": 103,
+        "none": 2761
+      },
+      "throttle_reasons_busy_samples": {
+        "none": 2426
+      },
+      "sw_power_cap_active_samples": 0
+    },
+    {
+      "cell": "clocks_combination_uc_eager.csv",
+      "n_samples": 3223,
+      "n_busy_samples": 2808,
+      "busy_fraction": 0.8712379770400248,
+      "clock_all_mhz": {
+        "min": 135.0,
+        "median": 1335.0,
+        "max": 1335.0
+      },
+      "clock_busy_mhz": {
+        "min": 1200.0,
+        "median": 1335.0,
+        "max": 1335.0,
+        "mean": 1334.9358974358975
+      },
+      "throttle_reasons_all_samples": {
+        "GpuIdle": 82,
+        "none": 3141
+      },
+      "throttle_reasons_busy_samples": {
+        "none": 2808
+      },
+      "sw_power_cap_active_samples": 0
+    },
+    {
+      "cell": "clocks_combination_uc_inmem.csv",
+      "n_samples": 3288,
+      "n_busy_samples": 2806,
+      "busy_fraction": 0.8534063260340633,
+      "clock_all_mhz": {
+        "min": 135.0,
+        "median": 1335.0,
+        "max": 1335.0
+      },
+      "clock_busy_mhz": {
+        "min": 1320.0,
+        "median": 1335.0,
+        "max": 1335.0,
+        "mean": 1334.9786172487527
+      },
+      "throttle_reasons_all_samples": {
+        "none": 3139,
+        "GpuIdle": 149
+      },
+      "throttle_reasons_busy_samples": {
+        "none": 2806
+      },
+      "sw_power_cap_active_samples": 0
+    }
+  ],
+  "busy_median_clock_mhz_by_cell": {
+    "clocks_combination_u2_inmem.csv": 1335.0,
+    "clocks_combination_uc_eager.csv": 1335.0,
+    "clocks_combination_uc_inmem.csv": 1335.0
+  },
+  "busy_median_clock_spread_mhz": 0.0,
+  "d023_reopening_condition_fired": false,
+  "note": "D023's condition is about arms that cannot be compared. A throttle fraction that is entirely GpuIdle is an arm leaving the card idle, not the card throttling the arm; the busy-only clock is what a ratio depends on."
+}

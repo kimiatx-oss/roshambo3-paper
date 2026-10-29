@@ -1,0 +1,10 @@
+# Generation environment for scripts/build_litpcba.py (steps index .. conformers).
+# The corpus step runs in the tool's own environment instead (--tool-python).
+# Needs an NVIDIA GPU (compute capability >= 7.0) and a driver for CUDA 12.8+.
+nvmolkit==0.6.0          # GPU ETKDG + MMFF; pins the RDKit below
+rdkit==2026.3.5          # the paper corpus's RDKit
+torch==2.8.0             # nvMolKit returns GPU tensors through torch; 2.8 brings the
+                         # CUDA 12.8 runtime nvMolKit 0.6.0 links against (cudaStreamGetDevice),
+                         # which its own nvidia-cuda-runtime-cu12>=12.0 requirement understates
+openbabel-wheel==3.1.1.23  # mol2 -> PDB round trip for templates RDKit cannot read
+numpy

@@ -1,0 +1,158 @@
+{
+  "record": "same_conformers",
+  "ticket": "T68",
+  "corpus": "$EXTERNAL_DATA/datasets/litpcba/color_rsb3_perm/library",
+  "h5_dir": "$EXTERNAL_DATA/datasets/litpcba/color_hdf5/library",
+  "n_conformers_roshambo3": 20381286,
+  "n_conformers_roshambo2": 20381286,
+  "n_molecules_roshambo3": 407664,
+  "n_molecules_roshambo2": 407664,
+  "h5_groups": [
+    {
+      "file": "shard_00000.h5",
+      "group": "molecules_0",
+      "n": 999598,
+      "L": 96
+    },
+    {
+      "file": "shard_00001.h5",
+      "group": "molecules_0",
+      "n": 999582,
+      "L": 80
+    },
+    {
+      "file": "shard_00002.h5",
+      "group": "molecules_0",
+      "n": 998226,
+      "L": 80
+    },
+    {
+      "file": "shard_00003.h5",
+      "group": "molecules_0",
+      "n": 999550,
+      "L": 88
+    },
+    {
+      "file": "shard_00004.h5",
+      "group": "molecules_0",
+      "n": 999825,
+      "L": 92
+    },
+    {
+      "file": "shard_00005.h5",
+      "group": "molecules_0",
+      "n": 999187,
+      "L": 96
+    },
+    {
+      "file": "shard_00006.h5",
+      "group": "molecules_0",
+      "n": 999796,
+      "L": 96
+    },
+    {
+      "file": "shard_00007.h5",
+      "group": "molecules_0",
+      "n": 999834,
+      "L": 80
+    },
+    {
+      "file": "shard_00008.h5",
+      "group": "molecules_0",
+      "n": 999017,
+      "L": 80
+    },
+    {
+      "file": "shard_00009.h5",
+      "group": "molecules_0",
+      "n": 999478,
+      "L": 96
+    },
+    {
+      "file": "shard_00010.h5",
+      "group": "molecules_0",
+      "n": 999871,
+      "L": 96
+    },
+    {
+      "file": "shard_00011.h5",
+      "group": "molecules_0",
+      "n": 999731,
+      "L": 80
+    },
+    {
+      "file": "shard_00012.h5",
+      "group": "molecules_0",
+      "n": 999718,
+      "L": 92
+    },
+    {
+      "file": "shard_00013.h5",
+      "group": "molecules_0",
+      "n": 999982,
+      "L": 68
+    },
+    {
+      "file": "shard_00014.h5",
+      "group": "molecules_0",
+      "n": 999700,
+      "L": 68
+    },
+    {
+      "file": "shard_00015.h5",
+      "group": "molecules_0",
+      "n": 994387,
+      "L": 96
+    },
+    {
+      "file": "shard_00016.h5",
+      "group": "molecules_0",
+      "n": 998400,
+      "L": 104
+    },
+    {
+      "file": "shard_00017.h5",
+      "group": "molecules_0",
+      "n": 999531,
+      "L": 92
+    },
+    {
+      "file": "shard_00018.h5",
+      "group": "molecules_0",
+      "n": 1000000,
+      "L": 80
+    },
+    {
+      "file": "shard_00019.h5",
+      "group": "molecules_0",
+      "n": 999114,
+      "L": 100
+    },
+    {
+      "file": "shard_00020.h5",
+      "group": "molecules_0",
+      "n": 396759,
+      "L": 96
+    }
+  ],
+  "padded_width_L_h5": [
+    68,
+    80,
+    88,
+    92,
+    96,
+    100,
+    104
+  ],
+  "molecules_only_in_roshambo3": 0,
+  "molecules_only_in_roshambo2": 0,
+  "molecules_with_differing_conformer_counts": 0,
+  "molecules_whose_conformer_indices_are_not_0..n-1_roshambo3": 0,
+  "molecules_whose_conformer_indices_are_not_0..n-1_roshambo2": 0,
+  "unparseable_h5_names": [],
+  "sample_only_in_roshambo3": [],
+  "sample_only_in_roshambo2": [],
+  "sample_count_mismatch": [],
+  "identical_population": true,
+  "note": "set comparison per molecule, not an order comparison: neither tool's row order affects a score or a kernel time, and the two orders differ by construction (.rsb3 is bucketed by n_real, the h5 is in SDF order)."
+}

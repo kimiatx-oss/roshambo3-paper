@@ -1,0 +1,18 @@
+{
+  "description": "Rows of the cross-backend portability table, in display order. Each key names a directory runs/portability/<key>/ holding panel8-{shape,rescore,combo}.{json,csv} written by scripts/screen_smiles.py. Core and GPU-core counts are read from the run records, not from this file. Exactly one device is the recall reference. Keep each device on one line with key, name, kind, backend in that order: scripts/Makefile validate-portability greps for it. A device may name its own commit (a key of commits); otherwise it runs default_commit.",
+  "modes": ["shape", "rescore", "combo"],
+  "top_k": 1000,
+  "min_timed_repeats": {"cuda": 5, "cpu": 3, "metal": 5},
+  "commits": {"3bb39f698bfffc1045f585187d30230ba639a758": "the frozen T300 benchmark commit (format-3 corpora; T313 dense GPU launches without a pair index)"},
+  "default_commit": "3bb39f698bfffc1045f585187d30230ba639a758",
+  "devices": [
+    {"key": "rtx-pro-6000", "name": "RTX PRO 6000 Blackwell Max-Q", "kind": "gpu", "backend": "cuda", "reference": true, "macro": "RtxPro"},
+    {"key": "titan-v", "name": "TITAN V", "kind": "gpu", "backend": "cuda", "macro": "TitanV"},
+    {"key": "l4", "name": "L4", "kind": "gpu", "backend": "cuda", "cloud": true, "macro": "LFour"},
+    {"key": "m4-pro-gpu", "name": "Apple M4 Pro GPU", "kind": "gpu", "backend": "metal", "macro": "MFourProGpu"},
+    {"key": "xeon-8581c", "name": "Xeon Platinum 8581C", "kind": "cpu", "backend": "cpu", "cloud": true, "macro": "Xeon"},
+    {"key": "epyc-turin", "name": "EPYC 9B45", "kind": "cpu", "backend": "cpu", "cloud": true, "macro": "Epyc"},
+    {"key": "neoverse-v2", "name": "Neoverse V2", "kind": "cpu", "backend": "cpu", "cloud": true, "macro": "Neoverse"},
+    {"key": "m4-pro-cpu", "name": "Apple M4 Pro CPU", "kind": "cpu", "backend": "cpu", "macro": "MFourProCpu"}
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "description": "Classification of the numbered pitfalls in the development repository's tickets/CONVENTIONS.md into failure classes for the appendix table. Every pitfall number in the development record must appear in exactly one class. Examples paraphrase the cited pitfall. Each class names the pitfall its example paraphrases; numbers in an example are transcribed from that pitfall.",
+  "classes": [
+    {
+      "label": "The number measured something else",
+      "pitfalls": [
+        2,
+        8,
+        11,
+        14,
+        15,
+        17,
+        18,
+        31
+      ],
+      "example": "Timing only the kernel, when host-side reduction cost 3.5$\\times$ as much",
+      "example_pitfall": 11,
+      "source": "tickets/CONVENTIONS.md, numbered pitfall 11"
+    },
+    {
+      "label": "An accuracy claim that does not generalize",
+      "pitfalls": [
+        3,
+        4,
+        9,
+        10,
+        13,
+        21,
+        24
+      ],
+      "example": "Grading against an unconverged reference that was off by +0.107 on the true top-50",
+      "example_pitfall": 4,
+      "source": "tickets/CONVENTIONS.md, numbered pitfall 4"
+    },
+    {
+      "label": "Numerical reasoning",
+      "pitfalls": [
+        5,
+        6,
+        16,
+        30
+      ],
+      "example": "Two implementations agreeing because they share the same typo",
+      "example_pitfall": 5,
+      "source": "tickets/CONVENTIONS.md, numbered pitfall 5"
+    },
+    {
+      "label": "The code that ran was not the code under test",
+      "pitfalls": [
+        1,
+        7
+      ],
+      "example": "A stale binary for an older GPU, silently JIT-compiled on the new one",
+      "example_pitfall": 1,
+      "source": "tickets/CONVENTIONS.md, numbered pitfall 1"
+    },
+    {
+      "label": "A silent failure that looks like a result",
+      "pitfalls": [
+        12,
+        19,
+        20,
+        26,
+        29,
+        32
+      ],
+      "example": "A stop rule that no script evaluated, so a stage ran 129$\\times$ its specified size",
+      "example_pitfall": 32,
+      "source": "tickets/CONVENTIONS.md, numbered pitfall 32"
+    },
+    {
+      "label": "Provenance and multi-agent hygiene",
+      "pitfalls": [
+        22,
+        23,
+        25,
+        27,
+        28
+      ],
+      "example": "A claimed ticket's file left on its own branch, so the ledger on main showed it unclaimed",
+      "example_pitfall": 27,
+      "source": "tickets/CONVENTIONS.md, numbered pitfall 27"
+    }
+  ]
+}

@@ -1,0 +1,375 @@
+{
+  "build": {
+    "arch_list": [],
+    "arch_probe_error": null,
+    "arch_profile": "unknown",
+    "combo_dispatch_grid": 0,
+    "configuration": {
+      "label": "cpu",
+      "ptx_present": false,
+      "requested_architectures": "none",
+      "summary": "none; cpu backend; no PTX fallback; NVCC none; 256 threads/block",
+      "verified_sass_architectures": []
+    },
+    "cpu_build_type": "Release",
+    "cpu_compiled_targets": [
+      "X86_64_V3",
+      "AVX512F"
+    ],
+    "cpu_cxx_flags": " -O3 -DNDEBUG -march=x86-64-v3 -fno-fast-math -fno-associative-math [grain_avx512.cpp: -mavx512f]",
+    "cpu_probe_error": null,
+    "cpu_selected_target": "AVX512F",
+    "cpu_src_dirty": false,
+    "cpu_src_dirty_files": [],
+    "cpu_src_sha256": "eb4634b5226c012a3b88070a1cec68e3dce45107d9689d08cfac766602cff7a4",
+    "cpu_src_stamp_phase": "build",
+    "cpu_src_tree": "04182fa49cc647a514a47328b33b179df040b0b2",
+    "cpu_vector_width": 1,
+    "cuda_architectures_requested": "none",
+    "cuda_src_dirty": null,
+    "cuda_src_dirty_files": [],
+    "cuda_src_sha256": "unknown",
+    "cuda_src_stamp_phase": "none",
+    "cuda_src_tree": "unknown",
+    "flags": {
+      "cuda": "none",
+      "cxx": "none"
+    },
+    "nthreads": 256,
+    "nvcc_version": "none",
+    "ptx_present": false,
+    "so_sha256": {
+      "_roshambo3_cpu": "67f243612caccceebdf8a964db95412ed3ad8b8719d26658bd7a0336263cf355"
+    },
+    "type": "none",
+    "with_cpu": true,
+    "with_cuda": false
+  },
+  "corpus": {
+    "conformers": 20381286,
+    "descriptor_sha256": "f6df9cc9152c2945360e69f794e4d3fe40eb7b1482b829d1598838cdeb156d44",
+    "fingerprint": "dbf48295626f432155989b0157b4094068551957d0ba00751746b18fd4bbec7b",
+    "format": {
+      "encoding": "bp256-16",
+      "major": 3,
+      "step_log2": -8
+    },
+    "has_color": true,
+    "ids_sha256": "3bf681cc36d25f6a45aae7ff36de3c66e95fe0380368368fac24af6591630f4c",
+    "molecules": 407664,
+    "molecules_sha256": "f47a9da2b45841fd0bf9078230e9254e8037a0b62a9cf8cb5fa09fff997e895a",
+    "name": "LIT-PCBA",
+    "path": "$EXTERNAL_DATA"
+  },
+  "created_utc": "2026-10-22T21:39:28Z",
+  "git": {
+    "branch": "HEAD",
+    "dirty": false,
+    "output_dirty_paths": [],
+    "sha": "3bb39f698bfffc1045f585187d30230ba639a758",
+    "source_dirty": false,
+    "source_dirty_paths": []
+  },
+  "host": {
+    "hostname": "c4d",
+    "platform": "Linux-7.0.0-1014-gcp-x86_64-with-glibc2.39"
+  },
+  "host_compute": {
+    "backend": "cpu",
+    "cpu": {
+      "arch": "x86_64",
+      "boost_enabled": null,
+      "efficiency_cores": null,
+      "governor": "",
+      "host": "c4d",
+      "isa_flags": [
+        "sse4_2",
+        "avx",
+        "avx2",
+        "fma",
+        "f16c",
+        "bmi1",
+        "bmi2",
+        "avx512f",
+        "avx512dq",
+        "avx512bw",
+        "avx512vl",
+        "avx512_bf16"
+      ],
+      "l1d_bytes": 393216,
+      "l2_bytes": 8388608,
+      "l3_bytes": 33554432,
+      "l3_instances": 1,
+      "logical_cpus": 16,
+      "lscpu_max_mhz": null,
+      "model": "AMD EPYC 9B45",
+      "numa_nodes": 1,
+      "performance_cores": null,
+      "physical_cores": 8,
+      "scaling_driver": "",
+      "smt_enabled": true,
+      "sockets": 1,
+      "threads_per_core": 2
+    },
+    "initial_state": {
+      "busy": true,
+      "foreign_processes": [],
+      "loadavg_1m": 16.02783203125,
+      "loadavg_5m": 15.89013671875,
+      "logical_cpus": 16
+    },
+    "lock_held": true,
+    "locks": [
+      {
+        "backend": "cpu",
+        "identity": "cpu"
+      }
+    ],
+    "metal": null,
+    "power_before": null
+  },
+  "outputs": {
+    "hits_csv": "$EXTERNAL_DATA",
+    "report_json": "$EXTERNAL_DATA",
+    "telemetry_csv": "$EXTERNAL_DATA"
+  },
+  "query_preparation": {
+    "conformers_per_smiles": null,
+    "input": "$EXTERNAL_DATA",
+    "input_records": 1,
+    "n_queries": 1,
+    "process": "exact 3D coordinates from input SDF",
+    "queries": [
+      {
+        "canonical_smiles": "Cc1ccccc1CC(C)(C)[NH2+]C[C@H](O)c1ccc(O)c2c1OCC(=O)N2",
+        "coordinate_source": "input_sdf",
+        "heavy_atoms": 27,
+        "input_smiles": null,
+        "line": null,
+        "name": "ADRB2_3p0g_query",
+        "query_conformer": 1,
+        "record": 1
+      }
+    ],
+    "wall_s": 0.00878360599745065
+  },
+  "screen": {
+    "backend": "cpu",
+    "cache_mode": "warm",
+    "device": 0,
+    "fd_limit": {
+      "hard": 1048576,
+      "soft": 4096
+    },
+    "host_timing_note": "producer_wait_s, launch_enqueue_s, and sink_s are overlapping host-side diagnostics, not an additive partition of wall time.",
+    "launch_conformers_requested": null,
+    "level": "molecule",
+    "mixing": 0.5,
+    "mode": "combo",
+    "prefetch_depth": 3,
+    "ranking_column": "tanimoto_combination",
+    "repeats": [
+      {
+        "cache": null,
+        "conformer_pairs_screened": 20381286,
+        "conformers_screened": 20381286,
+        "contention_before": {
+          "busy": true,
+          "foreign_processes": [],
+          "loadavg_1m": 15.85009765625,
+          "loadavg_5m": 15.8486328125,
+          "logical_cpus": 16
+        },
+        "device_stages_s": {},
+        "engine_wall_s": 47.131626820002566,
+        "kernel_s": null,
+        "launch_enqueue_s": 699.2344884030899,
+        "launches": 5038,
+        "phase": "timed",
+        "producer_wait_s": 0.0,
+        "repeat": 1,
+        "screen_call_wall_s": 47.147528121990035,
+        "sink_s": 0.0,
+        "telemetry": {
+          "achieved_mhz": {
+            "max": 4139.073,
+            "mean": 4056.1317552083333,
+            "median": 4103.3075,
+            "min": 2695.948,
+            "p10": 4076.72,
+            "p90": 4114.025
+          },
+          "achieved_mhz_spread": 1.5352940783724318,
+          "cpus_sampled": "all online",
+          "duration_s": 46.023,
+          "interval_s": 2.0,
+          "loadavg_1m": {
+            "max": 15.9,
+            "median": 15.855,
+            "min": 15.35
+          },
+          "median_is_over_sampled_cpus_only": false,
+          "n_cpus_seen": 16,
+          "n_samples": 384,
+          "poller_displaced_off_measured_cpus": true
+        }
+      },
+      {
+        "cache": null,
+        "conformer_pairs_screened": 20381286,
+        "conformers_screened": 20381286,
+        "contention_before": {
+          "busy": true,
+          "foreign_processes": [],
+          "loadavg_1m": 15.53515625,
+          "loadavg_5m": 15.76513671875,
+          "logical_cpus": 16
+        },
+        "device_stages_s": {},
+        "engine_wall_s": 46.460341769008664,
+        "kernel_s": null,
+        "launch_enqueue_s": 693.5809084547218,
+        "launches": 5038,
+        "phase": "timed",
+        "producer_wait_s": 0.0,
+        "repeat": 2,
+        "screen_call_wall_s": 46.4769271670084,
+        "sink_s": 0.0,
+        "telemetry": {
+          "achieved_mhz": {
+            "max": 4132.944,
+            "mean": 4090.7772786458336,
+            "median": 4098.360000000001,
+            "min": 2695.948,
+            "p10": 4067.409,
+            "p90": 4118.293
+          },
+          "achieved_mhz_spread": 1.5330206665707204,
+          "cpus_sampled": "all online",
+          "duration_s": 46.022,
+          "interval_s": 2.0,
+          "loadavg_1m": {
+            "max": 15.84,
+            "median": 15.725,
+            "min": 15.54
+          },
+          "median_is_over_sampled_cpus_only": false,
+          "n_cpus_seen": 16,
+          "n_samples": 384,
+          "poller_displaced_off_measured_cpus": true
+        }
+      },
+      {
+        "cache": null,
+        "conformer_pairs_screened": 20381286,
+        "conformers_screened": 20381286,
+        "contention_before": {
+          "busy": true,
+          "foreign_processes": [],
+          "loadavg_1m": 15.83984375,
+          "loadavg_5m": 15.81494140625,
+          "logical_cpus": 16
+        },
+        "device_stages_s": {},
+        "engine_wall_s": 46.673788970001624,
+        "kernel_s": null,
+        "launch_enqueue_s": 695.8649753504578,
+        "launches": 5038,
+        "phase": "timed",
+        "producer_wait_s": 0.0,
+        "repeat": 3,
+        "screen_call_wall_s": 46.68962653800554,
+        "sink_s": 0.0,
+        "telemetry": {
+          "achieved_mhz": {
+            "max": 4133.823,
+            "mean": 4083.0380625,
+            "median": 4102.059499999999,
+            "min": 2695.948,
+            "p10": 4066.557,
+            "p90": 4118.967
+          },
+          "achieved_mhz_spread": 1.5333467114350872,
+          "cpus_sampled": "all online",
+          "duration_s": 46.02,
+          "interval_s": 2.0,
+          "loadavg_1m": {
+            "max": 15.93,
+            "median": 15.895,
+            "min": 15.84
+          },
+          "median_is_over_sampled_cpus_only": false,
+          "n_cpus_seen": 16,
+          "n_samples": 384,
+          "poller_displaced_off_measured_cpus": true
+        }
+      }
+    ],
+    "stability": {
+      "screen_call_wall_s": {
+        "max_s": 47.147528121990035,
+        "median_s": 46.68962653800554,
+        "min_s": 46.4769271670084,
+        "pstdev_s": 0.27980559200598404,
+        "relative_spread": 0.014362953930157598
+      }
+    },
+    "timed_repeats_requested": 3,
+    "top_k": 1000,
+    "warmups": [
+      {
+        "cache": null,
+        "conformer_pairs_screened": 20381286,
+        "conformers_screened": 20381286,
+        "contention_before": null,
+        "device_stages_s": {},
+        "engine_wall_s": 46.58783836499788,
+        "kernel_s": null,
+        "launch_enqueue_s": 695.195156618589,
+        "launches": 5038,
+        "phase": "warmup",
+        "producer_wait_s": 0.0,
+        "repeat": 1,
+        "screen_call_wall_s": 46.61104771899409,
+        "sink_s": 0.0,
+        "telemetry": {
+          "achieved_mhz": {
+            "max": 4137.576,
+            "mean": 4050.016440104167,
+            "median": 4106.782,
+            "min": 2695.948,
+            "p10": 4070.035,
+            "p90": 4116.742
+          },
+          "achieved_mhz_spread": 1.5347388006000116,
+          "cpus_sampled": "all online",
+          "duration_s": 46.022,
+          "interval_s": 2.0,
+          "loadavg_1m": {
+            "max": 16.03,
+            "median": 15.8,
+            "min": 15.71
+          },
+          "median_is_over_sampled_cpus_only": false,
+          "n_cpus_seen": 16,
+          "n_samples": 384,
+          "poller_displaced_off_measured_cpus": true
+        }
+      }
+    ],
+    "warmups_requested": 1,
+    "workers": null,
+    "workers_resolved": 16
+  },
+  "screen_size": {
+    "actual_conformer_pairs_final_repeat": 20381286,
+    "conformer_pairs_all_repeats": 61143858,
+    "conformer_pairs_per_repeat": 20381286
+  },
+  "script": "screen_smiles.py",
+  "tool": {
+    "git_sha": "unknown",
+    "package_path": "$EXTERNAL_DATA",
+    "version": "0.1.0rc1"
+  }
+}

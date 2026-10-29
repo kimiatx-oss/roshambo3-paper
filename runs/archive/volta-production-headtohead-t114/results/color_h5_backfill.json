@@ -1,0 +1,233 @@
+{
+  "record": "color_h5_backfill",
+  "ticket": "T114",
+  "host": "tachi",
+  "out": "$EXTERNAL_DATA/datasets/litpcba/color_hdf5/library",
+  "conformer_root": "$EXTERNAL_DATA/datasets/litpcba/conformers",
+  "preparer": "roshambo2.prepare.prepare_from_file",
+  "roshambo2_package": "$EXTERNAL_DATA",
+  "roshambo2_file_sha256": {
+    "prepare.py": "2d5a7dbb37bee770656540d0b2d73d2979e8f9029eba62c0c1fa80fdcc5f41a9",
+    "pharmacophore.py": "3fb250bc366fcbeeabb03ae46f53082845073925ffd22a0894b83c633291a80e"
+  },
+  "settings": {
+    "color": true,
+    "quiet": true,
+    "n_cpus": 24,
+    "conformers_have_unique_names": "not passed -- T82's call",
+    "color_generator": "roshambo2's native default, as T82"
+  },
+  "built": [
+    {
+      "shard": "shard_00000",
+      "h5": "$EXTERNAL_DATA/datasets/litpcba/color_hdf5/library/shard_00000.h5",
+      "skipped": true,
+      "reason": "already present"
+    },
+    {
+      "shard": "shard_00001",
+      "h5": "$EXTERNAL_DATA/datasets/litpcba/color_hdf5/library/shard_00001.h5",
+      "skipped": true,
+      "reason": "already present"
+    },
+    {
+      "shard": "shard_00002",
+      "h5": "$EXTERNAL_DATA/datasets/litpcba/color_hdf5/library/shard_00002.h5",
+      "skipped": true,
+      "reason": "already present"
+    },
+    {
+      "shard": "shard_00003",
+      "h5": "$EXTERNAL_DATA/datasets/litpcba/color_hdf5/library/shard_00003.h5",
+      "skipped": true,
+      "reason": "already present"
+    },
+    {
+      "shard": "shard_00004",
+      "h5": "$EXTERNAL_DATA/datasets/litpcba/color_hdf5/library/shard_00004.h5",
+      "skipped": true,
+      "reason": "already present"
+    },
+    {
+      "shard": "shard_00005",
+      "h5": "$EXTERNAL_DATA/datasets/litpcba/color_hdf5/library/shard_00005.h5",
+      "skipped": true,
+      "reason": "already present"
+    },
+    {
+      "shard": "shard_00006",
+      "h5": "$EXTERNAL_DATA/datasets/litpcba/color_hdf5/library/shard_00006.h5",
+      "skipped": true,
+      "reason": "already present"
+    },
+    {
+      "shard": "shard_00007",
+      "h5": "$EXTERNAL_DATA/datasets/litpcba/color_hdf5/library/shard_00007.h5",
+      "skipped": true,
+      "reason": "already present"
+    },
+    {
+      "shard": "shard_00008",
+      "h5": "$EXTERNAL_DATA/datasets/litpcba/color_hdf5/library/shard_00008.h5",
+      "skipped": true,
+      "reason": "already present"
+    },
+    {
+      "shard": "shard_00009",
+      "h5": "$EXTERNAL_DATA/datasets/litpcba/color_hdf5/library/shard_00009.h5",
+      "skipped": true,
+      "reason": "already present"
+    },
+    {
+      "shard": "shard_00010",
+      "h5": "$EXTERNAL_DATA/datasets/litpcba/color_hdf5/library/shard_00010.h5",
+      "skipped": true,
+      "reason": "already present"
+    },
+    {
+      "shard": "shard_00011",
+      "h5": "$EXTERNAL_DATA/datasets/litpcba/color_hdf5/library/shard_00011.h5",
+      "skipped": true,
+      "reason": "already present"
+    },
+    {
+      "shard": "shard_00012",
+      "h5": "$EXTERNAL_DATA/datasets/litpcba/color_hdf5/library/shard_00012.h5",
+      "skipped": true,
+      "reason": "already present"
+    },
+    {
+      "shard": "shard_00013",
+      "h5": "$EXTERNAL_DATA/datasets/litpcba/color_hdf5/library/shard_00013.h5",
+      "skipped": true,
+      "reason": "already present"
+    },
+    {
+      "shard": "shard_00014",
+      "h5": "$EXTERNAL_DATA/datasets/litpcba/color_hdf5/library/shard_00014.h5",
+      "skipped": true,
+      "reason": "already present"
+    },
+    {
+      "shard": "shard_00015",
+      "h5": "$EXTERNAL_DATA/datasets/litpcba/color_hdf5/library/shard_00015.h5",
+      "skipped": true,
+      "reason": "already present"
+    },
+    {
+      "shard": "shard_00016",
+      "h5": "$EXTERNAL_DATA/datasets/litpcba/color_hdf5/library/shard_00016.h5",
+      "skipped": true,
+      "reason": "already present"
+    },
+    {
+      "shard": "shard_00017",
+      "h5": "$EXTERNAL_DATA/datasets/litpcba/color_hdf5/library/shard_00017.h5",
+      "skipped": true,
+      "reason": "already present"
+    },
+    {
+      "shard": "shard_00018",
+      "h5": "$EXTERNAL_DATA/datasets/litpcba/color_hdf5/library/shard_00018.h5",
+      "skipped": true,
+      "reason": "already present"
+    },
+    {
+      "shard": "shard_00019",
+      "h5": "$EXTERNAL_DATA/datasets/litpcba/color_hdf5/library/shard_00019.h5",
+      "skipped": false,
+      "source": "$EXTERNAL_DATA/datasets/litpcba/conformers/shard_00019.sdf.gz",
+      "n_records_in_sdf": 999114,
+      "n_conformers": 999114,
+      "groups": [
+        {
+          "group": "molecules_0",
+          "n_conformers": 999114,
+          "L": 100,
+          "datasets": {
+            "names": [
+              999114
+            ],
+            "r_n": [
+              999114
+            ],
+            "r_n_real": [
+              999114
+            ],
+            "r_padded": [
+              999114,
+              100,
+              4
+            ],
+            "smiles": [
+              999114
+            ],
+            "smiles_order": [
+              999114,
+              100
+            ],
+            "t_padded": [
+              999114,
+              100
+            ]
+          }
+        }
+      ],
+      "max_mols_per_group_requested": 1000000,
+      "max_mols_per_group_used": 1000000,
+      "exact_multiple_workaround_applied": false,
+      "stage_s": 12.347073324024677,
+      "prepare_s": 1316.7688790094107,
+      "bytes": 2946742464
+    },
+    {
+      "shard": "shard_00020",
+      "h5": "$EXTERNAL_DATA/datasets/litpcba/color_hdf5/library/shard_00020.h5",
+      "skipped": false,
+      "source": "$EXTERNAL_DATA/datasets/litpcba/conformers/shard_00020.sdf.gz",
+      "n_records_in_sdf": 396759,
+      "n_conformers": 396759,
+      "groups": [
+        {
+          "group": "molecules_0",
+          "n_conformers": 396759,
+          "L": 96,
+          "datasets": {
+            "names": [
+              396759
+            ],
+            "r_n": [
+              396759
+            ],
+            "r_n_real": [
+              396759
+            ],
+            "r_padded": [
+              396759,
+              96,
+              4
+            ],
+            "smiles": [
+              396759
+            ],
+            "smiles_order": [
+              396759,
+              96
+            ],
+            "t_padded": [
+              396759,
+              96
+            ]
+          }
+        }
+      ],
+      "max_mols_per_group_requested": 1000000,
+      "max_mols_per_group_used": 1000000,
+      "exact_multiple_workaround_applied": false,
+      "stage_s": 4.795616592280567,
+      "prepare_s": 497.2820058418438,
+      "bytes": 1125219152
+    }
+  ],
+  "why": "T82's LIT-PCBA colour build crashed on shard_00018's empty post-loop flush (the exact-multiple defect, results/T68/METHOD.md 4.1.1) and never reached shards 19 and 20. See this file's docstring."
+}

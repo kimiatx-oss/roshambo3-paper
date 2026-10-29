@@ -1,0 +1,164 @@
+{
+  "record": "run",
+  "ticket": "T114",
+  "tool": "roshambo2",
+  "arm": "u2_color_skip",
+  "label": "probe_comb_uc_1s_1q",
+  "host": "tachi",
+  "grade": "advisory",
+  "measurement_regime": "headline",
+  "measurement_regime_reason": "headline: clocks are not lockable on tachi (D004/D023), so the achieved distribution is reported by the sibling sampler and nothing is normalized against a clock nobody set",
+  "data_mode": "eager",
+  "h5_dir": "$EXTERNAL_DATA/datasets/litpcba/color_hdf5/library",
+  "h5_files": [
+    "shard_00000.h5"
+  ],
+  "h5_groups": [
+    {
+      "file": "shard_00000.h5",
+      "group": "molecules_0",
+      "n": 999598,
+      "L": 96
+    }
+  ],
+  "padded_width_L": [
+    96
+  ],
+  "n_conformers": 999598,
+  "n_query": 1,
+  "queries": [
+    "ADRB2_3p0g_query"
+  ],
+  "panel": "$EXTERNAL_DATA/datasets/litpcba/panels/PANEL-8.sdf",
+  "evaluations": {
+    "conformers": 999598,
+    "queries": 1,
+    "product": 999598,
+    "definition": "conformers x queries; both factors named because Table 2's caption and its SSD-row text differ by 8x"
+  },
+  "config": {
+    "backend": "cuda",
+    "start_mode": 1,
+    "steps": 100,
+    "lr_q": 0.1,
+    "lr_t": 0.1,
+    "objective": "combination",
+    "optim_mode": "combination",
+    "color_scores": true,
+    "combination_param": 0.5,
+    "color": true,
+    "rank_column": "tanimoto_combination",
+    "d025_mode": 3,
+    "arm_spec_source": "tickets/T91/run_roshambo2_panel.py::arm_specs(0.5)['combination'], imported not retyped",
+    "max_results": 100000,
+    "reduce_over_conformers": false,
+    "conformers_have_unique_names": true
+  },
+  "setup_s": 0.05064923316240311,
+  "preload_read_decode_s": 0.0,
+  "search_wall_s": 21.63824674114585,
+  "search_wall_s_is": "median of the timed repeats",
+  "search_wall_s_repeats": [
+    21.63824674114585
+  ],
+  "search_wall_s_min": 21.63824674114585,
+  "search_wall_s_max": 21.63824674114585,
+  "n_timed_repeats": 1,
+  "stages_s_per_repeat": [
+    {
+      "read_decode_s": 3.246935303322971,
+      "host_prep_s": 0.4630786841735244,
+      "device_total_s": 16.190782212652266,
+      "host_reduce_s": 1.737450540997088
+    }
+  ],
+  "cache_state_per_repeat": [],
+  "wall_including_preload_s": 21.688895974308252,
+  "stages_s": {
+    "read_decode_s": 3.246935303322971,
+    "host_prep_s": 0.4630786841735244,
+    "device_total_s": 16.190782212652266,
+    "host_reduce_s": 1.737450540997088
+  },
+  "stage_fraction": {
+    "read_decode_s": 0.15005537843086034,
+    "host_prep_s": 0.02140093371303345,
+    "device_total_s": 0.7482483403733886,
+    "host_reduce_s": 0.08029534748271762
+  },
+  "n_backend_calls": 1,
+  "throughput": {
+    "conformers_per_s_search": 46195.88693843809,
+    "evaluations_per_s_search": 46195.88693843809,
+    "conformers_per_s_including_preload": 46088.0074847554
+  },
+  "rss_gb": {
+    "before": 0.12159347534179688,
+    "after_preload": 0.12207794189453125,
+    "end": 0.64019775390625
+  },
+  "cache_state": {
+    "n_files": 1,
+    "bytes": 2838680864,
+    "resident_fraction_after_drop": 0.0,
+    "resident_fraction_max_file": 0.0,
+    "method": "posix_fadvise(POSIX_FADV_DONTNEED), verified with mincore"
+  },
+  "page_cache_after_preload": {
+    "note": "measured after the preload, so it reports what the preload left in the page cache, not the cold state before it",
+    "resident_fraction": 7.214611608598663e-06
+  },
+  "topk_dump": null,
+  "topk_dump_error": null,
+  "python": "3.11.16",
+  "note": "H2D, kernel and D2H are not separable in this arm: the original C++ carries no stage counters and instrumenting it would make it a different arm. device_total_s is the single pybind call.",
+  "git_sha": "fc711a9e81be24c8ee399002e5e49d8d2aaa7e44",
+  "git_describe": "fc711a9 2026-08-15 Do not evaluate colour overlaps when colour scoring is off",
+  "operating_point": {
+    "achieved_clock_mhz": {
+      "min": 510.0,
+      "median": 1335.0,
+      "max": 1335.0
+    },
+    "clocks_sm_mhz": {
+      "mean": 1222.5,
+      "max": 1335.0,
+      "min": 510.0
+    },
+    "n_clock_samples": 22,
+    "sw_power_cap_fraction": 0.0,
+    "throttle_fraction": 0.13636363636363635,
+    "power_draw_w": {
+      "mean": 98.22681818181817,
+      "max": 147.09,
+      "min": 30.41
+    },
+    "energy_j": 2224.1685617373555,
+    "profiler_control": {
+      "before": {
+        "state": "none",
+        "tool": null
+      },
+      "after": {
+        "state": "none",
+        "tool": null
+      }
+    },
+    "clocks_locked_requested_succeeded": false,
+    "clocks_locked_note": "clocks were not locked on this host (D004); the headline regime wants them unlocked anyway (D023). Achieved only.",
+    "measurement_regime": "headline",
+    "device": {
+      "visible_index": 0,
+      "physical_index": 0,
+      "uuid": "[device identifier removed]"
+    },
+    "sampled_by": "tickets/T68/sample_clocks.py, a sibling ROSHAMBO3 interpreter -- the arm venv has no ROSHAMBO3 in it"
+  },
+  "grade_reasons": [
+    "another process was present on the GPU per --query-compute-apps before the flock was taken ([pid removed], [Not Found], 432 MiB) -- project policy: a run that finds the card busy and proceeds anyway is advisory, not decision. The same condition made this session's ROSHAMBO3 cell advisory.",
+    "throttle_fraction 0.1364 exceeds bench.rules.THROTTLE_ADVISORY_THRESHOLD 0.05 with clocks unlocked. The raw fraction counts GpuIdle as a throttle reason; tickets/T68/clock_check.py reports the busy-only distribution that decides whether D023's reopening condition actually fired.",
+    "1 timed repeats, below bench.rules.REQUIRED_TIMED_REPEATS = 11. The baseline arms cost 10-20 minutes per repeat on this corpus, so this is a budget limit and not an oversight; the min/max spread is in the record beside the median.",
+    "max_results=100000 < 10 * n_conformers=9995980 (pitfall 12: per-batch truncation)  [KNOWN HARNESS DEFECT, T69: the condition asks for a k no top-K can be asked for, so it is unsatisfiable rather than unmet. The pitfall it guards -- roshambo2's shipped 10,000 applied PER BATCH before merging -- is addressed by setting max_results explicitly on BOTH sides, which this session does.]"
+  ],
+  "grade_source": "tickets/T68/grade_r2_records.py, from this record's operating point and the session's compute_apps_before.csv, against bench.rules' thresholds. NOT bench.rules.enforce(): that needs a bench.build_check.VerifiedBuild of a ROSHAMBO3 extension and these rows are a different tool. The arms' Release / sm_70 / no-PTX / -O3 status is established separately by tickets/T68/verify_roshambo2_arm.sh and recorded per arm in results/T68/roshambo2_arm_builds.txt."
+}

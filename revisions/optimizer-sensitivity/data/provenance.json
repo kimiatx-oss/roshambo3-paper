@@ -1,0 +1,51 @@
+{
+  "what": "Inputs for the ROSHAMBO2/ROSHAMBO3 optimizer-sensitivity analysis staged for a paper revision.",
+  "generated_by": "roshambo3 ticket T169; see the roshambo3 repo at the sha below",
+  "roshambo3_repo": {
+    "path": "$EXTERNAL_DATA",
+    "branch": "[internal]",
+    "head": "[internal]",
+    "results_dir": "[internal]",
+    "scripts_dir": "[internal]"
+  },
+  "engines": {
+    "roshambo3": {
+      "role": "reference arm",
+      "config": "PoseSearch.FIELD, color=True, mixing=0.5, color_placement=IN_GRADIENT, color_stage=0, color_residency=1, steps=25, start_mode=1"
+    },
+    "r2_fixed": {
+      "role": "comparator",
+      "description": "ROSHAMBO2 with the C1/C2/C3 numerics fixes applied onto upstream 2fef1b0; combination mode, combination_param=0.5, start_mode=1",
+      "note": "C1 quaternion renormalization, C2 principal-axis reflection, C3 combo gradient weighting"
+    },
+    "r2_prefix": {
+      "role": "historical, carried in the fixture but excluded from conclusions",
+      "note": "its pose matrix is not a rotation on 75% of pairs (the C1 defect)"
+    }
+  },
+  "source_oracles": {
+    "roshambo3": "$EXTERNAL_DATA",
+    "r2_fixed": "$EXTERNAL_DATA",
+    "panel": "200 queries x 75,292 PubChem molecules, 687,440 conformers, <=10 per molecule",
+    "note": "data/ranking-inputs.npz is a repackaging of these two directories' per-query top-1000 index+score arrays, not a re-measurement"
+  },
+  "files": {
+    "data/isostep-fixture.meta.json": {
+      "sha256": "7a8195b278dffcac0aaef3554793a3c29870c0c3364311b17f017649ab7d0e9e",
+      "bytes": 16863,
+      "source_sha256": "267741fa8a60f525c7a71f610add74d6eb9c42efa35b2e022ff380216eaae1ee"
+    },
+    "data/isostep-fixture.npz": {
+      "sha256": "b55382ed9c65a0fe4bb3e66fe4e57c8cc73ffdca934ae974f41c627b2197c896",
+      "bytes": 106227,
+      "source_sha256": "b55382ed9c65a0fe4bb3e66fe4e57c8cc73ffdca934ae974f41c627b2197c896"
+    },
+    "data/ranking-inputs.npz": {
+      "sha256": "7dda01e97ba1bbd3c33aa599af598a40ff01a06187161ff58727f1da5d5d2c76",
+      "bytes": 6088411,
+      "source_sha256": "7dda01e97ba1bbd3c33aa599af598a40ff01a06187161ff58727f1da5d5d2c76"
+    }
+  },
+  "measurement_grade": "advisory",
+  "grade_reason": "unlocked by decision (correctness run; overlap and ranking statistics are deterministic and clock-independent). No timing or throughput figure is quoted anywhere in this package."
+}

@@ -1,0 +1,316 @@
+{
+  "record": "run",
+  "ticket": "T114",
+  "tool": "roshambo2",
+  "arm": "u2",
+  "label": "combination_u2_inmem",
+  "host": "tachi",
+  "grade": "advisory",
+  "measurement_regime": "headline",
+  "measurement_regime_reason": "headline: clocks are not lockable on tachi (D004/D023), so the achieved distribution is reported by the sibling sampler and nothing is normalized against a clock nobody set",
+  "data_mode": "in_memory",
+  "h5_dir": "$EXTERNAL_DATA/datasets/litpcba/color_hdf5/library",
+  "h5_files": [
+    "shard_00000.h5",
+    "shard_00001.h5",
+    "shard_00002.h5",
+    "shard_00003.h5",
+    "shard_00004.h5",
+    "shard_00005.h5",
+    "shard_00006.h5",
+    "shard_00007.h5",
+    "shard_00008.h5",
+    "shard_00009.h5",
+    "shard_00010.h5",
+    "shard_00011.h5",
+    "shard_00012.h5",
+    "shard_00013.h5",
+    "shard_00014.h5",
+    "shard_00015.h5",
+    "shard_00016.h5",
+    "shard_00017.h5",
+    "shard_00018.h5",
+    "shard_00019.h5",
+    "shard_00020.h5"
+  ],
+  "h5_groups": [
+    {
+      "file": "shard_00000.h5",
+      "group": "molecules_0",
+      "n": 999598,
+      "L": 96
+    },
+    {
+      "file": "shard_00001.h5",
+      "group": "molecules_0",
+      "n": 999582,
+      "L": 80
+    },
+    {
+      "file": "shard_00002.h5",
+      "group": "molecules_0",
+      "n": 998226,
+      "L": 80
+    },
+    {
+      "file": "shard_00003.h5",
+      "group": "molecules_0",
+      "n": 999550,
+      "L": 88
+    },
+    {
+      "file": "shard_00004.h5",
+      "group": "molecules_0",
+      "n": 999825,
+      "L": 92
+    },
+    {
+      "file": "shard_00005.h5",
+      "group": "molecules_0",
+      "n": 999187,
+      "L": 96
+    },
+    {
+      "file": "shard_00006.h5",
+      "group": "molecules_0",
+      "n": 999796,
+      "L": 96
+    },
+    {
+      "file": "shard_00007.h5",
+      "group": "molecules_0",
+      "n": 999834,
+      "L": 80
+    },
+    {
+      "file": "shard_00008.h5",
+      "group": "molecules_0",
+      "n": 999017,
+      "L": 80
+    },
+    {
+      "file": "shard_00009.h5",
+      "group": "molecules_0",
+      "n": 999478,
+      "L": 96
+    },
+    {
+      "file": "shard_00010.h5",
+      "group": "molecules_0",
+      "n": 999871,
+      "L": 96
+    },
+    {
+      "file": "shard_00011.h5",
+      "group": "molecules_0",
+      "n": 999731,
+      "L": 80
+    },
+    {
+      "file": "shard_00012.h5",
+      "group": "molecules_0",
+      "n": 999718,
+      "L": 92
+    },
+    {
+      "file": "shard_00013.h5",
+      "group": "molecules_0",
+      "n": 999982,
+      "L": 68
+    },
+    {
+      "file": "shard_00014.h5",
+      "group": "molecules_0",
+      "n": 999700,
+      "L": 68
+    },
+    {
+      "file": "shard_00015.h5",
+      "group": "molecules_0",
+      "n": 994387,
+      "L": 96
+    },
+    {
+      "file": "shard_00016.h5",
+      "group": "molecules_0",
+      "n": 998400,
+      "L": 104
+    },
+    {
+      "file": "shard_00017.h5",
+      "group": "molecules_0",
+      "n": 999531,
+      "L": 92
+    },
+    {
+      "file": "shard_00018.h5",
+      "group": "molecules_0",
+      "n": 1000000,
+      "L": 80
+    },
+    {
+      "file": "shard_00019.h5",
+      "group": "molecules_0",
+      "n": 999114,
+      "L": 100
+    },
+    {
+      "file": "shard_00020.h5",
+      "group": "molecules_0",
+      "n": 396759,
+      "L": 96
+    }
+  ],
+  "padded_width_L": [
+    68,
+    80,
+    88,
+    92,
+    96,
+    100,
+    104
+  ],
+  "n_conformers": 20381286,
+  "n_query": 8,
+  "queries": [
+    "ADRB2_3p0g_query",
+    "ALDH1_4wp7_query",
+    "ESR1_ago_1l2i_query",
+    "ESR1_ant_1xp1_query",
+    "FEN1_5fv7_query",
+    "GBA_2v3d_query",
+    "IDH1_4i3k_query",
+    "KAT2A_5h86_query"
+  ],
+  "panel": "$EXTERNAL_DATA/datasets/litpcba/panels/PANEL-8.sdf",
+  "evaluations": {
+    "conformers": 20381286,
+    "queries": 8,
+    "product": 163050288,
+    "definition": "conformers x queries; both factors named because Table 2's caption and its SSD-row text differ by 8x"
+  },
+  "config": {
+    "backend": "cuda",
+    "start_mode": 1,
+    "steps": 100,
+    "lr_q": 0.1,
+    "lr_t": 0.1,
+    "objective": "combination",
+    "optim_mode": "combination",
+    "color_scores": true,
+    "combination_param": 0.5,
+    "color": true,
+    "rank_column": "tanimoto_combination",
+    "d025_mode": 3,
+    "arm_spec_source": "tickets/T91/run_roshambo2_panel.py::arm_specs(0.5)['combination'], imported not retyped",
+    "max_results": 100000,
+    "reduce_over_conformers": false,
+    "conformers_have_unique_names": true
+  },
+  "setup_s": 79.27264074329287,
+  "preload_read_decode_s": 72.28231600951403,
+  "search_wall_s": 2936.72450201679,
+  "search_wall_s_is": "median of the timed repeats",
+  "search_wall_s_repeats": [
+    2936.72450201679
+  ],
+  "search_wall_s_min": 2936.72450201679,
+  "search_wall_s_max": 2936.72450201679,
+  "n_timed_repeats": 1,
+  "stages_s_per_repeat": [
+    {
+      "read_decode_s": 0.0,
+      "host_prep_s": 81.59371586609632,
+      "device_total_s": 2575.6437857449055,
+      "host_reduce_s": 279.4870004057884
+    }
+  ],
+  "cache_state_per_repeat": [],
+  "wall_including_preload_s": 3015.997142760083,
+  "stages_s": {
+    "read_decode_s": 0.0,
+    "host_prep_s": 81.59371586609632,
+    "device_total_s": 2575.6437857449055,
+    "host_reduce_s": 279.4870004057884
+  },
+  "stage_fraction": {
+    "read_decode_s": 0.0,
+    "host_prep_s": 0.027783919060184903,
+    "device_total_s": 0.8770464454449461,
+    "host_reduce_s": 0.09516963549486894
+  },
+  "n_backend_calls": 21,
+  "throughput": {
+    "conformers_per_s_search": 6940.142320467306,
+    "evaluations_per_s_search": 55521.138563738445,
+    "conformers_per_s_including_preload": 6757.727224286463
+  },
+  "rss_gb": {
+    "before": 0.12136459350585938,
+    "after_preload": 50.86343002319336,
+    "end": 53.0925407409668
+  },
+  "cache_state": {
+    "n_files": 21,
+    "bytes": 53279252544,
+    "resident_fraction_after_drop": 0.0,
+    "resident_fraction_max_file": 0.0,
+    "method": "posix_fadvise(POSIX_FADV_DONTNEED), verified with mincore"
+  },
+  "page_cache_after_preload": {
+    "note": "measured after the preload, so it reports what the preload left in the page cache, not the cold state before it",
+    "resident_fraction": 0.1804781246938942
+  },
+  "topk_dump": null,
+  "topk_dump_error": null,
+  "python": "3.11.16",
+  "note": "H2D, kernel and D2H are not separable in this arm: the original C++ carries no stage counters and instrumenting it would make it a different arm. device_total_s is the single pybind call.",
+  "git_sha": "7ff8237c4f21372e8fbfb4e842b1b5eee87a7aeb",
+  "git_describe": "7ff8237 2026-01-15 Merge pull request #6 from DavidACosgrove/DecoupleCPPInterface",
+  "operating_point": {
+    "achieved_clock_mhz": {
+      "min": 135.0,
+      "median": 1335.0,
+      "max": 1335.0
+    },
+    "clocks_sm_mhz": {
+      "mean": 1279.5251396648046,
+      "max": 1335.0,
+      "min": 135.0
+    },
+    "n_clock_samples": 2864,
+    "sw_power_cap_fraction": 0.0,
+    "throttle_fraction": 0.03596368715083799,
+    "power_draw_w": {
+      "mean": 153.80440642458146,
+      "max": 198.73,
+      "min": 25.8
+    },
+    "energy_j": 464774.67798413575,
+    "profiler_control": {
+      "before": {
+        "state": "none",
+        "tool": null
+      },
+      "after": {
+        "state": "none",
+        "tool": null
+      }
+    },
+    "clocks_locked_requested_succeeded": false,
+    "clocks_locked_note": "clocks were not locked on this host (D004); the headline regime wants them unlocked anyway (D023). Achieved only.",
+    "measurement_regime": "headline",
+    "device": {
+      "visible_index": 0,
+      "physical_index": 0,
+      "uuid": "[device identifier removed]"
+    },
+    "sampled_by": "tickets/T68/sample_clocks.py, a sibling ROSHAMBO3 interpreter -- the arm venv has no ROSHAMBO3 in it"
+  },
+  "grade_reasons": [
+    "another process was present on the GPU per --query-compute-apps before the flock was taken ([pid removed], [Not Found], 432 MiB) -- project policy: a run that finds the card busy and proceeds anyway is advisory, not decision. The same condition made this session's ROSHAMBO3 cell advisory.",
+    "1 timed repeats, below bench.rules.REQUIRED_TIMED_REPEATS = 11. The baseline arms cost 10-20 minutes per repeat on this corpus, so this is a budget limit and not an oversight; the min/max spread is in the record beside the median.",
+    "max_results=100000 < 10 * n_conformers=203812860 (pitfall 12: per-batch truncation)  [KNOWN HARNESS DEFECT, T69: the condition asks for a k no top-K can be asked for, so it is unsatisfiable rather than unmet. The pitfall it guards -- roshambo2's shipped 10,000 applied PER BATCH before merging -- is addressed by setting max_results explicitly on BOTH sides, which this session does.]"
+  ],
+  "grade_source": "tickets/T68/grade_r2_records.py, from this record's operating point and the session's compute_apps_before.csv, against bench.rules' thresholds. NOT bench.rules.enforce(): that needs a bench.build_check.VerifiedBuild of a ROSHAMBO3 extension and these rows are a different tool. The arms' Release / sm_70 / no-PTX / -O3 status is established separately by tickets/T68/verify_roshambo2_arm.sh and recorded per arm in results/T68/roshambo2_arm_builds.txt."
+}

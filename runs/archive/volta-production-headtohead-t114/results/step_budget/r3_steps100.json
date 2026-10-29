@@ -1,0 +1,304 @@
+{
+  "run_id": "run_1787921967_714e2b9d",
+  "utc": "2026-08-28T12:59:27Z",
+  "preregistration_id": null,
+  "git": {
+    "sha": "395d8fa1a4585fa7de769b0d80a2e1cad7dc6366",
+    "dirty": false,
+    "branch": "ticket/T114-volta-head-to-head"
+  },
+  "build": {
+    "type": "Release",
+    "flags": {
+      "cxx": " -O3 -DNDEBUG",
+      "cuda": " -O3 -DNDEBUG -lineinfo --ptxas-options=-v -Wno-deprecated-gpu-targets"
+    },
+    "arch_profile": "native",
+    "with_cuda": true,
+    "cuda_architectures_requested": "70-real",
+    "nvcc_version": "12.9.86",
+    "cuda_src_sha256": "1d7924632d7063ff506a6765c2a00e8e57c63fa9849c8ebdd97e04491e19f708",
+    "cuda_src_tree": "f4ebd36e49082b81d56efc01dc43ad86df2639be",
+    "cuda_src_dirty": false,
+    "cuda_src_dirty_files": [],
+    "cuda_src_stamp_phase": "build",
+    "nthreads": 256,
+    "combo_dispatch_grid": 0,
+    "arch_list": [
+      "sm_70"
+    ],
+    "ptx_present": false,
+    "so_sha256": {
+      "_roshambo3_cuda": "37198299032304a9ca7501ff8c1c8bd60410ab4e9442ca1dae9c17d4a9088b10"
+    },
+    "arch_probe_error": null
+  },
+  "numerics": {
+    "policy": "doc/NUMERICS_POLICY.md",
+    "pinned_cuda_toolkit": "13.2",
+    "validated_cuda_arch": "sm_120",
+    "cross_architecture_reproducibility": "measured, sm_70 vs sm_120 (T25, results/T25/, decisions/D001): NOT bitwise portable -- 0.12% of pairs bit-identical after 100 Adagrad steps, |dT_shape| p99 2.6e-5 overall and 3.6e-7 on the T>=0.7 stratum -- but bit-identical at a fixed pose (steps=0), and the ranked output is unchanged: top-1 and top-5 set and order identical for 480/480 queries. sm_70 is outside the sm_80+ deploy library, so this bounds the effect rather than predicting Ampere-Blackwell.",
+    "cuda_toolkit": "12.9.86",
+    "cuda_flags": " -O3 -DNDEBUG -lineinfo --ptxas-options=-v -Wno-deprecated-gpu-targets",
+    "cxx_flags": " -O3 -DNDEBUG",
+    "cuda_architectures": "70-real",
+    "build_type": "Release",
+    "git_sha": "4d4a60e2cce9187c3b9112284c8ed1bbab0d8f77",
+    "cuda_src_sha256": "1d7924632d7063ff506a6765c2a00e8e57c63fa9849c8ebdd97e04491e19f708",
+    "cuda_src_tree": "f4ebd36e49082b81d56efc01dc43ad86df2639be",
+    "cuda_src_dirty": false,
+    "cuda_src_dirty_files": [],
+    "source_stamp_phase": "build",
+    "nthreads": 256,
+    "combo_dispatch_grid": 0,
+    "tuning_cells": false,
+    "cell_groups": {
+      "register_tier": false,
+      "color_stage": false,
+      "color_residency": false,
+      "interleave": false,
+      "lanes": false,
+      "global_tiers": false,
+      "update_lanes": false,
+      "start_groups": false,
+      "stream_min_blocks": false
+    },
+    "reduced_frame": {
+      "ROSHAMBO3_SHAPE_PREFACTOR": 20.57952880859375,
+      "ROSHAMBO3_COLOR_PREFACTOR": 1.9687012434005737,
+      "ROSHAMBO3_COORD_SCALE": 0.7768736481666565,
+      "ROSHAMBO3_INV_TWO_ALPHA": 1.1952086687088013,
+      "ROSHAMBO3_MINUS_2LN2": -1.3862943649291992,
+      "ROSHAMBO3_STAGE_INV_Q_XYZ": 0.0010000000474974513
+    },
+    "arithmetic_ok": true,
+    "arithmetic_violations": [],
+    "arithmetic_advisories": [
+      "CUDA toolkit 12.9 is not the pinned 13.2. The toolkit version is a measured arithmetic axis: 13.2 vs 12.9 leaves 92.95% of pairs bit-identical, with |dT_shape| p99 = 8.9e-8 and max = 3.0e-7 on the rest (T03, sm_120). Scores from this build are not bitwise comparable with scores from the pinned toolkit.",
+      "build library molecules '70-real', which does not include the architecture this policy's numbers were measured on (sm_120). Scores from it are not bitwise comparable with scores taken on sm_120: T25 measured sm_70 vs sm_120 as bit-identical at a fixed pose but |dT_shape| p99 = 2.6e-5 after 100 Adagrad steps (results/T25/, decisions/D001)."
+    ],
+    "numerics_override": false
+  },
+  "host": {
+    "platform": "Linux-[kernel]-x86_64-with-glibc2.39",
+    "python": "3.11.16",
+    "cpu_count": 56,
+    "_release_redaction": "identifying inputs withheld; aggregate values retained"
+  },
+  "gpu": {
+    "name": "NVIDIA TITAN V",
+    "uuid": "[device identifier removed]",
+    "driver": "580.173.02",
+    "clocks_locked": false,
+    "power_limit": "250.00 W"
+  },
+  "gpu_lock_held": true,
+  "dataset": {
+    "corpus": "$EXTERNAL_DATA/datasets/litpcba/LIT-PCBA-20M",
+    "name": "LIT-PCBA-20M",
+    "n_conformers_corpus": 20381286,
+    "n_molecules_corpus": 407664,
+    "n_groups_corpus": 18,
+    "groups_used": "all",
+    "n_conformers_screened": 20381286,
+    "bytes": 3112793785
+  },
+  "query_panel": {
+    "sdf": "$EXTERNAL_DATA/datasets/litpcba/panels/PANEL-8.sdf",
+    "n_queries": 8,
+    "names": [
+      "ADRB2_3p0g_query",
+      "ALDH1_4wp7_query",
+      "ESR1_ago_1l2i_query",
+      "ESR1_ant_1xp1_query",
+      "FEN1_5fv7_query",
+      "GBA_2v3d_query",
+      "IDH1_4i3k_query",
+      "KAT2A_5h86_query"
+    ]
+  },
+  "config": {
+    "tool": "roshambo3",
+    "label": "steps100",
+    "arm": "shape",
+    "pose_search": "field",
+    "steps": 100,
+    "color": false,
+    "mixing": 0.0,
+    "color_placement": null,
+    "lr_t": null,
+    "lr_q": 0.1,
+    "start_mode": 1,
+    "resolved_optimizer": {
+      "steps": 100,
+      "lr_q": 0.1,
+      "opt_mode": 1,
+      "lr_t": 0.2,
+      "translation_budget_A": 3.7179207649568298
+    },
+    "rank_column": "tanimoto_shape",
+    "d025_mode": 1,
+    "arm_spec_source": "ScreenConfig() shipped defaults, shape only",
+    "color_generator": null,
+    "k": 100000,
+    "level": "conformer",
+    "workers": 8,
+    "prefetch_depth": 3,
+    "device_visible_index": 0
+  },
+  "config_hash": "f2abd4630766298d7dd0b391db71bac173e892731e84cb046815e7c623e27121",
+  "gold_ref_run_id": null,
+  "timing": {
+    "wall_s": 24.67997256666422,
+    "wall_s_is": "median of the timed repeats",
+    "wall_s_repeats": [
+      24.681784045882523,
+      24.694861902855337,
+      24.67281875386834,
+      24.716461409814656,
+      24.67236171197146,
+      24.669766799546778,
+      24.66320049855858,
+      24.690619638189673,
+      24.67997256666422,
+      24.66098648123443,
+      24.694175511598587
+    ],
+    "wall_s_min": 24.66098648123443,
+    "wall_s_max": 24.716461409814656,
+    "n_timed_repeats": 11,
+    "n_warmup": 3,
+    "engine_wall_s": 24.625975507311523,
+    "producer_wait_s": 0.01911079604178667,
+    "launch_s": 24.562368143349886,
+    "sink_s": 0.000534961000084877,
+    "device_stages_s": {
+      "alloc_s": 0.003369881771504879,
+      "h2d_s": 0.5500933537259698,
+      "kernel_s": 23.492324887774885,
+      "precompute_s": 0.1076644565910101,
+      "d2h_s": 0.0,
+      "free_s": 0.0024458076804876328,
+      "index_s": 0.11618682462722063,
+      "topk_s": 0.12091354746371508,
+      "h2d_bytes": 5147360088.0,
+      "d2h_bytes": 0.0,
+      "n_calls": 321.0,
+      "enabled": 1.0
+    },
+    "n_blocks": 321,
+    "n_blocks_is": "score_pairs launches (T85: coalesced runs, not format.BLOCK_CONF on-disk blocks)",
+    "conformers_per_launch_mean": 63493.102803738315,
+    "conformers_per_s": 825822.879054957,
+    "evaluations_per_s": 6606583.032439656
+  },
+  "metrics": {
+    "evaluations": {
+      "conformers": 20381286,
+      "queries": 8,
+      "product": 163050288,
+      "definition": "conformers x queries; both factors named because Table 2's caption and its SSD-row text differ by 8x"
+    },
+    "cache_state": {
+      "n_files": 93,
+      "bytes": 3112793785,
+      "resident_fraction_after_drop": 0.03643849338460719,
+      "resident_fraction_max_file": 1.0,
+      "method": "posix_fadvise(POSIX_FADV_DONTNEED), verified with mincore"
+    },
+    "rss_gb_end": 1.9148101806640625
+  },
+  "audits": {
+    "gpu_state_before": {
+      "device": {
+        "visible_index": 0,
+        "physical_index": 0,
+        "uuid": "[device identifier removed]"
+      },
+      "compute_apps": [
+        {
+          "pid": "[pid removed]",
+          "process_name": "[Not Found]",
+          "used_gpu_memory": "432 MiB"
+        }
+      ],
+      "other_process_present": true,
+      "utilization_gpu_pct": 0.0,
+      "memory_used_mib": 436.0,
+      "power_draw_w": 50.05
+    },
+    "gpu_state_after": {
+      "device": {
+        "visible_index": 0,
+        "physical_index": 0,
+        "uuid": "[device identifier removed]"
+      },
+      "compute_apps": [
+        {
+          "pid": "[pid removed]",
+          "process_name": "[Not Found]",
+          "used_gpu_memory": "432 MiB"
+        },
+        {
+          "pid": "[pid removed]",
+          "process_name": "[Not Found]",
+          "used_gpu_memory": "476 MiB"
+        }
+      ],
+      "other_process_present": true,
+      "utilization_gpu_pct": 99.0,
+      "memory_used_mib": 912.0,
+      "power_draw_w": 55.29
+    }
+  },
+  "artifacts": {
+    "topk_dump": null,
+    "topk_dump_error": null,
+    "out": "$EXTERNAL_DATA/scratch/T114/step_budget/r3_steps100.json"
+  },
+  "status": "advisory",
+  "advisory_reasons": [
+    "another process was present on the GPU per --query-compute-apps (shared-machine contention)",
+    "this run did not record its launch structure, so the launch-size rule fell back to RunRequest.n_conformers -- the field T68 was handed a corpus total in, which is how a 4,096-conformer launch passed a 1,000,000-conformer check. Pass RunRequest(launch=LaunchShape.from_screen(stats, source)) (T102)",
+    "max_results=100000 < 10 * n_conformers=203812860 (pitfall 12: per-batch truncation)  [KNOWN HARNESS DEFECT, T69: this advisory demands max_results >= 10 * n_conformers, i.e. k >= 203812860 here, which a device-resident top-K cannot be asked for -- the condition is unsatisfiable, not unmet. The pitfall it guards (roshambo2's shipped 10,000 applied PER BATCH before merging) is addressed by setting max_results explicitly on BOTH sides, which this session does.]",
+    "CUDA toolkit 12.9 is not the pinned 13.2. The toolkit version is a measured arithmetic axis: 13.2 vs 12.9 leaves 92.95% of pairs bit-identical, with |dT_shape| p99 = 8.9e-8 and max = 3.0e-7 on the rest (T03, sm_120). Scores from this build are not bitwise comparable with scores from the pinned toolkit.  [EXPECTED AND UNAVOIDABLE: CUDA 13.x dropped sm_70 outright, so a TITAN V build can only be made on 12.x. This is the matched-architecture comparison D023 licenses tachi for, and it is a wall-clock ratio between two tools on one card -- not a score compared against an sm_120 number. No score from this run is combined with a score taken under the pinned toolkit.]",
+    "build library molecules '70-real', which does not include the architecture this policy's numbers were measured on (sm_120). Scores from it are not bitwise comparable with scores taken on sm_120: T25 measured sm_70 vs sm_120 as bit-identical at a fixed pose but |dT_shape| p99 = 2.6e-5 after 100 Adagrad steps (results/T25/, decisions/D001).  [EXPECTED AND THE POINT: the whole reason for running on tachi is that its TITAN V is the GPU model the comparison paper benchmarked. Same disposition as the toolkit advisory above: a wall-clock ratio on one card, no cross-architecture score claim.]"
+  ],
+  "refusal_reason": null,
+  "notes": "ROSHAMBO3 in its shipped configuration on one TITAN V; the ROSHAMBO2 arms of the same session are separate records with the same host, device and lock.",
+  "padding": {},
+  "operating_point": {
+    "achieved_clock_mhz": {
+      "min": 1335.0,
+      "median": 1335.0,
+      "max": 1335.0
+    },
+    "clocks_sm_mhz": {
+      "mean": 1335.0,
+      "max": 1335.0,
+      "min": 1335.0
+    },
+    "n_clock_samples": 260,
+    "sw_power_cap_fraction": 0.0,
+    "throttle_fraction": 0.0,
+    "power_draw_w": {
+      "mean": 206.94957692307688,
+      "max": 248.71,
+      "min": 54.05
+    },
+    "energy_j": 56308.752592627716,
+    "power_limited": false,
+    "clocks_locked_requested_succeeded": false,
+    "clocks_locked_note": "clocks were not locked on this host (D004); the headline regime wants them unlocked anyway (D023). What is reported is achieved.",
+    "profiler_control": {
+      "state": "none",
+      "tool": null
+    },
+    "measurement_regime": "headline",
+    "device": {
+      "visible_index": 0,
+      "physical_index": 0,
+      "uuid": "[device identifier removed]"
+    }
+  }
+}

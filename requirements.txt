@@ -1,0 +1,4 @@
+# Python packages for `make paper` / `make check` (tested with Python 3.12).
+# The screening-harness tests in tests/test_screen_smiles.py also use the
+# roshambo3 engine (`pip install ..`) and RDKit; without them they skip.
+numpy>=2.0

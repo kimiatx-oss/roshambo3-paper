@@ -1,0 +1,116 @@
+{
+  "record": "topk_bitwise",
+  "ticket": "T114",
+  "a": {
+    "path": "$EXTERNAL_DATA/scratch/T68/topk/topk_r3.npz",
+    "label": "T68 6c68da76 (topk session)",
+    "queries": [
+      "ADRB2_3p0g_query",
+      "ALDH1_4wp7_query",
+      "ESR1_ago_1l2i_query",
+      "ESR1_ant_1xp1_query",
+      "FEN1_5fv7_query",
+      "GBA_2v3d_query",
+      "IDH1_4i3k_query",
+      "KAT2A_5h86_query"
+    ],
+    "ids_shape": [
+      8,
+      100000
+    ],
+    "scores_shape": [
+      8,
+      100000
+    ]
+  },
+  "b": {
+    "path": "$EXTERNAL_DATA/scratch/T114/headline/topk_r3.npz",
+    "label": "T114 835cf9d (headline session)",
+    "queries": [
+      "ADRB2_3p0g_query",
+      "ALDH1_4wp7_query",
+      "ESR1_ago_1l2i_query",
+      "ESR1_ant_1xp1_query",
+      "FEN1_5fv7_query",
+      "GBA_2v3d_query",
+      "IDH1_4i3k_query",
+      "KAT2A_5h86_query"
+    ],
+    "ids_shape": [
+      8,
+      100000
+    ],
+    "scores_shape": [
+      8,
+      100000
+    ]
+  },
+  "queries_identical": true,
+  "shapes_identical": true,
+  "score_words_compared": 800000,
+  "score_words_moved": 0,
+  "gids_identical": true,
+  "gids_differing": 0,
+  "slots_filled_on_both": 800000,
+  "bit_differing_but_float_equal": 0,
+  "max_abs_score_delta": 0.0,
+  "per_query": [
+    {
+      "query": "ADRB2_3p0g_query",
+      "words": 100000,
+      "words_moved": 0,
+      "gids_differing": 0,
+      "k_filled": 100000
+    },
+    {
+      "query": "ALDH1_4wp7_query",
+      "words": 100000,
+      "words_moved": 0,
+      "gids_differing": 0,
+      "k_filled": 100000
+    },
+    {
+      "query": "ESR1_ago_1l2i_query",
+      "words": 100000,
+      "words_moved": 0,
+      "gids_differing": 0,
+      "k_filled": 100000
+    },
+    {
+      "query": "ESR1_ant_1xp1_query",
+      "words": 100000,
+      "words_moved": 0,
+      "gids_differing": 0,
+      "k_filled": 100000
+    },
+    {
+      "query": "FEN1_5fv7_query",
+      "words": 100000,
+      "words_moved": 0,
+      "gids_differing": 0,
+      "k_filled": 100000
+    },
+    {
+      "query": "GBA_2v3d_query",
+      "words": 100000,
+      "words_moved": 0,
+      "gids_differing": 0,
+      "k_filled": 100000
+    },
+    {
+      "query": "IDH1_4i3k_query",
+      "words": 100000,
+      "words_moved": 0,
+      "gids_differing": 0,
+      "k_filled": 100000
+    },
+    {
+      "query": "KAT2A_5h86_query",
+      "words": 100000,
+      "words_moved": 0,
+      "gids_differing": 0,
+      "k_filled": 100000
+    }
+  ],
+  "passed": true
+}

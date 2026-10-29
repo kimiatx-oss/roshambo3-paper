@@ -1,0 +1,959 @@
+\section*{Appendix}
+
+\section{Tested ROSHAMBO2 configurations}
+\label{app:roshambo2fixes}
+At the outset of developing ROSHAMBO3, we identified a number of latent
+bugs in ROSHAMBO2 affecting both accuracy and performance. Fixes for these
+have been submitted upstream as pull requests \#10 (correctness) and \#11
+(performance) to \url{https://github.com/molecularinformatics/roshambo2}, but
+as of the time of writing, have not yet been merged. Briefly:
+\begin{itemize}
+	\item \textbf{Correctness}: Quaternion magnitude was incorrectly computed in normalization (typo of $*$ in place of $+$); in rare cases molecule preprocessing could mirror a compound inverting its stereochemistry; and a subtle bug mixed combo-optimization gradients with incorrect relative weights.
+    \item \textbf{Performance}: with color scoring disabled, ROSHAMBO2 would still iterate over all color atom pairs but then post-multiply computed scores by zero. This computes a \emph{correct} shape-only score, but does much more work than is necessary.
+\end{itemize}
+
+In Table~\ref{tab:main-results}, the DUDE-Z enrichment comparisons use ROSHAMBO2 with the correctness fixes applied. The speed comparisons time two ROSHAMBO2 builds in one earlier session, as released and with only the color-skip performance fix, against ROSHAMBO3 in the release benchmark run on the same TITAN V host. The color-skip fix matters only when color scoring is off, so it speeds up the shape baseline but not combo. For each mode we lead with whichever baseline gives the smaller speedup: the color-skip build for shape and the released build for combo.
+
+\section{Optimization mathematics and related work}
+\label{app:methods}
+
+This supplement is intended to make the numerical and systems choices
+reconstructable, including experiments that did not land. The paper's build
+regenerates every table, figure and constant from run records that ship in the
+paper's repository, redacted where they concern private chemistry or
+infrastructure, and its manifest records their hashes. The internal repository
+contains confidential chemistry and infrastructure metadata and is not itself a
+release artifact.
+
+\subsection{Gaussian field and derivatives}
+
+For a fixed query atom $i$, write
+\begin{equation}
+ \phi_i(\vect x)=C_i\exp[-\beta_i\|\vect x-\vect a_i\|^2].
+\end{equation}
+The exact spatial derivative sampled when the field is constructed is
+\begin{equation}
+ \nabla\phi_i(\vect x)=-2\beta_i(\vect x-\vect a_i)\phi_i(\vect x),
+ \qquad \nabla\Phi_A=\sum_i\nabla\phi_i.
+\end{equation}
+If $\vect y_j=R\vect b_j+\vect t$, translation has derivative
+$\sum_jw_j\nabla\Phi_A(\vect y_j)$. For an infinitesimal left rotation,
+$\delta\vect y_j=\delta\vect\theta\times R\vect b_j$, giving the torque
+\begin{equation}
+ \frac{\partial V_{AB}}{\partial\vect\theta}
+ =\sum_j w_j(R\vect b_j)\times\nabla\Phi_A(\vect y_j).
+\end{equation}
+Because self-overlaps are rigid-motion invariant, the derivative of the
+Tanimoto score is a scalar multiple of the cross-overlap derivative:
+\begin{equation}
+ \nabla T=\frac{V_{AA}+V_{BB}}
+ {(V_{AA}+V_{BB}-V_{AB})^2}\nabla V_{AB}.
+\end{equation}
+
+The implementation evaluates the analytic value and gradient at grid nodes in
+fp32 and stores the four channels together in one fp16 texture element. CUDA
+texture hardware performs the same trilinear interpolation coordinates for all
+channels. Interpolating sampled analytic derivatives is not, in general,
+identical to differentiating the piecewise-trilinear scalar interpolant; the
+optimizer therefore follows a smooth approximation to the analytic gradient,
+not a formally conservative derivative of the stored scalar field. We test the
+consequence at the level that matters for screening---optimized poses and
+retrieval---rather than concealing it behind value-only error.
+
+The field is padded beyond the query support and uses zero border addressing.
+This makes an excursion outside the allocated box approach the zero-overlap
+limit safely. The production grid spacing was selected with a preregistered
+retrieval gate over full spacing sweeps and per-query failures, not solely by
+minimizing pointwise field error.
+
+\subsection{Rigid-motion Adagrad}
+
+Let $\vect g_{t,k}$ and $\vect g_{q,k}$ denote translation and tangent-space
+rotation gradients. ROSHAMBO3 updates separate elementwise accumulators,
+\begin{align}
+ \vect G_{t,k}&=\vect G_{t,k-1}+\vect g_{t,k}^{\,2}, &
+ \delta\vect t_k&=\eta_t\vect g_{t,k}/\sqrt{\vect G_{t,k}+\epsilon},\\
+ \vect G_{q,k}&=\vect G_{q,k-1}+\vect g_{q,k}^{\,2}, &
+ \delta\vect\theta_k&=\eta_q\vect g_{q,k}/\sqrt{\vect G_{q,k}+\epsilon}.
+\end{align}
+The quaternion update in Eq.~\ref{eq:expmap} preserves the group structure
+without the singular behavior of additive quaternion coordinates. Separate
+rates are physically meaningful: one controls translation in angstroms and the
+other rotation in radians.
+
+For an approximately stationary gradient magnitude, Adagrad step lengths decay
+as $k^{-1/2}$. Thus $\eta_t\sum_{k=1}^{n}k^{-1/2}$ is the relevant translation
+reach, rather than $\eta_t$ alone. The original tuning compared coupled and
+uncoupled parameterizations across learning-rate and step-count sweeps. The
+shape-derived budget was then independently retested for the combination
+objective rather than inherited by assumption; the production budget remained
+appropriate.
+
+\subsection{Color modes and optimization semantics}
+
+Color features are pseudo-atoms placed at pharmacophore locations rather than
+heavy-atom volume centers. Let $A_u$ and $B_v$ contain the features of types
+$u$ and $v$, where the six production types are hydrophobe, acceptor, aromatic,
+donor, positive ionizable, and negative ionizable. The color cross-overlap is
+of the form
+\begin{equation}
+ V^{\rm c}_{AB}(R,\vect t)=
+ \sum_{u,v}\sum_{i\in A_u}\sum_{j\in B_v}
+ K_{uv}\exp[-\tfrac12 r_{uv}
+ \|\vect a_i-(R\vect b_j+\vect t)\|^2],
+ \label{eq:color-overlap}
+\end{equation}
+where the type-pair interaction matrix supplies the amplitude $K_{uv}$ and
+width $r_{uv}$; a zero entry suppresses an incompatible pair. The canonical
+production matrix is diagonal, with common parameters for matching types, but
+the implementation admits a general matrix. This is an implicit chemical
+interaction model: feature typing and the matrix determine which spatial
+coincidences are favorable.
+
+We use \emph{plane} to mean one logical feature-type channel---the contiguous
+feature list, or its corresponding scalar field---not a two-dimensional
+geometric plane. A field implementation may therefore require one query field
+per interacting source type. Shape and color self- and cross-overlaps are
+computed separately to form a shape Tanimoto $T_{\rm s}$ and color Tanimoto
+$T_{\rm c}$ before any weighted combination. The three public modes have
+deliberately different semantics:
+
+\begin{description}
+ \item[Shape] optimizes and ranks only the shape Tanimoto.
+ \item[Rescore] selects the best shape pose and evaluates color once at that
+ pose; it preserves the shape search exactly.
+ \item[Combo] mixes the separately normalized shape and color objectives inside
+ every optimization step, so color may change the pose, winning start, and
+ winning conformer.
+\end{description}
+
+Sparse color planes and the dense hydrophobe plane present different arithmetic
+intensities. The development work consequently tested analytic, field, and
+hybrid assignments by plane rather than assuming one representation was best
+for every feature. We report the resulting implementation choices here and the
+rescore-versus-combo quality comparison in Section~\ref{app:protocols}.
+
+\subsection{Relationship to grid and Gaussian-sum methods}
+
+The algebraic transformation in Eq.~\ref{eq:field} belongs to a broader family
+of methods and should not be interpreted as the invention of either field-based
+alignment or fast Gaussian summation. BRUTUS performs rigid molecular
+superposition by optimizing a similarity between interpolated molecular
+interaction fields~\citep{ronkko2006brutus}. Its objective is an interaction
+field rather than Grant--Pickup first-order shape density, and it does not
+describe evaluation of a fixed query density at each fit atom.
+
+The closest mathematical precedent we found is the kernel-correlation method
+of \citet{tsin2004correlation}. It represents point sets by Gaussian kernel
+density estimates and notes that pair enumeration can be replaced by a sampled
+fixed density, or ``affinity map.'' FilterReg later evaluates a fixed Gaussian
+mixture at transformed points using fast filtering on a permutohedral
+lattice~\citep{gao2019filterreg}. These methods address point-set registration
+rather than molecular Tanimoto similarity, and use objectives and optimization
+procedures different from those considered here. More generally, the Fast
+Gauss Transform evaluates Gaussian sums in asymptotically linear
+work~\citep{greengard1991fast}, but is neither a regular query grid nor a GPU
+molecular-alignment implementation.
+
+OpenEye's public Shape Toolkit exposes \texttt{Grid}, \texttt{Analytic}, and
+\texttt{Exact} overlap methods and permits a reference grid to be compared with
+a fit molecule~\citep{openeyeShapeTheory}. It is therefore plausible that ROCS
+uses a related transformation. However, the public documentation does not
+specify the field construction, interpolant, pose-gradient evaluation, GPU
+mapping, or error characteristics needed to reproduce that implementation.
+
+The contribution of \method{} is consequently the openly described
+combination: a query field whose value at a fit atom is that atom's complete
+first-order shape-overlap contribution; reuse of the field throughout a
+library-scale search; simultaneous interpolation of value and pose gradient by
+GPU texture hardware; integration with analytic color optimization; and an
+end-to-end open implementation with measured retrieval agreement. To our
+knowledge this complete combination has not previously been described in the
+open molecular-shape literature. This is a claim about an operationally defined
+implementation, not priority for the general idea of grids, fields, or fast
+Gaussian evaluation.
+
+\section{GPU and system engineering}
+
+\paragraph{Execution model and occupancy.}
+\label{sec:gpumodel}
+An NVIDIA GPU comprises many streaming multiprocessors (SMs). CUDA assigns
+thread blocks to SMs and divides each block into 32-thread \emph{warps}; the 32
+threads, or lanes, execute a common instruction stream, while a warp scheduler
+chooses a ready resident warp each issue cycle~\citep{nvidia2026cuda}. Keeping
+several warps resident hides latency, but residency is finite: registers are
+allocated per thread and shared memory per block. For example, our 256-thread
+kernel at 64 registers/thread and four blocks/SM consumes the entire
+65,536-register file. More live state either reduces resident blocks or spills
+to ``local'' memory backed by device DRAM. Occupancy---resident warps divided by
+the architectural maximum---is therefore a capacity measure, not a performance
+objective: extra warps help only if the limiting execution or memory resource
+can use them. This distinction is why we report schedule choices as measured
+per-bucket outcomes rather than as a rule to maximize a single counter.
+
+Modern CUDA GPUs feature a multi-stage cache hierarchy for global device memory, with L1 and L2 caches providing programmer-transparent caching of global memory accesses, and shared memory acting as a programmer-managed scratchpad. Textures use the same pool of L1 and L2 cache as other global memory accesses. Notably, L1 and shared memory divide the same pool of per-SM SRAM, creating a direct tradeoff for the field kernel between keeping data like coordinates resident in shared memory (avoiding a drop to L2 or global), versus leaving that L1 space available for field texture samples. Nsight profiles illustrate the resource shift the field produces:
+% from the Nsight profile records; unchanged by this edit, only relocated.
+analytic shape used \AnalyticShapeRegistersPerThread{} registers/thread and
+kept only \AnalyticShapeActiveWarpsPercent\% of warps active, whereas the
+\FieldShapeRegistersPerThread-register field path reached
+\FieldShapeActiveWarpsPercent\%; the latter issued only
+\FieldShapeFmaPercent\% of its instructions to the FMA pipe and ran L1TEX at
+\FieldShapeLoneTexThroughputPercent\% and L2 at \FieldShapeLtwoThroughputPercent\%
+of peak sustained throughput.
+
+This design cannot be reduced to ``maximize occupancy.'' On the GB202,
+shape-field work showed that doubling nominal occupancy could leave instruction
+issue unchanged, while register-resident coordinates crossed from useful to
+harmful as bucket width and spill traffic grew. A cache hint also reversed its
+ranking for one bucket when the benchmark moved from the bucket mean to its
+widest members. Adding color introduced state and reuse absent from shape and
+made some shape-local register choices untenable. GV100 and GB202 then selected
+different cells because their register, cache, instruction, and memory balances
+differ. We report these reversals as results rather than smoothing them into one
+architecture-independent rule; the internal record retains the complete sweep,
+ptxas resource counts, profiler counters, and rejected cells.
+
+\subsection{Shipped kernel configuration and explored design space}
+\label{app:kernel-config}
+
+The production field kernel has three user-visible modes: shape-only; shape
+optimization followed by a terminal analytic color rescore; and combination
+(``combo'') optimization, in which analytic color contributes to the objective
+and gradient at every step. These modes share the field representation but do
+not use one universal scheduling cell. Table~\ref{tab:shipped-kernel-config}
+summarizes the resolved defaults for the standard four-start search. For a
+one-start combo search, $S$ is clamped to one rather than leaving three of four
+groups idle.
+
+\input{generated/tables/shipped-kernel-config.tex}
+
+\paragraph{Coordinate placement.}
+Query shape has two simultaneous representations. The repeated optimization
+samples a CUDA array of fp16 \texttt{half4} texels containing the field value
+and its three spatial derivatives. The original query is also copied once per
+block into shared memory as fp32 \texttt{float4}; this record supplies the
+terminal exact shape score and any analytic color calculation. Query color
+sites, their per-type segment bounds, and their Gaussian coefficients therefore
+remain shared in both color modes. Color fields are implemented as an
+experimental path but are disabled in the shipped configuration.
+
+Library shape arrives in a compact three-array ($xyz$) int16 wire representation and
+is staged once per library row into shared memory. All starts and all optimizer
+steps then reuse that record. Terminal color rescore is too infrequent to merit
+a second stage, so its library color coordinates are read from global memory.
+Combo has much stronger reuse: the first 48 color sites of each library row are
+staged as three int16 coordinate arrays, while the uncommon tail remains a
+global-memory fallback. Color type is derived from the per-conformer count
+vector rather than stored as a fourth plane.
+
+\paragraph{Lane schedule and SRAM balance.}
+$W_A$ is the number of cooperating lanes assigned to one candidate/start
+alignment, while $S$ is the number of start groups resident in a warp row.
+Increasing $W_A$ accelerates reductions within a pose but decreases independent
+poses in flight. Increasing $S$ can recover pose-level parallelism, subject to
+$S W_A\leq32$, shared-memory allocation, and register pressure. Atom-count
+buckets make the best cell depend on the padded width as well as the real atom
+count distribution inside that bucket.
+Every production cell uses $W_A=4$, so four adjacent lanes divide one
+candidate's atom loop. Shape and rescore use $S=1$: each four-lane group owns a
+library row and loops over all starts, giving 64 rows per 256-thread block.
+Four-start combo uses $S=4$: four groups share a row and each handles one start,
+giving 16 rows per block. The shared shape record is consequently amortized
+across the four groups. Component $c$ of the seven-component Adagrad update is
+owned by lane $c\bmod4$; this reduces issued update instructions without
+changing the atom reduction.
+
+The preferred shared-memory carveout is explicitly set to 25\% on every
+production launch, because the CUDA attribute is sticky across launches. On
+both tested chips this request selected a 32-KiB physical partition, although
+the percentage-to-partition mapping is architecture-specific. Shape and
+rescore retain the four-block launch bound (a nominal 64-register/thread
+budget). Combo uses a two-block bound and compiled at approximately 124--127
+registers/thread; the extra state pays for greater issue activity rather than
+maximum nominal occupancy.
+
+\paragraph{Selection and negative results.}
+The final point is a joint shape-and-color configuration, not the winner of a
+shape-only microbenchmark. Register-resident library shape won an isolated
+shape campaign, but the merged shape/color record enlarged its register tile;
+every relevant color instantiation spilled and whole-screen throughput fell.
+Ordinary global loads and the \texttt{\_\_ldcg}/\texttt{\_\_ldcs} cache hints also
+failed to beat shared shape residency on both tested architectures. Staging 48
+color sites helped GB202 but modestly hurt GV100; we nevertheless retain it as
+the single portable default rather than dispatching by GPU model.
+
+The measured search space included $W_A\in\{1,2,4,8,16\}$ and
+$S\in\{1,2,4,8\}$; three update-lane arrangements; shared, global, cache-hinted,
+and register coordinate tiers independently for shape, query color, and
+library color; color stages from 16 to 64 sites; one to four launch-bound
+blocks/SM; shared-memory carveout; six shape/color accumulator schedules;
+several color pair-loop structures; field spacing and padding; texture formats
+and boundary handling; fp32 versus reduced-precision records; and interleaved
+versus planar library tiles. Several rankings reversed when color was added or
+when the same cells moved between GV100 and GB202, which is why these choices
+were gated by full-corpus experiments rather than inferred from occupancy or a
+single profile counter.
+
+
+\subsection{Operation accounting and a multi-resource roofline}
+\label{app:roofline}
+
+The ceilings in this section are for three specific chips and boards: the GB202
+in our \RooflineBlackwellPowerLimitW-W RTX PRO 6000 Blackwell Max-Q, the AD104 in a \RooflineLFourPowerLimitW-W cloud L4, and the
+GV100 in our \RooflineTitanPowerLimitW-W TITAN V. They are not ceilings for the Blackwell, Ada, and
+Volta architecture families. In particular, GB200 and GB300 have substantially
+different resource and power limits from this GB202 configuration. The three
+also differ in what was measured: GB202 and AD104 were profiled with Nsight,
+GV100 was not, and the L4 has no PubChem3D screen (its clock comes from its
+LIT-PCBA run). We therefore use chip names for modeled
+resources below and reserve product names for measured systems.
+
+The production optimizer has fixed work: it performs 25 updates and one final
+field evaluation for each of four starts, or
+\RooflineFieldPassesPerPair{} field passes per query--candidate pair. There is
+no convergence-based early exit. Let $A_0$ and $B_0$ be the real shape-atom
+counts of a query and candidate, and let $A_t,B_t$ be their color-feature
+counts by type. Defining $P=104$ and $C(A,B)=\sum_t A_tB_t$, the exact semantic
+work per pair is
+\begin{center}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+mode & shape texture samples & exact shape terms & analytic color terms \\
+\midrule
+shape & $PB_0$ & $A_0B_0$ & 0 \\
+rescore & $PB_0$ & $A_0B_0$ & $C(A,B)$ \\
+combo, analytic color & $PB_0$ & $A_0B_0$ & $(P+1)C(A,B)$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The final terms are the exact analytic cascade at the winning pose. If a color
+plane is field-served, its optimization term changes from $PA_tB_t$ Gaussian
+evaluations to $PB_t$ texture samples; its exact final rescore is unchanged.
+Query-field construction and self-overlaps are fixed per query and are
+accounted separately from pair work.
+
+\input{generated/tables/roofline-work.tex}
+
+For PubChem3D, the manifest contains \DfiveLibraryRealAtoms{} real library atoms and
+the four queries contain \DfiveQueryRealAtomsSum{} in aggregate. The measured
+field kernel therefore sustains
+\DfiveFieldBillionTextureSamplesPerSecond{} billion candidate-level
+\texttt{float4} interpolations/s while its exact cascade evaluates
+\DfiveFieldBillionExactGaussianTermsPerSecond{} billion Gaussian pairs/s. In
+the model, transposition removes a factor of
+\FieldOptimizerGaussianReductionFactor{} in optimizer Gaussian evaluations and
+moves that work from CUDA-core and special-function instructions to the
+texture path. The comparison is a movement on a resource-usage surface, not a
+claim that a texture sample and an exponential are equivalent operations.
+
+The matched explicit-sm120 GB202 profile confirms the predicted movement. The
+analytic kernel executes \RooflineAnalyticToFieldInstructions{}$\times$ as many
+warp instructions and \RooflineAnalyticToFieldXuInstructions{}$\times$ as many
+XU instructions as the field kernel. It uses
+\RooflineAnalyticRegistersPerThread{} rather than
+\RooflineFieldRegistersPerThread{} registers/thread and sustains only
+\RooflineAnalyticActiveWarpsPercent\% rather than
+\RooflineFieldActiveWarpsPercent\% active warps. XU utilization falls from
+\RooflineAnalyticXuUtilizationPercent\% to
+\RooflineFieldXuUtilizationPercent\%, while L1TEX utilization rises from
+\RooflineAnalyticLoneTexUtilizationPercent\% to
+\RooflineFieldLoneTexUtilizationPercent\%, at
+\RooflineFieldTextureSectorsPerRequest{} texture sectors/request. Thus the
+field does not exchange one saturated resource for another: it reaches a more
+balanced point with greater latency-hiding capacity. These are profiler-clock
+diagnostics over identical pair rows, not wall-time measurements.
+
+The three storage precisions do not imply three comparable arithmetic roofs.
+Library coordinates cross H2D as int16 and are converted and scaled when loaded;
+pose arithmetic then uses fp32. Query-field nodes are stored as fp16
+\texttt{half4}, but texture hardware performs the filtered fetch and returns a
+\texttt{float4}; there is no dense CUDA-core fp16 arithmetic loop to price
+against nominal fp16 throughput. Pose transforms, gradients, reductions,
+Adagrad state, and the exact cascade remain fp32.
+
+Our issue count is therefore deliberately precision-agnostic: the executed
+SASS count includes int16 loads and conversion, integer address/control work,
+fp32 arithmetic, texture instructions, reductions, and optimizer updates. In
+the matched field profile, scheduler issue reaches
+\RooflineFieldIssueUtilizationPercent\%, while the general ALU and FMA pipes
+reach \RooflineFieldAluUtilizationPercent\% and
+\RooflineFieldFmaUtilizationPercent\%, respectively. Thus integer/conversion
+work is included in the binding issue roof and is not close to an independent
+ALU limit on GB202. The separate FP32 row is only a subresource ceiling, not a
+claim that all kernel work is fp32. The GV100 issue result remains a projection,
+not a measured per-pipe Volta profile. It uses the instruction demand profiled
+on an sm\_89 build (an NVIDIA L4, weighted to PubChem3D the same way), because
+the compiler emits the same field atom-loop shape for sm\_70 and sm\_89, whereas
+sm\_120 unrolls it differently; per-pair counts remain specific to the build.
+
+For semantic work we use a declared FLOP convention: add, subtract, and
+multiply count as one; FMA counts as two; and \texttt{exp2}, square root,
+reciprocal/division, sine, and cosine are reported separately. A source-level
+model counts the dominant atom loops, while the SASS issue model includes the
+compiler-dependent residual. Similarly, a half4 trilinear lookup has an
+eight-node, 64-byte uncached stencil footprint, but this is not DRAM traffic:
+stencil overlap, warp coalescing, border returns, and L1TEX/L2 reuse intervene.
+
+Consequently a one-dimensional FLOP/DRAM-byte roofline is insufficient. For
+evaluation rate $R$, the useful envelope is
+\begin{equation}
+ R \leq \min(R_{\rm disk},R_{\rm H2D},R_{\rm TEX},R_{\rm L1TEX},
+ R_{\rm FP32},R_{\rm XU},R_{\rm issue},R_{\rm reduce},R_{\rm power}).
+\end{equation}
+For a device with $N$ SMs at observed clock $f$, $s$ warp schedulers, $c$
+FP32 lanes, $x$ XU instructions/SM/cycle, $t$ texture units, and $l$ L1TEX
+sectors/SM/cycle, we evaluate
+\begin{align}
+R_{\rm issue}&=Nsf/I, & R_{\rm FP32}&=2Ncf/F, &
+R_{\rm XU}&=Nxf/X,\\
+R_{\rm TEX}&=Ntf/T, & R_{\rm L1TEX}&=Nlf/S, &
+R_{\rm DRAM}&=b_{\rm DRAM}/D,
+\end{align}
+where $I$ is the total executed warp-instruction count across all precisions and
+pipes; $F,X,T,S,D$ are thread-level FP32 FLOPs, warp XU instructions, texture
+requests, 32-byte texture sectors, and DRAM read bytes per pair evaluation.
+These are independent upper bounds, not additive rates. We do not assign a
+separate fp16-core roof because fp16 is a texture storage format here, nor an
+integer-ALU roof because the captured ALU utilization is remote from issue;
+either could be added if a future implementation moves substantial work there.
+
+Each profile is a ladder of \RooflineLadderLaunches{} Nsight launches, one per
+PubChem3D launch-width class, measured on GB202 and on AD104 (\RooflineLadderMinLibraryAtoms{} to
+\RooflineLadderMaxLibraryAtoms{} real library atoms per candidate), each with the
+same four queries as PubChem3D. Each launch's dynamic counts are weighted by its
+class's share of PubChem3D pair evaluations, so no count is extrapolated beyond a
+measured width; the mean is \RooflineDfiveMeanLibraryAtoms{} library atoms. On GB202 this gives
+\RooflineFieldWarpInstructionsPerPair{} versus
+\RooflineAnalyticWarpInstructionsPerPair{} warp instructions,
+\RooflineFieldFpFlopsPerPair{} versus \RooflineAnalyticFpFlopsPerPair{} counted
+FP32 FLOPs, and \RooflineFieldXuInstructionsPerPair{} versus
+\RooflineAnalyticXuInstructionsPerPair{} XU instructions per PubChem3D-average pair.
+The field path additionally generates \RooflineFieldTextureRequestsPerPair{}
+hardware texture requests and \RooflineFieldTextureSectorsPerPair{} sectors per
+pair. A warp request serves four candidate lanes, explaining why this request
+count is one quarter of the candidate-level semantic lookup count. Occupancy
+falls with launch width, so the field kernel's issue utilization runs from
+\RooflineFieldIssueNarrowestPercent\% at the narrowest launch to
+\RooflineFieldIssueWidestPercent\% at the widest; the percentages quoted below
+are weighted by the time PubChem3D's pairs spend at each width. Per-pair
+instruction counts are specific to the device and build that executed them.
+
+Here ``fixed-clock'' means that the formulas use the median clocks observed in
+production screens, \RooflineBlackwellObservedClockMHz{} MHz for GB202,
+\RooflineLFourObservedClockMHz{} MHz for AD104 (its LIT-PCBA shape screen, under
+the L4's power cap), and \RooflineTitanObservedClockMHz{} MHz for GV100, but still assume that every
+listed subunit can sustain its peak per-cycle issue rate. It is not an
+effective-throughput model for the device power limit. For example, the
+GB202 warp-issue bound would be
+\RooflineBlackwellMaxClockIssueMillionPairsPerSecond{} million pairs/s at the
+\RooflineBlackwellSpecifiedMaxClockGHz-GHz specified maximum. Substituting the lower clock observed during the
+\RooflineBlackwellPowerLimitW-W run reduces it to
+\RooflineBlackwellFieldStructuralMillionPairsPerSecond{} million/s, but does
+not account for instruction dependencies, unavailable warps, mixed-pipe
+contention, or further activity-dependent power management. Our GB202 has \RooflineBlackwellSms{}
+SMs, four warp schedulers and four texture units/SM, \RooflineBlackwellFpLanesPerSm{} FP32 lanes/SM, and
+\RooflineBlackwellDramGigabytesPerSecond~GB/s specified DRAM bandwidth. AD104 (L4) has \RooflineLFourSms{} SMs, four
+schedulers and texture units/SM, \RooflineLFourFpLanesPerSm{} FP32 lanes/SM, and \RooflineLFourDramGigabytesPerSecond~GB/s.
+GV100 has \RooflineTitanSms{} SMs, four schedulers and texture
+units/SM, \RooflineTitanFpLanesPerSm{} FP32 lanes/SM, and \RooflineTitanDramGigabytesPerSecond~GB/s. We use \RooflineXuWarpInstructionsPerSmCycle{} warp XU
+instructions/SM/cycle on all three. The effective L1TEX rate is calibrated from each profiled
+ladder (achieved texture sectors/SM/cycle over profiled L1TEX utilization):
+\RooflineBlackwellLoneTexSectorsPerSmCycle{} sectors/SM/cycle on GB202
+(\RooflineBlackwellLoneTexSectorsPerSmCycleMin{}--\RooflineBlackwellLoneTexSectorsPerSmCycleMax{}
+across launches) and \RooflineLFourLoneTexSectorsPerSmCycle{} on AD104
+(\RooflineLFourLoneTexSectorsPerSmCycleMin{}--\RooflineLFourLoneTexSectorsPerSmCycleMax{}). The GV100 projection
+assumes \RooflineTitanLoneTexSectorsPerSmCycle{} and is explicitly a model rather than a TITAN V counter
+measurement.
+
+The field representation moves the structural bound away from XU issue. On GB202 the modeled analytic ceiling is
+\RooflineBlackwellAnalyticStructuralMillionPairsPerSecond{} million PubChem3D-average
+pairs/s, whereas the field ceiling is
+\RooflineBlackwellFieldStructuralMillionPairsPerSecond{} million/s; on AD104
+the corresponding values are
+\RooflineLFourAnalyticStructuralMillionPairsPerSecond{} and
+\RooflineLFourFieldLoneTexMillionPairsPerSecond{} million/s, and on GV100
+\RooflineTitanAnalyticStructuralMillionPairsPerSecond{} and
+\RooflineTitanFieldStructuralMillionPairsPerSecond{} million/s. On GB202 the field
+kernel is bound by warp issue, with the L1TEX ceiling
+(\RooflineBlackwellFieldLoneTexMillionPairsPerSecond{} million/s) close behind. On
+AD104, whose counters are measured, L1TEX binds before issue
+(\RooflineLFourFieldIssueMillionPairsPerSecond{} million/s); on GV100 the modeled
+L1TEX ceiling also binds before issue
+(\RooflineTitanFieldIssueMillionPairsPerSecond{} million/s), resting on the
+assumed sector rate above rather than a Volta counter. Nominal texture-unit
+issue and device DRAM are remote. This is the desired representation shift:
+expensive analytic exponentials cease to dominate, and texture interpolation
+uses a previously underused fixed-function path without saturating it first.
+
+\input{generated/tables/roofline-device-caps.tex}
+
+\input{generated/tables/roofline-observed.tex}
+
+\input{generated/tables/scale-roofline.tex}
+
+Power requires different treatment. Watts are not fungible operations, and
+throughput is not globally linear in the power limit. The effective \RooflineBlackwellPowerLimitW-W
+operating points are therefore the measurements in
+Table~\ref{tab:roofline-observed}, not the bounds in
+Table~\ref{tab:roofline-device-caps}. The RTX PRO 6000 Blackwell Max-Q ran at only
+\RooflineBlackwellClockFractionPercent\% of its \RooflineBlackwellSpecifiedMaxClockGHz-GHz specified maximum,
+drew \RooflineBlackwellMeanPowerW{} W on average with a
+\RooflineBlackwellMaximumPowerW{}-W maximum sample, and reported software
+power-cap throttling in \RooflineBlackwellPowerCapPercent\% of telemetry
+samples. The observed kernel rate is
+\RooflineBlackwellKernelMillionPairsPerSecond{} million pairs/s, or
+\RooflineBlackwellKernelToStructuralPercent\% of the fixed-clock issue bound;
+the \DfiveMillionEvaluationsPerSecond{}-million/s end-to-end rate is
+\RooflineBlackwellWallToStructuralPercent\% of that bound because it also
+contains pipeline time. A first-order scaling of the measured kernel point by
+$300/\RooflineBlackwellMeanPowerW$ gives
+\RooflineBlackwellLocalPowerExtrapolatedMillionPairsPerSecond{} million/s, of
+which the kernel reaches \RooflineBlackwellKernelToPowerExtrapolatedPercent\%.
+We report this only as a local sensitivity check: it is not an independent
+roof or a prediction at a substantially different power limit.
+
+The TITAN V, by contrast, ran at \RooflineTitanObservedClockMHz{} MHz
+(\RooflineTitanClockFractionPercent\% of its \RooflineTitanSpecifiedMaxClockGHz-GHz maximum), averaged
+\RooflineTitanMeanPowerW{} W, peaked at \RooflineTitanMaximumPowerW{} W under a
+\RooflineTitanPowerLimitW-W limit, and recorded \RooflineTitanPowerCapPercent\% power-cap samples.
+We therefore leave $R_{\rm power}$ inactive rather than extrapolating it. Its
+\RooflineTitanKernelMillionPairsPerSecond{}-million/s matched PubChem3D kernel rate is
+\RooflineTitanKernelToStructuralPercent\% of its fixed-clock issue bound; its
+end-to-end rate reaches \RooflineTitanWallToStructuralPercent\%.
+Finally, the isolated H2D and top-$k$ rates in
+Table~\ref{tab:roofline-observed} are comfortably above each measured kernel
+rate. They are not the binding stages for these runs, although disk production
+and non-kernel wall time still lower end-to-end throughput.
+
+Each ladder launch runs the production analytic and field kernels on the same
+corpus slice for its launch-width class and records issue, pipe, instruction,
+texture request/sector, cache, DRAM, occupancy, and register counters. Nsight
+replays kernels and controls clocks, so profiled elapsed time is used only to
+calibrate resource service rates and is never substituted for unprofiled
+benchmark wall time. The release includes a single-launch profiling target
+(\texttt{scripts/profile\_roofline.py}) and each ladder's counter summary and
+pair weights, not the raw profiler reports; device parameters, calibration
+inputs, tables, and constants regenerate from those summaries and the shipped
+run records.
+
+\subsection{Data representation, streaming, and storage}
+
+The persistent corpus format quantizes coordinates on a fixed grid. Earlier
+staging expanded each atom to a float4 record before transfer even though the
+device did not require the fourth component. The production wire format sends
+three int16 coordinates and expands them at consumption. An exhaustive int16
+round-trip test precedes the optimization evidence. Where compiler scheduling
+changed last-bit arithmetic, the project separated an encoding effect from a
+binary-layout effect and required unchanged retrieval.
+
+The PubChem3D bandwidth figures separate storage from device staging. Its
+bit-packed coordinate sections occupy \PubchemStoredCoordinateGigabytes~GB and
+the host decodes them to \PubchemDecodedCoordinateGigabytes~GB of padded int16
+coordinates, a \PubchemCoordinateDecodeRatio$\times$ expansion; self-overlap
+and run sections and the molecule table bring the stored corpus to
+\PubchemStoredGigabytes~GB. The scan transfers
+\PubchemHtwoDTransferredGigabytes~GB to the GPU,
+\PubchemHtwoDToStoredByteRatio$\times$ the stored bytes: the decoded
+coordinates plus per-conformer counts. Over the complete
+\DfiveWallSeconds-s scan these are only \PubchemStoredGigabytesPerSecond~GB/s
+of logical stored-corpus consumption and
+\PubchemHtwoDWholeRunGigabytesPerSecond~GB/s of H2D bytes. The larger
+\PubchemHtwoDActiveGigabytesPerSecond-GB/s figure divides H2D bytes by the
+accumulated time inside copy calls. It is PCIe copy-engine bandwidth, not disk
+bandwidth. Finally, this was a warm-cache run, so even the logical stored-byte
+rate is not a measurement of physical NVMe traffic. Host-side decoding and
+copy-time normalization explain the gap between the
+\PubchemHtwoDActiveGigabytesPerSecond- and
+\PubchemStoredGigabytesPerSecond-GB/s figures.
+
+A format-3 corpus groups conformers into atom-count buckets, one
+\texttt{.r3g} file per group, stores molecule/conformer identity beside
+bit-packed coordinates and optional color features, and permits large
+sequential reads. Host producers decode independent
+chunks into pinned buffers. A single GPU-facing consumer preserves launch
+ordering, overlaps transfers with earlier kernels, and retains only a bounded
+molecule-level top-$k$. This distinction matters because conformer-level top-$k$
+can return many poses of one molecule and because per-batch truncation is not
+equivalent to a global reduction.
+
+Both the 75M proprietary-library $q{=}1$ scan and the PubChem3D scan, on Blackwell,
+consumed stored corpus bytes at a rate exceeding the capacity of 10-gigabit Ethernet
+(\ThreeCrStoredGigabytesPerSecond~GB/s and \PubchemStoredGigabytesPerSecond~GB/s respectively,
+compared to the \TenGigETheoreticalGigabytesPerSecond-GB/s theoretical bandwidth of 10-GbE before
+protocol overhead). Thus, keeping a single Blackwell GPU fed from
+remote storage would be a challenge without exceptional networking performance;
+storage placement must be part of the benchmark configuration and production deployment design rather
+than an incidental host detail.
+
+\subsection{Scale and saturation}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=5in]{blackwell-saturation.pdf}
+ \caption{End-to-end combo throughput on the RTX PRO 6000 Blackwell Max-Q for
+ the proprietary virtual hit-finding library.
+ Points are medians of measured repeats. The last doubling yields only
+ \ComboQEightToSixteenGainPercent\% additional throughput while runs reach the
+ thermal or power cap.}
+ \label{fig:saturation}
+\end{figure}
+
+\subsection{Systems and profile provenance}
+
+Table~\ref{tab:systems} lists every benchmarked machine. Host, memory, GPU,
+power-limit, and storage configurations bound end-to-end throughput, so they are
+part of each benchmark rather than incidental details.
+
+\input{generated/tables/systems.tex}
+ Run records additionally preserve the
+driver/toolkit, compiled architecture and fatbin targets, cache phase,
+telemetry, and build identity; the shipped copies redact device serial numbers
+and UUIDs. Warm-cache repeats characterize steady screening
+service; cold-cache arms answer a different storage question and are never
+silently pooled with them.
+
+The internal record retains stage timings; register launch-bound, spill,
+lane-assignment, cache-hint, and hydrophobe-field sweeps; wire-precision
+ablations; and the causal sequence in which field acceleration exposed host
+reduction before device top-$k$ removed dense D2H traffic. It also retains
+profiler clocks and counter definitions so diagnostic profiles cannot be
+mistaken for production wall times.
+
+\section{CPU and Metal backends}
+\label{app:backends}
+
+\paragraph{Protocol.} Each device in Table~\ref{tab:portability} built the tool
+from one clean source commit. It then screened the format-3 LIT-PCBA corpus
+(the conformers of Section~\ref{sec:evaluation}, shape and color in one
+build) with the eight PANEL-8 queries in shape,
+rescore, and combo modes. Each mode had one warm-up and five timed repeats on
+GPUs, three on CPUs, under each device's exclusive compute lock. By default,
+the CPU backend runs one worker per logical CPU the process may use, SMT
+siblings included. The Metal backend decodes the corpus on the CPU and holds
+both locks. The cloud rows ran on dedicated, otherwise idle Google Cloud VMs.
+On \ScalingIdenticalTopKHostCount{} of \ScalingHostCount{} hosts, every
+placement returned an identical top-1,000.
+
+Table~\ref{tab:portability}'s rate per two vCPUs (a core and its SMT sibling on
+x86, two cores on Neoverse V2) is the full 16-vCPU VM's combo rate divided by
+eight. Smaller placements on the same VMs ran somewhat faster per unit
+(Table~\ref{tab:cpu-scaling}), so it is conservative for smaller VMs.
+One driver script, published with the paper's data, runs every device. Its
+per-host record names the install's source commit, the CPU kernel target
+selected at run time, and the query file's hash.
+
+\paragraph{Thread scaling.} Table~\ref{tab:cpu-scaling} screens one PANEL-8
+query at each thread placement.
+\begin{itemize}
+\item \textbf{x86, one thread per core:} scaling stays close to linear up to
+  eight cores, with combo efficiency of \ScalingXeonEightCoreEfficiencyPercent\% on
+  the Xeon and \ScalingEpycEightCoreEfficiencyPercent\% on the EPYC.
+\item \textbf{x86, the second SMT thread} adds combo throughput of
+  \ScalingEpycSmtGainFourCorePercent\% on four cores and
+  \ScalingEpycSmtGainPercent\% on all eight on the EPYC 9B45, and
+  \ScalingXeonSmtGainFourCorePercent\% and \ScalingXeonSmtGainPercent\% on
+  the Xeon.
+\item \textbf{Neoverse V2} has no SMT. Its combo efficiency is
+  \ScalingNeoverseEightCoreEfficiencyPercent\% on 8 cores and
+  \ScalingNeoverseAllEfficiencyPercent\% on all 16.
+\item \textbf{M4 Pro:} macOS places the threads, so the split between
+	performance (P) and efficiency (E) cores is inferred. Shape screening runs at about
+  \ScalingMFourProCpuShapePerPcoreThousand{}K pairs/s per P-core and
+  \ScalingMFourProCpuShapePerEcoreThousand{}K per E-core. The four
+  E-cores add \ScalingMFourProCpuEcoreGainPercent\% to combo
+  throughput (10+4 against 10+0).
+\end{itemize}
+
+\input{generated/tables/cpu-scaling.tex}
+
+\section{Experimental protocols}
+\label{app:protocols}
+
+\subsection{Corpus and query construction}
+
+The LIT-PCBA source is the union of all 15 published assay sets. Canonical-SMILES
+deduplication produced \LitpcbaSourceCompounds{} inputs. With nvMolKit \LitpcbaNvmolkitVersion{} and RDKit \LitpcbaRdkitVersion{},
+we requested \LitpcbaConformersRequested{} ETKDGv3 conformers (seed \LitpcbaConformerSeed{}) and minimized each with MMFF94s;
+\LitpcbaCompoundsWithoutConformers{} molecules produced no conformer, leaving \LitpcbaCorpusMolecules{} molecules
+and \LitpcbaCorpusConformers{} conformers. Of the successful molecules, \LitpcbaFullConformerMolecules{}
+reached all \LitpcbaConformersRequested{} requested conformers. The uncompressed conformer SDF was \LitpcbaSourceSdfGigabytes~GB;
+\texttt{roshambo3 prepare} converted it to the
+\LitpcbaDiskGigabytes-GB color-capable format-3 corpus.
+
+PANEL-8 was selected before timing: sort the 15 target/assay groups, take the
+first eight, and within each group take the first deposited template record.
+The resulting queries are ADRB2/3p0g (27 heavy atoms), ALDH1/4wp7 (32),
+ESR1-agonist/1l2i (24), ESR1-antagonist/1xp1 (34), FEN1/5fv7 (23), GBA/2v3d
+(15), IDH1/4i3k (17), and KAT2A/5h86 (53). No embedding or minimization was
+applied to these queries: timing uses their deposited coordinates. The field
+accuracy panel is separate and broader (32 queries), preventing a hardware
+timing panel from becoming the approximation gate.
+
+PubChem3D is not a random or favorable subset; it is a complete copy of the 10-conformer-per-molecule PubChem3D
+database: every available CID and up to ten deposited
+conformers, giving \DfiveMolecules{} molecules and \DfiveConformers{}
+conformers. The proprietary
+virtual hit-finding library and its query are private. For its saturation sweep,
+$q=1, 2, 4, 8,$ and 16 mean that
+many conformers of the same \ThreeCrQueryHeavyAtoms-heavy-atom query, generated
+by ETKDGv3 with seed \texttt{0xC0FFEE} and MMFF optimization; q is therefore a
+controlled reuse factor, not a change of chemical workload.
+
+\input{generated/tables/public-performance.tex}
+
+The public LIT-PCBA arm is intentionally smaller than the PubChem3D headline but is
+straightforward to rebuild from public sources
+(\texttt{scripts/build\_litpcba.py}). PubChem3D supplies the public-data scale
+result. The proprietary-library arm is retained only
+for internally reproducible color saturation and mode-cost measurements.
+
+\section{Agent-assisted development}
+\label{app:agents}
+
+This appendix describes how ROSHAMBO3 was built: how the collaboration between
+the author and AI coding agents changed over two months, the ticket system that
+carried context between sessions, models, and vendors, and the practices and
+failure modes worth carrying to other scientific-software projects. Counts are
+generated from a sanitized export of the development record (ticket ids,
+epochs, model tiers, dates, and dependencies), which ships with the paper's
+repository: \TicketCount{} tickets (\ClosedTicketCount{} closed) joined by
+\TicketDependencyCount{} dependency edges, \DecisionCount{} standing decisions,
+\PitfallCount{} numbered pitfalls, and \DevelopmentCommitCount{} commits over
+\DevelopmentActiveDays{} active days. Figure~\ref{fig:ticket-timeline} draws
+the whole record.
+
+\subsection{How the collaboration evolved}
+
+\paragraph{Before the repository.} The design question---how a ``field'' shape
+method should be formulated for a modern GPU, and whether newer hardware units
+could help---was explored first in chat conversations with Google's Gemini 3.0
+Pro Preview. Nothing from this phase was checked in; its product was the
+author's conviction that the field formulation was worth building.
+
+\begin{figure}[t]
+ \centering
+ \includegraphics[width=\textwidth]{ticket-timeline.pdf}
+ \caption{The development record. Each row is one ticket in id order, drawn
+ from creation to the commit that closed it and colored by the tier of the
+ model that implemented it; faint bars are tickets still open at export. Ids
+ are assigned in creation order, so the record reads as a staircase. Shaded
+ bands group tickets by epoch. Some bars end together where tickets were closed
+ in a batch update of the ticket records (early September, and 10 October), not
+ where their work ended. Dashed lines mark the workshop's submission deadline,
+ author notification, and camera-ready deadline.
+ Top: commits per day across the development repository, the ROSHAMBO2 fork where the ticket system
+ began, and the separate workspace where the Metal port was done.}
+ \label{fig:ticket-timeline}
+\end{figure}
+
+\paragraph{Plan and parallel swarm (15--29 August).} Work began in a fork of
+ROSHAMBO2. A Claude Code agent wrote a planning document in which every
+quantitative statement was tagged as either measured or modeled, and the same
+evening decomposed it into 22 tickets with a dependency graph, a wave table of
+what could run concurrently, and a model tier per ticket. Agents then worked in
+parallel, each in its own git worktree, and the fork accumulated
+\OriginCommitCount{} commits in five days. On 20 August the ticket system,
+decisions, and results moved into a clean ROSHAMBO3 repository, and for the
+workshop deadline six to eight lanes ran concurrently across two GPU machines.
+The GPU engine of the submitted paper was built in \AugustActiveDays{} active
+days.
+
+\paragraph{Serial dispatch and review (from 2 September).} After submission the
+author stopped dispatching waves and moved to one ticket at a time, each
+started only on explicit approval, with an instruction to report the deciding
+measurement and stop. The reason, recorded at the time, was that tickets in a
+ladder were coupled: one result often invalidated the framing of the next
+ticket, and running ahead spent effort on questions already answered. The same
+day, tickets gained a \texttt{reviewer} field, and implementation and review
+were assigned to different model tiers. The CPU port began in this mode.
+
+\paragraph{Two agent systems (from mid-September).} OpenAI's Codex agents, first
+used in August for a corpus build (T82), worked the repository alongside
+Anthropic's Claude Code from mid-September. The two systems shared no
+conversation; everything one needed from the other was in the files---tickets,
+decisions, conventions, and results. By October Codex carried most of the
+implementation: the CPU color and combo paths, the native x86 and ARM ports
+(10--13 October), and, once the ARM port existed, the macOS and Metal port,
+which took a single day.
+
+\paragraph{The author's role.} Over the project the author's prompts moved from
+specifying implementations toward three activities. \emph{Gating}: approving
+the next ticket, closing one, or dispatching a review. \emph{Short expert
+corrections} that re-aimed a line of work, often in a sentence: a field build
+under 100~ms is irrelevant once amortized over a library; optimize headline
+pairs/s, not relative savings; do not change the on-disk format while the GPU
+cannot be benchmarked. And \emph{budget and drift control}: pausing reviewers to
+save usage, or asking why convergence analysis had begun an hour into a
+day-long job. Agents expanded implementation bandwidth; the author supplied
+priorities, long-horizon constraints, and skepticism.
+
+\subsection{Tickets as durable context}
+
+Agent sessions are short, context windows are finite, and over this project the
+models themselves changed several times. The repository is the only thing that
+persists, so the ticket system was designed to put a unit of work into it in a
+form that any agent---``possibly on a smaller model,'' in the words of its
+README---could start without a conversation or the planning document.
+
+%\clearpage
+\paragraph{What a ticket contains.} Each ticket is one Markdown file with
+structured frontmatter (id, lane, status, model tier, reviewer tier,
+dependencies, branch, worktree, and artifact path) and six sections:
+\emph{Context}, self-contained in a few sentences; \emph{Scope}, carrying the
+plan's technical detail verbatim with its measured-or-modeled tags;
+\emph{Deciding measurement}, the number that closes the ticket and where it must
+be measured; \emph{Acceptance}, the thresholds, stated before work begins;
+\emph{Traps}, the numbered pitfalls that apply, restated in the ticket's own
+terms; and \emph{Working rules}, cited rather than copied, because rules copied
+into 22 tickets had drifted apart.
+
+\paragraph{Lifecycle.} A ticket is \emph{open}, \emph{claimed} (a worktree
+exists and the claim is committed to the main branch), \emph{in review} (the
+deciding measurement is committed under the ticket's results directory), or
+\emph{closed}. A ticket closes only when its deciding measurement exists in the
+repository, never on an agent's report of it; a negative answer closes a
+ticket exactly as a positive one does. The in-review state exists because
+agents do report success that their evidence does not support: the agent that
+closed one ticket later recorded, in the ticket itself, that it had closed the
+ticket on its own report and that review had been right to reopen it.
+
+\paragraph{One source for each fact.} Status lives only in the ticket's
+frontmatter and dependencies only in the dependent ticket; the index, the
+reverse edges, and the graph checks (targets exist, no self-edges, no cycles)
+are generated. Each rule followed a measured failure. When the ROSHAMBO2 fork
+kept tickets in \texttt{open/} and \texttt{closed/} directories \emph{and} in a
+status field, the two disagreed \StatusDriftCount{} times. When dependencies
+were stored on both ends, \OneSidedBlocksEdges{} forward and
+\OneSidedDependsEdges{} reverse edges lost their partners, and nothing noticed
+because nothing read them.
+
+\paragraph{Decisions and pitfalls.} Conclusions that outlive a ticket became
+decisions, each with the measurement behind it and an explicit condition for
+reopening it. They prevent settled questions from being relitigated by each
+new session, and they are reversible by design. One recorded that the
+exponential-map rotation update was not worth pursuing; the author reopened it,
+and the entry was marked ``withdrawn, same day'' when the ticket that had
+introduced the update showed a \ExpMapRecallGain{} recall gain once a covering
+start strategy was removed. Another withdrew an apparent Volta speed inversion
+as an artifact of a probe harness, and recorded the lesson as its own decision,
+``a probe is not a kernel''.
+Recurring failures became numbered pitfalls, appended in the order they were
+discovered and cited by number in tickets (Table~\ref{tab:pitfall-classes}).
+The repository's agent instructions direct every session to read the decisions
+and pitfalls before starting work, and per-project memory notes carried the
+author's standing preferences, such as serial dispatch, between sessions.
+
+\input{generated/tables/pitfall-classes.tex}
+
+\subsection{Several models, two vendors}
+
+Each ticket names the tier of model expected to implement it and, from
+September, a reviewer of a different tier; \ReviewedTicketCount{} tickets carry
+a reviewer. Review was mostly across tiers of one vendor: Opus-tier work
+reviewed by Fable, or a Luna-tier Codex implementation reviewed by Sol. Review
+across vendors was rarer. Early in the project Gemini 3.1 Pro Preview reviewed
+Opus's work, and agents of one vendor incidentally read, tested, and corrected
+code written by the other's in the course of their own tickets. Reviews earned their
+cost. One found a live bug in which a refactor of four field-gradient variants
+had dropped a compensating rescale, leaving their torque at \ReviewTorqueScale{}
+of its correct value. Another found that a tolerance derived for a
+cross-implementation comparison was \ReviewToleranceLooseLow--\ReviewToleranceLooseHigh$\times$
+looser than the measured cross-implementation distribution.
+
+The two systems name their tiers differently (Fable, Opus, Sonnet, and Haiku
+correspond to Astra, Sol, Terra, and Luna), and both vocabularies remain in the
+ticket files. An attempt to normalize them to one scheme was reverted within
+minutes, because each system reads the files and the other's names would have
+broken its dispatch; the generated index renders both, so the mapping is read
+rather than remembered. The models changed during the project:
+Claude Sonnet and Opus from 4.8 through 5.5 and Fable 5 in Claude Code, and in
+Codex GPT~5.6-Terra and Sol, then Sol, Astra, and Luna 6, and Sol and Luna 6.1.
+Because the ticket carries the context, a change of model or vendor changed who
+did the next ticket, not what the next ticket said.
+
+\subsection{Practices worth reusing}
+
+Each practice below exists because its absence cost the project something
+measurable.
+\begin{itemize}
+ \item \textbf{A check that does not run cannot fire.} One ticket specified a
+ stop rule in prose; no script evaluated it, and a stage was launched at
+ \StopRulePlannedOverrunFactor$\times$ its specified size and had run
+ \StopRuleExecutedOverrunFactor$\times$, \StopRuleOverrunHours{} hours of
+ two-GPU time, before a person looked. Earlier instances were a
+ refusal path that could not be reached, a test fixture that skipped instead of
+ failing, and never-called grading rules. We make stop rules and
+ acceptance thresholds code that writes its value into the run record.
+ \item \textbf{Store each fact once and generate every view of it.} Helps avoid
+ status / dependency drift above.
+ \item \textbf{Correctness before timing, and the right kind of correctness.}
+ Changes that only move data must be bitwise identical; changes to arithmetic
+ must preserve retrieval (top-$K$ recall) against a reference. Neither gate is
+ waived for a speedup.
+ \item \textbf{Make a measurement quotable or call it advisory.} Any number
+ cited in a decision is taken under an exclusive filesystem lock on the GPU, with
+ clock, power, cache state, build identity, and repeat phase recorded. A
+ profiler silently pins clocks, so numbers taken at different clocks are never
+ combined into one ratio.
+ \item \textbf{Assert what was loaded.} From a worktree, a shared Python
+ environment silently imported the main checkout's code; a stale compiled
+ extension failed exactly like a code bug. Runs record and check the source and
+ build they executed.
+ \item \textbf{Commit before waiting, and wait on a condition.} One ticket
+ accumulated \WaiterShellCount{} concurrent polling shells with blind sleeps of
+ up to \BlindSleepMaxSeconds~s while its result already sat in a log.
+ \item \textbf{Siblings are not intruders.} Agents working in parallel see each
+ other's worktrees, locks, and processes; one nearly deleted three live sibling
+ worktrees as debris. The rule is to report and stop, never to clean up another
+ agent's state.
+ \item \textbf{Name code for what it does.} Identifiers named after tickets read
+ as meaningful to the agent that wrote them and as noise to the next; the name
+ says what code does, and a comment says where it came from.
+ \item \textbf{Dispatch serially once results depend on one another, and bound
+ scope in writing.} Parallel waves suit independent questions. When each answer
+ reframes the next question, one ticket at a time with a written statement of
+ what is \emph{not} authorized wastes less work.
+\end{itemize}
+
+\subsection{Where agents went wrong, and where the expert mattered}
+
+The workflow was strongest at reconnaissance of unfamiliar code, proposing
+independent implementations, constructing adversarial tests, and keeping
+hypotheses alive, but had characteristic failures:
+
+\paragraph{Plausible stories adopted before measurement.} Three tickets
+attributed a kernel's cache pressure to library-molecule traffic; a profile
+showed \QueryShareOfTexRequestsPercent\% of the relevant load requests came from
+the query. A CPU scaling anomaly was explained as cold cache, which was
+impossible for a \ImplausibleWorkingSetKB-KB working set against a
+\ImplausibleCacheMB-MB cache; review found threads stacked on the same cores. A
+broken control once produced an apparent \BrokenControlSpeedup$\times$ win that
+was \CorrectedControlSpeedup$\times$ once corrected.
+
+\paragraph{Opposing what later helped, or advocating what later hurt.} An
+agent's decision ruled out the exponential map, which the author reopened and
+which shipped. Conversely, agents favored keeping library shape coordinates in
+registers, which cut whole-screen kernel time \RegisterShapeSpeedup$\times$ on a
+shape-only screen; the author blocked it on the expectation that color would make it
+untenable, and with color it measured \RegisterColorLow--\RegisterColorHigh$\times$.
+
+\paragraph{Drift over long horizons.} A published head-to-head ratio
+(\StaleHeadlineSpeedup$\times$) was still being cited after
+\StaleHeadlineLandedTickets{} tickets had changed the engine underneath it, and
+which ROSHAMBO2 build was the baseline was re-derived, inconsistently, by each
+ticket that needed it until a decision fixed it. Long-horizon coherence came
+from the author and from writing conclusions down, not single-session
+memory.
+
+\subsection{Limits of the record}
+
+The tier in a ticket names a capability level, not a vendor, and git commit
+trailers identify the orchestrating session rather than the model that wrote
+each commit, so the record cannot attribute every ticket to a specific model.
+Tickets for the Metal port were written after the fact from a separate
+workspace (\RetroactiveTicketCount{} tickets). Some closures were batch updates
+of the ticket records and do not date the end of the work. The paper's repository
+ships the export, the conventions, and an excerpt of tickets and decisions; the
+full archive, its results and its history hold confidential detail and are not
+released. The record is the project's own: it shows what this collaboration
+did, not what another team or a fully autonomous system would have done.

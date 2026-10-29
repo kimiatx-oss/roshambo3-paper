@@ -1,0 +1,52 @@
+{
+  "record": "color_corpus_check",
+  "ticket": "T114",
+  "corpus": "$EXTERNAL_DATA/datasets/litpcba/color_rsb3_perm/library",
+  "source": "$EXTERNAL_DATA/datasets/litpcba/color_rsb3/library",
+  "sha256_ids": "3bf681cc36d25f6a45aae7ff36de3c66e95fe0380368368fac24af6591630f4c",
+  "sha256_ids_source": "3bf681cc36d25f6a45aae7ff36de3c66e95fe0380368368fac24af6591630f4c",
+  "n_conformers": 20381286,
+  "n_molecules": 407664,
+  "n_groups": 18,
+  "rsb3_version": null,
+  "slot_efficiency": {
+    "before": 0.7141733237429673,
+    "after": 0.7685519549302612
+  },
+  "bytes_per_conformer": 250.3071840510947,
+  "color_features_enum": {
+    "Hydrophobe": 1,
+    "Acceptor": 2,
+    "Aromatic": 3,
+    "Donor": 4,
+    "PosIonizable": 5,
+    "NegIonizable": 6
+  },
+  "color_features_enum_source": {
+    "Donor": 1,
+    "Acceptor": 2,
+    "PosIonizable": 3,
+    "NegIonizable": 4,
+    "Aromatic": 5,
+    "Hydrophobe": 6
+  },
+  "expected": {
+    "sha256_ids_prefix": "3bf681cc36d25f6a",
+    "n_conformers": 20381286,
+    "slot_efficiency_before": 0.7142,
+    "slot_efficiency_after": 0.7686,
+    "source": "roci's copy of the same corpus, converted the same way (tickets/T114-the-volta-head-to-head-at-production-settings.md)"
+  },
+  "checks": {
+    "sha256_ids_matches_expected_prefix": true,
+    "sha256_ids_unchanged_by_the_convert": true,
+    "n_conformers": true,
+    "n_conformers_unchanged": true,
+    "slot_efficiency_before": true,
+    "slot_efficiency_after": true,
+    "corpus_has_color": true,
+    "color_features_enum_recorded": true
+  },
+  "passed": true,
+  "convert_log": "$EXTERNAL_DATA/scratch/T114/convert_color_rsb3.log"
+}

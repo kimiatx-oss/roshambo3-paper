@@ -1,0 +1,18 @@
+{
+  "record": "color_build_env",
+  "ticket": "T114",
+  "label": "tachi arm u2",
+  "host": "tachi",
+  "python": "$EXTERNAL_DATA",
+  "rdkit_version": "2026.03.5",
+  "rdkit_path": "$EXTERNAL_DATA",
+  "fdef_path": "$EXTERNAL_DATA",
+  "fdef_sha256": "766f9790513f8f94c67ec6d1c8b6d5bede59b81f6da8c2081f57e49fb28d9784",
+  "fdef_bytes": 6794,
+  "roshambo2_package": "$EXTERNAL_DATA",
+  "roshambo2_file_sha256": {
+    "prepare.py": "2d5a7dbb37bee770656540d0b2d73d2979e8f9029eba62c0c1fa80fdcc5f41a9",
+    "pharmacophore.py": "3fb250bc366fcbeeabb03ae46f53082845073925ffd22a0894b83c633291a80e"
+  },
+  "roshambo3": "not importable here: ModuleNotFoundError: No module named 'roshambo3'"
+}

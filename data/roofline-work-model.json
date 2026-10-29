@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "description": "Tracked aggregate inputs for the PubChem3D work model. Audit against the named corpus manifest; the corpus itself is not a paper-build dependency.",
+  "optimizer": {
+    "steps": 25,
+    "starts": 4,
+    "field_evaluations_per_start": 26,
+    "source_commit": "f4ebd36e49082b81d56efc01dc43ad86df2639be"
+  },
+  "corpus": {
+    "name": "PubChem3D conf10 (format 3)",
+    "manifest_path_at_capture": "$EXTERNAL_DATA",
+    "descriptor_sha256": "39d2936b26edc896ab4df6135974c6dfadcfc134a7944a5fd001d3e0566589db",
+    "conformers": 512413481,
+    "real_atoms": 12733724132,
+    "stored_bytes": 63250572826,
+    "stored_coordinate_bytes": 58664756160,
+    "decoded_padded_coordinate_bytes": 87775338768,
+    "non_coordinate_bytes": 4585816666,
+    "encoding": "bp256-16",
+    "groups": 262,
+    "note": "Format-3 aggregates: real_atoms is sum(i * hac_hist[i]) from build.json; stored_bytes is build.json's byte total; stored_coordinate_bytes sums every group's coords section; decoded_padded_coordinate_bytes is sum(n_conf * L * 6), the host-decoded int16 [rows, L, 3] the CUDA backend uploads; non_coordinate_bytes is the rest (self-overlap and run sections, molecules.parquet, corpus.json)."
+  },
+  "devices": {
+    "blackwell": {
+      "label": "RTX PRO 6000 Blackwell Max-Q",
+      "chip": "GB202",
+      "sms": 188,
+      "fp32_lanes_per_sm": 128,
+      "warp_schedulers_per_sm": 4,
+      "texture_units_per_sm": 4,
+      "xu_warp_instructions_per_sm_cycle": 0.5,
+      "l1tex_sectors_per_sm_cycle": null,
+      "l1tex_sectors_per_sm_cycle_source": "ladder",
+      "dram_bytes_per_s": 1792000000000.0,
+      "power_limit_w": 300.0,
+      "specified_max_clock_mhz": 2280.0,
+      "basis": "GB202 SM, scheduler and texture-unit counts are from the captured device/profile metadata for the RTX PRO 6000 Blackwell Max-Q; FP32 lanes, memory bandwidth and the 300 W power limit are board specifications. The effective L1TEX rate is calibrated from the profile ladder by analyze_roofline.py (achieved texture sectors/SM/cycle divided by profiled L1TEX utilization, time-weighted over the ladder). These are not generic Blackwell-family limits."
+    },
+    "l4": {
+      "label": "NVIDIA L4",
+      "chip": "AD104",
+      "sms": 58,
+      "fp32_lanes_per_sm": 128,
+      "warp_schedulers_per_sm": 4,
+      "texture_units_per_sm": 4,
+      "xu_warp_instructions_per_sm_cycle": 0.5,
+      "l1tex_sectors_per_sm_cycle": null,
+      "l1tex_sectors_per_sm_cycle_source": "l4-ladder",
+      "dram_bytes_per_s": 300000000000.0,
+      "power_limit_w": 72.0,
+      "specified_max_clock_mhz": 2040.0,
+      "demand_ladder_device": "sm_89",
+      "demand_source": "sm_89 ladder (the L4's own profile)",
+      "basis": "AD104 SM count and clocks are from the L4 profile and run records; schedulers, FP32 lanes, texture units and the XU rate follow the Ada SM; 300 GB/s and the 72 W power limit are board specifications. The effective L1TEX rate is calibrated from the L4 ladder as GB202's is from its own. The observed clock is the L4's LIT-PCBA shape run, since it has no PubChem3D run."
+    },
+    "titan_v": {
+      "label": "NVIDIA TITAN V",
+      "chip": "GV100",
+      "sms": 80,
+      "fp32_lanes_per_sm": 64,
+      "warp_schedulers_per_sm": 4,
+      "texture_units_per_sm": 4,
+      "xu_warp_instructions_per_sm_cycle": 0.5,
+      "l1tex_sectors_per_sm_cycle": 4.0,
+      "dram_bytes_per_s": 652800000000.0,
+      "power_limit_w": 250.0,
+      "specified_max_clock_mhz": 1455.0,
+      "demand_ladder_device": "sm_89",
+      "demand_source": "sm_89 ladder (same NVVM loop shape as sm_70)",
+      "basis": "GV100 device specifications for the TITAN V. The XU and L1TEX issue rates are explicit modeling assumptions, not counters measured on this card. These are not generic Volta-family limits."
+    }
+  },
+  "source_level_accounting": {
+    "convention": "add/subtract/multiply=1 FLOP; FMA=2 FLOPs; exp2, sqrt, reciprocal/division, sin and cos are counted separately",
+    "analytic_optimizer_elementary_flops_per_shape_pair_term": 18,
+    "field_search_elementary_flops_per_shape_sample": 49,
+    "exact_rescore_elementary_flops_per_shape_pair_term": 9,
+    "library_transform_elementary_flops_per_atom": 18,
+    "half4_node_bytes": 8,
+    "trilinear_nodes_per_sample": 8,
+    "scope_note": "The semantic FLOP count covers the dominant atom loops in kernels.cu. Matrix construction, optimizer update, reductions, indexing, integer conversion and field construction are omitted from that FLOP subtotal but included in the profiled all-instruction SASS demand. The 64-byte trilinear footprint is an uncached stencil footprint, not predicted DRAM traffic."
+  }
+}

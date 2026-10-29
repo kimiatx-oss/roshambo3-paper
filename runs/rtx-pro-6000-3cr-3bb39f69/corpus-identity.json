@@ -1,0 +1,23 @@
+[
+ {
+  "name": "3CR",
+  "path": "$EXTERNAL_DATA",
+  "corpus_json_sha256": "[withheld]",
+  "fingerprint": "[withheld]",
+  "ids_sha256": "[withheld]",
+  "conformers": 374226435,
+  "molecules": 75157279,
+  "ledger": {
+   "file": "[internal]",
+   "row": "3CR",
+   "row_path": "$EXTERNAL_DATA"
+  },
+  "checks": {
+   "fingerprint": true,
+   "ids_sha256": true,
+   "conformers": true,
+   "molecules": true
+  },
+  "match": true
+ }
+]

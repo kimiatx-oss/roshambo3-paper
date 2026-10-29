@@ -1,0 +1,22 @@
+{
+  "record": "color_build_env",
+  "ticket": "T114",
+  "label": "roci: the venv that typed litpcba/color_rsb3 (its manifest names this fdef path)",
+  "host": "roci",
+  "python": "$EXTERNAL_DATA",
+  "rdkit_version": "2026.03.5",
+  "rdkit_path": "$EXTERNAL_DATA",
+  "fdef_path": "$EXTERNAL_DATA",
+  "fdef_sha256": "766f9790513f8f94c67ec6d1c8b6d5bede59b81f6da8c2081f57e49fb28d9784",
+  "fdef_bytes": 6794,
+  "roshambo2": "not importable here: ModuleNotFoundError: No module named 'roshambo2'",
+  "roshambo3_features_enum": {
+    "Hydrophobe": 1,
+    "Acceptor": 2,
+    "Aromatic": 3,
+    "Donor": 4,
+    "PosIonizable": 5,
+    "NegIonizable": 6
+  },
+  "roshambo3_fdef_path": null
+}

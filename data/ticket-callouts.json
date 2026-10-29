@@ -1,0 +1,20 @@
+{
+  "description": "Where each epoch's callout label goes in the main-text ticket strip, relative to its circled burst: left, right, above-left, above-right, below, below-left, below-right, or down (the lowest clear row, with a vertical leader). The generator tries that side first (nearest positions first) and falls back to any clear position. \"spans\" replaces an epoch's burst with an explicit ticket range, for a multi-day wave that overnight gaps split into runs smaller than its largest burst.",
+  "sides": {
+    "plan": "right",
+    "gpu": "down",
+    "cpu-port": "below",
+    "cpu-color": "below",
+    "cpu-combo": "left",
+    "native": "left",
+    "metal": "above-right",
+    "format3": "left"
+  },
+  "spans": {
+    "cpu-combo": {
+      "first": "T179",
+      "last": "T207",
+      "why": "The Luna-tier CPU combo wave (T179-T207, 5-8 Oct) spans overnight gaps; its largest 4-hour burst (T211-T221) is the later Sol-tier public-route work."
+    }
+  }
+}

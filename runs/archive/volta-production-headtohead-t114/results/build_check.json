@@ -1,0 +1,26 @@
+{
+  "build_tree": "$EXTERNAL_DATA",
+  "build_type": "Release",
+  "cuda_architectures": "70-real",
+  "embedded_elf_arch": [
+    "sm_70"
+  ],
+  "embedded_elf_lines": [
+    "ELF file    1: kernels.sm_70.cubin",
+    "ELF file    2: molecule_topk.sm_70.cubin",
+    "ELF file    3: topk.sm_70.cubin"
+  ],
+  "embedded_ptx": [],
+  "git_sha": "4d4a60e2cce9187c3b9112284c8ed1bbab0d8f77",
+  "head": "835cf9d60417a58aa4cafd4aeb079c2fe9de97d5",
+  "head_short": "835cf9d",
+  "loaded_module": "$EXTERNAL_DATA",
+  "numerics_check_ok": true,
+  "numerics_violations": [],
+  "nvcc": "12.9.86",
+  "so_path": "$EXTERNAL_DATA",
+  "so_sha256": "37198299032304a9ca7501ff8c1c8bd60410ab4e9442ca1dae9c17d4a9088b10",
+  "src_clean": true,
+  "src_tree_sha": "2493f58fc543b7fbada931896e9ec32ca56f31ce",
+  "with_cuda": true
+}

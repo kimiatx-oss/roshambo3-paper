@@ -1,0 +1,1005 @@
+{
+  "what": "T169 third experiment: iso-step outcome-stratified pair fixture",
+  "n_pairs": 48,
+  "n_query_conformers": 26,
+  "n_library_conformers": 48,
+  "candidate_set": {
+    "source": "results/T169/pose-rescore.pairs.npz",
+    "n_comparable_non_self_pairs": 1038,
+    "filter": "same_atom_set & ~is_self_match"
+  },
+  "delta_definition": "oracle(roshambo3, as_built) - oracle(r2_fixed_steps25, as_built), per channel; both arms at 25 steps",
+  "bins": {
+    "r3_better": "delta >= +0.01",
+    "tie": "|delta| <= 0.001",
+    "r2_better": "delta <= -0.01"
+  },
+  "within_bin_rule": "nearest-rank (10, 30, 50, 70, 90) percentiles of that cell's delta; deterministic, no seed",
+  "extremes": {
+    "shape:worst_r3_loss": 975,
+    "color:worst_r3_loss": 524,
+    "combination:worst_r3_loss": 170,
+    "shape:largest_r3_win": 176
+  },
+  "cells": {
+    "shape:r3_better": [
+      1046,
+      881,
+      458,
+      655,
+      708
+    ],
+    "shape:tie": [
+      198,
+      608,
+      566,
+      280,
+      657
+    ],
+    "shape:r2_better": [
+      936,
+      827,
+      597,
+      355,
+      3
+    ],
+    "color:r3_better": [
+      992,
+      228,
+      127,
+      215,
+      153
+    ],
+    "color:tie": [
+      775,
+      104,
+      640,
+      503,
+      79
+    ],
+    "color:r2_better": [
+      618,
+      679,
+      292,
+      258,
+      822
+    ],
+    "combination:r3_better": [
+      827,
+      982,
+      253,
+      1002,
+      486
+    ],
+    "combination:tie": [
+      81,
+      416,
+      771,
+      1018,
+      1028
+    ],
+    "combination:r2_better": [
+      955,
+      603,
+      957,
+      719,
+      169
+    ]
+  },
+  "arms": {
+    "roshambo3": {
+      "arm": "roshambo3",
+      "engine": "roshambo3",
+      "build": {
+        "git_sha": "cecbb24c2f5a1de68e723173f389f719a06ee1fb",
+        "build_type": "Release",
+        "nvcc": "13.2.78",
+        "cuda_architectures": "native",
+        "tuning_cells": false
+      },
+      "config": {
+        "pose_search": "FIELD",
+        "color": true,
+        "mixing": 0.5,
+        "color_placement": "IN_GRADIENT",
+        "steps": 25,
+        "start_mode": 1,
+        "color_stage": 0,
+        "color_residency": 1
+      },
+      "features_enum": {
+        "Hydrophobe": 1,
+        "Acceptor": 2,
+        "Aromatic": 3,
+        "Donor": 4,
+        "PosIonizable": 5,
+        "NegIonizable": 6
+      },
+      "interaction_matrix_r": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "interaction_matrix_p": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "n_pairs": 1056,
+      "quaternion_norm": {
+        "min": 0.9999994351631873,
+        "max": 1.0000004957359425,
+        "median": 1.0000000125060329
+      },
+      "start_quaternions": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "panel": "$EXTERNAL_DATA",
+      "note": "development build (cuda_architectures 'native'); no portable performance number may be quoted from it. Scores and poses are unaffected."
+    },
+    "r2_fixed": {
+      "arm": "r2_fixed",
+      "engine": "ROSHAMBO2",
+      "engine_version": "unknown",
+      "method": "dense (CudaShapeOverlay.optimize_overlap)",
+      "config": {
+        "steps": 10,
+        "mixing": 0.5,
+        "start_mode": 1,
+        "lr_q": 0.1,
+        "lr_t": 0.1,
+        "color": true,
+        "legacy_combo_gradient": false
+      },
+      "features_enum": {
+        "Donor": 1,
+        "Acceptor": 2,
+        "PosIonizable": 3,
+        "NegIonizable": 4,
+        "Aromatic": 5,
+        "Hydrophobe": 6
+      },
+      "interaction_matrix_r": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "interaction_matrix_p": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "n_pairs": 1056,
+      "quaternion_norm": {
+        "min": 0.9999998688471973,
+        "max": 1.0000001330188182,
+        "median": 1.0000000030648175
+      },
+      "start_quaternions": [
+        [
+          -0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          -0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          -0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "panel": "$EXTERNAL_DATA"
+    },
+    "r2_fixed_steps25": {
+      "arm": "r2_fixed_steps25",
+      "engine": "ROSHAMBO2",
+      "engine_version": "unknown",
+      "method": "dense (CudaShapeOverlay.optimize_overlap)",
+      "config": {
+        "steps": 25,
+        "mixing": 0.5,
+        "start_mode": 1,
+        "lr_q": 0.1,
+        "lr_t": 0.1,
+        "color": true,
+        "legacy_combo_gradient": false
+      },
+      "features_enum": {
+        "Donor": 1,
+        "Acceptor": 2,
+        "PosIonizable": 3,
+        "NegIonizable": 4,
+        "Aromatic": 5,
+        "Hydrophobe": 6
+      },
+      "interaction_matrix_r": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "interaction_matrix_p": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "n_pairs": 1056,
+      "quaternion_norm": {
+        "min": 0.9999998712069295,
+        "max": 1.0000001543015593,
+        "median": 1.000000009241578
+      },
+      "start_quaternions": [
+        [
+          -0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          -0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          -0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "panel": "$EXTERNAL_DATA"
+    },
+    "r2_prefix": {
+      "arm": "r2_prefix",
+      "engine": "ROSHAMBO2",
+      "engine_version": "unknown",
+      "method": "dense (CudaShapeOverlay.optimize_overlap)",
+      "config": {
+        "steps": 10,
+        "mixing": 0.5,
+        "start_mode": 1,
+        "lr_q": 0.1,
+        "lr_t": 0.1,
+        "color": true,
+        "legacy_combo_gradient": false
+      },
+      "features_enum": {
+        "Donor": 1,
+        "Acceptor": 2,
+        "PosIonizable": 3,
+        "NegIonizable": 4,
+        "Aromatic": 5,
+        "Hydrophobe": 6
+      },
+      "interaction_matrix_r": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "interaction_matrix_p": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "n_pairs": 1056,
+      "quaternion_norm": {
+        "min": 1.0000004145485657,
+        "max": 1.0913002730633061,
+        "median": 1.0036981606099835
+      },
+      "start_quaternions": [
+        [
+          -0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          -0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          -0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "panel": "$EXTERNAL_DATA"
+    },
+    "roshambo3_steps10": {
+      "arm": "roshambo3_steps10",
+      "engine": "roshambo3",
+      "build": {
+        "git_sha": "cecbb24c2f5a1de68e723173f389f719a06ee1fb",
+        "build_type": "Release",
+        "nvcc": "13.2.78",
+        "cuda_architectures": "native",
+        "tuning_cells": false
+      },
+      "config": {
+        "pose_search": "FIELD",
+        "color": true,
+        "mixing": 0.5,
+        "color_placement": "IN_GRADIENT",
+        "steps": 10,
+        "start_mode": 1,
+        "color_stage": 0,
+        "color_residency": 1
+      },
+      "features_enum": {
+        "Hydrophobe": 1,
+        "Acceptor": 2,
+        "Aromatic": 3,
+        "Donor": 4,
+        "PosIonizable": 5,
+        "NegIonizable": 6
+      },
+      "interaction_matrix_r": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "interaction_matrix_p": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "n_pairs": 1056,
+      "quaternion_norm": {
+        "min": 0.9999996495351898,
+        "max": 1.000000325845623,
+        "median": 0.9999999804293931
+      },
+      "start_quaternions": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "panel": "$EXTERNAL_DATA",
+      "note": "development build (cuda_architectures 'native'); no portable performance number may be quoted from it. Scores and poses are unaffected."
+    }
+  },
+  "provenance": {
+    "panel": "$EXTERNAL_DATA",
+    "rescored": "results/T169/pose-rescore.pairs.npz",
+    "mirror": "results/T169/pose-rescore-mirror.pairs.npz"
+  },
+  "note": "bin proportions here are chosen, not measured -- this is a stratified sample and no fraction computed over it estimates a panel fraction"
+}

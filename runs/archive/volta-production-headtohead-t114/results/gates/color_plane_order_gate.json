@@ -1,0 +1,330 @@
+{
+  "record": "color_plane_order_gate",
+  "ticket": "T114",
+  "question": "T106's colour plane reorder is not bit-identical and was never claimed to be (results/T106 2; T105 measured |dT| max 4.77e-7). Does it move any compound across the 1% cut, on the corpus and objective the submission's accuracy numbers were taken on?",
+  "historical": {
+    "root": "$EXTERNAL_DATA/datasets/litpcba/color_rsb3/library",
+    "n_conformers": 20381286,
+    "n_molecules": 407664,
+    "sha256_ids": "3bf681cc36d25f6a45aae7ff36de3c66e95fe0380368368fac24af6591630f4c",
+    "rsb3_version": 1,
+    "features_enum": {
+      "Donor": 1,
+      "Acceptor": 2,
+      "PosIonizable": 3,
+      "NegIonizable": 4,
+      "Aromatic": 5,
+      "Hydrophobe": 6
+    },
+    "query_color_features_total": 119,
+    "rank_col": 0,
+    "h2d_bytes": 9129565368
+  },
+  "permuted": {
+    "root": "$EXTERNAL_DATA/datasets/litpcba/color_rsb3_perm/library",
+    "n_conformers": 20381286,
+    "n_molecules": 407664,
+    "sha256_ids": "3bf681cc36d25f6a45aae7ff36de3c66e95fe0380368368fac24af6591630f4c",
+    "rsb3_version": 2,
+    "features_enum": {
+      "Hydrophobe": 1,
+      "Acceptor": 2,
+      "Aromatic": 3,
+      "Donor": 4,
+      "PosIonizable": 5,
+      "NegIonizable": 6
+    },
+    "query_color_features_total": 119,
+    "rank_col": 0,
+    "h2d_bytes": 8596396728
+  },
+  "panel": "$EXTERNAL_DATA/datasets/litpcba/panels/PANEL-8.sdf",
+  "queries": [
+    "ADRB2_3p0g_query",
+    "ALDH1_4wp7_query",
+    "ESR1_ago_1l2i_query",
+    "ESR1_ant_1xp1_query",
+    "FEN1_5fv7_query",
+    "GBA_2v3d_query",
+    "IDH1_4i3k_query",
+    "KAT2A_5h86_query"
+  ],
+  "arm_spec": {
+    "pose_search": "FIELD",
+    "steps": 25,
+    "lr_t": 0.4,
+    "lr_q": 0.1,
+    "start_mode": 1,
+    "color": true,
+    "mixing": 0.5,
+    "color_placement": "IN_GRADIENT"
+  },
+  "level": "molecule, k = n_molecules (a complete compound ranking)",
+  "roshambo3_file": "$EXTERNAL_DATA",
+  "build": {
+    "build_type": "Release",
+    "nvcc": "12.9.86",
+    "architectures": "70-real",
+    "git_sha": "4d4a60e2cce9187c3b9112284c8ed1bbab0d8f77"
+  },
+  "per_query": [
+    {
+      "query": "ADRB2_3p0g_query",
+      "n_molecules_ranked": 407664,
+      "score_words": 8153280,
+      "score_words_moved": 5344298,
+      "max_abs_delta_rank_column": 0.0001647472381591797,
+      "ranked_compound_order_identical": false,
+      "positions_differing": 296560,
+      "cuts": {
+        "0.005": {
+          "cut_n": 2039,
+          "compounds_only_in_historical": [],
+          "compounds_only_in_permuted": [],
+          "n_crossing": 0
+        },
+        "0.01": {
+          "cut_n": 4077,
+          "compounds_only_in_historical": [],
+          "compounds_only_in_permuted": [],
+          "n_crossing": 0
+        },
+        "0.05": {
+          "cut_n": 20384,
+          "compounds_only_in_historical": [],
+          "compounds_only_in_permuted": [],
+          "n_crossing": 0
+        }
+      }
+    },
+    {
+      "query": "ALDH1_4wp7_query",
+      "n_molecules_ranked": 407664,
+      "score_words": 8153280,
+      "score_words_moved": 5867949,
+      "max_abs_delta_rank_column": 0.0001421421766281128,
+      "ranked_compound_order_identical": false,
+      "positions_differing": 329102,
+      "cuts": {
+        "0.005": {
+          "cut_n": 2039,
+          "compounds_only_in_historical": [],
+          "compounds_only_in_permuted": [],
+          "n_crossing": 0
+        },
+        "0.01": {
+          "cut_n": 4077,
+          "compounds_only_in_historical": [],
+          "compounds_only_in_permuted": [],
+          "n_crossing": 0
+        },
+        "0.05": {
+          "cut_n": 20384,
+          "compounds_only_in_historical": [],
+          "compounds_only_in_permuted": [],
+          "n_crossing": 0
+        }
+      }
+    },
+    {
+      "query": "ESR1_ago_1l2i_query",
+      "n_molecules_ranked": 407664,
+      "score_words": 8153280,
+      "score_words_moved": 5972349,
+      "max_abs_delta_rank_column": 0.0001939535140991211,
+      "ranked_compound_order_identical": false,
+      "positions_differing": 343489,
+      "cuts": {
+        "0.005": {
+          "cut_n": 2039,
+          "compounds_only_in_historical": [],
+          "compounds_only_in_permuted": [],
+          "n_crossing": 0
+        },
+        "0.01": {
+          "cut_n": 4077,
+          "compounds_only_in_historical": [],
+          "compounds_only_in_permuted": [],
+          "n_crossing": 0
+        },
+        "0.05": {
+          "cut_n": 20384,
+          "compounds_only_in_historical": [
+            "CID7966290"
+          ],
+          "compounds_only_in_permuted": [
+            "CID49641800"
+          ],
+          "n_crossing": 1
+        }
+      }
+    },
+    {
+      "query": "ESR1_ant_1xp1_query",
+      "n_molecules_ranked": 407664,
+      "score_words": 8153280,
+      "score_words_moved": 5743496,
+      "max_abs_delta_rank_column": 0.0004738271236419678,
+      "ranked_compound_order_identical": false,
+      "positions_differing": 301579,
+      "cuts": {
+        "0.005": {
+          "cut_n": 2039,
+          "compounds_only_in_historical": [],
+          "compounds_only_in_permuted": [],
+          "n_crossing": 0
+        },
+        "0.01": {
+          "cut_n": 4077,
+          "compounds_only_in_historical": [],
+          "compounds_only_in_permuted": [],
+          "n_crossing": 0
+        },
+        "0.05": {
+          "cut_n": 20384,
+          "compounds_only_in_historical": [
+            "CID22410941"
+          ],
+          "compounds_only_in_permuted": [
+            "CID57258646"
+          ],
+          "n_crossing": 1
+        }
+      }
+    },
+    {
+      "query": "FEN1_5fv7_query",
+      "n_molecules_ranked": 407664,
+      "score_words": 8153280,
+      "score_words_moved": 5537633,
+      "max_abs_delta_rank_column": 0.00012373924255371094,
+      "ranked_compound_order_identical": false,
+      "positions_differing": 334601,
+      "cuts": {
+        "0.005": {
+          "cut_n": 2039,
+          "compounds_only_in_historical": [],
+          "compounds_only_in_permuted": [],
+          "n_crossing": 0
+        },
+        "0.01": {
+          "cut_n": 4077,
+          "compounds_only_in_historical": [],
+          "compounds_only_in_permuted": [],
+          "n_crossing": 0
+        },
+        "0.05": {
+          "cut_n": 20384,
+          "compounds_only_in_historical": [],
+          "compounds_only_in_permuted": [],
+          "n_crossing": 0
+        }
+      }
+    },
+    {
+      "query": "GBA_2v3d_query",
+      "n_molecules_ranked": 407664,
+      "score_words": 8153280,
+      "score_words_moved": 5547145,
+      "max_abs_delta_rank_column": 0.000292360782623291,
+      "ranked_compound_order_identical": false,
+      "positions_differing": 330834,
+      "cuts": {
+        "0.005": {
+          "cut_n": 2039,
+          "compounds_only_in_historical": [
+            "CID14724051"
+          ],
+          "compounds_only_in_permuted": [
+            "CID24801160"
+          ],
+          "n_crossing": 1
+        },
+        "0.01": {
+          "cut_n": 4077,
+          "compounds_only_in_historical": [],
+          "compounds_only_in_permuted": [],
+          "n_crossing": 0
+        },
+        "0.05": {
+          "cut_n": 20384,
+          "compounds_only_in_historical": [
+            "CID4249851"
+          ],
+          "compounds_only_in_permuted": [
+            "CID50109886"
+          ],
+          "n_crossing": 1
+        }
+      }
+    },
+    {
+      "query": "IDH1_4i3k_query",
+      "n_molecules_ranked": 407664,
+      "score_words": 8153280,
+      "score_words_moved": 5508870,
+      "max_abs_delta_rank_column": 0.00033360719680786133,
+      "ranked_compound_order_identical": false,
+      "positions_differing": 321446,
+      "cuts": {
+        "0.005": {
+          "cut_n": 2039,
+          "compounds_only_in_historical": [],
+          "compounds_only_in_permuted": [],
+          "n_crossing": 0
+        },
+        "0.01": {
+          "cut_n": 4077,
+          "compounds_only_in_historical": [],
+          "compounds_only_in_permuted": [],
+          "n_crossing": 0
+        },
+        "0.05": {
+          "cut_n": 20384,
+          "compounds_only_in_historical": [],
+          "compounds_only_in_permuted": [],
+          "n_crossing": 0
+        }
+      }
+    },
+    {
+      "query": "KAT2A_5h86_query",
+      "n_molecules_ranked": 407664,
+      "score_words": 8153280,
+      "score_words_moved": 5257923,
+      "max_abs_delta_rank_column": 0.00018849968910217285,
+      "ranked_compound_order_identical": false,
+      "positions_differing": 300183,
+      "cuts": {
+        "0.005": {
+          "cut_n": 2039,
+          "compounds_only_in_historical": [],
+          "compounds_only_in_permuted": [],
+          "n_crossing": 0
+        },
+        "0.01": {
+          "cut_n": 4077,
+          "compounds_only_in_historical": [],
+          "compounds_only_in_permuted": [],
+          "n_crossing": 0
+        },
+        "0.05": {
+          "cut_n": 20384,
+          "compounds_only_in_historical": [],
+          "compounds_only_in_permuted": [],
+          "n_crossing": 0
+        }
+      }
+    }
+  ],
+  "score_words_compared": 65226240,
+  "score_words_moved": 44779663,
+  "max_abs_delta_rank_column": 0.0004738271236419678,
+  "ranked_compound_order_identical_on_every_query": false,
+  "compounds_crossing_by_cut": {
+    "0.005": 1,
+    "0.01": 0,
+    "0.05": 3
+  },
+  "passed": false
+}

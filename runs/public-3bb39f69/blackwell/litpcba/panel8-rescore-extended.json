@@ -1,0 +1,1302 @@
+{
+  "build": {
+    "arch_list": [
+      "sm_120"
+    ],
+    "arch_probe_error": null,
+    "arch_profile": "native",
+    "combo_dispatch_grid": 0,
+    "configuration": {
+      "label": "blackwell-sm120-explicit",
+      "ptx_present": false,
+      "requested_architectures": "120-real",
+      "summary": "Release; explicit Blackwell-only CUDA build (requested 120-real; SASS: sm_120); no PTX fallback; NVCC 13.2.86; 256 threads/block",
+      "verified_sass_architectures": [
+        "sm_120"
+      ]
+    },
+    "cpu_build_type": "Release",
+    "cpu_compiled_targets": [
+      "X86_64_V3",
+      "AVX512F"
+    ],
+    "cpu_cxx_flags": " -O3 -DNDEBUG -march=x86-64-v3 -fno-fast-math -fno-associative-math [grain_avx512.cpp: -mavx512f]",
+    "cpu_probe_error": null,
+    "cpu_selected_target": "X86_64_V3",
+    "cpu_src_dirty": false,
+    "cpu_src_dirty_files": [],
+    "cpu_src_sha256": "eb4634b5226c012a3b88070a1cec68e3dce45107d9689d08cfac766602cff7a4",
+    "cpu_src_stamp_phase": "build",
+    "cpu_src_tree": "04182fa49cc647a514a47328b33b179df040b0b2",
+    "cpu_vector_width": 1,
+    "cuda_architectures_requested": "120-real",
+    "cuda_src_dirty": false,
+    "cuda_src_dirty_files": [],
+    "cuda_src_sha256": "402af23de74c2470db745217e02c111df9921b751c37aa21ae98dddd13222256",
+    "cuda_src_stamp_phase": "build",
+    "cuda_src_tree": "f051d19b80b3609d8df94e9f1ad851a7ec81d58b",
+    "flags": {
+      "cuda": " -O3 -DNDEBUG -lineinfo --ptxas-options=-v",
+      "cxx": " -O3 -DNDEBUG"
+    },
+    "nthreads": 256,
+    "nvcc_version": "13.2.86",
+    "ptx_present": false,
+    "so_sha256": {
+      "_roshambo3_cpu": "67f243612caccceebdf8a964db95412ed3ad8b8719d26658bd7a0336263cf355",
+      "_roshambo3_cuda": "614bc252a399a433c0a4184c146b98db16ae2dac264fc89a441ad85c306a9ba1"
+    },
+    "type": "Release",
+    "with_cpu": true,
+    "with_cuda": true
+  },
+  "corpus": {
+    "conformers": 20381286,
+    "descriptor_sha256": "f6df9cc9152c2945360e69f794e4d3fe40eb7b1482b829d1598838cdeb156d44",
+    "fingerprint": "dbf48295626f432155989b0157b4094068551957d0ba00751746b18fd4bbec7b",
+    "format": {
+      "encoding": "bp256-16",
+      "major": 3,
+      "step_log2": -8
+    },
+    "has_color": true,
+    "ids_sha256": "3bf681cc36d25f6a45aae7ff36de3c66e95fe0380368368fac24af6591630f4c",
+    "molecules": 407664,
+    "molecules_sha256": "f47a9da2b45841fd0bf9078230e9254e8037a0b62a9cf8cb5fa09fff997e895a",
+    "name": "LIT-PCBA",
+    "path": "$EXTERNAL_DATA"
+  },
+  "created_utc": "2026-10-22T20:46:47Z",
+  "git": {
+    "branch": "HEAD",
+    "dirty": false,
+    "output_dirty_paths": [],
+    "sha": "3bb39f698bfffc1045f585187d30230ba639a758",
+    "source_dirty": false,
+    "source_dirty_paths": []
+  },
+  "gpu": {
+    "device": {
+      "physical_index": 0,
+      "uuid": "[device identifier removed]",
+      "visible_index": 0
+    },
+    "initial_state": {
+      "compute_apps": [],
+      "device": {
+        "physical_index": 0,
+        "uuid": "[device identifier removed]",
+        "visible_index": 0
+      },
+      "memory_used_mib": 0.0,
+      "other_process_present": false,
+      "power_draw_w": 181.9,
+      "utilization_gpu_pct": 0.0
+    },
+    "lock_held": true,
+    "lock_path": "$EXTERNAL_DATA",
+    "profiler_clock_control": {
+      "checked": true,
+      "clock_control_setting": null,
+      "processes": [],
+      "state": "none",
+      "tool": null
+    }
+  },
+  "host": {
+    "hostname": "roci",
+    "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39"
+  },
+  "outputs": {
+    "hits_csv": "$EXTERNAL_DATA",
+    "report_json": "$EXTERNAL_DATA",
+    "telemetry_csv": "$EXTERNAL_DATA"
+  },
+  "query_preparation": {
+    "conformers_per_smiles": null,
+    "input": "$EXTERNAL_DATA",
+    "input_records": 8,
+    "n_queries": 8,
+    "process": "exact 3D coordinates from input SDF",
+    "queries": [
+      {
+        "canonical_smiles": "Cc1ccccc1CC(C)(C)[NH2+]C[C@H](O)c1ccc(O)c2c1OCC(=O)N2",
+        "coordinate_source": "input_sdf",
+        "heavy_atoms": 27,
+        "input_smiles": null,
+        "line": null,
+        "name": "ADRB2_3p0g_query",
+        "query_conformer": 1,
+        "record": 1
+      },
+      {
+        "canonical_smiles": "CC(C)CC[N+]1=C(C[NH+]2CCN(C(=O)c3ccco3)CC2)N=C2C1C(=O)N(C)C(=O)N2C",
+        "coordinate_source": "input_sdf",
+        "heavy_atoms": 32,
+        "input_smiles": null,
+        "line": null,
+        "name": "ALDH1_4wp7_query",
+        "query_conformer": 1,
+        "record": 2
+      },
+      {
+        "canonical_smiles": "CC[C@@H]1Cc2cc(O)ccc2C2=C1c1ccc(O)cc1C[C@H]2CC",
+        "coordinate_source": "input_sdf",
+        "heavy_atoms": 24,
+        "input_smiles": null,
+        "line": null,
+        "name": "ESR1_ago_1l2i_query",
+        "query_conformer": 1,
+        "record": 3
+      },
+      {
+        "canonical_smiles": "C[C@H]1C[NH+](CCOc2ccc([C@@H]3Oc4ccc(O)cc4S[C@@H]3c3ccc(O)cc3)cc2)C[C@@H]1C",
+        "coordinate_source": "input_sdf",
+        "heavy_atoms": 34,
+        "input_smiles": null,
+        "line": null,
+        "name": "ESR1_ant_1xp1_query",
+        "query_conformer": 1,
+        "record": 4
+      },
+      {
+        "canonical_smiles": "O=c1c2sccc2n(C[C@H]2COc3ccccc3O2)c(=O)n1O",
+        "coordinate_source": "input_sdf",
+        "heavy_atoms": 23,
+        "input_smiles": null,
+        "line": null,
+        "name": "FEN1_5fv7_query",
+        "query_conformer": 1,
+        "record": 5
+      },
+      {
+        "canonical_smiles": "CCCC[N@@H+]1C[C@H](O)[C@@H](O)[C@H](O)[C@H]1CO",
+        "coordinate_source": "input_sdf",
+        "heavy_atoms": 15,
+        "input_smiles": null,
+        "line": null,
+        "name": "GBA_2v3d_query",
+        "query_conformer": 1,
+        "record": 6
+      },
+      {
+        "canonical_smiles": "Cc1cc(Cc2ccc(O)cc2)n([O-])c(=O)c1",
+        "coordinate_source": "input_sdf",
+        "heavy_atoms": 17,
+        "input_smiles": null,
+        "line": null,
+        "name": "IDH1_4i3k_query",
+        "query_conformer": 1,
+        "record": 7
+      },
+      {
+        "canonical_smiles": "CCCC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)CO[P@@](=O)([O-])O[P@](=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
+        "coordinate_source": "input_sdf",
+        "heavy_atoms": 53,
+        "input_smiles": null,
+        "line": null,
+        "name": "KAT2A_5h86_query",
+        "query_conformer": 1,
+        "record": 8
+      }
+    ],
+    "wall_s": 0.12337212398415431
+  },
+  "screen": {
+    "backend": "cuda",
+    "cache_mode": "warm",
+    "device": 0,
+    "fd_limit": {
+      "hard": 1048576,
+      "soft": 1048576
+    },
+    "host_timing_note": "producer_wait_s, launch_enqueue_s, and sink_s are overlapping host-side diagnostics, not an additive partition of wall time.",
+    "launch_conformers_requested": 262144,
+    "level": "molecule",
+    "mixing": 0.5,
+    "mode": "rescore",
+    "prefetch_depth": 8,
+    "ranking_column": "tanimoto_combination",
+    "repeats": [
+      {
+        "cache": null,
+        "conformer_pairs_screened": 163050288,
+        "conformers_screened": 20381286,
+        "contention_before": {
+          "compute_apps": [],
+          "device": {
+            "physical_index": 0,
+            "uuid": "[device identifier removed]",
+            "visible_index": 0
+          },
+          "memory_used_mib": 571.0,
+          "other_process_present": false,
+          "power_draw_w": 252.07,
+          "utilization_gpu_pct": 0.0
+        },
+        "device_stages_s": {
+          "alloc_s": 0.004055506753502414,
+          "d2h_bytes": 0,
+          "d2h_s": 0.0,
+          "enabled": true,
+          "free_s": 0.0002636902790982276,
+          "h2d_bytes": 7271307264,
+          "h2d_s": 0.29049573742668144,
+          "index_s": 0.005569569126237184,
+          "kernel_s": 2.31081476790132,
+          "library_self_evaluations": 20381286,
+          "library_self_supplied_calls": 0,
+          "n_calls": 86,
+          "precompute_s": 0.03335360993514769,
+          "query_self_evaluations": 688,
+          "self_bound_rows_checked": 0,
+          "self_bound_rows_flagged": 0,
+          "self_bound_s": 0.0,
+          "topk_s": 0.01108707586536184
+        },
+        "engine_wall_s": 3.2624845799873583,
+        "kernel_s": 2.31081476790132,
+        "launch_enqueue_s": 3.146534831961617,
+        "launches": 86,
+        "phase": "timed",
+        "producer_wait_s": 0.02442088007228449,
+        "repeat": 1,
+        "screen_call_wall_s": 3.8579791850061156,
+        "sink_s": 0.00012155016884207726,
+        "telemetry": {
+          "achieved_clock_mhz": {
+            "max": 2340.0,
+            "median": 1961.0,
+            "min": 1912.0
+          },
+          "clocks_sm_mhz": {
+            "max": 2340.0,
+            "mean": 2043.5,
+            "min": 1912.0
+          },
+          "device": {
+            "physical_index": 0,
+            "uuid": "[device identifier removed]",
+            "visible_index": 0
+          },
+          "duration_s": 3.104129041021224,
+          "energy_j": 746.5834725349939,
+          "n_samples": 4,
+          "power_draw_w": {
+            "max": 299.87,
+            "mean": 250.475,
+            "min": 159.41
+          },
+          "sw_power_cap_fraction": 0.75,
+          "temperature_gpu_c": {
+            "max": 85.0,
+            "mean": 83.25
+          },
+          "throttle_fraction": 0.75
+        }
+      },
+      {
+        "cache": null,
+        "conformer_pairs_screened": 163050288,
+        "conformers_screened": 20381286,
+        "contention_before": {
+          "compute_apps": [],
+          "device": {
+            "physical_index": 0,
+            "uuid": "[device identifier removed]",
+            "visible_index": 0
+          },
+          "memory_used_mib": 573.0,
+          "other_process_present": false,
+          "power_draw_w": 258.69,
+          "utilization_gpu_pct": 0.0
+        },
+        "device_stages_s": {
+          "alloc_s": 0.00428861629916355,
+          "d2h_bytes": 0,
+          "d2h_s": 0.0,
+          "enabled": true,
+          "free_s": 0.00027106833294965327,
+          "h2d_bytes": 7271307264,
+          "h2d_s": 0.2890484257368371,
+          "index_s": 0.005694206978660077,
+          "kernel_s": 2.3135795109556057,
+          "library_self_evaluations": 20381286,
+          "library_self_supplied_calls": 0,
+          "n_calls": 86,
+          "precompute_s": 0.03354852113989182,
+          "query_self_evaluations": 688,
+          "self_bound_rows_checked": 0,
+          "self_bound_rows_flagged": 0,
+          "self_bound_s": 0.0,
+          "topk_s": 0.01109464414184913
+        },
+        "engine_wall_s": 3.265976002003299,
+        "kernel_s": 2.3135795109556057,
+        "launch_enqueue_s": 3.1517803698952775,
+        "launches": 86,
+        "phase": "timed",
+        "producer_wait_s": 0.023349800001597032,
+        "repeat": 2,
+        "screen_call_wall_s": 3.862802808987908,
+        "sink_s": 0.00012473497190512717,
+        "telemetry": {
+          "achieved_clock_mhz": {
+            "max": 2295.0,
+            "median": 1976.0,
+            "min": 1935.0
+          },
+          "clocks_sm_mhz": {
+            "max": 2295.0,
+            "mean": 2045.5,
+            "min": 1935.0
+          },
+          "device": {
+            "physical_index": 0,
+            "uuid": "[device identifier removed]",
+            "visible_index": 0
+          },
+          "duration_s": 3.106061097001657,
+          "energy_j": 764.9916748479593,
+          "n_samples": 4,
+          "power_draw_w": {
+            "max": 298.1,
+            "mean": 255.50750000000002,
+            "min": 173.58
+          },
+          "sw_power_cap_fraction": 0.75,
+          "temperature_gpu_c": {
+            "max": 86.0,
+            "mean": 83.75
+          },
+          "throttle_fraction": 0.75
+        }
+      },
+      {
+        "cache": null,
+        "conformer_pairs_screened": 163050288,
+        "conformers_screened": 20381286,
+        "contention_before": {
+          "compute_apps": [],
+          "device": {
+            "physical_index": 0,
+            "uuid": "[device identifier removed]",
+            "visible_index": 0
+          },
+          "memory_used_mib": 573.0,
+          "other_process_present": false,
+          "power_draw_w": 259.72,
+          "utilization_gpu_pct": 0.0
+        },
+        "device_stages_s": {
+          "alloc_s": 0.004154069552896544,
+          "d2h_bytes": 0,
+          "d2h_s": 0.0,
+          "enabled": true,
+          "free_s": 0.00024749606382101774,
+          "h2d_bytes": 7271307264,
+          "h2d_s": 0.2906829391431529,
+          "index_s": 0.005668311117915437,
+          "kernel_s": 2.316279313818086,
+          "library_self_evaluations": 20381286,
+          "library_self_supplied_calls": 0,
+          "n_calls": 86,
+          "precompute_s": 0.03364181311917491,
+          "query_self_evaluations": 688,
+          "self_bound_rows_checked": 0,
+          "self_bound_rows_flagged": 0,
+          "self_bound_s": 0.0,
+          "topk_s": 0.011191462079295889
+        },
+        "engine_wall_s": 3.265157675021328,
+        "kernel_s": 2.316279313818086,
+        "launch_enqueue_s": 3.153517720027594,
+        "launches": 86,
+        "phase": "timed",
+        "producer_wait_s": 0.019397018040763214,
+        "repeat": 3,
+        "screen_call_wall_s": 3.8618145380169153,
+        "sink_s": 0.0001241347927134484,
+        "telemetry": {
+          "achieved_clock_mhz": {
+            "max": 2340.0,
+            "median": 1953.5,
+            "min": 1912.0
+          },
+          "clocks_sm_mhz": {
+            "max": 2340.0,
+            "mean": 2039.75,
+            "min": 1912.0
+          },
+          "device": {
+            "physical_index": 0,
+            "uuid": "[device identifier removed]",
+            "visible_index": 0
+          },
+          "duration_s": 3.105773951014271,
+          "energy_j": 754.2547482940962,
+          "n_samples": 4,
+          "power_draw_w": {
+            "max": 299.05,
+            "mean": 251.32750000000001,
+            "min": 170.8
+          },
+          "sw_power_cap_fraction": 0.75,
+          "temperature_gpu_c": {
+            "max": 85.0,
+            "mean": 84.0
+          },
+          "throttle_fraction": 0.75
+        }
+      },
+      {
+        "cache": null,
+        "conformer_pairs_screened": 163050288,
+        "conformers_screened": 20381286,
+        "contention_before": {
+          "compute_apps": [],
+          "device": {
+            "physical_index": 0,
+            "uuid": "[device identifier removed]",
+            "visible_index": 0
+          },
+          "memory_used_mib": 571.0,
+          "other_process_present": false,
+          "power_draw_w": 263.75,
+          "utilization_gpu_pct": 0.0
+        },
+        "device_stages_s": {
+          "alloc_s": 0.003774003096623346,
+          "d2h_bytes": 0,
+          "d2h_s": 0.0,
+          "enabled": true,
+          "free_s": 0.000273768266197294,
+          "h2d_bytes": 7271307264,
+          "h2d_s": 0.29174979057279415,
+          "index_s": 0.005920307128690183,
+          "kernel_s": 2.3164717839390505,
+          "library_self_evaluations": 20381286,
+          "library_self_supplied_calls": 0,
+          "n_calls": 86,
+          "precompute_s": 0.033209974149940535,
+          "query_self_evaluations": 688,
+          "self_bound_rows_checked": 0,
+          "self_bound_rows_flagged": 0,
+          "self_bound_s": 0.0,
+          "topk_s": 0.011020148202078417
+        },
+        "engine_wall_s": 3.2742142750066705,
+        "kernel_s": 2.3164717839390505,
+        "launch_enqueue_s": 3.1597684579028282,
+        "launches": 86,
+        "phase": "timed",
+        "producer_wait_s": 0.018199224898125976,
+        "repeat": 4,
+        "screen_call_wall_s": 3.8714678620162886,
+        "sink_s": 0.0001257220283150673,
+        "telemetry": {
+          "achieved_clock_mhz": {
+            "max": 2287.0,
+            "median": 1968.5,
+            "min": 1942.0
+          },
+          "clocks_sm_mhz": {
+            "max": 2287.0,
+            "mean": 2041.5,
+            "min": 1942.0
+          },
+          "device": {
+            "physical_index": 0,
+            "uuid": "[device identifier removed]",
+            "visible_index": 0
+          },
+          "duration_s": 3.106558187981136,
+          "energy_j": 748.1848964494579,
+          "n_samples": 4,
+          "power_draw_w": {
+            "max": 299.39,
+            "mean": 250.26,
+            "min": 162.12
+          },
+          "sw_power_cap_fraction": 0.75,
+          "temperature_gpu_c": {
+            "max": 86.0,
+            "mean": 84.0
+          },
+          "throttle_fraction": 0.75
+        }
+      },
+      {
+        "cache": null,
+        "conformer_pairs_screened": 163050288,
+        "conformers_screened": 20381286,
+        "contention_before": {
+          "compute_apps": [],
+          "device": {
+            "physical_index": 0,
+            "uuid": "[device identifier removed]",
+            "visible_index": 0
+          },
+          "memory_used_mib": 573.0,
+          "other_process_present": false,
+          "power_draw_w": 255.73,
+          "utilization_gpu_pct": 0.0
+        },
+        "device_stages_s": {
+          "alloc_s": 0.004298796120565385,
+          "d2h_bytes": 0,
+          "d2h_s": 0.0,
+          "enabled": true,
+          "free_s": 0.00025594013277441263,
+          "h2d_bytes": 7271307264,
+          "h2d_s": 0.28986751844058745,
+          "index_s": 0.005610186024568975,
+          "kernel_s": 2.3214129909174517,
+          "library_self_evaluations": 20381286,
+          "library_self_supplied_calls": 0,
+          "n_calls": 86,
+          "precompute_s": 0.033303771779173985,
+          "query_self_evaluations": 688,
+          "self_bound_rows_checked": 0,
+          "self_bound_rows_flagged": 0,
+          "self_bound_s": 0.0,
+          "topk_s": 0.011072661902289838
+        },
+        "engine_wall_s": 3.274238437996246,
+        "kernel_s": 2.3214129909174517,
+        "launch_enqueue_s": 3.156737621931825,
+        "launches": 86,
+        "phase": "timed",
+        "producer_wait_s": 0.0217885070014745,
+        "repeat": 5,
+        "screen_call_wall_s": 3.8692606579861604,
+        "sink_s": 0.00012471317313611507,
+        "telemetry": {
+          "achieved_clock_mhz": {
+            "max": 2340.0,
+            "median": 1953.5,
+            "min": 1912.0
+          },
+          "clocks_sm_mhz": {
+            "max": 2340.0,
+            "mean": 2039.75,
+            "min": 1912.0
+          },
+          "device": {
+            "physical_index": 0,
+            "uuid": "[device identifier removed]",
+            "visible_index": 0
+          },
+          "duration_s": 3.1085144779935945,
+          "energy_j": 755.0713824293625,
+          "n_samples": 4,
+          "power_draw_w": {
+            "max": 300.18,
+            "mean": 252.895,
+            "min": 162.62
+          },
+          "sw_power_cap_fraction": 0.75,
+          "temperature_gpu_c": {
+            "max": 86.0,
+            "mean": 83.5
+          },
+          "throttle_fraction": 0.75
+        }
+      },
+      {
+        "cache": null,
+        "conformer_pairs_screened": 163050288,
+        "conformers_screened": 20381286,
+        "contention_before": {
+          "compute_apps": [],
+          "device": {
+            "physical_index": 0,
+            "uuid": "[device identifier removed]",
+            "visible_index": 0
+          },
+          "memory_used_mib": 571.0,
+          "other_process_present": false,
+          "power_draw_w": 254.33,
+          "utilization_gpu_pct": 0.0
+        },
+        "device_stages_s": {
+          "alloc_s": 0.003943806776078418,
+          "d2h_bytes": 0,
+          "d2h_s": 0.0,
+          "enabled": true,
+          "free_s": 0.00026602300931699574,
+          "h2d_bytes": 7271307264,
+          "h2d_s": 0.2921373478602618,
+          "index_s": 0.005674164858646691,
+          "kernel_s": 2.3192238398769405,
+          "library_self_evaluations": 20381286,
+          "library_self_supplied_calls": 0,
+          "n_calls": 86,
+          "precompute_s": 0.03368885500822216,
+          "query_self_evaluations": 688,
+          "self_bound_rows_checked": 0,
+          "self_bound_rows_flagged": 0,
+          "self_bound_s": 0.0,
+          "topk_s": 0.011059976241085678
+        },
+        "engine_wall_s": 3.270687309995992,
+        "kernel_s": 2.3192238398769405,
+        "launch_enqueue_s": 3.1591271530196536,
+        "launches": 86,
+        "phase": "timed",
+        "producer_wait_s": 0.019357175944605842,
+        "repeat": 6,
+        "screen_call_wall_s": 3.8705392369884066,
+        "sink_s": 0.00012856983812525868,
+        "telemetry": {
+          "achieved_clock_mhz": {
+            "max": 2287.0,
+            "median": 1965.0,
+            "min": 1935.0
+          },
+          "clocks_sm_mhz": {
+            "max": 2287.0,
+            "mean": 2038.0,
+            "min": 1935.0
+          },
+          "device": {
+            "physical_index": 0,
+            "uuid": "[device identifier removed]",
+            "visible_index": 0
+          },
+          "duration_s": 3.1096490060153883,
+          "energy_j": 768.0887886284346,
+          "n_samples": 4,
+          "power_draw_w": {
+            "max": 298.33,
+            "mean": 255.5025,
+            "min": 174.43
+          },
+          "sw_power_cap_fraction": 0.75,
+          "temperature_gpu_c": {
+            "max": 87.0,
+            "mean": 85.0
+          },
+          "throttle_fraction": 0.75
+        }
+      },
+      {
+        "cache": null,
+        "conformer_pairs_screened": 163050288,
+        "conformers_screened": 20381286,
+        "contention_before": {
+          "compute_apps": [],
+          "device": {
+            "physical_index": 0,
+            "uuid": "[device identifier removed]",
+            "visible_index": 0
+          },
+          "memory_used_mib": 571.0,
+          "other_process_present": false,
+          "power_draw_w": 265.95,
+          "utilization_gpu_pct": 0.0
+        },
+        "device_stages_s": {
+          "alloc_s": 0.004039609426399693,
+          "d2h_bytes": 0,
+          "d2h_s": 0.0,
+          "enabled": true,
+          "free_s": 0.00028770751669071615,
+          "h2d_bytes": 7271307264,
+          "h2d_s": 0.29032249355805106,
+          "index_s": 0.0056983447866514325,
+          "kernel_s": 2.3209894499741495,
+          "library_self_evaluations": 20381286,
+          "library_self_supplied_calls": 0,
+          "n_calls": 86,
+          "precompute_s": 0.033514259092044085,
+          "query_self_evaluations": 688,
+          "self_bound_rows_checked": 0,
+          "self_bound_rows_flagged": 0,
+          "self_bound_s": 0.0,
+          "topk_s": 0.011176622909260914
+        },
+        "engine_wall_s": 3.2809114949777722,
+        "kernel_s": 2.3209894499741495,
+        "launch_enqueue_s": 3.162381155154435,
+        "launches": 86,
+        "phase": "timed",
+        "producer_wait_s": 0.018719528074143454,
+        "repeat": 7,
+        "screen_call_wall_s": 3.8815441329788882,
+        "sink_s": 0.00013675310765393078,
+        "telemetry": {
+          "achieved_clock_mhz": {
+            "max": 2340.0,
+            "median": 1957.5,
+            "min": 1897.0
+          },
+          "clocks_sm_mhz": {
+            "max": 2340.0,
+            "mean": 2038.0,
+            "min": 1897.0
+          },
+          "device": {
+            "physical_index": 0,
+            "uuid": "[device identifier removed]",
+            "visible_index": 0
+          },
+          "duration_s": 3.1098041440127417,
+          "energy_j": 754.4012480374063,
+          "n_samples": 4,
+          "power_draw_w": {
+            "max": 298.2,
+            "mean": 251.45999999999998,
+            "min": 168.79
+          },
+          "sw_power_cap_fraction": 0.75,
+          "temperature_gpu_c": {
+            "max": 87.0,
+            "mean": 84.75
+          },
+          "throttle_fraction": 0.75
+        }
+      },
+      {
+        "cache": null,
+        "conformer_pairs_screened": 163050288,
+        "conformers_screened": 20381286,
+        "contention_before": {
+          "compute_apps": [],
+          "device": {
+            "physical_index": 0,
+            "uuid": "[device identifier removed]",
+            "visible_index": 0
+          },
+          "memory_used_mib": 573.0,
+          "other_process_present": false,
+          "power_draw_w": 253.58,
+          "utilization_gpu_pct": 0.0
+        },
+        "device_stages_s": {
+          "alloc_s": 0.004536818101769313,
+          "d2h_bytes": 0,
+          "d2h_s": 0.0,
+          "enabled": true,
+          "free_s": 0.0002868646988645196,
+          "h2d_bytes": 7271307264,
+          "h2d_s": 0.29022086478653364,
+          "index_s": 0.005645647121127695,
+          "kernel_s": 2.3229129119135905,
+          "library_self_evaluations": 20381286,
+          "library_self_supplied_calls": 0,
+          "n_calls": 86,
+          "precompute_s": 0.03406485958839767,
+          "query_self_evaluations": 688,
+          "self_bound_rows_checked": 0,
+          "self_bound_rows_flagged": 0,
+          "self_bound_s": 0.0,
+          "topk_s": 0.010953618097119033
+        },
+        "engine_wall_s": 3.2775317299820017,
+        "kernel_s": 2.3229129119135905,
+        "launch_enqueue_s": 3.162723182089394,
+        "launches": 86,
+        "phase": "timed",
+        "producer_wait_s": 0.018706755101447925,
+        "repeat": 8,
+        "screen_call_wall_s": 3.8754712880181614,
+        "sink_s": 0.00013074581511318684,
+        "telemetry": {
+          "achieved_clock_mhz": {
+            "max": 2280.0,
+            "median": 1949.5,
+            "min": 1927.0
+          },
+          "clocks_sm_mhz": {
+            "max": 2280.0,
+            "mean": 2026.5,
+            "min": 1927.0
+          },
+          "device": {
+            "physical_index": 0,
+            "uuid": "[device identifier removed]",
+            "visible_index": 0
+          },
+          "duration_s": 3.1032477369881235,
+          "energy_j": 755.5197325972208,
+          "n_samples": 4,
+          "power_draw_w": {
+            "max": 299.41,
+            "mean": 252.93,
+            "min": 163.96
+          },
+          "sw_power_cap_fraction": 0.75,
+          "temperature_gpu_c": {
+            "max": 87.0,
+            "mean": 84.75
+          },
+          "throttle_fraction": 0.75
+        }
+      },
+      {
+        "cache": null,
+        "conformer_pairs_screened": 163050288,
+        "conformers_screened": 20381286,
+        "contention_before": {
+          "compute_apps": [],
+          "device": {
+            "physical_index": 0,
+            "uuid": "[device identifier removed]",
+            "visible_index": 0
+          },
+          "memory_used_mib": 573.0,
+          "other_process_present": false,
+          "power_draw_w": 255.23,
+          "utilization_gpu_pct": 0.0
+        },
+        "device_stages_s": {
+          "alloc_s": 0.004200358875095844,
+          "d2h_bytes": 0,
+          "d2h_s": 0.0,
+          "enabled": true,
+          "free_s": 0.0002744249068200588,
+          "h2d_bytes": 7271307264,
+          "h2d_s": 0.29100576156633906,
+          "index_s": 0.005657827103277668,
+          "kernel_s": 2.3262674539000727,
+          "library_self_evaluations": 20381286,
+          "library_self_supplied_calls": 0,
+          "n_calls": 86,
+          "precompute_s": 0.03431775022181682,
+          "query_self_evaluations": 688,
+          "self_bound_rows_checked": 0,
+          "self_bound_rows_flagged": 0,
+          "self_bound_s": 0.0,
+          "topk_s": 0.011090684856753796
+        },
+        "engine_wall_s": 3.2814343579811975,
+        "kernel_s": 2.3262674539000727,
+        "launch_enqueue_s": 3.167525936936727,
+        "launches": 86,
+        "phase": "timed",
+        "producer_wait_s": 0.0207113089854829,
+        "repeat": 9,
+        "screen_call_wall_s": 3.878439118008828,
+        "sink_s": 0.00013402404147200286,
+        "telemetry": {
+          "achieved_clock_mhz": {
+            "max": 2340.0,
+            "median": 1950.0,
+            "min": 1905.0
+          },
+          "clocks_sm_mhz": {
+            "max": 2340.0,
+            "mean": 2036.25,
+            "min": 1905.0
+          },
+          "device": {
+            "physical_index": 0,
+            "uuid": "[device identifier removed]",
+            "visible_index": 0
+          },
+          "duration_s": 3.107943740003975,
+          "energy_j": 767.8351462774383,
+          "n_samples": 4,
+          "power_draw_w": {
+            "max": 300.08,
+            "mean": 255.95,
+            "min": 175.12
+          },
+          "sw_power_cap_fraction": 0.75,
+          "temperature_gpu_c": {
+            "max": 87.0,
+            "mean": 85.25
+          },
+          "throttle_fraction": 0.75
+        }
+      },
+      {
+        "cache": null,
+        "conformer_pairs_screened": 163050288,
+        "conformers_screened": 20381286,
+        "contention_before": {
+          "compute_apps": [],
+          "device": {
+            "physical_index": 0,
+            "uuid": "[device identifier removed]",
+            "visible_index": 0
+          },
+          "memory_used_mib": 571.0,
+          "other_process_present": false,
+          "power_draw_w": 267.92,
+          "utilization_gpu_pct": 0.0
+        },
+        "device_stages_s": {
+          "alloc_s": 0.003811401722487062,
+          "d2h_bytes": 0,
+          "d2h_s": 0.0,
+          "enabled": true,
+          "free_s": 0.00028992819716222584,
+          "h2d_bytes": 7271307264,
+          "h2d_s": 0.2899747546762228,
+          "index_s": 0.005639431066811085,
+          "kernel_s": 2.3252949510642793,
+          "library_self_evaluations": 20381286,
+          "library_self_supplied_calls": 0,
+          "n_calls": 86,
+          "precompute_s": 0.03338794398587197,
+          "query_self_evaluations": 688,
+          "self_bound_rows_checked": 0,
+          "self_bound_rows_flagged": 0,
+          "self_bound_s": 0.0,
+          "topk_s": 0.011132867133710533
+        },
+        "engine_wall_s": 3.2831430789956357,
+        "kernel_s": 2.3252949510642793,
+        "launch_enqueue_s": 3.165746345242951,
+        "launches": 86,
+        "phase": "timed",
+        "producer_wait_s": 0.01948496128898114,
+        "repeat": 10,
+        "screen_call_wall_s": 3.880159319989616,
+        "sink_s": 0.00013464607764035463,
+        "telemetry": {
+          "achieved_clock_mhz": {
+            "max": 2265.0,
+            "median": 1957.5,
+            "min": 1935.0
+          },
+          "clocks_sm_mhz": {
+            "max": 2265.0,
+            "mean": 2028.75,
+            "min": 1935.0
+          },
+          "device": {
+            "physical_index": 0,
+            "uuid": "[device identifier removed]",
+            "visible_index": 0
+          },
+          "duration_s": 3.106982611003332,
+          "energy_j": 756.9765983492001,
+          "n_samples": 4,
+          "power_draw_w": {
+            "max": 299.43,
+            "mean": 252.4775,
+            "min": 169.52
+          },
+          "sw_power_cap_fraction": 0.75,
+          "temperature_gpu_c": {
+            "max": 87.0,
+            "mean": 85.25
+          },
+          "throttle_fraction": 0.75
+        }
+      },
+      {
+        "cache": null,
+        "conformer_pairs_screened": 163050288,
+        "conformers_screened": 20381286,
+        "contention_before": {
+          "compute_apps": [],
+          "device": {
+            "physical_index": 0,
+            "uuid": "[device identifier removed]",
+            "visible_index": 0
+          },
+          "memory_used_mib": 571.0,
+          "other_process_present": false,
+          "power_draw_w": 256.71,
+          "utilization_gpu_pct": 0.0
+        },
+        "device_stages_s": {
+          "alloc_s": 0.004363853367976844,
+          "d2h_bytes": 0,
+          "d2h_s": 0.0,
+          "enabled": true,
+          "free_s": 0.0002455220674164593,
+          "h2d_bytes": 7271307264,
+          "h2d_s": 0.29155880663893186,
+          "index_s": 0.00565157100209035,
+          "kernel_s": 2.327462774293963,
+          "library_self_evaluations": 20381286,
+          "library_self_supplied_calls": 0,
+          "n_calls": 86,
+          "precompute_s": 0.034016037156106904,
+          "query_self_evaluations": 688,
+          "self_bound_rows_checked": 0,
+          "self_bound_rows_flagged": 0,
+          "self_bound_s": 0.0,
+          "topk_s": 0.011060704797273502
+        },
+        "engine_wall_s": 3.2766149759991094,
+        "kernel_s": 2.327462774293963,
+        "launch_enqueue_s": 3.162919682043139,
+        "launches": 86,
+        "phase": "timed",
+        "producer_wait_s": 0.01711808395339176,
+        "repeat": 11,
+        "screen_call_wall_s": 3.872784203005722,
+        "sink_s": 0.00012608800898306072,
+        "telemetry": {
+          "achieved_clock_mhz": {
+            "max": 2332.0,
+            "median": 1946.0,
+            "min": 1912.0
+          },
+          "clocks_sm_mhz": {
+            "max": 2332.0,
+            "mean": 2034.0,
+            "min": 1912.0
+          },
+          "device": {
+            "physical_index": 0,
+            "uuid": "[device identifier removed]",
+            "visible_index": 0
+          },
+          "duration_s": 3.1008511249965522,
+          "energy_j": 757.0829802129717,
+          "n_samples": 4,
+          "power_draw_w": {
+            "max": 301.77,
+            "mean": 254.08499999999998,
+            "min": 163.94
+          },
+          "sw_power_cap_fraction": 0.75,
+          "temperature_gpu_c": {
+            "max": 87.0,
+            "mean": 84.75
+          },
+          "throttle_fraction": 0.75
+        }
+      }
+    ],
+    "stability": {
+      "kernel_s": {
+        "max_s": 2.327462774293963,
+        "median_s": 2.3209894499741495,
+        "min_s": 2.31081476790132,
+        "pstdev_s": 0.005107131448511101,
+        "relative_spread": 0.007172805715609037
+      },
+      "screen_call_wall_s": {
+        "max_s": 3.8815441329788882,
+        "median_s": 3.8714678620162886,
+        "min_s": 3.8579791850061156,
+        "pstdev_s": 0.007373219808154081,
+        "relative_spread": 0.006086825155898323
+      }
+    },
+    "timed_repeats_requested": 11,
+    "top_k": 1000,
+    "warmups": [
+      {
+        "cache": null,
+        "conformer_pairs_screened": 163050288,
+        "conformers_screened": 20381286,
+        "contention_before": null,
+        "device_stages_s": {
+          "alloc_s": 0.0038001946231815964,
+          "d2h_bytes": 0,
+          "d2h_s": 0.0,
+          "enabled": true,
+          "free_s": 0.0002843124675564468,
+          "h2d_bytes": 7271307264,
+          "h2d_s": 0.2902242387353908,
+          "index_s": 0.005763700028182939,
+          "kernel_s": 2.3044284520146903,
+          "library_self_evaluations": 20381286,
+          "library_self_supplied_calls": 0,
+          "n_calls": 86,
+          "precompute_s": 0.12650273312465288,
+          "query_self_evaluations": 688,
+          "self_bound_rows_checked": 0,
+          "self_bound_rows_flagged": 0,
+          "self_bound_s": 0.0,
+          "topk_s": 0.012259285140316933
+        },
+        "engine_wall_s": 3.343989909015363,
+        "kernel_s": 2.3044284520146903,
+        "launch_enqueue_s": 3.2380700918729417,
+        "launches": 86,
+        "phase": "warmup",
+        "producer_wait_s": 0.014072138932533562,
+        "repeat": 1,
+        "screen_call_wall_s": 4.0400574110099114,
+        "sink_s": 0.0001296130067203194,
+        "telemetry": {
+          "achieved_clock_mhz": {
+            "max": 2340.0,
+            "median": 2047.0,
+            "min": 1950.0
+          },
+          "clocks_sm_mhz": {
+            "max": 2340.0,
+            "mean": 2096.0,
+            "min": 1950.0
+          },
+          "device": {
+            "physical_index": 0,
+            "uuid": "[device identifier removed]",
+            "visible_index": 0
+          },
+          "duration_s": 3.1183377409761306,
+          "energy_j": 642.7053662370352,
+          "n_samples": 4,
+          "power_draw_w": {
+            "max": 293.42,
+            "mean": 207.55,
+            "min": 119.75
+          },
+          "sw_power_cap_fraction": 0.75,
+          "temperature_gpu_c": {
+            "max": 84.0,
+            "mean": 81.75
+          },
+          "throttle_fraction": 0.75
+        }
+      },
+      {
+        "cache": null,
+        "conformer_pairs_screened": 163050288,
+        "conformers_screened": 20381286,
+        "contention_before": null,
+        "device_stages_s": {
+          "alloc_s": 0.00477726582903415,
+          "d2h_bytes": 0,
+          "d2h_s": 0.0,
+          "enabled": true,
+          "free_s": 0.00026887180865742266,
+          "h2d_bytes": 7271307264,
+          "h2d_s": 0.29037266527302563,
+          "index_s": 0.005584772996371612,
+          "kernel_s": 2.3087541829736438,
+          "library_self_evaluations": 20381286,
+          "library_self_supplied_calls": 0,
+          "n_calls": 86,
+          "precompute_s": 0.03415695214061998,
+          "query_self_evaluations": 688,
+          "self_bound_rows_checked": 0,
+          "self_bound_rows_flagged": 0,
+          "self_bound_s": 0.0,
+          "topk_s": 0.011179039953276515
+        },
+        "engine_wall_s": 3.273353468015557,
+        "kernel_s": 2.3087541829736438,
+        "launch_enqueue_s": 3.1461785200226586,
+        "launches": 86,
+        "phase": "warmup",
+        "producer_wait_s": 0.0331360770505853,
+        "repeat": 2,
+        "screen_call_wall_s": 3.868616091000149,
+        "sink_s": 0.00012948710354976356,
+        "telemetry": {
+          "achieved_clock_mhz": {
+            "max": 2302.0,
+            "median": 1965.0,
+            "min": 1927.0
+          },
+          "clocks_sm_mhz": {
+            "max": 2302.0,
+            "mean": 2039.75,
+            "min": 1927.0
+          },
+          "device": {
+            "physical_index": 0,
+            "uuid": "[device identifier removed]",
+            "visible_index": 0
+          },
+          "duration_s": 3.105415288009681,
+          "energy_j": 767.4060027729112,
+          "n_samples": 4,
+          "power_draw_w": {
+            "max": 299.39,
+            "mean": 257.27,
+            "min": 173.49
+          },
+          "sw_power_cap_fraction": 0.75,
+          "temperature_gpu_c": {
+            "max": 85.0,
+            "mean": 82.25
+          },
+          "throttle_fraction": 0.75
+        }
+      },
+      {
+        "cache": null,
+        "conformer_pairs_screened": 163050288,
+        "conformers_screened": 20381286,
+        "contention_before": null,
+        "device_stages_s": {
+          "alloc_s": 0.004257549240719527,
+          "d2h_bytes": 0,
+          "d2h_s": 0.0,
+          "enabled": true,
+          "free_s": 0.000280822510831058,
+          "h2d_bytes": 7271307264,
+          "h2d_s": 0.291078982379986,
+          "index_s": 0.005593280075117946,
+          "kernel_s": 2.309404671075754,
+          "library_self_evaluations": 20381286,
+          "library_self_supplied_calls": 0,
+          "n_calls": 86,
+          "precompute_s": 0.033357807056745514,
+          "query_self_evaluations": 688,
+          "self_bound_rows_checked": 0,
+          "self_bound_rows_flagged": 0,
+          "self_bound_s": 0.0,
+          "topk_s": 0.011134744214359671
+        },
+        "engine_wall_s": 3.260917702980805,
+        "kernel_s": 2.309404671075754,
+        "launch_enqueue_s": 3.1473834371427074,
+        "launches": 86,
+        "phase": "warmup",
+        "producer_wait_s": 0.022532718896400183,
+        "repeat": 3,
+        "screen_call_wall_s": 3.855891896993853,
+        "sink_s": 0.0001363689370919019,
+        "telemetry": {
+          "achieved_clock_mhz": {
+            "max": 2280.0,
+            "median": 1957.5,
+            "min": 1942.0
+          },
+          "clocks_sm_mhz": {
+            "max": 2280.0,
+            "mean": 2034.25,
+            "min": 1942.0
+          },
+          "device": {
+            "physical_index": 0,
+            "uuid": "[device identifier removed]",
+            "visible_index": 0
+          },
+          "duration_s": 3.1028020179946907,
+          "energy_j": 755.9522577230955,
+          "n_samples": 4,
+          "power_draw_w": {
+            "max": 297.03,
+            "mean": 253.70499999999998,
+            "min": 162.35
+          },
+          "sw_power_cap_fraction": 0.75,
+          "temperature_gpu_c": {
+            "max": 85.0,
+            "mean": 83.0
+          },
+          "throttle_fraction": 0.75
+        }
+      }
+    ],
+    "warmups_requested": 3,
+    "workers": 8,
+    "workers_resolved": 8
+  },
+  "screen_size": {
+    "actual_conformer_pairs_final_repeat": 163050288,
+    "conformer_pairs_all_repeats": 1793553168,
+    "conformer_pairs_per_repeat": 163050288
+  },
+  "script": "screen_smiles.py",
+  "tool": {
+    "git_sha": "3bb39f698bfffc1045f585187d30230ba639a758",
+    "package_path": "$EXTERNAL_DATA",
+    "version": "0.1.0rc1"
+  }
+}

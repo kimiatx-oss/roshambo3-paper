@@ -1,0 +1,18 @@
+{
+  "record": "color_build_env",
+  "ticket": "T114",
+  "label": "roci: T82's $r2_python, the interpreter that built the 19 litpcba colour h5 shards (PYTHONPATH put wt/T82-roshambo2 first, so roshambo2 resolved there, not to this fork)",
+  "host": "roci",
+  "python": "$EXTERNAL_DATA",
+  "rdkit_version": "2026.03.5",
+  "rdkit_path": "$EXTERNAL_DATA",
+  "fdef_path": "$EXTERNAL_DATA",
+  "fdef_sha256": "766f9790513f8f94c67ec6d1c8b6d5bede59b81f6da8c2081f57e49fb28d9784",
+  "fdef_bytes": 6794,
+  "roshambo2_package": "$EXTERNAL_DATA",
+  "roshambo2_file_sha256": {
+    "prepare.py": "c723c7b16b275f5cd7f11f1d8a5c9150068eb4ae21a1c421b331077bf5ed5414",
+    "pharmacophore.py": "81a2b9f373899bbaf0c4f03ed8334b66abd28b34d02bf01325ebd57f504528ee"
+  },
+  "roshambo3": "not importable here: ModuleNotFoundError: No module named 'roshambo3'"
+}

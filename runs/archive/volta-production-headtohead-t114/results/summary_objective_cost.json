@@ -1,0 +1,131 @@
+{
+  "record": "summary",
+  "ticket": "T68",
+  "rows": [
+    {
+      "path": "$EXTERNAL_DATA",
+      "session": "objective_cost",
+      "tool": "roshambo3",
+      "arm": "r3-shipped",
+      "objective": "combination",
+      "steps": 25,
+      "label": "combination_again",
+      "data_mode": "streaming",
+      "commit": "c28627c50f85ded13cadc2aa43bb45fe28553411",
+      "n_conformers": 20381286,
+      "n_query": 8,
+      "query_name": null,
+      "wall_s": 19.828545182943344,
+      "wall_including_preload_s": 19.828545182943344,
+      "preload_s": 0.0,
+      "stages_s": {
+        "alloc_s": 0.004125108011066914,
+        "h2d_s": 0.8479958195239305,
+        "kernel_s": 17.363191184587777,
+        "precompute_s": 0.14203291852027178,
+        "d2h_s": 0.0,
+        "free_s": 0.0028098560869693756,
+        "index_s": 0.15137035958468914,
+        "topk_s": 0.11293609067797661,
+        "h2d_bytes": 8596396728.0,
+        "d2h_bytes": 0.0,
+        "n_calls": 321.0,
+        "enabled": 1.0,
+        "producer_wait_s": 0.021537848748266697
+      },
+      "L": null,
+      "regime": "headline",
+      "achieved_clock_mhz": {
+        "min": 1335.0,
+        "median": 1335.0,
+        "max": 1335.0
+      },
+      "sw_power_cap_fraction": 0.0,
+      "throttle_fraction": 0.0,
+      "status": "advisory",
+      "status_reasons": [
+        "another process was present on the GPU per --query-compute-apps (shared-machine contention)",
+        "this run did not record its launch structure, so the launch-size rule fell back to RunRequest.n_conformers -- the field T68 was handed a corpus total in, which is how a 4,096-conformer launch passed a 1,000,000-conformer check. Pass RunRequest(launch=LaunchShape.from_screen(stats, source)) (T102)",
+        "max_results=100000 < 10 * n_conformers=203812860 (pitfall 12: per-batch truncation)  [KNOWN HARNESS DEFECT, T69: this advisory demands max_results >= 10 * n_conformers, i.e. k >= 203812860 here, which a device-resident top-K cannot be asked for -- the condition is unsatisfiable, not unmet. The pitfall it guards (roshambo2's shipped 10,000 applied PER BATCH before merging) is addressed by setting max_results explicitly on BOTH sides, which this session does.]",
+        "CUDA toolkit 12.9 is not the pinned 13.2. The toolkit version is a measured arithmetic axis: 13.2 vs 12.9 leaves 92.95% of pairs bit-identical, with |dT_shape| p99 = 8.9e-8 and max = 3.0e-7 on the rest (T03, sm_120). Scores from this build are not bitwise comparable with scores from the pinned toolkit.  [EXPECTED AND UNAVOIDABLE: CUDA 13.x dropped sm_70 outright, so a TITAN V build can only be made on 12.x. This is the matched-architecture comparison D023 licenses tachi for, and it is a wall-clock ratio between two tools on one card -- not a score compared against an sm_120 number. No score from this run is combined with a score taken under the pinned toolkit.]",
+        "build library molecules '70-real', which does not include the architecture this policy's numbers were measured on (sm_120). Scores from it are not bitwise comparable with scores taken on sm_120: T25 measured sm_70 vs sm_120 as bit-identical at a fixed pose but |dT_shape| p99 = 2.6e-5 after 100 Adagrad steps (results/T25/, decisions/D001).  [EXPECTED AND THE POINT: the whole reason for running on tachi is that its TITAN V is the GPU model the comparison paper benchmarked. Same disposition as the toolkit advisory above: a wall-clock ratio on one card, no cross-architecture score claim.]"
+      ],
+      "cache": 0.04606932897286866,
+      "rss_gb": 1.7218437194824219,
+      "_release_redaction": "identifying inputs withheld; aggregate values retained"
+    },
+    {
+      "path": "$EXTERNAL_DATA",
+      "session": "objective_cost",
+      "tool": "roshambo3",
+      "arm": "r3-shipped",
+      "objective": "shape",
+      "steps": 25,
+      "label": "shape_on_color_corpus",
+      "data_mode": "streaming",
+      "commit": "c28627c50f85ded13cadc2aa43bb45fe28553411",
+      "n_conformers": 20381286,
+      "n_query": 8,
+      "query_name": null,
+      "wall_s": 8.202809376642108,
+      "wall_including_preload_s": 8.202809376642108,
+      "preload_s": 0.0,
+      "stages_s": {
+        "alloc_s": 0.0034167850390076637,
+        "h2d_s": 0.8229276780039072,
+        "kernel_s": 6.518118757754564,
+        "precompute_s": 0.11009565088897943,
+        "d2h_s": 0.0,
+        "free_s": 0.002075737342238426,
+        "index_s": 0.11487410590052605,
+        "topk_s": 0.11881561577320099,
+        "h2d_bytes": 8504681208.0,
+        "d2h_bytes": 0.0,
+        "n_calls": 321.0,
+        "enabled": 1.0,
+        "producer_wait_s": 0.020187901332974434
+      },
+      "L": null,
+      "regime": "headline",
+      "achieved_clock_mhz": {
+        "min": 1335.0,
+        "median": 1335.0,
+        "max": 1335.0
+      },
+      "sw_power_cap_fraction": 0.0,
+      "throttle_fraction": 0.0,
+      "status": "advisory",
+      "status_reasons": [
+        "another process was present on the GPU per --query-compute-apps (shared-machine contention)",
+        "this run did not record its launch structure, so the launch-size rule fell back to RunRequest.n_conformers -- the field T68 was handed a corpus total in, which is how a 4,096-conformer launch passed a 1,000,000-conformer check. Pass RunRequest(launch=LaunchShape.from_screen(stats, source)) (T102)",
+        "max_results=100000 < 10 * n_conformers=203812860 (pitfall 12: per-batch truncation)  [KNOWN HARNESS DEFECT, T69: this advisory demands max_results >= 10 * n_conformers, i.e. k >= 203812860 here, which a device-resident top-K cannot be asked for -- the condition is unsatisfiable, not unmet. The pitfall it guards (roshambo2's shipped 10,000 applied PER BATCH before merging) is addressed by setting max_results explicitly on BOTH sides, which this session does.]",
+        "CUDA toolkit 12.9 is not the pinned 13.2. The toolkit version is a measured arithmetic axis: 13.2 vs 12.9 leaves 92.95% of pairs bit-identical, with |dT_shape| p99 = 8.9e-8 and max = 3.0e-7 on the rest (T03, sm_120). Scores from this build are not bitwise comparable with scores from the pinned toolkit.  [EXPECTED AND UNAVOIDABLE: CUDA 13.x dropped sm_70 outright, so a TITAN V build can only be made on 12.x. This is the matched-architecture comparison D023 licenses tachi for, and it is a wall-clock ratio between two tools on one card -- not a score compared against an sm_120 number. No score from this run is combined with a score taken under the pinned toolkit.]",
+        "build library molecules '70-real', which does not include the architecture this policy's numbers were measured on (sm_120). Scores from it are not bitwise comparable with scores taken on sm_120: T25 measured sm_70 vs sm_120 as bit-identical at a fixed pose but |dT_shape| p99 = 2.6e-5 after 100 Adagrad steps (results/T25/, decisions/D001).  [EXPECTED AND THE POINT: the whole reason for running on tachi is that its TITAN V is the GPU model the comparison paper benchmarked. Same disposition as the toolkit advisory above: a wall-clock ratio on one card, no cross-architecture score claim.]"
+      ],
+      "cache": 0.046065330068655715,
+      "rss_gb": 1.7207298278808594,
+      "_release_redaction": "identifying inputs withheld; aggregate values retained"
+    }
+  ],
+  "ratios": [],
+  "in_memory_corrections": [],
+  "objective_costs": [
+    {
+      "session": "objective_cost",
+      "tool": "roshambo3",
+      "arm": "r3-shipped",
+      "data_mode": "streaming",
+      "shape_label": "shape_on_color_corpus",
+      "combination_label": "combination_again",
+      "shape_wall_s": 8.202809376642108,
+      "combination_wall_s": 19.828545182943344,
+      "combination_over_shape": 2.417287086959021,
+      "same_corpus_same_session": true,
+      "note": "one corpus, one session, one clock region. Compare with T63's Blackwell 2.05x as a cross-architecture note only; D025 forbids quoting its 1.25x estimate."
+    }
+  ],
+  "step_budget_costs": [],
+  "u1_vs_u2": [],
+  "query_size_sweep": [],
+  "query_heavy_atoms": {}
+}

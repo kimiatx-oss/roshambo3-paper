@@ -1,0 +1,231 @@
+{
+  "record": "color_plane_order_diagnose",
+  "ticket": "T114",
+  "built": {
+    "historical": {
+      "corpus": "$EXTERNAL_DATA/datasets/litpcba/color_rsb3/library",
+      "corpus_features_enum": {
+        "Donor": 1,
+        "Acceptor": 2,
+        "PosIonizable": 3,
+        "NegIonizable": 4,
+        "Aromatic": 5,
+        "Hydrophobe": 6
+      },
+      "generator_features_enum": {
+        "Donor": 1,
+        "Acceptor": 2,
+        "PosIonizable": 3,
+        "NegIonizable": 4,
+        "Aromatic": 5,
+        "Hydrophobe": 6
+      },
+      "generator_fdef": "$EXTERNAL_DATA",
+      "query_types_histogram": {
+        "0": 537,
+        "1": 25,
+        "2": 40,
+        "3": 6,
+        "5": 15,
+        "6": 33
+      },
+      "query_interaction_r_diag": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "query_interaction_p_diag": [
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "query_vaa": [
+        1230.8724365234375,
+        1497.5531005859375,
+        1114.4119873046875,
+        1558.0804443359375,
+        1104.428466796875,
+        626.3607788085938,
+        768.1942138671875,
+        2359.12060546875
+      ],
+      "corpus_and_query_enum_agree": true
+    },
+    "permuted": {
+      "corpus": "$EXTERNAL_DATA/datasets/litpcba/color_rsb3_perm/library",
+      "corpus_features_enum": {
+        "Hydrophobe": 1,
+        "Acceptor": 2,
+        "Aromatic": 3,
+        "Donor": 4,
+        "PosIonizable": 5,
+        "NegIonizable": 6
+      },
+      "generator_features_enum": {
+        "Hydrophobe": 1,
+        "Acceptor": 2,
+        "Aromatic": 3,
+        "Donor": 4,
+        "PosIonizable": 5,
+        "NegIonizable": 6
+      },
+      "generator_fdef": "$EXTERNAL_DATA",
+      "query_types_histogram": {
+        "0": 537,
+        "1": 33,
+        "2": 40,
+        "3": 15,
+        "4": 25,
+        "5": 6
+      },
+      "query_interaction_r_diag": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "query_interaction_p_diag": [
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "query_vaa": [
+        1230.8724365234375,
+        1497.5531005859375,
+        1114.4119873046875,
+        1558.0804443359375,
+        1104.428466796875,
+        626.3607788085938,
+        768.1942138671875,
+        2359.12060546875
+      ],
+      "corpus_and_query_enum_agree": true
+    }
+  },
+  "groups": [
+    {
+      "group": 0,
+      "shape_only": {
+        "aligned_by": "DenseScores -- every conformer in corpus order, so row i is the same conformer in both arms",
+        "shape": [
+          8,
+          116624,
+          20
+        ],
+        "score_words": 18659840,
+        "score_words_moved": 0,
+        "h2d_bytes_historical": 19796592,
+        "h2d_bytes_permuted": 25395312,
+        "per_column": {
+          "tanimoto_combination": {
+            "words": 932992,
+            "moved": 0,
+            "max_abs_delta": 0.0,
+            "p99_abs_delta": 0.0,
+            "n_over_1e_3": 0
+          },
+          "tanimoto_shape": {
+            "words": 932992,
+            "moved": 0,
+            "max_abs_delta": 0.0,
+            "p99_abs_delta": 0.0,
+            "n_over_1e_3": 0
+          },
+          "overlap_volume": {
+            "words": 932992,
+            "moved": 0,
+            "max_abs_delta": 0.0,
+            "p99_abs_delta": 0.0,
+            "n_over_1e_3": 0
+          },
+          "self_overlap_library": {
+            "words": 932992,
+            "moved": 0,
+            "max_abs_delta": 0.0,
+            "p99_abs_delta": 0.0,
+            "n_over_1e_3": 0
+          }
+        }
+      },
+      "combination": {
+        "aligned_by": "DenseScores -- every conformer in corpus order, so row i is the same conformer in both arms",
+        "shape": [
+          8,
+          116624,
+          20
+        ],
+        "score_words": 18659840,
+        "score_words_moved": 9823974,
+        "h2d_bytes_historical": 31518768,
+        "h2d_bytes_permuted": 25920048,
+        "per_column": {
+          "tanimoto_combination": {
+            "words": 932992,
+            "moved": 667921,
+            "max_abs_delta": 0.007695019245147705,
+            "p99_abs_delta": 1.8358230590820312e-05,
+            "n_over_1e_3": 439
+          },
+          "tanimoto_shape": {
+            "words": 932992,
+            "moved": 632709,
+            "max_abs_delta": 0.16406777501106262,
+            "p99_abs_delta": 5.936622619628906e-05,
+            "n_over_1e_3": 904
+          },
+          "tanimoto_color": {
+            "words": 932992,
+            "moved": 764744,
+            "max_abs_delta": 0.16427400708198547,
+            "p99_abs_delta": 5.765326321125006e-05,
+            "n_over_1e_3": 941
+          },
+          "overlap_volume": {
+            "words": 932992,
+            "moved": 627721,
+            "max_abs_delta": 146.4677734375,
+            "p99_abs_delta": 0.0408935546875,
+            "n_over_1e_3": 232660
+          },
+          "overlap_color": {
+            "words": 932992,
+            "moved": 715842,
+            "max_abs_delta": 7.595141410827637,
+            "p99_abs_delta": 0.0020981264114379727,
+            "n_over_1e_3": 29950
+          },
+          "self_overlap_library": {
+            "words": 932992,
+            "moved": 0,
+            "max_abs_delta": 0.0,
+            "p99_abs_delta": 0.0,
+            "n_over_1e_3": 0
+          },
+          "self_color_library": {
+            "words": 932992,
+            "moved": 492368,
+            "max_abs_delta": 1.9073486328125e-05,
+            "p99_abs_delta": 7.62939453125e-06,
+            "n_over_1e_3": 0
+          }
+        }
+      }
+    }
+  ],
+  "shape_only_identical_everywhere": true
+}

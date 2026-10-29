@@ -1,0 +1,43 @@
+{
+  "device": {
+    "visible_index": 0,
+    "physical_index": 0,
+    "uuid": "[device identifier removed]"
+  },
+  "n_samples": 2864,
+  "duration_s": 3020.7504462804645,
+  "power_draw_w": {
+    "mean": 153.80440642458146,
+    "max": 198.73,
+    "min": 25.8
+  },
+  "clocks_sm_mhz": {
+    "mean": 1279.5251396648046,
+    "max": 1335.0,
+    "min": 135.0
+  },
+  "achieved_clock_mhz": {
+    "min": 135.0,
+    "median": 1335.0,
+    "max": 1335.0
+  },
+  "temperature_gpu_c": {
+    "mean": 63.079958100558656,
+    "max": 69.0
+  },
+  "energy_j": 464774.67798413575,
+  "throttle_fraction": 0.03596368715083799,
+  "sw_power_cap_fraction": 0.0,
+  "profiler_control": {
+    "before": {
+      "state": "none",
+      "tool": null
+    },
+    "after": {
+      "state": "none",
+      "tool": null
+    }
+  },
+  "clocks_locked_requested_succeeded": false,
+  "clocks_locked_note": "clocks were not locked on this host (D004); the headline regime wants them unlocked anyway (D023). Achieved only."
+}

@@ -1,0 +1,451 @@
+{
+  "record": "summary",
+  "ticket": "T68",
+  "rows": [
+    {
+      "path": "$EXTERNAL_DATA",
+      "session": "headline",
+      "tool": "roshambo2",
+      "arm": "u2",
+      "objective": "shape",
+      "steps": 100,
+      "label": "headline_u2_eager",
+      "data_mode": "eager",
+      "commit": "7ff8237 2026-01-15 Merge pull request #6 from DavidACosgrove/DecoupleCPPInterface",
+      "n_conformers": 20381286,
+      "n_query": 8,
+      "query_name": null,
+      "wall_s": 1422.0406485344283,
+      "wall_including_preload_s": 1422.0982515183277,
+      "preload_s": 0.05760298389941454,
+      "stages_s": {
+        "read_decode_s": 51.067835005000234,
+        "host_prep_s": 82.77351803239435,
+        "device_total_s": 1027.74544417765,
+        "host_reduce_s": 268.66759282164276
+      },
+      "L": [
+        40,
+        44,
+        48,
+        52,
+        56
+      ],
+      "regime": "headline",
+      "achieved_clock_mhz": {
+        "min": 135.0,
+        "median": 1335.0,
+        "max": 1335.0
+      },
+      "sw_power_cap_fraction": 0.0,
+      "throttle_fraction": 0.03552923760177646,
+      "status": "advisory",
+      "status_reasons": [
+        "another process was present on the GPU per --query-compute-apps before the flock was taken ([pid removed], [Not Found], 432 MiB) -- project policy: a run that finds the card busy and proceeds anyway is advisory, not decision. The same condition made this session's ROSHAMBO3 cell advisory.",
+        "2 timed repeats, below bench.rules.REQUIRED_TIMED_REPEATS = 11. The baseline arms cost 10-20 minutes per repeat on this corpus, so this is a budget limit and not an oversight; the min/max spread is in the record beside the median.",
+        "max_results=100000 < 10 * n_conformers=203812860 (pitfall 12: per-batch truncation)  [KNOWN HARNESS DEFECT, T69: the condition asks for a k no top-K can be asked for, so it is unsatisfiable rather than unmet. The pitfall it guards -- roshambo2's shipped 10,000 applied PER BATCH before merging -- is addressed by setting max_results explicitly on BOTH sides, which this session does.]"
+      ],
+      "cache": 0.0,
+      "rss_gb": 0.12226486206054688,
+      "_release_redaction": "identifying inputs withheld; aggregate values retained"
+    },
+    {
+      "path": "$EXTERNAL_DATA",
+      "session": "headline",
+      "tool": "roshambo2",
+      "arm": "u2",
+      "objective": "shape",
+      "steps": 100,
+      "label": "headline_u2_inmem",
+      "data_mode": "in_memory",
+      "commit": "7ff8237 2026-01-15 Merge pull request #6 from DavidACosgrove/DecoupleCPPInterface",
+      "n_conformers": 20381286,
+      "n_query": 8,
+      "query_name": null,
+      "wall_s": 1386.1277098283172,
+      "wall_including_preload_s": 1448.9550552619621,
+      "preload_s": 62.82734543364495,
+      "stages_s": {
+        "read_decode_s": 0.0,
+        "host_prep_s": 79.14841744117439,
+        "device_total_s": 1029.129325537011,
+        "host_reduce_s": 276.1398689094931
+      },
+      "L": [
+        40,
+        44,
+        48,
+        52,
+        56
+      ],
+      "regime": "headline",
+      "achieved_clock_mhz": {
+        "min": 135.0,
+        "median": 1335.0,
+        "max": 1335.0
+      },
+      "sw_power_cap_fraction": 0.0,
+      "throttle_fraction": 0.032305978462681025,
+      "status": "advisory",
+      "status_reasons": [
+        "another process was present on the GPU per --query-compute-apps before the flock was taken ([pid removed], [Not Found], 432 MiB) -- project policy: a run that finds the card busy and proceeds anyway is advisory, not decision. The same condition made this session's ROSHAMBO3 cell advisory.",
+        "2 timed repeats, below bench.rules.REQUIRED_TIMED_REPEATS = 11. The baseline arms cost 10-20 minutes per repeat on this corpus, so this is a budget limit and not an oversight; the min/max spread is in the record beside the median.",
+        "max_results=100000 < 10 * n_conformers=203812860 (pitfall 12: per-batch truncation)  [KNOWN HARNESS DEFECT, T69: the condition asks for a k no top-K can be asked for, so it is unsatisfiable rather than unmet. The pitfall it guards -- roshambo2's shipped 10,000 applied PER BATCH before merging -- is addressed by setting max_results explicitly on BOTH sides, which this session does.]"
+      ],
+      "cache": 0.0,
+      "rss_gb": 30.439067840576172,
+      "_release_redaction": "identifying inputs withheld; aggregate values retained"
+    },
+    {
+      "path": "$EXTERNAL_DATA",
+      "session": "headline",
+      "tool": "roshambo2",
+      "arm": "u2_color_skip",
+      "objective": "shape",
+      "steps": 100,
+      "label": "headline_uc_eager",
+      "data_mode": "eager",
+      "commit": "fc711a9 2026-08-15 Do not evaluate colour overlaps when colour scoring is off",
+      "n_conformers": 20381286,
+      "n_query": 8,
+      "query_name": null,
+      "wall_s": 656.3042533532716,
+      "wall_including_preload_s": 656.3700750903226,
+      "preload_s": 0.06582173705101013,
+      "stages_s": {
+        "read_decode_s": 51.13847755640745,
+        "host_prep_s": 82.52120796963573,
+        "device_total_s": 265.62324429117143,
+        "host_reduce_s": 264.7416417710483
+      },
+      "L": [
+        40,
+        44,
+        48,
+        52,
+        56
+      ],
+      "regime": "headline",
+      "achieved_clock_mhz": {
+        "min": 135.0,
+        "median": 1335.0,
+        "max": 1335.0
+      },
+      "sw_power_cap_fraction": 0.0,
+      "throttle_fraction": 0.07045636509207366,
+      "status": "advisory",
+      "status_reasons": [
+        "another process was present on the GPU per --query-compute-apps before the flock was taken ([pid removed], [Not Found], 432 MiB) -- project policy: a run that finds the card busy and proceeds anyway is advisory, not decision. The same condition made this session's ROSHAMBO3 cell advisory.",
+        "throttle_fraction 0.0705 exceeds bench.rules.THROTTLE_ADVISORY_THRESHOLD 0.05 with clocks unlocked. The raw fraction counts GpuIdle as a throttle reason; tickets/T68/clock_check.py reports the busy-only distribution that decides whether D023's reopening condition actually fired.",
+        "2 timed repeats, below bench.rules.REQUIRED_TIMED_REPEATS = 11. The baseline arms cost 10-20 minutes per repeat on this corpus, so this is a budget limit and not an oversight; the min/max spread is in the record beside the median.",
+        "max_results=100000 < 10 * n_conformers=203812860 (pitfall 12: per-batch truncation)  [KNOWN HARNESS DEFECT, T69: the condition asks for a k no top-K can be asked for, so it is unsatisfiable rather than unmet. The pitfall it guards -- roshambo2's shipped 10,000 applied PER BATCH before merging -- is addressed by setting max_results explicitly on BOTH sides, which this session does.]"
+      ],
+      "cache": 0.0,
+      "rss_gb": 0.1221923828125,
+      "_release_redaction": "identifying inputs withheld; aggregate values retained"
+    },
+    {
+      "path": "$EXTERNAL_DATA",
+      "session": "headline",
+      "tool": "roshambo2",
+      "arm": "u2_color_skip",
+      "objective": "shape",
+      "steps": 100,
+      "label": "headline_uc_inmem",
+      "data_mode": "in_memory",
+      "commit": "fc711a9 2026-08-15 Do not evaluate colour overlaps when colour scoring is off",
+      "n_conformers": 20381286,
+      "n_query": 8,
+      "query_name": null,
+      "wall_s": 614.4019934567623,
+      "wall_including_preload_s": 693.3684477885254,
+      "preload_s": 78.96645433176309,
+      "stages_s": {
+        "read_decode_s": 0.0,
+        "host_prep_s": 79.67062618583441,
+        "device_total_s": 265.8529672725126,
+        "host_reduce_s": 268.3535948386416
+      },
+      "L": [
+        40,
+        44,
+        48,
+        52,
+        56
+      ],
+      "regime": "headline",
+      "achieved_clock_mhz": {
+        "min": 135.0,
+        "median": 1335.0,
+        "max": 1335.0
+      },
+      "sw_power_cap_fraction": 0.0,
+      "throttle_fraction": 0.07142857142857142,
+      "status": "advisory",
+      "status_reasons": [
+        "another process was present on the GPU per --query-compute-apps before the flock was taken ([pid removed], [Not Found], 432 MiB) -- project policy: a run that finds the card busy and proceeds anyway is advisory, not decision. The same condition made this session's ROSHAMBO3 cell advisory.",
+        "throttle_fraction 0.0714 exceeds bench.rules.THROTTLE_ADVISORY_THRESHOLD 0.05 with clocks unlocked. The raw fraction counts GpuIdle as a throttle reason; tickets/T68/clock_check.py reports the busy-only distribution that decides whether D023's reopening condition actually fired.",
+        "2 timed repeats, below bench.rules.REQUIRED_TIMED_REPEATS = 11. The baseline arms cost 10-20 minutes per repeat on this corpus, so this is a budget limit and not an oversight; the min/max spread is in the record beside the median.",
+        "max_results=100000 < 10 * n_conformers=203812860 (pitfall 12: per-batch truncation)  [KNOWN HARNESS DEFECT, T69: the condition asks for a k no top-K can be asked for, so it is unsatisfiable rather than unmet. The pitfall it guards -- roshambo2's shipped 10,000 applied PER BATCH before merging -- is addressed by setting max_results explicitly on BOTH sides, which this session does.]"
+      ],
+      "cache": 0.0,
+      "rss_gb": 30.437152862548828,
+      "_release_redaction": "identifying inputs withheld; aggregate values retained"
+    },
+    {
+      "path": "$EXTERNAL_DATA",
+      "session": "headline",
+      "tool": "roshambo3",
+      "arm": "r3-shipped",
+      "objective": "shape",
+      "steps": 25,
+      "label": "headline",
+      "data_mode": "streaming",
+      "commit": "835cf9d60417a58aa4cafd4aeb079c2fe9de97d5",
+      "n_conformers": 20381286,
+      "n_query": 8,
+      "query_name": null,
+      "wall_s": 7.5262026796117425,
+      "wall_including_preload_s": 7.5262026796117425,
+      "preload_s": 0.0,
+      "stages_s": {
+        "alloc_s": 0.002985861152410507,
+        "h2d_s": 0.5325908986851573,
+        "kernel_s": 6.36858281865716,
+        "precompute_s": 0.10686962213367224,
+        "d2h_s": 0.0,
+        "free_s": 0.00177680142223835,
+        "index_s": 0.10623999685049057,
+        "topk_s": 0.11840251740068197,
+        "h2d_bytes": 5147360088.0,
+        "d2h_bytes": 0.0,
+        "n_calls": 321.0,
+        "enabled": 1.0,
+        "producer_wait_s": 0.018736036494374275
+      },
+      "L": null,
+      "regime": "headline",
+      "achieved_clock_mhz": {
+        "min": 1335.0,
+        "median": 1335.0,
+        "max": 1335.0
+      },
+      "sw_power_cap_fraction": 0.0,
+      "throttle_fraction": 0.0,
+      "status": "advisory",
+      "status_reasons": [
+        "another process was present on the GPU per --query-compute-apps (shared-machine contention)",
+        "this run did not record its launch structure, so the launch-size rule fell back to RunRequest.n_conformers -- the field T68 was handed a corpus total in, which is how a 4,096-conformer launch passed a 1,000,000-conformer check. Pass RunRequest(launch=LaunchShape.from_screen(stats, source)) (T102)",
+        "max_results=100000 < 10 * n_conformers=203812860 (pitfall 12: per-batch truncation)  [KNOWN HARNESS DEFECT, T69: this advisory demands max_results >= 10 * n_conformers, i.e. k >= 203812860 here, which a device-resident top-K cannot be asked for -- the condition is unsatisfiable, not unmet. The pitfall it guards (roshambo2's shipped 10,000 applied PER BATCH before merging) is addressed by setting max_results explicitly on BOTH sides, which this session does.]",
+        "CUDA toolkit 12.9 is not the pinned 13.2. The toolkit version is a measured arithmetic axis: 13.2 vs 12.9 leaves 92.95% of pairs bit-identical, with |dT_shape| p99 = 8.9e-8 and max = 3.0e-7 on the rest (T03, sm_120). Scores from this build are not bitwise comparable with scores from the pinned toolkit.  [EXPECTED AND UNAVOIDABLE: CUDA 13.x dropped sm_70 outright, so a TITAN V build can only be made on 12.x. This is the matched-architecture comparison D023 licenses tachi for, and it is a wall-clock ratio between two tools on one card -- not a score compared against an sm_120 number. No score from this run is combined with a score taken under the pinned toolkit.]",
+        "build library molecules '70-real', which does not include the architecture this policy's numbers were measured on (sm_120). Scores from it are not bitwise comparable with scores taken on sm_120: T25 measured sm_70 vs sm_120 as bit-identical at a fixed pose but |dT_shape| p99 = 2.6e-5 after 100 Adagrad steps (results/T25/, decisions/D001).  [EXPECTED AND THE POINT: the whole reason for running on tachi is that its TITAN V is the GPU model the comparison paper benchmarked. Same disposition as the toolkit advisory above: a wall-clock ratio on one card, no cross-architecture score claim.]"
+      ],
+      "cache": 0.027697557458515227,
+      "rss_gb": 1.6812400817871094,
+      "_release_redaction": "identifying inputs withheld; aggregate values retained"
+    }
+  ],
+  "ratios": [
+    {
+      "session": "headline",
+      "baseline": "u2",
+      "baseline_label": "headline_u2_eager",
+      "baseline_data_mode": "eager",
+      "baseline_commit": "7ff8237 2026-01-15 Merge pull request #6 from DavidACosgrove/DecoupleCPPInterface",
+      "n_conformers": 20381286,
+      "n_query": 8,
+      "evaluations": {
+        "conformers": 20381286,
+        "queries": 8,
+        "product": 163050288
+      },
+      "roshambo2_wall_s": 1422.0406485344283,
+      "roshambo2_wall_including_preload_s": 1422.0982515183277,
+      "roshambo3_wall_s": 7.5262026796117425,
+      "ratio_search_only": 188.94530337147228,
+      "ratio_including_preload": 188.95295702981124,
+      "operating_point": {
+        "roshambo2": {
+          "achieved_clock_mhz": {
+            "min": 135.0,
+            "median": 1335.0,
+            "max": 1335.0
+          },
+          "sw_power_cap_fraction": 0.0,
+          "throttle_fraction": 0.03552923760177646
+        },
+        "roshambo3": {
+          "achieved_clock_mhz": {
+            "min": 1335.0,
+            "median": 1335.0,
+            "max": 1335.0
+          },
+          "sw_power_cap_fraction": 0.0,
+          "throttle_fraction": 0.0
+        }
+      },
+      "roshambo3_status": "advisory",
+      "roshambo2_status": "advisory",
+      "regime": "headline",
+      "grade": "advisory"
+    },
+    {
+      "session": "headline",
+      "baseline": "u2",
+      "baseline_label": "headline_u2_inmem",
+      "baseline_data_mode": "in_memory",
+      "baseline_commit": "7ff8237 2026-01-15 Merge pull request #6 from DavidACosgrove/DecoupleCPPInterface",
+      "n_conformers": 20381286,
+      "n_query": 8,
+      "evaluations": {
+        "conformers": 20381286,
+        "queries": 8,
+        "product": 163050288
+      },
+      "roshambo2_wall_s": 1386.1277098283172,
+      "roshambo2_wall_including_preload_s": 1448.9550552619621,
+      "roshambo3_wall_s": 7.5262026796117425,
+      "ratio_search_only": 184.1735824605542,
+      "ratio_including_preload": 192.52139716980224,
+      "operating_point": {
+        "roshambo2": {
+          "achieved_clock_mhz": {
+            "min": 135.0,
+            "median": 1335.0,
+            "max": 1335.0
+          },
+          "sw_power_cap_fraction": 0.0,
+          "throttle_fraction": 0.032305978462681025
+        },
+        "roshambo3": {
+          "achieved_clock_mhz": {
+            "min": 1335.0,
+            "median": 1335.0,
+            "max": 1335.0
+          },
+          "sw_power_cap_fraction": 0.0,
+          "throttle_fraction": 0.0
+        }
+      },
+      "roshambo3_status": "advisory",
+      "roshambo2_status": "advisory",
+      "regime": "headline",
+      "grade": "advisory"
+    },
+    {
+      "session": "headline",
+      "baseline": "u2_color_skip",
+      "baseline_label": "headline_uc_eager",
+      "baseline_data_mode": "eager",
+      "baseline_commit": "fc711a9 2026-08-15 Do not evaluate colour overlaps when colour scoring is off",
+      "n_conformers": 20381286,
+      "n_query": 8,
+      "evaluations": {
+        "conformers": 20381286,
+        "queries": 8,
+        "product": 163050288
+      },
+      "roshambo2_wall_s": 656.3042533532716,
+      "roshambo2_wall_including_preload_s": 656.3700750903226,
+      "roshambo3_wall_s": 7.5262026796117425,
+      "ratio_search_only": 87.20257496269403,
+      "ratio_including_preload": 87.21132063961146,
+      "operating_point": {
+        "roshambo2": {
+          "achieved_clock_mhz": {
+            "min": 135.0,
+            "median": 1335.0,
+            "max": 1335.0
+          },
+          "sw_power_cap_fraction": 0.0,
+          "throttle_fraction": 0.07045636509207366
+        },
+        "roshambo3": {
+          "achieved_clock_mhz": {
+            "min": 1335.0,
+            "median": 1335.0,
+            "max": 1335.0
+          },
+          "sw_power_cap_fraction": 0.0,
+          "throttle_fraction": 0.0
+        }
+      },
+      "roshambo3_status": "advisory",
+      "roshambo2_status": "advisory",
+      "regime": "headline",
+      "grade": "advisory"
+    },
+    {
+      "session": "headline",
+      "baseline": "u2_color_skip",
+      "baseline_label": "headline_uc_inmem",
+      "baseline_data_mode": "in_memory",
+      "baseline_commit": "fc711a9 2026-08-15 Do not evaluate colour overlaps when colour scoring is off",
+      "n_conformers": 20381286,
+      "n_query": 8,
+      "evaluations": {
+        "conformers": 20381286,
+        "queries": 8,
+        "product": 163050288
+      },
+      "roshambo2_wall_s": 614.4019934567623,
+      "roshambo2_wall_including_preload_s": 693.3684477885254,
+      "roshambo3_wall_s": 7.5262026796117425,
+      "ratio_search_only": 81.63505815770267,
+      "ratio_including_preload": 92.1272622204076,
+      "operating_point": {
+        "roshambo2": {
+          "achieved_clock_mhz": {
+            "min": 135.0,
+            "median": 1335.0,
+            "max": 1335.0
+          },
+          "sw_power_cap_fraction": 0.0,
+          "throttle_fraction": 0.07142857142857142
+        },
+        "roshambo3": {
+          "achieved_clock_mhz": {
+            "min": 1335.0,
+            "median": 1335.0,
+            "max": 1335.0
+          },
+          "sw_power_cap_fraction": 0.0,
+          "throttle_fraction": 0.0
+        }
+      },
+      "roshambo3_status": "advisory",
+      "roshambo2_status": "advisory",
+      "regime": "headline",
+      "grade": "advisory"
+    }
+  ],
+  "in_memory_corrections": [
+    {
+      "session": "headline",
+      "arm": "u2",
+      "eager_wall_s": 1422.0406485344283,
+      "eager_read_decode_s": 51.067835005000234,
+      "in_memory_search_wall_s": 1386.1277098283172,
+      "in_memory_preload_s": 62.82734543364495,
+      "in_memory_rss_gb": 30.439067840576172,
+      "speedup_of_in_memory_search": 1.0259088238778225,
+      "predicted_from_stage_split_if_read_were_free": 0.9640883437068896
+    },
+    {
+      "session": "headline",
+      "arm": "u2_color_skip",
+      "eager_wall_s": 656.3042533532716,
+      "eager_read_decode_s": 51.13847755640745,
+      "in_memory_search_wall_s": 614.4019934567623,
+      "in_memory_preload_s": 78.96645433176309,
+      "in_memory_rss_gb": 30.437152862548828,
+      "speedup_of_in_memory_search": 1.0682000715211841,
+      "predicted_from_stage_split_if_read_were_free": 0.9220811425567877
+    }
+  ],
+  "objective_costs": [],
+  "step_budget_costs": [],
+  "u1_vs_u2": [],
+  "query_size_sweep": [],
+  "query_heavy_atoms": {}
+}

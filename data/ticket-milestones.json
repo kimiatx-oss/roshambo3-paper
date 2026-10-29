@@ -1,0 +1,8 @@
+{
+  "description": "Dates marked on the ticket-timeline figure: the workshop's deadlines and notification (UTC dates).",
+  "milestones": [
+    {"date": "2026-08-29", "label": "submission deadline"},
+    {"date": "2026-09-29", "label": "author notification"},
+    {"date": "2026-10-31", "label": "camera-ready deadline"}
+  ]
+}

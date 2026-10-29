@@ -1,0 +1,12 @@
+{
+  "started_utc": "2026-10-22T22:45:32Z",
+  "finished_utc": "2026-10-22T22:55:59Z",
+  "taskset_cpus": "1,2",
+  "affinity": [
+    1,
+    2
+  ],
+  "workers_requested": 2,
+  "flags": "--skip-existing --query-limit 1 --mode shape --warmups 1 --repeats 1",
+  "driver_sha256": "b579971f1deb50b3a260892a9235ab5d9731cd357c6281bd17cb140c6356b742"
+}
